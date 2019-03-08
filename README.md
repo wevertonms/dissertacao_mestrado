@@ -1,2 +1,3 @@
-# dissertacao_mestrado
-Dissertação de mestrado em estruturas.
+# Dissertacção de mestrado em Estruturas
+
+Dissertação de mestrado em estruturas no [PPGEC - UFAL](http://www.ctec.ufal.br/posgraduacao/ppgec/).
