@@ -1,2 +1,3 @@
-# modelo-dissertacao-ufal-latex
-Modelo de dissertação escrito em LaTeX para ser utilizado pelos alunos dos Programas de Pós-Graduação da Universidade Federal de Alagoas (UFAL). Aceito pela Biblioteca Central.
+# Dissertação de mestrado em Estruturas
+
+Dissertação de mestrado em estruturas no [PPGEC - UFAL](http://www.ctec.ufal.br/posgraduacao/ppgec/).
