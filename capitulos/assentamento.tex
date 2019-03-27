@@ -3,8 +3,20 @@
 
 O assentamento de dutos submarinos tem sido o núcleo da engenharia \textit{offshore} por meio século. Vários métodos e técnicas tem sido desenvolvidas e usadas para dutos submarinos \cite[]{Ivic2016}.
 
+Após que o traçado de uma rota ótima, simular o processo do assentamento de duto é uma das tarefas mais desafiadoras. Implementar a instalação de duto em um pacote de elementos finitos de uso geral pode ser um trabalho demorado e tedioso, em especial ao importar grandes quantidades de dados do leito marinho. Na maioria das vezes, são necessárias técnicas avançadas de \textit{script} para definir o perfil do leito marinho (batimetria), selecionar a rota ideal do duto e simular o processo de assentamento. Além disso, os modelos constitutivos disponíveis para interação solo-duto podem não estar de acordo com os padrões da indústria \cite[]{VandenAbeele2013}.
 
-adasdasd
+A simulação do duto projetado em um ambiente tridimensional realista obtido por medições da topografia do fundo do mar, permite que os engenheiros explorem quaisquer oportunidades que o comportamento do duto pode oferecer para desenvolver soluções seguras e econômicas. Por exemplo, o projetista pode analisar primeiro o comportamento do duto na batimetria original. Se alguns dos os casos de carga resultam em tensões além do limite aceitável, a modificação do fundo do mar pode ser simulado no modelo de elementos finitos e a análise é executada novamente para confirmar que as modificações levaram à diminuição desejada de tensão ou deformação.
+
+O modelo de elementos finitos pode ser uma ferramenta para analisar o comportamento \textit{in-situ} de um duto. Por comportamento \textit{in-situ} duto entenda-se o comportamento duto ao longo do seu histórico de carga. Essa parte do histórico de carregamento de duto pode consistir em vários casos de carga em sequencia, por exemplo:
+
+\begin{itemize}
+    \item Instalação;
+    \item Teste de pressão (enchimento de água e pressão do teste hidrostático);
+    \item Operação de duto (enchimento de conteúdo, pressão de projeto e temperatura;
+    \item Ciclos carga/descarga de duto;
+    \item Trastorno e flambagem lateral;
+    \item Onda dinâmica e/ou carregamento atual;
+    \item Cargas de impacto.
+\end{itemize}
 
 
-Após que o traçado de uma rota ótima, simular o processo do assentamento de duto é uma das tarefas mais desafiadoras. Implementar a instalação de pipeline em um pacote de elementos finitos de uso geral pode ser um trabalho demorado e tedioso, em especial ao importar grandes quantidades de dados do leito marinho. Na maioria das vezes, são necessárias técnicas avançadas de script para definir o perfil do leito do mar, selecionar a rota ideal do pipeline e simular o processo de assentamento. Além disso, os modelos constitutivos disponíveis para interação tubo-solo podem não estar de acordo com os padrões da indústria.

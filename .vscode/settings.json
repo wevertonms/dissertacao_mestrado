@@ -8,5 +8,6 @@
         "Identa",
         "abntex",
         "identação"
-    ]
+    ],
+    "editor.fontSize": 16
 }
