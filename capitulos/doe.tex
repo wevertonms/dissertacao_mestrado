@@ -7,3 +7,18 @@
 % 	\label{fig:1_possuem_celular}
 % 	\includegraphics[width=0.25\textwidth]{imagens/ufal}
 % \end{figure}
+
+Como visto anteriormente, o problema da modelagem do assentamento de dutos envolve um número considerável de variáveis, principalmente se o duto for constituído de trechos com de materiais ou o solo for 
+
+\section{SIMULIA ISight}
+
+Além desses recurso o ISight permite gerar facilmente um gráfico de Pareto, que é uma forma eficiente de comunicar o resultado de uma análise de DOE.
+
+\subsection{Gráfico de Pareto}
+
+Um gráfico de Pareto mostra os efeitos relativos dos fatores em uma resposta, conforme determinado pela análise de regressão do conjunto de dados. É um gráfico de barras ordenado que exibe os efeitos de cada fator em uma resposta selecionada, em que os fatores são listados na ordem do maior efeito para o menor efeito. Pode-se utilizar cores para as barras apara diferencias efeitos positivos e negativos. Portanto, este gráfico pode ser usado para identificar os fatores com os efeitos mais significativos, ou com maior contribuição, para as respostas.
+
+A classificação dos efeitos apresentados no gráfico de Pareto é determinada pela ordenação dos coeficientes escalonados e normalizados de um ajuste polinomial de mínimos quadrados padrão de segunda ordem para os dados do componente. Se dados suficientes estiverem disponíveis - pelo menos $(N + 1) (N + 2) / 2$ pontos, onde $N$ é o número de entradas - e cada entrada tem pelo menos três níveis / valores distintos, um modelo polinomial de segunda ordem completo, incluindo todas as interações bidirecionais, é adequado aos dados. O número mínimo de pontos requeridos é $(N + 1)$, resultando em um ajuste polinomial linear. Se o número de pontos de dados estiver entre $(N + 1)$ e $(N + 1) (N + 2) / 2$, um polinômio de segunda ordem é construído (termos de interação quadrática, bidirecional adicionados até que nenhum grau de liberdade permaneça).
+
+Antes de ajustar o modelo polinomial, os dados de entrada são primeiramente escalonados para variar de -1 a 1 e o ajuste de mínimos quadrados é executado nesses dados. O escalonamento é executado de forma que as contribuições possam ser comparadas de forma mais justa, porque tanto a magnitude dos fatores quanto a quantidade que eles variam afetam os dados usados na construção do modelo de superfície de resposta. Os coeficientes do modelo resultantes da regressão de mínimos quadrados aplicada aos dados escalonados são normalizados pela soma
+dos coeficientes e dividindo cada coeficiente por essa soma de todos os coeficientes.
