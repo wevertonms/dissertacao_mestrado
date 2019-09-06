@@ -44,14 +44,17 @@
 % ---------------------
 % Pacotes ADICIONAIS
 % ---------------------
-\usepackage{lipsum}						% Geração de dummy text
-\usepackage{amsmath,amssymb,mathrsfs}	% Comandos matemáticos avançados
+% \usepackage{lipsum}					% Geração de dummy text
+\usepackage{amsmath,amssymb}	        % Comandos matemáticos avançados
 \usepackage{setspace}  					% Para permitir espaçamento simples, 1 1/2 e duplo
 \usepackage{verbatim}					% Para poder usar o ambiente "comment"
 \usepackage{tabularx} 					% Para poder ter tabelas com colunas de largura auto-ajustável
 \usepackage{afterpage} 					% Para executar um comando depois do fim da página corrente
 \usepackage{url} 						% Para formatar URLs (endereços da Web)
 \usepackage{svg}
+\counterwithin{figure}{chapter}         % Para numerar figuras por capítulo
+%\usepackage{tocloft}
+%\setlength{\cftfignumwidth}{4em}% change 4em to suit
 % ---------------------
 
 % ---------------------
@@ -146,10 +149,10 @@
 \cleardoublepage
 
 % Lista de abreviaturas e siglas
-%\begin{siglas}
-%  \item[ABNT] Associação Brasileira de Normas Técnicas
-%  \item[abnTeX] Absurdas Normas para TeX
-%\end{siglas}
+\begin{siglas}
+ 	\item[MEF] Método dos Elementos Finitos
+	\item[VIV] Vibração Induzida por Vórtice
+\end{siglas}
 
 % Lista de símbolos
 %\begin{simbolos}
@@ -175,7 +178,7 @@
 % ----------------------------------------------------------
 % TEXTO DA DISSERTAÇÃO
 % ----------------------------------------------------------
-\include{capitulos/intro.tex}
+\include{capitulos/intro}
 \include{capitulos/assentamento}
 % \include{capitulos/viv}
 
