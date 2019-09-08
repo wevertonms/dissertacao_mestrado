@@ -5,12 +5,17 @@
         "titleBar.activeForeground": "#FCFAF9"
     },
     "cSpell.words": [
+        "Batchelor",
         "Identa",
+        "Kármán",
         "PPGEC",
+        "Strouhal",
         "abntex",
         "identação"
     ],
     "editor.fontSize": 14,
     "editor.wordWrap": "on",
-    "cSpell.language": "en,pt-BR"
+    "cSpell.language": "en,pt-BR",
+    "search.useGlobalIgnoreFiles": true,
+    "explorer.autoReveal": false
 }
