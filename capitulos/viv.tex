@@ -28,37 +28,33 @@ Os diversos dutos submarinos, que tem como objetivo o transporte de fluidos, sej
 Essas cargas, tornam-se um desafio ainda maior quando os dutos, instalados diretamente no irregular leito marinho, encontram-se em vãos livres~\cite{Fyrileiv1998}, como ilustrado na~\autoref{fig:freespan}.
 
 \begin{figure}[!h]
-\begin{center}
-\includegraphics[width=1\textwidth]{freespan}
-\caption[Duto em Vão livre e direções das oscilações]{Duto em Vão livre e direções das oscilações.\\Fonte:~\cite{DNV2017}.}\label{fig:freespan}
-\end{center}
+	\centering
+	\includegraphics[width=1\textwidth]{freespan}
+	\caption[Duto em Vão livre e direções das oscilações]{Duto em Vão livre e direções das oscilações.\\Fonte:~\cite{DNV2017}.}\label{fig:freespan}
 \end{figure}
 
-Porém, vãos livres não aparecem apenas quando os dutos são instalados em leito irregular, mas também quando ocorre erosão posterior (\textit{scouring}\footnote{É a erosão do solo marinho causada pela ação de ondas ou correntes.
-Caracteriza-se pela remoção de sedimentos com formação de cavidades ou canais.}), devido, por exemplo, a suportes artificiais.
+Porém, vãos livres não aparecem apenas quando os dutos são instalados em leito irregular, mas também quando ocorre erosão posterior (\textit{scouring}\footnote{Erosão do solo marinho causada pela ação de ondas ou correntes. Caracteriza-se pela remoção de sedimentos com formação de cavidades ou canais.}), devido, por exemplo, a suportes artificiais.
 Com o duto exposto à ondas e correntes, a parte não apoiada estará suscetível à VIV.
-Caso a frequência de espalhamento alcance uma das frequências naturais do duto, esse poderá entrar em ressonância.
+Caso a frequência de desprendimento alcance uma das frequências naturais do duto, esse poderá entrar em ressonância.
 As excitações dinâmicas podem causar danos por fadiga, sendo importante identificar os corretos procedimentos de intervenção, seja no duto ou no leito marinho.
 
 A \dnvf105 utiliza uma metodologia baseada em modelos de resposta para avaliar a fadiga causada por VIV em dutos em vão livre.
-Estes modelos são relações empíricas entre a velocidade reduzida e a amplitude de resposta adimensional, utilizadas para prever as amplitudes de vibração nas direções \textit{in-line} e \textit{cross-flow}~\cite{Mork2003}. %,DNV2017}.
-Além desta, a recomendação prática sugere também um método baseado no coeficiente de sustentação e nas curvas do coeficiente de massa adicionada como função da amplitude de resposta adimensional e da frequência de vibração adimensional~cite{DNV2017}.
+Estes modelos representa relações empíricas entre a velocidade reduzida (\autoref{eq:viv-Vr}) e a amplitude de resposta adimensional, utilizadas para prever as amplitudes de vibração nas direções \textit{in-line} e \textit{cross-flow}~\cite{Mork2003,DNV2017}.
+Além desta, a recomendação prática sugere também um método baseado no coeficiente de sustentação e nas curvas do coeficiente de massa adicional como função da amplitude de resposta adimensional e da frequência de vibração adimensional~\cite{DNV2017}.
 Como terceira opção, a \dnvf105 indica o uso de fluidodinâmica computacional (CFD, na sigla em inglês) para escoamento turbulento ao redor dos dutos para avaliação do VIV.
 
 A \dnvf105 considera dois modelos para estimar a resposta dinâmica em um vão livre: Modelo de Resposta (\textit{Response Model} - RM) e Modelo de Força (\textit{Force Model} - FM).
-A escolha do modelo, segundo~cite{Tura1994}, depende:
-(i) do comportamento dos carregamentos ambientais, isto é, quando há ressonância induzida por vórtice, aplica-se RM; e quando o comportamento do vão livre é afetado por carregamentos periódicos com pouca ou nenhuma amplificação dinâmica, aplica-se FM;
-(ii) da direção e tipo de fluxo, RM é aplicável na direção \textit{in-line} para corrente contínua e na direção \textit{cross-flow} para qualquer padrão de fluxo; o FM é aplicado na direção \textit{in-line} para carregamentos de onda direto.
+A escolha do modelo, segundo~\citeonline{Tura1994}, depende: (i) do comportamento dos carregamentos ambientais, isto é, quando há ressonância induzida por vórtice, aplica-se RM; e quando o comportamento do vão livre é afetado por carregamentos periódicos com pouca ou nenhuma amplificação dinâmica, aplica-se FM; (ii) da direção e tipo de fluxo, RM é aplicável na direção \textit{in-line} para corrente contínua e na direção \textit{cross-flow} para qualquer padrão de fluxo; o FM é aplicado na direção \textit{in-line} para carregamentos de onda direto.
 
-%Caracterizaremos \textit{single mode} quando tivermos um único valor para amplitude de corrente, sem que haja variações com a direção, e não houver presença de ondas.
+% Caracteriza-se \textit{single mode} quando há um único valor para amplitude de corrente, sem que haja variações com a direção, e não houver presença de ondas.
 A \dnvf105 pode ser aplicada para vãos únicos e múltiplos onde um modo de vibração é predominante (\textit{single-mode}).
 Porém, a combinação de vãos de grande extensão e altas correntes, ou ainda vãos múltiplos, faz com que não apenas os modos fundamentais sejam ativados, mas também diversos outros modos de ordem mais alta (\textit{multi-mode}).
 
-O cálculo das frequências de vibração dos dutos em vão livre tem início com o cálculo da força axial efetiva, $S_\mathit{eff}$, e os parâmetros de rigidez do solo $K_v$, $K_l$ calculados por meio das Eq.~\eqref{eq:jdsn-Kv} e Eq.~\eqref{eq:jdsn-Kl} e $K_\mathrm{v,s}$ sendo um valor tabelado de acordo com o tipo de solo escolhido.
+A primeira etapa do cálculo das frequências de vibração dos dutos em vão livre é o cálculo da força axial efetiva, $S_\mathit{eff}$, e os parâmetros de rigidez do solo $K_v$, $K_l$ calculados por meio das Equações \ref{eq:viv-Kv} e \ref{eq:viv-Kl}, sendo $K_\mathrm{v,s}$ um valor tabelado de acordo com o tipo de solo escolhido.
 
 Com o intuito de demonstrar a formulação do modelo de resposta para o caso \textit{single mode} de um duto totalmente restringido, tem-se que a tensão axial efetiva é dada por
 \begin{equation}
-\label{eq:jdsn-Seff}
+\label{eq:viv-Seff}
 S_\mathit{eff} = H_\mathit{eff} - \Delta p_i A_i (1 - 2\nu) - A_s E \Delta T \alpha_E
 \end{equation}
 onde
@@ -76,12 +72,12 @@ $\alpha_E$       & coeficiente de expansão de temperatura
 
 Em seguida, calcula-se a carga crítica de flambagem, definida como
 \begin{equation}
-\label{eq:jdsn-Pcr}
+\label{eq:viv-Pcr}
 P_\mathit{cr} = (1 + \mathit{CSF}) C_2\pi^2 \mathit{EI}/L_\mathit{eff}^2
 \end{equation}
 com
 \begin{equation}
-\label{eq:jdsn-CSF}
+\label{eq:viv-CSF}
 \mathit{CSF} = k_c  \left(\frac{\mathit{EI}_\mathit{conc}}{\mathit{EI}}\right)^{0,75}
 \end{equation}
 onde
@@ -97,44 +93,42 @@ onde
 
 A constante empírica $k_c$ considera a deformação/deslizamento no revestimento anti-corrosão e as fraturas no revestimento de concreto.
 
-O comprimento efetivo do vão, que é um fator de escala multiplicado pelo comprimento do vão, é necessário visto que as condições de contorno nos ombros (\textit{shoulders}) que o duto se apóia estão entre \textit{pinned-pinned} e \textit{fixed-fixed}\footnote{De acordo com a \dnvf105, os fatores $C_1$ a $C_6$ devem ser utilizados apenas para cenários \textit{single-span}.}.
+O comprimento efetivo do vão, dado pelo produto do comprimento do vão por um fator de escala, é necessário visto que as condições de contorno nos ombros (\textit{shoulders}) que o duto se apoia estão entre \textit{pinned-pinned} e \textit{fixed-fixed}\footnote{Valores dos fatores $C_1$ a $C_6$ estão dispostos na Tabela 6-1 \cite[p. 111]{DNV2017}, e só devem ser utilizados apenas para cenários \textit{single-span}.}.
 Logo, temos que
 \begin{equation}
-\label{eq:jdsn-LeffL}
+\label{eq:viv-LeffL}
 \frac{L_\mathrm{eff}}{L} =
 \left\{
 \begin{array}{c c c}
 	4,73 / (-0,066 \beta^2 + 1,02 \beta + 0,63)   & \mathrm{para} & \beta \geq 2,7 \\
-	%\frac{4,73}{-0,066 \beta^2 + 1,02 \beta + 0,63}   & \mathrm{para} & \beta \geq 2,7 \\
 	\\
 	4,73 / (0,036 \beta^2 + 0,61 \beta + 1)       & \mathrm{para} & \beta <    2,7
-	%\frac{4,73}{0,036 \beta^2 + 0,61 \beta + 1}       & \mathrm{para} & \beta <    2,7
 \end{array}
 \right.
 \end{equation}
 com
 \begin{equation}
-\label{eq:jdsn-beta}
+\label{eq:viv-beta}
 \beta = \log_{10}\left( \frac{K L^4}{(1 + \mathit{CSF})\mathit{EI}_\mathit{conc}} \right)
 \end{equation}
-onde $L$ é o comprimento do vão e $K$ é a rigidez estática ou dinâmica do solo por comprimento.
+onde $L$ é o comprimento real do vão e $K$ é a rigidez estática ou dinâmica do solo por unidade de comprimento.
 
 Pode-se encontrar o módulo de Young do concreto a partir da expressão
 \begin{equation}
-\label{eq:jdsn-Econc}
+\label{eq:viv-Econc}
 E_\mathit{conc} = 10000 f_\mathit{cn}^{0,3}
 \end{equation}
-onde $f_\mathit{cn}$ é a resistência projetada do concreto.
+onde $f_\mathit{cn}$ é a resistência de fabricação do concreto.
 
-Os parâmetros de rigidez do solo são calculado com base na DNVGL-RP-F114~cite{DNVF114}.
+Os parâmetros de rigidez do solo são calculado com base na DNVGL-RP-F114~\cite{DNVF114}.
 A rigidez dinâmica do solo por metro na direção vertical (\textit{cross-flow}) é dada por
 \begin{equation}
-\label{eq:jdsn-Kv}
+\label{eq:viv-Kv}
 K_v = \frac{C_v}{1 - \nu_\mathit{soil}}\left(\frac{2}{3}\frac{\rho_s}{\rho}+\frac{1}{3}\right)\sqrt[]{D}
 \end{equation}
 e a rigidez dinâmica do solo por metro na direção lateral (\textit{in-line}) por
 \begin{equation}
-\label{eq:jdsn-Kl}
+\label{eq:viv-Kl}
 K_l = C_l (1+\nu_\mathit{soil})\left(\frac{2}{3}\frac{\rho_s}{\rho}+ \frac{1}{3}\right)\sqrt[]{D}
 \end{equation}
 onde
@@ -150,21 +144,21 @@ onde
 
 Caso não seja um dado advindo das medições, ou estimado analiticamente, é necessário calcular a deflexão estática \textit{mid-span}, que é dada por
 \begin{equation}
-\label{eq:jdsn-deflex}
+\label{eq:viv-deflex}
 \delta = C_6 \frac{q L_\mathit{eff}^4}{\mathit{EI} (1 + \mathit{CSF})} \frac{1}{S_\mathit{eff}/P_\mathit{cr}}
 \end{equation}
 onde $C_6$ é um coeficiente da condição de contorno e $q$ é o peso submerso.
 
 A frequência natural fundamental, a ser definida para as direções \textit{in-line} e \textit{cross-flow}, pode ser aproximada a partir de
 \begin{equation}
-\label{eq:jdsn-f1}
+\label{eq:viv-f1}
 f_1 \approx C_1 \sqrt{1 + \mathit{CSF}}\sqrt{\frac{\mathit{EI}}{m_e} L_\mathit{eff}^4} \left(1 + \frac{S_\mathit{eff}}{P_\mathit{cr}} + C_3 \left(\frac{\delta}{D}\right)^2\right)
 \end{equation}
-onde $C_1$ e $C_3$ são coeficientes de condições de contorno e $m_e$ é a massa efetiva, incluindo a massa estrutural, massa do fluido interno e massa adicionada.
+onde $C_1$ e $C_3$ são coeficientes de condições de contorno e $m_e$ é a massa efetiva, incluindo a massa estrutural, massa do fluido interno e massa adicional.
 
-Desta forma, o efeito da massa adicionada pode ser modelado a partir do coeficiente de massa adicionada, $C_a$, que pode ser aplicado para superfícies suaves ou rugosas do duto e deve ser aplicada para frequência de água parada, sendo calculado da seguinte forma
+Desta forma, o efeito da massa adicional pode ser modelado a partir do coeficiente de massa adicional ($C_a$), que pode ser aplicado para superfícies suaves ou rugosas do duto e deve ser aplicada para frequência natural da água parada, sendo calculado da seguinte forma
 \begin{equation}
-\label{eq:jdsn-Ca}
+\label{eq:viv-Ca}
 C_a = \left\{
 \begin{array}{c c l}
 	0,68 + \frac{1,6}{1 + 5 (e/D)} & \mathrm{para} & e/D < 0,8 \\
@@ -176,7 +170,7 @@ onde $e$ corresponde ao \textit{gap} do vão, isto é, a distância entre o duto
 
 Além disto, podem-se calcular também a amplitude máxima de tensão para o diâmetro unitário para os modos fundamentais \textit{in-line} ($\mathit{IL}$) e \textit{cross-flow} ($\mathit{CF}$) assim
 \begin{equation}
-\label{eq:jdsn-Ailcf}
+\label{eq:viv-Ailcf}
 A_{\mathit{IL}/\mathit{CF}, 1}^\mathrm{max} = 2 C_4(1 + \mathit{CSF})\frac{D E r}{L_\mathit{eff}^2}
 \end{equation}
 em que $r$ é uma coordenada radial da seção transversal do duto e $C_4$ é um coeficiente de condição de contorno.
@@ -184,7 +178,7 @@ em que $r$ é uma coordenada radial da seção transversal do duto e $C_4$ é um
 
 Por fim, finaliza-se esta etapa com o cálculo do fator de redução para corrente, $R_C$, que será aplicado na velocidade de referência, sendo calculado assim
 \begin{equation}
-\label{eq:jdsn-R_C}
+\label{eq:viv-R_C}
 R_C(z) = R_c \frac{\ln(z)-\ln(z_0)}{\ln(z_r)-\ln(z_0)}
 \end{equation}
 com o fator de referência dado por
@@ -196,23 +190,22 @@ onde $z$ é a altura acima do solo, $z_0$ é o parâmetro de rugosidade, $z_r$ �
 
 Podemos utilizar os resultados das equações acima para a construção dos modelos de resposta relacionando a velocidade do fluxo com a amplitude de vibração.
 Pela \dnvf105, as vibrações \textit{in-line} e \textit{cross-flow} devem ser consideradas em modelos de resposta separados.
-De forma análoga, a recomendação prática define os parâmetros necessários, como: velocidade reduzida, número de Keulegan-Carpenter, razão de velocidade de fluxo de corrente, intensidade de turbulência, ângulo do fluxo em relação ao duto e o parâmetro de estabilidade.
+
 
 \section{Modelo de resposta \textit{in-line}}
 \label{sec:modelo-resposta-inline}
 
 O parâmetro de estabilidade, $K_S$, representa o amortecimento para uma dada forma modal, sendo obtido a partir da equação
 \begin{equation}
-\label{eq:jdsn-Ks}
+\label{eq:viv-Ks}
 K_S = \frac{4 \pi m_e \zeta_T}{\rho_w D^2}
 \end{equation}
 em que $\rho_w$ é a densidade da água e $\zeta_T$ é a taxa de amortecimento modal total.
-
 Aplica-se um fator de segurança ao parâmetro de estabilidade, $K_\mathit{Sd} = K_S/\gamma_k$, sendo $\gamma_k$ o fator de segurança no parâmetro de estabilidade.
 
 Em seguida, deve-se calcular os fatores de correção para considerar a turbulência e o ângulo de ataque do fluxo
 \begin{equation}
-\label{eq:jdsn-Riot}
+\label{eq:viv-Riot}
 \begin{aligned}
 	R_{I\theta,1} &= 1 - \pi^2\left(\frac{\pi}{2} - \sqrt{2 \theta_\mathit{rel}}\right)(I_c - 0,03) & \quad \mbox 0 \leq R_{I\theta,1} \leq 1\\
     R_{I\theta,2} &= 1 - \frac{I_c - 0,03}{0,17}                                                    & \quad \mbox  0 \leq R_{I\theta,2} \leq 1
@@ -220,105 +213,109 @@ Em seguida, deve-se calcular os fatores de correção para considerar a turbulê
 \end{equation}
 onde $I_c$ é a intensidade de turbulência.
 
-Segundo a \dnvf105 o fluxo pode ser dividido em duas zonas:
-(i) uma zona exterior, distante do solo marinho, onde velocidade de corrente média e a turbulência variam muito pouco na direção horizontal, e
-(ii) uma zona interior, onde a velocidade de corrente média e a turbulência tem variações consideráveis na direção horizontal.
-As medições da corrente são realizadas na zona exterior, fora da camada limite.
-
-A velocidade de corrente no duto pode ser aproximada a partir da equação
+Segundo a \dnvf105 o fluxo pode ser dividido em duas zonas: (i) uma zona exterior, distante do solo marinho, onde velocidade de corrente média e a turbulência variam muito pouco na direção horizontal, e (ii) uma zona interior, onde a velocidade de corrente média e a turbulência tem variações consideráveis na direção horizontal. Uma vez que as medições da corrente são realizadas na zona exterior, fora da camada limite, a velocidade de corrente no duto pode ser aproximada a partir da equação
 \begin{equation}
-\label{eq:jdsn-eq1}
+\label{eq:vel-corrente}
 U_c = R_c U(z_r) \frac{\ln{(e+D/2)} - \ln(z_0)}{\ln (z_r)- \ln (z_0)}
 \end{equation}
 em que $U(z_r)$ é a velocidade da corrente na altura de referência.
 
-
-%\begin{equation}
-%\label{eq:jdsn-Ucrt}
-%U_c(z) = R_C(z) \cdot U(z_r)
-%\end{equation}
-%onde $U(z_r)$ é a velocidade da corrente na altura de referência.
-
 Uma vez encontrada a velocidade da corrente na zona interior, isto é, próxima do solo, a velocidade reduzida pode ser calculada assim
 \begin{equation}
-\label{eq:jdsn-Vr}
+\label{eq:viv-Vr}
 V_R = \frac{U_c + U_w}{f_n D}
 \end{equation}
 onde $U_w$ é a velocidade de fluxo induzida por onda e $f_n$ é a frequência natural de amplitude.
 
-A amplitude de resposta \textit{in-line} depende da velocidade reduzida, $V_R$, do parâmetro de estabilidade, $K_\mathit{Sd}$, da intensidade da turbulência, $\mathit{I}_c$, e do ângulo do fluxo, $\theta_\mathit{rel}$.
+A amplitude de resposta \textit{in-line} depende da  (\autoref{eq:viv-Vr}), $V_R$, do parâmetro de estabilidade, $K_\mathit{Sd}$, da intensidade da turbulência, $\mathit{I}_c$, e do ângulo do fluxo, $\theta_\mathit{rel}$.
 O modelo de resposta pode então ser construído através do conjunto de equações a seguir
+
 \begin{equation}
-\label{eq:jdsn-Vronset}
-\begin{aligned}
-\frac{A_{Y,1}}{D} &= \max\left(0,18 \left(1 - \frac{K_\mathit{Sd}}{1,2}\right) R_{I\theta,1} ~,~\frac{A_{Y,2}}{D}\right)\\
-\\
-\frac{A_{Y,2}}{D} &= 0,13 \left(1 - \frac{K_\mathit{Sd}}{1,8}\right) R_{I\theta,2}\\
-\\
-V_{R,\mathit{onset}}^\mathit{IL} &= \left\{
-\begin{array}{ccc}
-\frac{1,0}{ \gamma_{\mathit{on}, \mathit{IL}} }               & \mathrm{para} & K_\mathit{Sd} < 0,4\\
+\label{eq:viv-Vronset}
+\frac{A_{Y,1}}{D} = \max\left(0,18 \left(1 - \frac{K_\mathit{Sd}}{1,2}\right) R_{I\theta,1} ~,~\frac{A_{Y,2}}{D}\right)\\
+\end{equation}
+
+\begin{equation}
+\frac{A_{Y,2}}{D} = 0,13 \left(1 - \frac{K_\mathit{Sd}}{1,8}\right) R_{I\theta,2}\\
+\end{equation}
+
+\begin{equation}
+V_{R,\mathit{onset}}^\mathit{IL} = \left\{
+\begin{matrix}
+\frac{1}{ \gamma_{\mathit{on}, \mathit{IL}} }               & \mathrm{para} & K_\mathit{Sd} < 0,4\\
 \\
 \frac{0,6 + K_\mathit{Sd}}{\gamma_{\mathit{on}, \mathit{IL}}} & \mathrm{para} & 0,4 \leq K_\mathit{Sd} < 1,6 \\
 \\
 \frac{2,2}{\gamma_{\mathit{on}, \mathit{IL}}}                 & \mathrm{para} & K_\mathit{Sd} \geq 1,6
-\end{array}
-\right.\\
-\\
-V_{R, \mathit{end}}^\mathit{IL} &=
-\left\{
+\end{matrix}
+\right.
+\end{equation}
+
+\begin{equation}
+V_{R, \mathit{end}}^\mathit{IL} = \left\{
 \begin{array}{ccc}
 4,5 - 0,8 K_\mathit{Sd} & \mathrm{para} & K_\mathit{Sd} < 1,0 \\
-3,7                     & \mathrm{para} & K_\mathit{Sd} \geq 1,0
+3,7                     & \mathrm{para} & K_\mathit{Sd} \geq 1,0 
 \end{array}
-\right.\\
-\\
-V_{R, 1}^\mathit{IL} &= 10 \left(\frac{A_{Y, 1}}{D}\right)+ V_{R,\mathit{onset}}^\mathit{IL}\\
-\\
-V_{R, 2}^\mathit{IL} &=  V_{R, \mathit{end}}^\mathit{IL} - 2 \left(\frac{A_{Y, 2}}{D}\right)\\
-\end{aligned}
+\right.
 \end{equation}
-onde $\gamma_{\mathit{on}, \mathit{IL}}$ é o fator de segurança para velocidade reduzida inicial \textit{in-line} e $\frac{A_Y}{D}$ é a amplitude \textit{in-line} normalizada.
+
+\begin{equation}
+V_{R, 1}^\mathit{IL} = 10 \left(\frac{A_{Y, 1}}{D}\right)+ V_{R,\mathit{onset}}^\mathit{IL}\\
+\end{equation}
+
+\begin{equation}
+V_{R, 2}^\mathit{IL} =  V_{R, \mathit{end}}^\mathit{IL} - 2 \left(\frac{A_{Y, 2}}{D}\right)\\
+\end{equation}
+
+onde $\gamma_{\mathit{on}, \mathit{IL}}$ é o fator de segurança para velocidade de corrente inicial \textit{in-line} e $\frac{A_Y}{D}$ é a amplitude \textit{in-line} normalizada. Com esses valores calculados, pode-se construir a curva que relaciona velocidade reduzida e amplitude de vibração para diâmetro unitário, semelhante a \autoref{fig:viv-responsemodelil}.
+
+\begin{figure}[th!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{imagens/response_model_IL}
+    \caption[Curva de modelo de resposta \textit{in-line}]{Curva de modelo de resposta \textit{in-line}.\\Fonte:~\citeonline{DNV2017}}
+    \label{fig:viv-responsemodelil}
+\end{figure}
 
 \section{Modelo de resposta \textit{cross-flow}}
 
-Para o modelo de resposta \textit{cross-flow} também  é necessário calcular um conjunto de parâmetros, iniciando com o cálculo do fator de correção para considerar a proximidade do duto com o solo, assim
+Para o modelo de resposta \textit{cross-flow} também  é necessário calcular um conjunto de parâmetros. Dessa vez, inicia-se com o cálculo do fator de correção para considerar a proximidade do duto com o solo
 \begin{equation}
-\label{eq:jdsn-Psi}
+\label{eq:viv-Psi}
 \Psi_{\mathit{proxi}, \mathit{onset}} =
 \left\{
 \begin{matrix}
-\frac{1}{5}\left(4 + 1,25\frac{e}{D} \right) & \mathrm{para} & \frac{e}{D} < {0,8}  \\
+\frac{1}{5}\left(4 + 1,25\frac{e}{D} \right) & \mathrm{para}~\frac{e}{D} < 0,8\\
 1                                            & \mathrm{caso~contr\acute{a}rio}
 \end{matrix}
 \right.
 \end{equation}
-onde $\frac{e}{D}$ é a razão de afastamento.
 
-Caso o duto esteja localizado próximo ou em trincheiras é necessário levar em consideração um fator de correção específico para, assim
+Caso o duto esteja localizado próximo ou em trincheiras é necessário levar em consideração o fator de correção específico
+
 \begin{equation}
-\label{eq:jdsn-Psitren}
+\label{eq:viv-Psitren}
 \Psi_{\mathit{trench}, \mathit{onset}} = 1 + 0,5\frac{\Delta}{D}
 \end{equation}
-onde $\frac{\Delta}{D}$ é a profundidade relativa da trincheira.
+onde $\Delta$ é a profundidade da trincheira.
 
-%Com os fatores de correção, $\Psi$, os valores de Keulegan-Carpenter ($KC$) e razão de velocidade de fluxo, dados por Eq.~\eqref{eq:jdsn-KC} e Eq.~\eqref{eq:jdsn-alfa} abaixo, juntamente com o conjunto de equações Eq.~\eqref{eq:jdsn-azdj}, construímos o modelo de resposta \textit{cross-flow}.
+%Com os fatores de correção, $\Psi$, os valores de Keulegan-Carpenter ($KC$) e razão de velocidade de fluxo, dados por Eq.~\eqref{eq:viv-KC} e Eq.~\eqref{eq:viv-alfa} abaixo, juntamente com o conjunto de equações Eq.~\eqref{eq:viv-azdj}, construímos o modelo de resposta \textit{cross-flow}.
 O número de Keulegan-Carpenter é definido como
 \begin{equation}
-\label{eq:jdsn-KC}
+\label{eq:viv-KC}
 \mathit{KC} = \frac{U_w}{f_w D}
 \end{equation}
 onde $f_w = \frac{1}{T_u}$ é o período de cruzamento da frequência de onda.
 
 A razão de velocidade de fluxo de corrente é dada por
 \begin{equation}
-\label{eq:jdsn-alfa}
+\label{eq:viv-alfa}
 \alpha = \frac{U_c}{U_c + U_w}
 \end{equation}
 
 A partir dessas equações, se pode construir o modelo de resposta \textit{cross-flow} através do conjunto de equações a abaixo
 \begin{equation}
-\label{eq:jdsn-azdj}
+\label{eq:viv-azdj}
 \begin{aligned}
 \\
 \frac{A_{Z,1}}{D} &=
@@ -337,20 +334,30 @@ A partir dessas equações, se pode construir o modelo de resposta \textit{cross
 0,7                                                      & \alpha \le 0,8 &        \mathit{KC} <   10
 \end{array}
 \right.\\
-\\
-\frac{A_{Z,2}}{D}                &= \frac{A_{Z,1}}{D}\\
-\\
-V_{R,\mathit{onset}}^\mathit{CF} &= \frac{3 \cdot \Psi_{\mathit{proxi}, \mathit{onset}} \cdot  \Psi_{\mathit{trench}, \mathit{onset}}}{\gamma_{\mathit{on}, \mathit{CF}}}\\
-\\
-V_{R,\mathit{end}}^\mathit{CF}   &= 16\\
-\\
-V_{R, 1}^\mathit{CF}             &= 7 - \frac{7 - V^\mathit{CF}_{R, \mathit{onset}}}{1,15} \left(1,3 - \frac{A_{Z,1}}{D}\right)\\
-\\
-V_{R, 2}^\mathit{CF}             &= V^\mathit{CF}_{R, \mathit{end}} - \frac{7}{1,3} \frac{A_{Z, 1}}{D}\\
 \end{aligned}
 \end{equation}
 
-Com base nas equações acima demonstradas construímos analiticamente o modelo de resposta utilizando os dados dispostos nas Tabelas~\ref{tab:jdsn-Tabela1}--\ref{tab:jdsn-Tabela3} do Apêndice A, retiradas do \textit{FatFree Verification Document}, como pode ser visto nas Figuras~\ref{fig:jdsn-Resposta_IL} e~\ref{fig:jdsn-Resposta_CF}.
+\begin{equation}
+\frac{A_{Z,2}}{D} = \frac{A_{Z,1}}{D}
+\end{equation}
+
+\begin{equation}
+V_{R,\mathit{onset}}^\mathit{CF} = \frac{3 \cdot \Psi_{\mathit{proxi}, \mathit{onset}} \cdot  \Psi_{\mathit{trench}, \mathit{onset}}}{\gamma_{\mathit{on}, \mathit{CF}}}
+\end{equation}
+
+\begin{equation}
+V_{R,\mathit{end}}^\mathit{CF} = 16
+\end{equation}
+
+\begin{equation}
+V_{R, 1}^\mathit{CF} = 7 - \frac{7 - V^\mathit{CF}_{R, \mathit{onset}}}{1,15} \left(1,3 - \frac{A_{Z,1}}{D}\right)
+\end{equation}
+
+\begin{equation}
+V_{R, 2}^\mathit{CF} = V^\mathit{CF}_{R, \mathit{end}} - \frac{7}{1,3} \frac{A_{Z, 1}}{D}\\
+\end{equation}
+
+Com base nas equações acima demonstradas construímos analiticamente o modelo de resposta utilizando os dados dispostos nas Tabelas~\ref{tab:viv-Tabela1}--\ref{tab:viv-Tabela3} do Apêndice A, retiradas do \textit{FatFree Verification Document}, como pode ser visto nas Figuras~\ref{fig:viv-Resposta_IL} e~\ref{fig:viv-Resposta_CF}.
 O \textit{FatFree Verification Document} tem como objetivo verificar a versão 11.0 da planilha \textit{FatFree} e demonstrar que a implementação dos modelos e princípios estão de acordo com a DNV-RP-F105.
 
 Os três cenários escolhidos tem como finalidade demonstrar o Modelo de Resposta proposto na DNV-RP-F105~cite{DNV2006} para análise unimodal com corrente estática e ausência de ondas.
@@ -359,27 +366,27 @@ Posteriormente, os cálculos analíticos são então comparados com o resultado 
 
 \begin{figure}[ht!]
 \begin{center}
-% \includegraphics[width=0.5\textwidth]{jdsn-Resposta_IL}
+% \includegraphics[width=0.5\textwidth]{viv-Resposta_IL}
 \caption{Amplitude de resposta na direção \textit{in-line} para o Modelo de Resposta (RM).}
-\label{fig:jdsn-Resposta_IL}
+\label{fig:viv-Resposta_IL}
 \end{center}
 \end{figure}
 
 \begin{figure}[ht!]
 \begin{center}
-% \includegraphics[width=0.5\textwidth]{jdsn-Resposta_CF}
+% \includegraphics[width=0.5\textwidth]{viv-Resposta_CF}
 \caption{Amplitude de resposta na direção \textit{cross-flow} para o Modelo de Resposta (RM).}
-\label{fig:jdsn-Resposta_CF}
+\label{fig:viv-Resposta_CF}
 \end{center}
 \end{figure}
 
-Conforme observado na \dnvf105, a resposta de amplitude de um duto vibrando na direção \textit{in-line}, contempla regiões de velocidade reduzidas entre 1,0 e 4,5, semelhante ao encontrado na Figura~\ref{fig:jdsn-Resposta_IL} para os três casos apresentados.
-Temos então que a resposta na direção longitudinal depende dos parâmetros de velocidade reduzida, estabilidade, intensidade de turbulência e do ângulo entre a corrente e o duto.
-Percebe-se que, à medida em que o parâmetro de estabilidade aumenta, a amplitude de resposta tende à diminuir, uma vez que este é proporcional ao amortecimento do sistema~\ref{eq:jdsn-Ks}.
+Conforme observado na \dnvf105, a resposta de amplitude de um duto vibrando na direção \textit{in-line}, contempla regiões com velocidade de corrente entre 1,0 e 4,5, semelhante ao encontrado na Figura~\ref{fig:viv-Resposta_IL} para os três casos apresentados.
+Temos então que a resposta na direção longitudinal depende dos parâmetros de velocidade de corrente, estabilidade, intensidade de turbulência e do ângulo entre a corrente e o duto.
+Percebe-se que, à medida em que o parâmetro de estabilidade aumenta, a amplitude de resposta tende à diminuir, uma vez que este é proporcional ao amortecimento do sistema~\ref{eq:viv-Ks}.
 Para os casos 1, 2 e 3 temos: $K_S(1) = 1,64$; $K_S(2) = 0,66$ e $K_S(3) = 0,00$.
 
-O modelo de resposta \textit{cross-flow}~\ref{fig:jdsn-Resposta_CF}, apresenta amplificações para $V_R > 2$ e é função dos valores de KC e $\alpha$.
-Para fluxos dominados por corrente, com $\alpha = 1$, como os casos aqui apresentados, a máxima amplitude de \textit{cross-flow} ocorre exclusivamente quando o modo de vibração do duto corresponde ao primeiro modo simétrico com fluxos em regime permanente e equivale a 1,3D, conforme demonstrado na Figura~\ref{fig:jdsn-Resposta_CF}.
+O modelo de resposta \textit{cross-flow}~\ref{fig:viv-Resposta_CF}, apresenta amplificações para $V_R > 2$ e é função dos valores de KC e $\alpha$.
+Para fluxos dominados por corrente, com $\alpha = 1$, como os casos aqui apresentados, a máxima amplitude de \textit{cross-flow} ocorre exclusivamente quando o modo de vibração do duto corresponde ao primeiro modo simétrico com fluxos em regime permanente e equivale a 1,3D, conforme demonstrado na Figura~\ref{fig:viv-Resposta_CF}.
 
 Ambos os modelos implementados tiveram resultados consistentes com os valores encontrados no Documento de Verificação e na \textit{FatFree}.
 
@@ -431,19 +438,22 @@ Assim, precisamos calcular VIV \textit{cross-flow} e \textit{in-line} para cada 
 	\begin{itemize}
 	\item Calcular $(A_Z/D)_j$ para cada modo.
 	\end{itemize}
-\item Determinar a resposta de tensão combinada: \\
-\[ S_{\mathit{comb}, \mathit{CF}} = \max\left( S_{\mathit{comb}, \mathit{CF}}^\mathit{RM} ~,~ S_{\mathit{comb}, \mathit{CF}}^\mathit{LKCR} \right) \]
-
+    \item Determinar a resposta de tensão combinada:
+        $$
+        S_{\mathit{comb}, \mathit{CF}} = \max\left( S_{\mathit{comb}, \mathit{CF}}^\mathit{RM} ~,~ S_{\mathit{comb}, \mathit{CF}}^\mathit{LKCR} \right)
+        $$
 \item Determinar a frequência de contagem de ciclos:
 
-\[f_{\mathit{cyc}, \mathit{CF}} =
+$$
+f_{\mathit{cyc}, \mathit{CF}} =
 \left\{
 \begin{matrix}
 f_{\mathit{cyc}, \mathit{CF}}^\mathit{LKCR}, & S_{\mathit{comb},\mathit{CF}}^\mathit{RM}(x)    < S_{\mathit{comb},\mathit{CF}}^\mathit{LKCR}(x) & \\
 \\
 f_{\mathit{cyc}, \mathit{CF}}^\mathit{RM},   & S_{\mathit{comb},\mathit{CF}}^\mathit{RM}(x) \geq S_{\mathit{comb},\mathit{CF}}^\mathit{LKCR}(x)
 \end{matrix}
-\right.\]
+\right.
+$$
 
 \end{itemize}
 
@@ -517,7 +527,7 @@ As causas típicas das variações de tensão são:
 
 %Desta forma, é observada uma relação entre esforço axial efetivo, flambagem e fadiga, efeitos que comprometem a integridade do duto
 
-%Sendo assim, é observada a importância do conceito de esforço axial efetivo em dutos submarinos conforme Eq.~\eqref{eq:jdsn-Seff}.
+%Sendo assim, é observada a importância do conceito de esforço axial efetivo em dutos submarinos conforme Eq.~\eqref{eq:viv-Seff}.
 %%, definido pela \mbox{DNVGL-ST-F101}~cite{DNVF101} como a máxima força axial efetiva, por meio de
 %%\begin{equation}
 %%\label{eq:jv-S}
@@ -554,42 +564,42 @@ cite{Fyrileiv1998} mostram que devido ao tipo e condições do solo, os vãos de
 \item Cálculo confiável das frequências naturais e dos modos associados.
 \end{itemize}
 
-De acordo com a Figura~\ref{fig:jdsn-dnvchart}, é possível identificar um fluxo de trabalho para a avaliação.
+De acordo com a Figura~\ref{fig:viv-dnvchart}, é possível identificar um fluxo de trabalho para a avaliação.
 A etapa inicial é formada pelo levantamento dos dados do projeto e dos dados ambientais.
 O ambiente marinho será então descrito em termos probabilísticos com curvas de distribuição de ondas e corrente incidentes no duto, determinando as características de fluxo e os carregamentos hidrodinâmicos que agem no vão livre.
 
 \begin{figure}[hbt!]
 \begin{center}
-% \includegraphics[width=1\textwidth]{jdsn-dnvchart}
-\caption{Visão geral dos componentes avaliados na recomendação técnica \dnvf105~cite{DNV2017}.}
-\label{fig:jdsn-dnvchart}
+% \includegraphics[width=1\textwidth]{viv-dnvchart}
+\caption{Visão geral dos componentes avaliados na recomendação técnica \dnvf105~\cite{DNV2017}.}
+\label{fig:viv-dnvchart}
 \end{center}
 \end{figure}
 
 Para classificar os vãos livres devemos, primeiro, definir seus parâmetros, cenários e saber quais são interativos e isolados.
 De forma geral, um vão livre é considerado isolado quando entre ele e outro vão houver uma faixa considerada com contato duto-solo, conforme o exemplo demonstrado na Figura~\ref{fig:freespan}.
-Entretanto, é possível que existam vãos separados onde ocorra interação entre eles (Figura~\ref{fig:jdsn-vaoisoint}).
+Entretanto, é possível que existam vãos separados onde ocorra interação entre eles (Figura~\ref{fig:viv-vaoisoint}).
 
 \begin{figure}[hbt!]
 \begin{center}
-% \includegraphics[width=0.8\textwidth]{jdsn-vaoisoint}
-\caption{Vãos isolados~cite{DNV2017}.}
-\label{fig:jdsn-vaoisoint}
+% \includegraphics[width=0.8\textwidth]{viv-vaoisoint}
+\caption{Vãos isolados~\cite{DNV2017}.}
+\label{fig:viv-vaoisoint}
 \end{center}
 \end{figure}
 
 Destarte, incluímos aqui uma definição mais precisa para avaliação de vãos livres isolados ou que interagem entre si.
 Um vão livre será considerado isolado quando seu comportamento, seja estático ou dinâmico, não for afetado por outros vãos na vizinhança.
-Assim, na Figura~\ref{fig:jdsn-vaoisoint}, se considerarmos que os modos representados são os únicos modos ativos, isto é, todos os modos que podem ser excitados por VIV, estes dois vãos não exercem influência um sobre o outro.
+Assim, na Figura~\ref{fig:viv-vaoisoint}, se considerarmos que os modos representados são os únicos modos ativos, isto é, todos os modos que podem ser excitados por VIV, estes dois vãos não exercem influência um sobre o outro.
 
 Por outro lado, se considerássemos outros modos ativos, de forma que o comportamento dinâmico de cada vão fosse afetado pelo outro, teríamos vãos múltiplos interativos.
-De forma análoga, a \dnvf105 mostra um típico cenário de vãos múltiplos interativos (Figura~\ref{fig:jdsn-vaomult}).
+De forma análoga, a \dnvf105 mostra um típico cenário de vãos múltiplos interativos (Figura~\ref{fig:viv-vaomult}).
 
 \begin{figure}[hbt!]
 \begin{center}
-% \includegraphics[width=0.8\textwidth]{jdsn-vaomult}
-\caption{Vãos múltiplos interativos~cite{DNV2017}.}
-\label{fig:jdsn-vaomult}
+% \includegraphics[width=0.8\textwidth]{viv-vaomult}
+\caption{Vãos múltiplos interativos~\cite{DNV2017}.}
+\label{fig:viv-vaomult}
 \end{center}
 \end{figure}
 
@@ -608,14 +618,14 @@ Como o efeito da fadiga e cargas ambientais dependem da resposta modal do duto, 
 A interação entre os modos, segundo a \dnvf105, depende da rigidez à flexão do duto, rigidez axial, \textit{gap}, rigidez do solo, força axial efetiva, comprimento do vão, comprimento dos ombros intermediários e geometria do ombro.
 Para~cite{Ilstad2005}, num cenário de vãos múltiplos, o comprimento e a interação entre vãos depende diretamente da rigidez do solo nos ombros, visto que, a depender das condições de solo, a reação de apoio pode ser bem distribuída, no caso de solos elásticos, ou concentradas, em solos mais rígidos.
 
-Outro importante fator diz respeito ao comportamento da resposta do duto por meio da relação $L/D$, conforme a Tabela~\ref{tab:jdsn-caracvao}, onde $L$ é o comprimento e $D$ é o diâmetro do duto.
+Outro importante fator diz respeito ao comportamento da resposta do duto por meio da relação $L/D$, conforme a Tabela~\ref{tab:viv-caracvao}, onde $L$ é o comprimento e $D$ é o diâmetro do duto.
 
 \begin{table}[ht!]
 	\renewcommand{\arraystretch}{1.2}
  	\small
  	\centering
  	\caption{Características do vão livre.}
- 	\label{tab:jdsn-caracvao}
+ 	\label{tab:viv-caracvao}
  	\begin{tabular}{cl}
 	 	\toprule
 	 	$L/D$             & Resposta\\
@@ -637,7 +647,7 @@ Vale ressaltar que, à época do trabalho~cite{Nielsen2002}, a prática era rele
 \section{Critérios de Projeto}
 
 Segundo~cite{Mork2003}, é comum que se permitam os vãos livres, desde que a integridade do duto não seja comprometida.
-Isto é, se os dois critérios, FLS e ULS, forem atendidos, VIV e carregamento de onda direta são aceitáveis~cite{DNV2017}.
+Isto é, se os dois critérios, FLS e ULS, forem atendidos, VIV e carregamento de onda direta são aceitáveis~\cite{DNV2017}.
 Para tanto, todos os modos ativos são considerados nos cálculos dos critérios FLS e ULS~\cite{Mork2003}.
 
 A \dnvf105 explica que, após a definição de diâmetro, material, espessura, potenciais trincheira e revestimento, deve-se verificar a eventual ocorrência de flambagem global e como liberar a força axial efetiva antes mesmo de avaliar os vãos livres.
@@ -654,7 +664,7 @@ Outrossim, para o caso de fluxo dominado por ondas, os cálculos de fadiga compl
 
 As mais baixas frequências naturais nas direções \textit{in-line} e \textit{cross-flow} são dadas, respectivamente, por
 \begin{equation}
-\label{eq:jdsn-ineq}
+\label{eq:viv-ineq}
 \begin{aligned}
 f_{\mathit{IL},1} &> \frac{U_\mathit{extreme} \cdot \gamma_{f, \mathit{IL}}}{ V_{R, \mathit{onset}}^\mathit{IL} D}\\
 \\
@@ -667,7 +677,7 @@ onde
 	$U_\mathit{extreme}$                                  & evento ambiental característico\\
 	$\gamma_{f,\mathit{IL}}$  e  $\gamma_{f,\mathit{CF}}$ & fatores de segurança na respectiva frequência (conforme determinado \\
  	                                                      & na \dnvf105)\\
-	$V_{R,\mathit{onset}}^\mathit{IL}$                    & valor da velocidade reduzida que inicia VIV \textit{in-line}\\
+	$V_{R,\mathit{onset}}^\mathit{IL}$                    & valor da  velocidade de corrente que inicia VIV \textit{in-line}\\
 	$D$                                                   & diâmetro externo no duto, incluindo revestimento (diâmetro hidrodinâmico)\\
 \end{tabular}\\
 Logo, se as inequações forem atendidas, não é esperado que ocorra VIV durante o período de exposição do projeto.
@@ -714,7 +724,7 @@ A seguir são analisados dois modos de vibração, correspondendo às duas dire�
 \begin{itemize}
 	\item Para vibrações \textit{in-line}, tem-se que as frequências naturais, $f_{\mathit{IL},j}$, é dada por
 	\begin{equation}
-	\label{eq:jdsn-eqil}
+	\label{eq:viv-eqil}
 	\frac{f_{\mathit{IL},j}}{\gamma_\mathit{IL}} > \frac{U_{c,100-\mathit{year}}}{V_{R, D \mathit{onset}}^\mathit{IL}} \left( 1 - \frac{L/D}{250}\right) \frac{1}{\overline{\alpha}}
 	\end{equation}
 	com
@@ -733,7 +743,7 @@ A seguir são analisados dois modos de vibração, correspondendo às duas dire�
 
 	\item De forma semelhante, para vibrações \textit{cross-flow}, tem-se o cálculo das frequências naturais, $f_{\mathit{CF},j}$, dado por
 	\begin{equation}
-	\label{eq:jdsn-eqcf}
+	\label{eq:viv-eqcf}
 	\frac{f_{\mathit{CF},j}}{\gamma_\mathit{CF}} > \frac{U_{c,100-\mathit{year}} + U_{w,1-\mathit{year}}}{ V_{R,\mathit{onset}}^{\mathit{CF}} D}
 	\end{equation}
 	onde
@@ -741,13 +751,13 @@ A seguir são analisados dois modos de vibração, correspondendo às duas dire�
 	\begin{tabular}{rl}
 		$\gamma_\mathit{CF}$               & fator de segurança \textit{cross-flow}\\
 		$U_{w,1-\mathit{year}}$            & velocidade da onda incidente no duto para um período de recorrência de 1 ano\\
-		$V_{R,\mathit{onset}}^\mathit{CF}$ & valor da velocidade reduzida para vibração \textit{cross-flow}
+		$V_{R,\mathit{onset}}^\mathit{CF}$ & valor da  velocidade de corrente para vibração \textit{cross-flow}
 	\end{tabular}
 \end{itemize}
 
 O critério de fadiga é formulado como
 \begin{equation}
-\label{eq:jdsn-eqfat}
+\label{eq:viv-eqfat}
 \eta T_\mathit{life} \geq T_\mathit{exposure}\\
 \end{equation}
 onde $\eta$ é a taxa de dano por fadiga permitida, $T_\mathit{life}$ é a capacidade de vida do projeto, e
@@ -756,18 +766,18 @@ $T_\mathit{exposure}$ é o tempo de vida do projeto ou o tempo de exposição ao
 A avaliação do dano por fadiga é baseado na lei de acumulação de Palmgren-Miner, onde o incremento de dano por ciclo depende apenas dos parâmetros de carregamento.
 Assim, calcula-se o dano por fadiga acumulado como sendo
 \begin{equation}
-\label{eq:jdsn-eqpm}
+\label{eq:viv-eqpm}
 D_\mathit{fat} = \sum \frac{n_i}{N_i}
 \end{equation}
 onde $n_i$ corresponde ao número total de ciclos de tensão correspondente à faixa de tensão $S_i$, e $N_i$ ao número de ciclos para a falha na faixa de tensão $S_i$.
 
-O número $N_i$, definido na curva S-N, relaciona o carregamento aplicado com o número de ciclos para falha (Figura~\ref{fig:jdsn-sncurve}).
+O número $N_i$, definido na curva S-N, relaciona o carregamento aplicado com o número de ciclos para falha (Figura~\ref{fig:viv-sncurve}).
 A curva escolhida deve levar em consideração o material, a localização da falha inicial e o ambiente de corrosão.
 \begin{figure}[hbt!]
 \begin{center}
-% \includegraphics[width=0.6\textwidth]{jdsn-sncurve}
-\caption{Curva SN típica~cite{DNV2017}.}
-\label{fig:jdsn-sncurve}
+% \includegraphics[width=0.6\textwidth]{viv-sncurve}
+\caption{Curva SN típica~\cite{DNV2017}.}
+\label{fig:viv-sncurve}
 \end{center}
 \vspace{-0.7cm}
 \end{figure}
@@ -800,7 +810,7 @@ As estruturas \textit{offshore} estão submetidas a diversas formas de carregame
 Dentre os carregamentos ambientais encontramos: as cargas do vento, da correnteza, temperatura e pressão atmosférica, atividades sísmicas, ações de ondas, entre outras~cite{Valenca2017}.
 
 Os tipos de carregamentos ambientais analisados nos projetos de dutos em vãos livres são os exercidos pelas ondas e pela corrente, com dados coletados na região de instalação e com valores representativos para a análise.
-Essas descrições ambientais podem ser aplicadas como informação direcional, a probabilidade de fluxo em cada direção, ou considerando que o fluxo é distribuído de forma uniforme~cite{DNV2017}.
+Essas descrições ambientais podem ser aplicadas como informação direcional, a probabilidade de fluxo em cada direção, ou considerando que o fluxo é distribuído de forma uniforme~\cite{DNV2017}.
 
 A corrente resultante pode ser formada por meio de um somatório de correntes advindas de corrente de maré, corrente induzida pelo vento, corrente induzida por tempestades, corrente exercida pelas diferenças de gravidade.
 Em algumas localidades, como no Sudeste Asiático, ocorrem formações de ondas internas que devem ser levadas em consideração, pois podem conter alta carga de velocidade, podendo ser consideradas como correntes equivalentes.
@@ -808,7 +818,7 @@ Em algumas localidades, como no Sudeste Asiático, ocorrem formações de ondas 
 As mesmas devem ser medidas em zonas fora da camada limite, em áreas onde a separação de fluxo não ocorre.
 O perfil de velocidade é aproximadamente logarítmico, dado pela equação
 \begin{equation}
-\label{eq:jdsn-eq1}
+\label{eq:viv-eq1}
 U(z) = R_c U(z_r) \frac{\ln{(z)}- \ln(z_0)}{\ln (z_r)- \ln (z_0)}
 \end{equation}
 em que $R_c$ é o fator de redução, $U(z_r)$ é a velocidade da corrente na altura de referência, $z$ é a elevação acima do fundo do mar, $z_r$ é a altura de medição de referência, e $z_0$ é o parâmetro de rugosidade.
@@ -838,12 +848,12 @@ Com isso, a \dnvf105 recomenda, quanto à regularidade, a utilização da teoria
 Caso não seja possível, isto é, a teoria de onda irregular não se aplique às condições e ao estado de mar, utiliza-se uma teoria de onda regular.
 As ondas irregulares são representadas por meio de um espectro que descreve a energia em função da frequência de onda, podendo ser de vários modelos, onde o de JONSWAP ou de Pierson-Moskowitz são os frequentemente utilizados, sendo representados por cite{DNV2017}
 \begin{equation}
-\label{eq:jdsn-eq2}
+\label{eq:viv-eq2}
 S_{\eta\eta}(\omega) = \alpha g^2 \omega^{-5} \exp\left(-\frac{5}{4}\left(\frac{\omega}{\omega_p}\right)^{-4}\right)\gamma^{\exp \left(-0,5\left(\frac{\omega-\omega_p}{\sigma \omega_p}\right)^2\right)}
 \end{equation}
 com
 \begin{equation}
-\label{eq:jdsn-eq3}
+\label{eq:viv-eq3}
 \alpha = \frac{5}{6} \frac{H_s^2 \omega_p^4}{g^2} \left(1- 0,287 \ln{\gamma}\right)
 \end{equation}
 onde
@@ -863,13 +873,10 @@ onde
 
 Para Pierson-Moskowitz o $\gamma=1$, e a constante de Phillips generalizada é encontrada a partir de
 \begin{equation}
-\label{eq:jdsn-eq3}
+\label{eq:viv-phillips}
 \alpha = \frac{5}{6} \frac{H_s^2 \omega_p^4}{g^2} \left(1- 0,287 \ln{\gamma}\right)
 \end{equation}
-{\color{red}onde $H_s$  é a altura significativa.}
-
-% essa frase ficou estranha!!!!!!!!!!
-%{\color{red}O parâmetro de largura espectral $\sigma = 0,07$ se $\omega \le \omega_p$ e $\sigma = 0,09$ para os demais valores de $\omega$.}
+onde $H_s$ é a altura significativa.
 
 Por meio da análise do espectro obtido são extraídos dados importantes para o cálculo da elevação e da cinemática da onda.
 É necessário que seja feita uma modelagem ambiental a longo prazo, com dados estatísticos, sendo calculados os períodos de retorno das ações ambientais.
