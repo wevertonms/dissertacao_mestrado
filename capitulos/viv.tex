@@ -39,7 +39,7 @@ Caso a frequência de desprendimento alcance uma das frequências naturais do du
 As excitações dinâmicas podem causar danos por fadiga, sendo importante identificar os corretos procedimentos de intervenção, seja no duto ou no leito marinho.
 
 A \dnvf105 utiliza uma metodologia baseada em modelos de resposta para avaliar a fadiga causada por VIV em dutos em vão livre.
-Estes modelos representa relações empíricas entre a velocidade reduzida (\autoref{eq:viv-Vr}) e a amplitude de resposta adimensional, utilizadas para prever as amplitudes de vibração nas direções \textit{in-line} e \textit{cross-flow}~\cite{Mork2003,DNV2017}.
+Estes modelos representa relações empíricas entre a velocidade reduzida (\autoref{eq:viv-Vr}) e a amplitude de resposta adimensional, utilizadas para prever as amplitudes de vibração nas direções \textit{in-line} e \textit{cross-flow} \cite{Mork2003,DNV2017}.
 Além desta, a recomendação prática sugere também um método baseado no coeficiente de sustentação e nas curvas do coeficiente de massa adicional como função da amplitude de resposta adimensional e da frequência de vibração adimensional~\cite{DNV2017}.
 Como terceira opção, a \dnvf105 indica o uso de fluidodinâmica computacional (CFD, na sigla em inglês) para escoamento turbulento ao redor dos dutos para avaliação do VIV.
 
@@ -99,11 +99,11 @@ Logo, temos que
 \label{eq:viv-LeffL}
 \frac{L_\mathrm{eff}}{L} =
 \left\{
-\begin{array}{c c c}
+\begin{matrix}
 	4,73 / (-0,066 \beta^2 + 1,02 \beta + 0,63)   & \mathrm{para} & \beta \geq 2,7 \\
 	\\
 	4,73 / (0,036 \beta^2 + 0,61 \beta + 1)       & \mathrm{para} & \beta <    2,7
-\end{array}
+\end{matrix}
 \right.
 \end{equation}
 com
@@ -160,10 +160,10 @@ Desta forma, o efeito da massa adicional pode ser modelado a partir do coeficien
 \begin{equation}
 \label{eq:viv-Ca}
 C_a = \left\{
-\begin{array}{c c l}
+\begin{matrix}
 	0,68 + \frac{1,6}{1 + 5 (e/D)} & \mathrm{para} & e/D < 0,8 \\
 	1                              & \mathrm{para} & e/D \geq 0,8
-\end{array}
+\end{matrix}
 \right.
 \end{equation}
 onde $e$ corresponde ao \textit{gap} do vão, isto é, a distância entre o duto e o solo marinho.
@@ -242,7 +242,7 @@ O modelo de resposta pode então ser construído através do conjunto de equaç�
 \begin{equation}
 V_{R,\mathit{onset}}^\mathit{IL} = \left\{
 \begin{matrix}
-\frac{1}{ \gamma_{\mathit{on}, \mathit{IL}} }               & \mathrm{para} & K_\mathit{Sd} < 0,4\\
+\frac{1}{ \gamma_{\mathit{on}, \mathit{IL}} }                 & \mathrm{para} & K_\mathit{Sd} < 0,4\\
 \\
 \frac{0,6 + K_\mathit{Sd}}{\gamma_{\mathit{on}, \mathit{IL}}} & \mathrm{para} & 0,4 \leq K_\mathit{Sd} < 1,6 \\
 \\
@@ -253,10 +253,10 @@ V_{R,\mathit{onset}}^\mathit{IL} = \left\{
 
 \begin{equation}
 V_{R, \mathit{end}}^\mathit{IL} = \left\{
-\begin{array}{ccc}
+\begin{matrix}
 4,5 - 0,8 K_\mathit{Sd} & \mathrm{para} & K_\mathit{Sd} < 1,0 \\
 3,7                     & \mathrm{para} & K_\mathit{Sd} \geq 1,0 
-\end{array}
+\end{matrix}
 \right.
 \end{equation}
 
@@ -276,6 +276,11 @@ onde $\gamma_{\mathit{on}, \mathit{IL}}$ é o fator de segurança para velocidad
     \caption[Curva de modelo de resposta \textit{in-line}]{Curva de modelo de resposta \textit{in-line}.\\Fonte:~\citeonline{DNV2017}}
     \label{fig:viv-responsemodelil}
 \end{figure}
+
+Conforme observado na \dnvf105, a resposta de amplitude de um duto vibrando na direção \textit{in-line}, contempla regiões com velocidade de corrente entre 1,0 e 4,5.
+Temos então que a resposta na direção longitudinal depende dos parâmetros de velocidade de corrente, estabilidade, intensidade de turbulência e do ângulo entre a corrente e o duto.
+Percebe-se que, à medida em que o parâmetro de estabilidade aumenta, a amplitude de resposta tende à diminuir, uma vez que este é proporcional ao amortecimento do sistema~(\autoref{eq:viv-Ks}).
+
 
 \section{Modelo de resposta \textit{cross-flow}}
 
@@ -299,7 +304,6 @@ Caso o duto esteja localizado próximo ou em trincheiras é necessário levar em
 \end{equation}
 onde $\Delta$ é a profundidade da trincheira.
 
-%Com os fatores de correção, $\Psi$, os valores de Keulegan-Carpenter ($KC$) e razão de velocidade de fluxo, dados por Eq.~\eqref{eq:viv-KC} e Eq.~\eqref{eq:viv-alfa} abaixo, juntamente com o conjunto de equações Eq.~\eqref{eq:viv-azdj}, construímos o modelo de resposta \textit{cross-flow}.
 O número de Keulegan-Carpenter é definido como
 \begin{equation}
 \label{eq:viv-KC}
@@ -320,7 +324,7 @@ A partir dessas equações, se pode construir o modelo de resposta \textit{cross
 \\
 \frac{A_{Z,1}}{D} &=
 \left\{
-\begin{array}{ccc}
+\begin{matrix}
 0,9                                                      & \alpha > 0,8   &         \frac{f_{n+1,CF}}{f_{n,CF}} <   1,5 \\
 \\
 0,9 + 0,5 \left(\frac{f_{n+1,CF}}{f_{n,CF}} - 1,5\right) & \alpha > 0,8   & 1,5 \le \frac{f_{n+1,CF}}{f_{n,CF}} \le 2,3 \\
@@ -332,7 +336,7 @@ A partir dessas equações, se pode construir o modelo de resposta \textit{cross
 0,7 + 0,01 (\mathit{KC} -10)                             & \alpha \le 0,8 & 10 \le \mathit{KC} \le 30 \\
 \\
 0,7                                                      & \alpha \le 0,8 &        \mathit{KC} <   10
-\end{array}
+\end{matrix}
 \right.\\
 \end{aligned}
 \end{equation}
@@ -357,194 +361,151 @@ V_{R, 1}^\mathit{CF} = 7 - \frac{7 - V^\mathit{CF}_{R, \mathit{onset}}}{1,15} \l
 V_{R, 2}^\mathit{CF} = V^\mathit{CF}_{R, \mathit{end}} - \frac{7}{1,3} \frac{A_{Z, 1}}{D}\\
 \end{equation}
 
-Com base nas equações acima demonstradas construímos analiticamente o modelo de resposta utilizando os dados dispostos nas Tabelas~\ref{tab:viv-Tabela1}--\ref{tab:viv-Tabela3} do Apêndice A, retiradas do \textit{FatFree Verification Document}, como pode ser visto nas Figuras~\ref{fig:viv-Resposta_IL} e~\ref{fig:viv-Resposta_CF}.
-O \textit{FatFree Verification Document} tem como objetivo verificar a versão 11.0 da planilha \textit{FatFree} e demonstrar que a implementação dos modelos e princípios estão de acordo com a DNV-RP-F105.
+Com esses valores calculados, pode-se construir a curva que relaciona velocidade reduzida e amplitude de vibração para diâmetro unitário, semelhante a \autoref{fig:viv-responsemodelcf}.
 
-Os três cenários escolhidos tem como finalidade demonstrar o Modelo de Resposta proposto na DNV-RP-F105~cite{DNV2006} para análise unimodal com corrente estática e ausência de ondas.
-Posteriormente, os cálculos analíticos são então comparados com o resultado obtido na análise com a \textit{FatFree}.
-
-
-\begin{figure}[ht!]
-\begin{center}
-% \includegraphics[width=0.5\textwidth]{viv-Resposta_IL}
-\caption{Amplitude de resposta na direção \textit{in-line} para o Modelo de Resposta (RM).}
-\label{fig:viv-Resposta_IL}
-\end{center}
+\begin{figure}[th!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{imagens/response_model_CF}
+    \caption[Curva de modelo de resposta \textit{cross-flow}]{Curva de modelo de resposta \textit{cross-flow}.\\Fonte:~\citeonline{DNV2017}}
+    \label{fig:viv-responsemodelcf}
 \end{figure}
 
-\begin{figure}[ht!]
-\begin{center}
-% \includegraphics[width=0.5\textwidth]{viv-Resposta_CF}
-\caption{Amplitude de resposta na direção \textit{cross-flow} para o Modelo de Resposta (RM).}
-\label{fig:viv-Resposta_CF}
-\end{center}
-\end{figure}
-
-Conforme observado na \dnvf105, a resposta de amplitude de um duto vibrando na direção \textit{in-line}, contempla regiões com velocidade de corrente entre 1,0 e 4,5, semelhante ao encontrado na Figura~\ref{fig:viv-Resposta_IL} para os três casos apresentados.
-Temos então que a resposta na direção longitudinal depende dos parâmetros de velocidade de corrente, estabilidade, intensidade de turbulência e do ângulo entre a corrente e o duto.
-Percebe-se que, à medida em que o parâmetro de estabilidade aumenta, a amplitude de resposta tende à diminuir, uma vez que este é proporcional ao amortecimento do sistema~\ref{eq:viv-Ks}.
-Para os casos 1, 2 e 3 temos: $K_S(1) = 1,64$; $K_S(2) = 0,66$ e $K_S(3) = 0,00$.
-
-O modelo de resposta \textit{cross-flow}~\ref{fig:viv-Resposta_CF}, apresenta amplificações para $V_R > 2$ e é função dos valores de KC e $\alpha$.
-Para fluxos dominados por corrente, com $\alpha = 1$, como os casos aqui apresentados, a máxima amplitude de \textit{cross-flow} ocorre exclusivamente quando o modo de vibração do duto corresponde ao primeiro modo simétrico com fluxos em regime permanente e equivale a 1,3D, conforme demonstrado na Figura~\ref{fig:viv-Resposta_CF}.
-
-Ambos os modelos implementados tiveram resultados consistentes com os valores encontrados no Documento de Verificação e na \textit{FatFree}.
 
 \section{Resposta \textit{multi-mode}}
 
-A resposta do vão livre pode ser calculada como uma função da posição $x$.
+A resposta do vão livre pode ser dada em função de uma coordenada $x$ ao longo da direção longitudinal do duto.
 Para cada combinação relevante de estado de mar e velocidade de corrente, um número de modos pode ser excitado simultaneamente na mesma direção, dando origem a uma resposta \textit{multi-mode}.
 Todavia, o número de modos que responderão e o quanto cada modo contribuirá para o dano por fadiga dependerá da velocidade do fluxo, da posição no eixo $x$ e da competição com outros modos.
-%varia, a depender da velocidade do fluxo, posição no eixo $x$ e competição com outros modos.
 
 A \dnvf105 define três diferentes tipos de modos:
 \begin{description}
-	\item[Modos ativos] são os modos que podem ser excitados por VIV.
-Um modo que não está ativo pode ser totalmente desconsiderado nas análises em todos os pontos e velocidades de fluxo.
+	\item[Modos ativos] são os modos que podem ser excitados por VIV. Com base no itém 2.3.3 da DNVGL-RP-F105, os critério para definição de para que um modo \textit{in-line}, com frequência $f_{IL,j}$, ou \textit{cross-flow}, com frequência $f_{CF,j}$, seja considerado ativo é:
+    
+    \begin{equation}
+        \begin{aligned}
+        f_{I L, j} & \leq \frac{U_{\text{extreme}} \gamma_{f,IL}}{V_{R,\text{onset}}^{IL} D} \\
+        f_{C F, j} & \leq \frac{U_{\text{extreme}} \gamma_{f,CF}}{2D}
+        \end{aligned}
+    \end{equation}
+    sendo $\gamma_{f,IL}$ e $\gamma_{f,CF}$ coeficientes de segurança, variando de 1 a 1,3 a depender da classe de segurança e nível de
+    definição do vão livre (item 2.7.2 da DNVGL-RP-F105).
+    Um modo que não passível de ativação pode ser totalmente desconsiderado nas análises em todos os pontos e velocidades de fluxo.
+	
+    \item[Modos participantes] são modos ativos que tem amplitude de tensão relevante em um, ou ambos os lados, de um ponto x. Para que um modo j seja considerado participante no vão, é necessário que a seguinte condição (presente no item 4.3.3) seja atendida:
+    $$
+    \left|A_{\textbf{IL/CF}, j}(x)\right| \geq \frac{A_{IL/CF}^{\max}}{10} \text{ para algum } x \in (x_{\text{start},j}, x_{\text{end}, j})
+    $$
+    sendo
+    $$
+    A_{IL/CF, j}(x) = (1+CSF) D \kappa_{j}(x) E r
+    $$
+    onde
+    
+    \begin{tabular}{rl}
+        $\mathit{CSF}$                            & fator de rigidez do concreto\\
+        $\kappa_{j}(x)$                           & curvatura do modo na posição $x$\\
+        $E$                                       & módulo de elasticidade\\
+        $r$                                       & coordenada radial da seção transversal do duto\\
+        $(x_{\text{start},j}, x_{\text{end}, j})$ & intervalo de influência do modo
+    \end{tabular}
 
-	\item[Modos participantes] são modos que tem amplitude de tensão relevante em um, ou ambos os lados, de um ponto x.
+	\item [Modos contribuintes] são modos participantes que deve satisfizer um dos seguintes critérios:
+    
+        \begin{itemize}
+    	\item direção \textit{cross-flow}: $(A_Z/D)_j \geq 0,1(A_Z/D)_\mathit{max}$
+    
+        \item direção \textit{in-line}: $S_{\mathit{IL}, \mathit{j}}^{P}(x) \geq 0,1 S_\mathit{IL}^\mathit{max}(x)$
+        \end{itemize}
 
-	\item [Modos contribuintes] são modos que podem ser caracterizados como dominantes ou fracos em um determinado ponto $x$. %Logo, um modo é contribuinte se for um modo participante e satisfizer um dos seguintes critérios:
-%
-%	para a direção \textit{cross-flow}:
-%
-%		\[(A_Z/D)_j \geq 0,1(A_Z/D)_\mathit{max}\]
-%
-%    e para a direção \textit{in-line}:
-%
-%		\[S_{\mathit{IL}, \mathit{j}}^{P}(x) \geq 0,1 S_\mathit{IL}^\mathit{max}(x)\]
-%
-%	onde $(A_Z/D)_j$ é a amplitude VIV normalizada para o j-ésimo modo, $(A_Z/D)_\mathit{max}$ é a amplitude VIV normalizada para o modo \textit{cross-flow} dominante, $S_{\mathit{IL}, \mathit{j}}^{P}(x)$ é a faixa de tensões de reposta preliminar para o j-ésimo modo \textit{in-line} e $S_\mathit{IL}^\mathit{max}(x)$ é a faixa de tensões de resposta associadas ao modo \textit{in-line} dominante.
+	onde $(A_Z/D)_j$ é a amplitude VIV normalizada para o j-ésimo modo, $(A_Z/D)_\mathit{max}$ é a amplitude VIV normalizada para o modo \textit{cross-flow}  dominante, $S_{\mathit{IL}, \mathit{j}}^{P}(x)$ é a amplitude de tensões de reposta preliminar para o j-ésimo modo \textit{in-line} e $S_\mathit{IL}^\mathit{max}(x)$ é a amplitude de tensões de resposta associadas ao modo \textit{in-line} dominante.
 
 \end{description}
 
-Baseado nos modelos de resposta \textit{single-mode}, podemos calcular as amplitudes do VIV para todos os modos.
-Assim, precisamos calcular VIV \textit{cross-flow} e \textit{in-line} para cada velocidade de corrente, estado de mar e em cada ponto da seguinte forma:
+Baseado nos modelos de resposta \textit{single-mode}, podemos calcular as amplitudes do VIV para todos os modos. \ref{procedure_il}
+Assim, precisamos calcular VIV \textit{cross-flow} e \textit{in-line} para cada velocidade de corrente, estado de mar e em cada ponto com se os seguintes procedimentos:
 
-\textbf{VIV \textit{cross-flow}}:
 \begin{itemize}
-\item Identificar todos os modos ativos ou participantes (\textit{single} ou \textit{multi} \textit{location})
-\item Com o modelo de resposta CF:
-	\begin{itemize}
-    \item Calcular a amplitude VIV normalizada para cada modo $(A_Z/D)_j$
+    
+\item VIV \textit{cross-flow}\label{procedure_il}
 
-	\item Identificar o modo dominante, isto é, $(A_Z/D)_\mathit{max}$
+\begin{enumerate}
+\item Identifica-se todos os modos participantes (\textit{single} ou \textit{multi location})
 
-    \item Identificar potenciais modos fracos: $0,1(A_Z/D)_\mathit{max} \leq (A_Z/D)_j \leq (A_Z/D)_\mathit{max}$
+\item Com o modelo de resposta \textit{cross-flow}:
+	\begin{enumerate}
+    \item Calcula-se a amplitude VIV normalizada para cada modo $(A_Z/D)_j$
 
-    \item Desconsiderar os modos irrelevantes: $(A_Z/D)_j$ < $0,1(A_Z/D)_\mathit{max}$
-    \end{itemize}
-\item Usar o modelo de resposta para baixos valores de Keulegan-Carpenter (\textit{low Keulegan Carpenter flow regime} - LKCR);
-	\begin{itemize}
-	\item Calcular $(A_Z/D)_j$ para cada modo.
-	\end{itemize}
-    \item Determinar a resposta de tensão combinada:
-        $$
-        S_{\mathit{comb}, \mathit{CF}} = \max\left( S_{\mathit{comb}, \mathit{CF}}^\mathit{RM} ~,~ S_{\mathit{comb}, \mathit{CF}}^\mathit{LKCR} \right)
-        $$
-\item Determinar a frequência de contagem de ciclos:
+	\item Identifica-se o modo dominante, isto é, $(A_Z/D)_\mathit{max}$
 
-$$
-f_{\mathit{cyc}, \mathit{CF}} =
-\left\{
-\begin{matrix}
-f_{\mathit{cyc}, \mathit{CF}}^\mathit{LKCR}, & S_{\mathit{comb},\mathit{CF}}^\mathit{RM}(x)    < S_{\mathit{comb},\mathit{CF}}^\mathit{LKCR}(x) & \\
-\\
-f_{\mathit{cyc}, \mathit{CF}}^\mathit{RM},   & S_{\mathit{comb},\mathit{CF}}^\mathit{RM}(x) \geq S_{\mathit{comb},\mathit{CF}}^\mathit{LKCR}(x)
-\end{matrix}
-\right.
-$$
+    \item Identificam-se os modos fracos $0,1(A_Z/D)_\mathit{max} \leq (A_Z/D)_j \leq (A_Z/D)_\mathit{max}$
+    
+    \item Desconsidera-se os modos irrelevantes: $(A_Z/D)_j$ < $0,1(A_Z/D)_\mathit{max}$
+    \end{enumerate}
 
+\item Usando o modelo de resposta para baixos valores de Keulegan-Carpenter (\textit{low Keulegan Carpenter flow regime} - LKCR), calcula-se $(A_Z/D)_j$ para cada modo.
+
+\item Determina-se a resposta de tensão combinada:
+    $$
+    S_{\mathit{comb}, \mathit{\textit{cross-flow}}} = \max\left( S_{\mathit{comb}, \mathit{\textit{cross-flow}}}^\mathit{RM} ~,~ S_{\mathit{comb}, \mathit{\textit{cross-flow}}}^\mathit{LKCR} \right)
+    $$
+
+\item Determina-se a frequência de contagem de ciclos:
+
+    $$
+    f_{\mathit{cyc}, \mathit{\textit{cross-flow}}} =
+    \left\{
+    \begin{matrix}
+    f_{\mathit{cyc}, \mathit{\textit{cross-flow}}}^\mathit{LKCR}, & S_{\mathit{comb},\mathit{\textit{cross-flow}}}^\mathit{RM}(x)    < S_{\mathit{comb},\mathit{\textit{cross-flow}}}^\mathit{LKCR}(x) & \\
+    \\
+    f_{\mathit{cyc}, \mathit{\textit{cross-flow}}}^\mathit{RM},   & S_{\mathit{comb},\mathit{\textit{cross-flow}}}^\mathit{RM}(x) \geq S_{\mathit{comb},\mathit{\textit{cross-flow}}}^\mathit{LKCR}(x)
+    \end{matrix}
+    \right.
+    $$
+
+\end{enumerate}
+
+\item VIV \textit{in-line}
+
+\begin{enumerate}
+    \item Identifica-se todos os modos participantes (\textit{single} ou \textit{multi location})
+    
+    \item Com o modelo de resposta \textit{in-line}:
+    
+    \begin{enumerate}
+    	\item Calcula-se a amplitude VIV normalizada para cada modo $(A_Y/D)_j$
+    
+    	\item Identifica-se o modo dominante, isto é, o modo com $S_\mathit{IL}^\mathit{max}(x)$
+    
+    	\item Identificam-se potenciais modos fracos: $0,1 S_\mathit{IL}^\mathit{max}(x) \leq S_{\mathit{IL}, \mathit{j}}^{P}(x) \leq S_\mathit{IL}^\mathit{max}(x)$
+    
+    	\item Desconsideram-se os modos irrelevantes: $S_{\mathit{IL}, \mathit{j}}^{P}(x) < 0,1 S_\mathit{IL}^\mathit{max}(x)$
+    \end{enumerate}
+
+        \item Reduzir os modos fracos.
+        Para VIV \textit{in-line}, dois modos adjacentes podem competir se suas frequências forem próximas, ou agir de forma independente se estiverem distantes.
+        A \dnvf105 define que os modos competem se a razão entre as frequências é menor que 2, isto é, $\frac{f_\mathit{n+1}}{f_n} < 2$.
+        Em modos adjacentes considera-se que apenas o "vencedor" da competição pode ter máxima amplificação, enquanto a amplificação do modo "perdedor" é reduzida à metade. É interessante ressaltar que modos que não competem não tem redução.
+    
+        \item Calcular o intervalo de tensões \textit{in-line} excitados pelo modo \textit{cross-flow} dominante $S_{\mathit{\textit{cross-flow}}-\mathit{IL}}(x)$.
+    
+        Para cada ponto e cada modo, calcula-se o intervalo de tensões induzido por VIV \textit{in-line} para os modos contribuintes:
+        		\[S_{\mathit{IL}, \mathit{j}}^\mathit{RM}(x) = S_{\mathit{IL}, \mathit{j}}^{P} \cdot 0,5^{\beta_j (x)}\]
+        
+        Assume-se que apenas o modo \textit{cross-flow} dominante é capaz de contribuir para o movimento \textit{in-line} induzido pelo modo transversal.
+        Desta forma, o modo \textit{in-line} participante cuja frequência natural é próxima a duas vezes a resposta \textit{cross-flow} dominante é escolhido como candidato a VIV \textit{in-line} induzido por \textit{cross-flow}.
+        
+        \[\mid f_{\mathit{IL}, \mathit{k}}^\mathit{part} - 2 \cdot f_{\mathit{\textit{cross-flow}-RES}, \mathit{i}} \mid\]
+        
+        O intervalo de tensões \textit{in-line} excitados pelo modo \textit{cross-flow} dominante é dado por:
+        
+       		\[S_{\mathit{\textit{cross-flow}}-\mathit{IL}}(x) = 0,8 \cdot A_{\mathit{IL}, \mathit{k}}~(x) \cdot \left(\frac{A_{z}}{D}\right)_\mathit{max}~\cdot~R_k \cdot \gamma_s\]
+    
+    \item Comparar $S_\mathit{IL}^\mathit{RM}(x)$ e $S_{\mathit{\textit{cross-flow}}-\mathit{IL}}(x)$ e escolher o maior;
+    
+    \item Determinar a faixa de resposta de tensão combinada, $S_{\mathit{comb}, \mathit{IL}}(x)$, e a frequência de contagem de ciclos, $f_{\mathit{cyc}, \mathit{IL}}$.
+    \end{enumerate}
 \end{itemize}
 
-\textbf{VIV \textit{in-line}}:
-\begin{itemize}
-\item Identificar todos os modos ativos ou participantes (\textit{single} ou \textit{multi location})
-\item Com o modelo de resposta IL:
-\begin{itemize}
-	\item Calcular a amplitude VIV normalizada para cada modo $(A_Y/D)_j$
-
-	\item Identificar o modo dominante, isto é, o modo com $S_\mathit{IL}^\mathit{max}(x)$
-
-	\item Identificar potenciais modos fracos: $0,1 S_\mathit{IL}^\mathit{max}(x) \leq S_{\mathit{IL}, \mathit{j}}^{P}(x) \leq S_\mathit{IL}^\mathit{max}(x)$
-
-	\item Desconsiderar os modos irrelevantes: $S_{\mathit{IL}, \mathit{j}}^{P}(x) < 0,1 S_\mathit{IL}^\mathit{max}(x)$
-\end{itemize}
-\item Reduzir os modos fracos.
-Para VIV \textit{in-line}, dois modos adjacentes podem competir se suas frequências forem próximas, ou agir de forma independente se estiverem distantes.
-A \dnvf105 define que os modos competem se a razão entre as frequências é menor que 2, isto é, $\frac{f_\mathit{n+1}}{f_n} < 2$.
-Em modos adjacentes considera-se que apenas o "vencedor" da competição pode ter máxima amplificação, enquanto a amplificação do modo "perdedor" é reduzida à metade. É interessante ressaltar que modos que não competem não tem redução.
-
-\item Calcular o intervalo de tensões \textit{in-line} excitados pelo modo \textit{cross-flow} dominante $S_{\mathit{CF}-\mathit{IL}}(x)$.
-
-Para cada ponto e cada modo, calcula-se o intervalo de tensões induzido por VIV \textit{in-line} para os modos contribuintes:
-		\[S_{\mathit{IL}, \mathit{j}}^\mathit{RM}(x) = S_{\mathit{IL}, \mathit{j}}^{P} \cdot 0,5^{\beta_j (x)}\]
-
-Assume-se que apenas o modo \textit{cross-flow} dominante é capaz de contribuir para o movimento \textit{in-line} induzido pelo modo transversal.
-Desta forma, o modo \textit{in-line} participante cuja frequência natural é próxima a duas vezes a resposta \textit{cross-flow} dominante é escolhido como candidato a VIV \textit{in-line} induzido por \textit{cross-flow}.
-
-\[\mid f_{\mathit{IL}, \mathit{k}}^\mathit{part} - 2 \cdot f_{\mathit{CF-RES}, \mathit{i}} \mid\]
-
-O intervalo de tensões \textit{in-line} excitados pelo modo \textit{cross-flow} dominante é dado por:
-
-		\[S_{\mathit{CF}-\mathit{IL}}(x) = 0,8 \cdot A_{\mathit{IL}, \mathit{k}}~(x) \cdot \left(\frac{A_{z}}{D}\right)_\mathit{max}~\cdot~R_k \cdot \gamma_s\]
-
-\item Comparar $S_\mathit{IL}^\mathit{RM}(x)$ e $S_{\mathit{CF}-\mathit{IL}}(x)$ e escolher o maior;
-\item Determinar a faixa de resposta de tensão combinada, $S_{\mathit{comb}, \mathit{IL}}(x)$, e a frequência de contagem de ciclos, $f_{\mathit{cyc}, \mathit{IL}}$.
-\end{itemize}
-
-
-\section{Esforço axial efetivo em dutos submarinos}
-
-Os dutos submarinos sofrem diferentes tipos de carregamentos, desde os referentes ao seu peso próprio, como à instalação, aos resultantes da operação, acidentes, carregamentos ambientais, entre outros.
-
-Para que os fluidos sejam transportados de forma eficiente, os dutos podem operar sob condições de altas temperaturas e pressões, sendo assim, os dutos tendem a se expandir axialmente encontrando uma resistência criada pela interação solo-estrutura.
-Essa resistência cria forças de reação com efeito compressivo ao longo do duto no sentido axial.
-Esses esforços axiais podem ser classificados como carregamentos operacionais~cite{Pereira2016}.
-
-Estando submetido a diversos carregamentos, o duto tende a buscar uma posição que exija menos esforços, distribuindo melhor a energia contida ao longo da linha, ocorrendo então o movimento de flambagem.
-A flambagem global é um fenômeno comum em dutos submersos em condições de operação de altas pressão e temperatura, ocorrendo principalmente quando um trecho do duto tem suas extremidades restringidas pela interação com o solo, impedindo que haja expansão.
-Neste cenário, o comportamento do duto se aproxima ao de uma viga de Euler em compressão, uma vez que a força axial efetiva é composta pela força axial real, as pressões externa e interna e suas respectivas áreas.
-
-Em se tratando de dutos enterrados, a flambagem ocorre verticalmente e pode ser controlada com o aumento da camada de solo necessária para acomodar as forças geradas pela expansão.
-Por outro lado, quando os dutos estão expostos no leito marinho ocorre flambagem lateral, que pode ser permitida desde que não afete a integridade do duto.
-
-Segundo~cite{Fyrileiv2005a} o método mais confiável de estimar a força axial efetiva é via análises numéricas de elementos finitos, uma vez que envolve diversas não linearidades como no comportamento do material, no contato e na geometria além de diversas outras incertezas como pressão e temperatura operacional, tensão residual de lançamento, flambagem lateral, multi-vãos e irregularidades significantes no solo.
-
-O efeito de fadiga em dutos considera, em algumas de suas causas, efeitos relacionados à temperatura e pressão, ou seja, esforços axiais.
-Segundo a \mbox{DNVGL-ST-F101}~cite{DNVF101} o efeito da fadiga em dutos é ocasionado por variações de tensões impostas ao sistema durante sua vida útil.
-As causas típicas das variações de tensão são:
-	\begin{itemize}
-		\item Ação direta das ondas;
-		\item Efeitos de VIV;
-		\item Movimentos de estruturas de suporte;
-		\item Variações das pressões e temperaturas de operação.
-	\end{itemize}
-
-
-
-
-
-%Desta forma, é observada uma relação entre esforço axial efetivo, flambagem e fadiga, efeitos que comprometem a integridade do duto
-
-%Sendo assim, é observada a importância do conceito de esforço axial efetivo em dutos submarinos conforme Eq.~\eqref{eq:viv-Seff}.
-%%, definido pela \mbox{DNVGL-ST-F101}~cite{DNVF101} como a máxima força axial efetiva, por meio de
-%%\begin{equation}
-%%\label{eq:jv-S}
-%%S = H - \Delta P_i A_i (1 - 2 \nu) - E A_S \alpha \Delta T
-%%\end{equation}
-%%onde
-%%
-%%\begin{tabular}{rl}
-%%	$H$          & tração residual de instalação\\
-%%	$\Delta P_i$ & variação de pressão interna (em relação à instalação)\\
-%%	$A_i$        & área da seção transversal interna do duto\\
-%%	$\nu$        & coeficiente de Poisson\\
-%%	$E$          & módulo de elasticidade\\
-%%	$A_S$        & área da seção transversal do duto\\
-%%	$\alpha$     & coeficiente de expansão térmica\\
-%%	$\Delta T$   & variação de temperatura (em relação à instalação)
-%%\end{tabular}
 
 
 \section{Avaliação de dutos em vão livre}
@@ -569,11 +530,11 @@ A etapa inicial é formada pelo levantamento dos dados do projeto e dos dados am
 O ambiente marinho será então descrito em termos probabilísticos com curvas de distribuição de ondas e corrente incidentes no duto, determinando as características de fluxo e os carregamentos hidrodinâmicos que agem no vão livre.
 
 \begin{figure}[hbt!]
-\begin{center}
+\centering
 % \includegraphics[width=1\textwidth]{viv-dnvchart}
 \caption{Visão geral dos componentes avaliados na recomendação técnica \dnvf105~\cite{DNV2017}.}
 \label{fig:viv-dnvchart}
-\end{center}
+
 \end{figure}
 
 Para classificar os vãos livres devemos, primeiro, definir seus parâmetros, cenários e saber quais são interativos e isolados.
@@ -581,11 +542,11 @@ De forma geral, um vão livre é considerado isolado quando entre ele e outro v�
 Entretanto, é possível que existam vãos separados onde ocorra interação entre eles (Figura~\ref{fig:viv-vaoisoint}).
 
 \begin{figure}[hbt!]
-\begin{center}
+\centering
 % \includegraphics[width=0.8\textwidth]{viv-vaoisoint}
 \caption{Vãos isolados~\cite{DNV2017}.}
 \label{fig:viv-vaoisoint}
-\end{center}
+
 \end{figure}
 
 Destarte, incluímos aqui uma definição mais precisa para avaliação de vãos livres isolados ou que interagem entre si.
@@ -596,11 +557,11 @@ Por outro lado, se considerássemos outros modos ativos, de forma que o comporta
 De forma análoga, a \dnvf105 mostra um típico cenário de vãos múltiplos interativos (Figura~\ref{fig:viv-vaomult}).
 
 \begin{figure}[hbt!]
-\begin{center}
+\centering
 % \includegraphics[width=0.8\textwidth]{viv-vaomult}
 \caption{Vãos múltiplos interativos~\cite{DNV2017}.}
 \label{fig:viv-vaomult}
-\end{center}
+
 \end{figure}
 
 A importância de classificar os vãos em isolados ou interativos está nas análises estáticas e modais de amplitude livre.
@@ -668,17 +629,17 @@ As mais baixas frequências naturais nas direções \textit{in-line} e \textit{c
 \begin{aligned}
 f_{\mathit{IL},1} &> \frac{U_\mathit{extreme} \cdot \gamma_{f, \mathit{IL}}}{ V_{R, \mathit{onset}}^\mathit{IL} D}\\
 \\
-f_{\mathit{CF},1} &> \frac{U_\mathit{extreme} \cdot \gamma_{f, \mathit{CF}}}{2 D}
+f_{\mathit{\textit{cross-flow}},1} &> \frac{U_\mathit{extreme} \cdot \gamma_{f, \mathit{\textit{cross-flow}}}}{2 D}
 \end{aligned}\\
 \end{equation}
 onde
 
 \begin{tabular}{rl}
 	$U_\mathit{extreme}$                                  & evento ambiental característico\\
-	$\gamma_{f,\mathit{IL}}$  e  $\gamma_{f,\mathit{CF}}$ & fatores de segurança na respectiva frequência (conforme determinado \\
+	$\gamma_{f,\mathit{IL}}$  e  $\gamma_{f,\mathit{\textit{cross-flow}}}$ & fatores de segurança na respectiva frequência (conforme determinado \\
  	                                                      & na \dnvf105)\\
 	$V_{R,\mathit{onset}}^\mathit{IL}$                    & valor da  velocidade de corrente que inicia VIV \textit{in-line}\\
-	$D$                                                   & diâmetro externo no duto, incluindo revestimento (diâmetro hidrodinâmico)\\
+	$D$                                                   & diâmetro externo no duto, incluindo revestimento
 \end{tabular}\\
 Logo, se as inequações forem atendidas, não é esperado que ocorra VIV durante o período de exposição do projeto.
 
@@ -741,17 +702,17 @@ A seguir são analisados dois modos de vibração, correspondendo às duas dire�
 		$\overline{\alpha}$       & relação entre as velocidades de fluxo da correnteza e da onda\footnote{É um parâmetro indicativo do regime de fluxo, isto é, se o fluxo é dominado por ação de ondas, correntes ou intermediário}
 	\end{tabular}
 
-	\item De forma semelhante, para vibrações \textit{cross-flow}, tem-se o cálculo das frequências naturais, $f_{\mathit{CF},j}$, dado por
+	\item De forma semelhante, para vibrações \textit{cross-flow}, tem-se o cálculo das frequências naturais, $f_{\mathit{\textit{cross-flow}},j}$, dado por
 	\begin{equation}
 	\label{eq:viv-eqcf}
-	\frac{f_{\mathit{CF},j}}{\gamma_\mathit{CF}} > \frac{U_{c,100-\mathit{year}} + U_{w,1-\mathit{year}}}{ V_{R,\mathit{onset}}^{\mathit{CF}} D}
+	\frac{f_{\mathit{\textit{cross-flow}},j}}{\gamma_\mathit{\textit{cross-flow}}} > \frac{U_{c,100-\mathit{year}} + U_{w,1-\mathit{year}}}{ V_{R,\mathit{onset}}^{\mathit{\textit{cross-flow}}} D}
 	\end{equation}
 	onde
 
 	\begin{tabular}{rl}
-		$\gamma_\mathit{CF}$               & fator de segurança \textit{cross-flow}\\
+		$\gamma_\mathit{\textit{cross-flow}}$               & fator de segurança \textit{cross-flow}\\
 		$U_{w,1-\mathit{year}}$            & velocidade da onda incidente no duto para um período de recorrência de 1 ano\\
-		$V_{R,\mathit{onset}}^\mathit{CF}$ & valor da  velocidade de corrente para vibração \textit{cross-flow}
+		$V_{R,\mathit{onset}}^\mathit{\textit{cross-flow}}$ & valor da  velocidade de corrente para vibração \textit{cross-flow}
 	\end{tabular}
 \end{itemize}
 
@@ -774,11 +735,10 @@ onde $n_i$ corresponde ao número total de ciclos de tensão correspondente à f
 O número $N_i$, definido na curva S-N, relaciona o carregamento aplicado com o número de ciclos para falha (Figura~\ref{fig:viv-sncurve}).
 A curva escolhida deve levar em consideração o material, a localização da falha inicial e o ambiente de corrosão.
 \begin{figure}[hbt!]
-\begin{center}
+\centering
 % \includegraphics[width=0.6\textwidth]{viv-sncurve}
 \caption{Curva SN típica~\cite{DNV2017}.}
 \label{fig:viv-sncurve}
-\end{center}
 \vspace{-0.7cm}
 \end{figure}
 
@@ -791,7 +751,7 @@ Em geral, os carregamentos considerados por este critério são:
 	\item \textbf{Direção Vertical}:
 	\begin{itemize}
 		\item Flexão estática (peso próprio, perfil do solo etc);
-		\item VIV CF;
+		\item VIV \textit{cross-flow};
 		\item Arrasto.
 	\end{itemize}
 	\item \textbf{Direção Horizontal}:
