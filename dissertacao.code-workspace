@@ -13,6 +13,18 @@
 			"titleBar.activeBackground": "#503C28",
 			"titleBar.activeForeground": "#FCFAF9"
 		},
-		"editor.minimap.maxColumn": 50
+		"editor.minimap.maxColumn": 50,
+		"editor.wordWrap": "on",
+		"cSpell.words": [
+			"DNVGL",
+			"Keulegan",
+			"Kármán",
+			"abntex"
+		],
+		"latex-workshop.chktex.enabled": true,
+		"extensions.showRecommendationsOnlyOnDemand": true,
+		"git.autofetch": true,
+		"latex-workshop.synctex.afterBuild.enabled": true,
+		"latex-workshop.latex.recipe.default": "lastUsed"
 	}
 }

@@ -1,21 +1,59 @@
 {
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#392B1D",
-        "titleBar.activeBackground": "#503C28",
-        "titleBar.activeForeground": "#FCFAF9"
+    "cSpell.language": "pt-BR,en",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        ////// Latex files //////
+        // Core latex/pdflatex auxiliary files:
+        "**/*.aux": true,
+        "**/*.lof": true,
+        "**/*.log": true,
+        "**/*.lot": true,
+        "**/*.fls": true,
+        "**/*.out": true,
+        "**/*.toc": true,
+        "**/*.fmt": true,
+        "**/*.fot": true,
+        "**/*.cb": true,
+        "**/*.cb2": true,
+        "**/.*.lb": true,
+        "**/*.idx": true,
+        "**/*.ps": true,
+        "**/*.ind": true,
+        "**/*.ilg": true,
+        "**/__*": true,
+        // Intermediate documents:
+        "**/*.dvi": true,
+        "**/*.xdv": true,
+        // Bibliography auxiliary files (bibtex/biblatex/biber):
+        "**/*.bbl": true,
+        "**/*.bcf": true,
+        "**/*.blg": true,
+        "**/*-blx.aux": true,
+        "**/*-blx.bib": true,
+        "**/*.brf": true,
+        "**/*.run.xml": true,
+        // Build tool auxiliary files:
+        "**/*.synctex": true,
+        "**/*.synctex(busy)": true,
+        "**/*.synctex.gz": true,
+        "**/*.synctex.gz(busy)": true,
+        "**/*_latexmk": true,
+        // Outros:
+        "**/.directory": true,
     },
     "cSpell.words": [
-        "Batchelor",
-        "Identa",
+        "DNVGL",
+        "Indenta",
+        "Keulegan",
         "Kármán",
-        "PPGEC",
+        "LKCR",
         "Strouhal",
         "abntex",
-        "identação"
-    ],
-    "editor.fontSize": 14,
-    "editor.wordWrap": "on",
-    "cSpell.language": "en,pt-BR",
-    "search.useGlobalIgnoreFiles": true,
-    "explorer.autoReveal": false
+        "indentação",
+        "interar"
+    ]
 }

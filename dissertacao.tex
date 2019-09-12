@@ -34,7 +34,7 @@
 \usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
-\usepackage{indentfirst}		% Identa o primeiro parágrafo de cada seção.
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx,graphicx}	% Inclusão de gráficos
 \usepackage{epsfig,subfig}		% Inclusão de figuras
@@ -54,6 +54,7 @@
 \usepackage{svg}
 \counterwithin{figure}{chapter}         % Para numerar figuras por capítulo
 \usepackage{enumerate}
+\usepackage[most]{tcolorbox}
 %\usepackage{tocloft}
 %\setlength{\cftfignumwidth}{4em}% change 4em to suit
 % ---------------------
@@ -84,7 +85,7 @@
 % Configurações da fonte do texto
 \include{extras/conf_font}
 
-% O tamanho da identação do parágrafo é dado por:
+% O tamanho da indentação do parágrafo é dado por:
 \setlength{\parindent}{1.3cm}
 
 % Controle do espaçamento entre um parágrafo e outro:
@@ -137,12 +138,12 @@
 %\include{pretextual/epigrafe}
 
 % Resumo e Abstract
-\include{pretextual/resumos}
+% \include{pretextual/resumos}
 
 % Lista de ilustrações
-\pdfbookmark[0]{\listfigurename}{lof}
-\listoffigures*
-\cleardoublepage
+% \pdfbookmark[0]{\listfigurename}{lof}
+% \listoffigures*
+% \cleardoublepage
 
 % Lista de tabelas
 \pdfbookmark[0]{\listtablename}{lot}
@@ -150,10 +151,10 @@
 \cleardoublepage
 
 % Lista de abreviaturas e siglas
-\begin{siglas}
- 	\item[MEF] Método dos Elementos Finitos
-	\item[VIV] Vibração Induzida por Vórtice
-\end{siglas}
+% \begin{siglas}
+%  	\item[MEF] Método dos Elementos Finitos
+% 	\item[VIV] Vibração Induzida por Vórtice
+% \end{siglas}
 
 % Lista de símbolos
 %\begin{simbolos}
@@ -177,20 +178,18 @@
 % \pagestyle{simple}
 
 % Atalhos para escritas comuns
-\def\integrispan{IntegriSpan}
-\def\integridutos{IntegriDutos}
 \def\fatfree{FatFree}
 \def\dnvf105{DNVGL-RP-F105}
 \def\abaqus{Abaqus}
-\def\petrobras{Petrobras}
+%\def\petrobras{Petrobras}
 
 % ----------------------------------------------------------
 % TEXTO DA DISSERTAÇÃO
 % ----------------------------------------------------------
-%\include{capitulos/intro}
-\include{capitulos/viv}
+\include{capitulos/intro}
+%\include{capitulos/viv}
 %\include{capitulos/assentamento}
-%\include{capitulos/software}
+\include{capitulos/software}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS (Referências, Glossário, Apêndices)

@@ -17,8 +17,7 @@ A frequência do desprendimento de vórtices causado por um fluxo normal ao obst
 O número de Strouhal pode ser obtido pela expressão $S_t = (f L) / V$, onde $f$ é a frequência de vórtices, $L$ é o comprimento característico e $V$ é a velocidade do fluxo.
 Quando a velocidade do fluxo alcança uma das frequências naturais da estrutura, ela começa a vibrar e estas duas vibrações se correlacionam, causando vibrações de grande amplitude e grande dano (\textit{lock-in}) \cite{Mork2003}.
 
-Como os dutos são geralmente modelados como cilindros, é importante entender como funciona o comportamento do fluxo de fluido ao redor dessa estrutura.
-Ao estudar vibrações de cilindros em corrente constante, inicia-se o desprendimento de vórtices quando o número de Reynolds, $R_e = (U\cdot D)/\nu$, é maior que $40$, onde $U$ é a velocidade do fluxo, $D$ é o diâmetro do cilindro e $\nu$ é a viscosidade cinemática~\cite{Sumer1995}.
+Como os dutos são geralmente modelados como cilindros, é importante entender como funciona o comportamento do fluxo de fluido ao redor dessa estrutura. Segundo \apudonline{Sumer1995}{Batchelor1967}, ao estudar vibrações de cilindros em corrente constante, inicia-se o desprendimento de vórtices quando o número de Reynolds, $R_e = (U\cdot D)/\nu$, é maior que $40$, onde $U$ é a velocidade do fluxo, $D$ é o diâmetro do cilindro e $\nu$ é a viscosidade cinemática~\cite{Sumer1995}.
 
 O desprendimento de vórtices induz uma variação cíclica de forças no cilindro.
 Assim, enquanto uma força de sustentação (\textit{lift force}) oscila à mesma frequência do desprendimento de vórtices, a força de arrasto (\textit{drag force}) oscila à duas vezes esta mesma frequência~\cite{Sumer1995}.
@@ -446,18 +445,18 @@ Assim, precisamos calcular VIV \textit{cross-flow} e \textit{in-line} para cada 
 
 \item Determina-se a resposta de tensão combinada:
     $$
-    S_{\mathit{comb}, \mathit{\textit{cross-flow}}} = \max\left( S_{\mathit{comb}, \mathit{\textit{cross-flow}}}^\mathit{RM} ~,~ S_{\mathit{comb}, \mathit{\textit{cross-flow}}}^\mathit{LKCR} \right)
+    S_{\mathit{comb}, \mathit{CF}} = \max\left( S_{\mathit{comb}, \mathit{CF}}^\mathit{RM} ~,~ S_{\mathit{comb}, \mathit{CF}}^\mathit{LKCR} \right)
     $$
 
 \item Determina-se a frequência de contagem de ciclos:
 
     $$
-    f_{\mathit{cyc}, \mathit{\textit{cross-flow}}} =
+    f_{\mathit{cyc}, \mathit{CF}} =
     \left\{
     \begin{matrix}
-    f_{\mathit{cyc}, \mathit{\textit{cross-flow}}}^\mathit{LKCR}, & S_{\mathit{comb},\mathit{\textit{cross-flow}}}^\mathit{RM}(x)    < S_{\mathit{comb},\mathit{\textit{cross-flow}}}^\mathit{LKCR}(x) & \\
+    f_{\mathit{cyc}, \mathit{CF}}^\mathit{LKCR}, & S_{\mathit{comb},\mathit{CF}}^\mathit{RM}(x)    < S_{\mathit{comb},\mathit{CF}}^\mathit{LKCR}(x) & \\
     \\
-    f_{\mathit{cyc}, \mathit{\textit{cross-flow}}}^\mathit{RM},   & S_{\mathit{comb},\mathit{\textit{cross-flow}}}^\mathit{RM}(x) \geq S_{\mathit{comb},\mathit{\textit{cross-flow}}}^\mathit{LKCR}(x)
+    f_{\mathit{cyc}, \mathit{CF}}^\mathit{RM},   & S_{\mathit{comb},\mathit{CF}}^\mathit{RM}(x) \geq S_{\mathit{comb},\mathit{CF}}^\mathit{LKCR}(x)
     \end{matrix}
     \right.
     $$
@@ -484,7 +483,7 @@ Assim, precisamos calcular VIV \textit{cross-flow} e \textit{in-line} para cada 
         \item Reduzir os modos fracos.
         Para VIV \textit{in-line}, dois modos adjacentes podem competir se suas frequências forem próximas, ou agir de forma independente se estiverem distantes.
         A \dnvf105 define que os modos competem se a razão entre as frequências é menor que 2, isto é, $\frac{f_\mathit{n+1}}{f_n} < 2$.
-        Em modos adjacentes considera-se que apenas o "vencedor" da competição pode ter máxima amplificação, enquanto a amplificação do modo "perdedor" é reduzida à metade. É interessante ressaltar que modos que não competem não tem redução.
+        Em modos adjacentes considera-se que apenas o "vencedor"\ da competição pode ter máxima amplificação, enquanto a amplificação do modo "perdedor"\ é reduzida à metade. É interessante ressaltar que modos que não competem não tem redução.
     
         \item Calcular o intervalo de tensões \textit{in-line} excitados pelo modo \textit{cross-flow} dominante $S_{\mathit{\textit{cross-flow}}-\mathit{IL}}(x)$.
     
@@ -496,348 +495,18 @@ Assim, precisamos calcular VIV \textit{cross-flow} e \textit{in-line} para cada 
         
         \[\mid f_{\mathit{IL}, \mathit{k}}^\mathit{part} - 2 \cdot f_{\mathit{\textit{cross-flow}-RES}, \mathit{i}} \mid\]
         
-        O intervalo de tensões \textit{in-line} excitados pelo modo \textit{cross-flow} dominante é dado por:
+        A amplitude de tensões \textit{in-line} excitados pelo modo \textit{cross-flow} dominante é dado por:
         
-       		\[S_{\mathit{\textit{cross-flow}}-\mathit{IL}}(x) = 0,8 \cdot A_{\mathit{IL}, \mathit{k}}~(x) \cdot \left(\frac{A_{z}}{D}\right)_\mathit{max}~\cdot~R_k \cdot \gamma_s\]
+       		\[S_{\mathit{CF-IL}}(x) = 0,8 \cdot A_{\mathit{IL}, \mathit{k}}~(x) \cdot \left(\frac{A_{z}}{D}\right)_\mathit{max}~\cdot~R_k \cdot \gamma_s\]
     
-    \item Comparar $S_\mathit{IL}^\mathit{RM}(x)$ e $S_{\mathit{\textit{cross-flow}}-\mathit{IL}}(x)$ e escolher o maior;
+    \item  Escolher o maior $S_\mathit{IL}^\mathit{RM}(x)$ e $S_{\mathit{CF-IL}}(x)$ para cada modo;
     
-    \item Determinar a faixa de resposta de tensão combinada, $S_{\mathit{comb}, \mathit{IL}}(x)$, e a frequência de contagem de ciclos, $f_{\mathit{cyc}, \mathit{IL}}$.
+    \item Determinar a faixa de resposta de tensão combinada,
+    
+    \[S_{comb,IL}(x)=\sqrt{\sum_{j=1}^{m_{aig}}\left(S_{IL,j}(x)\right)^{2}}\]
+    
+    e a frequência de contagem de ciclos,
+    
+    \[f_{cyc,IL}(x)=\sqrt{\sum_{j=1}^{m_{\text{ug}}}\left(f_{\text {IL}, j}^{con} \cdot \frac{S_{IL,j}(x)}{S_{comb,IL}(x)}\right)^{2}}\]
     \end{enumerate}
 \end{itemize}
-
-
-
-\section{Avaliação de dutos em vão livre}
-
-O objetivo da recomendação prática \dnvf105 é fornecer os critérios de projeto e recomendações práticas para aplicação em dutos em vão livre sujeitos à ação combinada de ondas e correntes.
-Os critérios de projeto são específicos para análises de Estado Limite último (ULS) e Estado Limite de Fadiga (FLS) devido a VIV \textit{in-line} e \textit{cross-flow}, segundo a \dnvf105.
-
-Alguns pontos devem ser considerados na avaliação:
-\begin{itemize}
-\item A análise de fadiga deve levar em consideração um período de tempo representativo em que o duto esteja efetivamente em vão livre.
-cite{Fyrileiv1998} mostram que devido ao tipo e condições do solo, os vãos desenvolvem-se continuamente, aparecendo ou desaparecendo.
-
-\item Integrar sobre todos os ciclos de tensões, para cada mudança ambiental, desenvolvimento do vão e mudanças nas condições operacionais~cite{Mork1999}. É uma fase de extrema importância, dado que cada variação de tensão que seja capaz de gerar dano deve ser levada em consideração.
-
-\item Devem ser verificadas todas as seções do duto que possam contribuir para o dano geral em todos os modos de vibração.
-
-\item Cálculo confiável das frequências naturais e dos modos associados.
-\end{itemize}
-
-De acordo com a Figura~\ref{fig:viv-dnvchart}, é possível identificar um fluxo de trabalho para a avaliação.
-A etapa inicial é formada pelo levantamento dos dados do projeto e dos dados ambientais.
-O ambiente marinho será então descrito em termos probabilísticos com curvas de distribuição de ondas e corrente incidentes no duto, determinando as características de fluxo e os carregamentos hidrodinâmicos que agem no vão livre.
-
-\begin{figure}[hbt!]
-\centering
-% \includegraphics[width=1\textwidth]{viv-dnvchart}
-\caption{Visão geral dos componentes avaliados na recomendação técnica \dnvf105~\cite{DNV2017}.}
-\label{fig:viv-dnvchart}
-
-\end{figure}
-
-Para classificar os vãos livres devemos, primeiro, definir seus parâmetros, cenários e saber quais são interativos e isolados.
-De forma geral, um vão livre é considerado isolado quando entre ele e outro vão houver uma faixa considerada com contato duto-solo, conforme o exemplo demonstrado na Figura~\ref{fig:freespan}.
-Entretanto, é possível que existam vãos separados onde ocorra interação entre eles (Figura~\ref{fig:viv-vaoisoint}).
-
-\begin{figure}[hbt!]
-\centering
-% \includegraphics[width=0.8\textwidth]{viv-vaoisoint}
-\caption{Vãos isolados~\cite{DNV2017}.}
-\label{fig:viv-vaoisoint}
-
-\end{figure}
-
-Destarte, incluímos aqui uma definição mais precisa para avaliação de vãos livres isolados ou que interagem entre si.
-Um vão livre será considerado isolado quando seu comportamento, seja estático ou dinâmico, não for afetado por outros vãos na vizinhança.
-Assim, na Figura~\ref{fig:viv-vaoisoint}, se considerarmos que os modos representados são os únicos modos ativos, isto é, todos os modos que podem ser excitados por VIV, estes dois vãos não exercem influência um sobre o outro.
-
-Por outro lado, se considerássemos outros modos ativos, de forma que o comportamento dinâmico de cada vão fosse afetado pelo outro, teríamos vãos múltiplos interativos.
-De forma análoga, a \dnvf105 mostra um típico cenário de vãos múltiplos interativos (Figura~\ref{fig:viv-vaomult}).
-
-\begin{figure}[hbt!]
-\centering
-% \includegraphics[width=0.8\textwidth]{viv-vaomult}
-\caption{Vãos múltiplos interativos~\cite{DNV2017}.}
-\label{fig:viv-vaomult}
-
-\end{figure}
-
-A importância de classificar os vãos em isolados ou interativos está nas análises estáticas e modais de amplitude livre.
-Os multi-vãos interativos não podem ser avaliados usando abordagens isoladas de um único vão, pois se estes interagem é possível observar os seguintes efeitos:
-
-	\begin{itemize}
-		\item Diminuição de frequências modais;
-		\item Diminuição das tensões modais associadas;
-		\item Alterações na deflexão estática;
-		\item Modos adicionais podem responder ao VIV ou carregamentos direto de ondas.
-	\end{itemize}
-
-Como o efeito da fadiga e cargas ambientais dependem da resposta modal do duto, as consequências das interações devem ser consideradas.
-
-A interação entre os modos, segundo a \dnvf105, depende da rigidez à flexão do duto, rigidez axial, \textit{gap}, rigidez do solo, força axial efetiva, comprimento do vão, comprimento dos ombros intermediários e geometria do ombro.
-Para~cite{Ilstad2005}, num cenário de vãos múltiplos, o comprimento e a interação entre vãos depende diretamente da rigidez do solo nos ombros, visto que, a depender das condições de solo, a reação de apoio pode ser bem distribuída, no caso de solos elásticos, ou concentradas, em solos mais rígidos.
-
-Outro importante fator diz respeito ao comportamento da resposta do duto por meio da relação $L/D$, conforme a Tabela~\ref{tab:viv-caracvao}, onde $L$ é o comprimento e $D$ é o diâmetro do duto.
-
-\begin{table}[ht!]
-	\renewcommand{\arraystretch}{1.2}
- 	\small
- 	\centering
- 	\caption{Características do vão livre.}
- 	\label{tab:viv-caracvao}
- 	\begin{tabular}{cl}
-	 	\toprule
-	 	$L/D$             & Resposta\\
-	 	\midrule
-	 	% \rowcolor{gray!20}
-	 	$L/D < 30$        & Pouca amplificação dinâmica. \\
-	 	$30 < L/D < 100$  & Resposta dominada por comportamento de viga. \\
-	 	% \rowcolor{gray!20}
-	 	$100 < L/D < 200$ & Resposta dominada por comportamento combinado de viga e cabo. \\
-	 	$L/D < 200$       & Resposta dominada por comportamento de cabo. \\
-	 	\bottomrule
- 	\end{tabular}
-\end{table}
-
-Ainda que a recomendação prática estabeleça vários limites de resposta, a literatura mostra que dutos com vãos longos são aqueles com $L/D > 150$~cite{Ilstad2005}.
-Um experimento interessante acerca dessa relação foi realizado por~cite{Nielsen2002}, onde ficou comprovado que para razões $L/D$ menores ($L/D \leq 100$) o duto tem o comportamento de viga e, do contrário ($L/D \geq 200$), comportamento de cabo.
-Vale ressaltar que, à época do trabalho~cite{Nielsen2002}, a prática era relevante para vãos livres com razão $L/D \leq 120$.
-
-\section{Critérios de Projeto}
-
-Segundo~cite{Mork2003}, é comum que se permitam os vãos livres, desde que a integridade do duto não seja comprometida.
-Isto é, se os dois critérios, FLS e ULS, forem atendidos, VIV e carregamento de onda direta são aceitáveis~\cite{DNV2017}.
-Para tanto, todos os modos ativos são considerados nos cálculos dos critérios FLS e ULS~\cite{Mork2003}.
-
-A \dnvf105 explica que, após a definição de diâmetro, material, espessura, potenciais trincheira e revestimento, deve-se verificar a eventual ocorrência de flambagem global e como liberar a força axial efetiva antes mesmo de avaliar os vãos livres.
-cite{Skomedal1991} salienta que a força efetiva é um fator importante para o comportamento de um duto em vão livre.
-
-Como os vãos estão sujeitos a carregamentos ambientais, é fácil perceber sua característica não estacionária.
-A \dnvf105 separa os vãos-livres em duas categorias: àqueles induzidos por \textit{scouring}, em outras palavras, causados por erosão ou ondulações, onde o cenário do vão pode mudar com o tempo; e induzido por irregularidades, causado pelo perfil irregular do solo, embora não mude com o tempo, pode ser influenciado pelas condições operacionais.
-Acerca do \textit{scouring},~cite{Sumer1995} reinteram que os vãos desenvolvidos por este fenômeno tendem a mudar de localização rotineiramente.
-Devido a isto, há maiores desafios na avaliação desta categoria de vãos~cite{Mork1999}.
-
-O critério de prevenção de VIV aventado pela recomendação prática é aplicado para determinar se considerar-se-á VIV no cálculo de FLS e ULS para um vão livre.
-Consequentemente, se algum dos critérios for violado, pode ser aplicado o critério \textit{fatigue screening}, ou serão aplicados os cálculos de fadiga completa e cálculos de carregamentos ambientais extremos.
-Outrossim, para o caso de fluxo dominado por ondas, os cálculos de fadiga completa e carregamentos ambientais extremos devem ser realizados de toda forma.
-
-As mais baixas frequências naturais nas direções \textit{in-line} e \textit{cross-flow} são dadas, respectivamente, por
-\begin{equation}
-\label{eq:viv-ineq}
-\begin{aligned}
-f_{\mathit{IL},1} &> \frac{U_\mathit{extreme} \cdot \gamma_{f, \mathit{IL}}}{ V_{R, \mathit{onset}}^\mathit{IL} D}\\
-\\
-f_{\mathit{\textit{cross-flow}},1} &> \frac{U_\mathit{extreme} \cdot \gamma_{f, \mathit{\textit{cross-flow}}}}{2 D}
-\end{aligned}\\
-\end{equation}
-onde
-
-\begin{tabular}{rl}
-	$U_\mathit{extreme}$                                  & evento ambiental característico\\
-	$\gamma_{f,\mathit{IL}}$  e  $\gamma_{f,\mathit{\textit{cross-flow}}}$ & fatores de segurança na respectiva frequência (conforme determinado \\
- 	                                                      & na \dnvf105)\\
-	$V_{R,\mathit{onset}}^\mathit{IL}$                    & valor da  velocidade de corrente que inicia VIV \textit{in-line}\\
-	$D$                                                   & diâmetro externo no duto, incluindo revestimento
-\end{tabular}\\
-Logo, se as inequações forem atendidas, não é esperado que ocorra VIV durante o período de exposição do projeto.
-
-
-A condição ambiental característica utilizada nesse critério deve refletir a resposta extrema mais provável de acontecer para um dado período de exposição.
-Para condições operacionais permanentes e fases temporárias com duração superior a 12 meses, aplica-se um período de retorno de 100 anos.
-E, caso não estejam disponíveis informações acerca da probabilidade conjunta de ondas e corrente, aplica-se a mais severa dentre as condições a seguir:
-\begin{itemize}
-\item A condição de retorno de 100 anos para \textbf{ondas} combinada com a condição de retorno de 10 anos para \textbf{corrente}.
-\item A condição de retorno de 10 anos para \textbf{ondas} combinada com a condição de retorno de 100 anos para \textbf{corrente}.
-\end{itemize}
-Assim, o evento ambiental característico é dado por
-\begin{equation}
-U_\mathit{extreme} = \max\left( U_{c,100-\mathit{year}} + U_{w,10-\mathit{year}} ~,~ U_{c,10-\mathit{year}} + U_{w,100-\mathit{year}} \right)
-\end{equation}
-onde
-
-\begin{tabular}{rl}
-$U_{c,i-\mathit{year}}$ & $i$-ésimo período de retorno para o componente perpendicular da corrente \\
-                        & no nível do duto\\
-$U_{w,i-\mathit{year}}$ & $i$-ésimo período de retorno para o componente perpendicular da velocidade \\
-                        & significante de fluxo induzido por onda no nível do duto
-\end{tabular}
-
-
-Para fases temporárias entre 3 dias e 12 meses, aplica-se um período de retorno de 10 anos.
-Uma aproximação para esta condição é tirada da mais severa entre as condições abaixo:
-\begin{itemize}
-\item A condição de retorno de 10 anos para \textbf{ondas} combinada com a condição de retorno de 1 ano para \textbf{corrente}.
-\item A condição de retorno de 1 ano para \textbf{ondas} combinada com a condição de retorno de 10 anos para \textbf{corrente}.
-\end{itemize}
-
-Logo, o evento ambiental característico é dado por
-\begin{equation}
-U_\mathit{extreme} =  \max\left( U_{c,10-\mathit{year}} + U_{w,1-\mathit{year}} ~,~ U_{c,1-\mathit{year}} + U_{w,10-{year}} \right)
-\end{equation}
-
-A proposta do critério \textit{screening} é permitir um dano por fadiga causado por VIV decorrente de carregamentos de corrente e onda combinados.
-Assim, calibra-se a formulação de tal forma que se permita que esta vida a fadiga seja superior a 50 anos.
-Assume-se, então, que a resposta de vibração ocorre no primeiro modo de vibração e, caso isto seja violado, é crucial uma análise mais detalhada de fadiga, lembrando sempre de verificar o critério ULS.
-A seguir são analisados dois modos de vibração, correspondendo às duas direções de fluxo, \textit{in-line} e \textit{cross-flow}.
-
-\begin{itemize}
-	\item Para vibrações \textit{in-line}, tem-se que as frequências naturais, $f_{\mathit{IL},j}$, é dada por
-	\begin{equation}
-	\label{eq:viv-eqil}
-	\frac{f_{\mathit{IL},j}}{\gamma_\mathit{IL}} > \frac{U_{c,100-\mathit{year}}}{V_{R, D \mathit{onset}}^\mathit{IL}} \left( 1 - \frac{L/D}{250}\right) \frac{1}{\overline{\alpha}}
-	\end{equation}
-	com
-	\begin{equation}
-	\overline{\alpha} = {U_{c,100-\mathit{year}}}/{(U_{w,1-\mathit{year}} + U_{c,100-\mathit{year}})}
-	\end{equation}
-	onde
-
-	\begin{tabular}{rl}
-		$\gamma_\mathit{IL}$      & fator de segurança \textit{in-line}\\
-		$U_{c,100-\mathit{year}}$ & velocidade de corrente no nível do duto para um período de recorrência \\
-		                          & de 100 anos\\
-		$L$                       & comprimento do vão livre\\
-		$\overline{\alpha}$       & relação entre as velocidades de fluxo da correnteza e da onda\footnote{É um parâmetro indicativo do regime de fluxo, isto é, se o fluxo é dominado por ação de ondas, correntes ou intermediário}
-	\end{tabular}
-
-	\item De forma semelhante, para vibrações \textit{cross-flow}, tem-se o cálculo das frequências naturais, $f_{\mathit{\textit{cross-flow}},j}$, dado por
-	\begin{equation}
-	\label{eq:viv-eqcf}
-	\frac{f_{\mathit{\textit{cross-flow}},j}}{\gamma_\mathit{\textit{cross-flow}}} > \frac{U_{c,100-\mathit{year}} + U_{w,1-\mathit{year}}}{ V_{R,\mathit{onset}}^{\mathit{\textit{cross-flow}}} D}
-	\end{equation}
-	onde
-
-	\begin{tabular}{rl}
-		$\gamma_\mathit{\textit{cross-flow}}$               & fator de segurança \textit{cross-flow}\\
-		$U_{w,1-\mathit{year}}$            & velocidade da onda incidente no duto para um período de recorrência de 1 ano\\
-		$V_{R,\mathit{onset}}^\mathit{\textit{cross-flow}}$ & valor da  velocidade de corrente para vibração \textit{cross-flow}
-	\end{tabular}
-\end{itemize}
-
-O critério de fadiga é formulado como
-\begin{equation}
-\label{eq:viv-eqfat}
-\eta T_\mathit{life} \geq T_\mathit{exposure}\\
-\end{equation}
-onde $\eta$ é a taxa de dano por fadiga permitida, $T_\mathit{life}$ é a capacidade de vida do projeto, e
-$T_\mathit{exposure}$ é o tempo de vida do projeto ou o tempo de exposição ao carregamento.
-
-A avaliação do dano por fadiga é baseado na lei de acumulação de Palmgren-Miner, onde o incremento de dano por ciclo depende apenas dos parâmetros de carregamento.
-Assim, calcula-se o dano por fadiga acumulado como sendo
-\begin{equation}
-\label{eq:viv-eqpm}
-D_\mathit{fat} = \sum \frac{n_i}{N_i}
-\end{equation}
-onde $n_i$ corresponde ao número total de ciclos de tensão correspondente à faixa de tensão $S_i$, e $N_i$ ao número de ciclos para a falha na faixa de tensão $S_i$.
-
-O número $N_i$, definido na curva S-N, relaciona o carregamento aplicado com o número de ciclos para falha (Figura~\ref{fig:viv-sncurve}).
-A curva escolhida deve levar em consideração o material, a localização da falha inicial e o ambiente de corrosão.
-\begin{figure}[hbt!]
-\centering
-% \includegraphics[width=0.6\textwidth]{viv-sncurve}
-\caption{Curva SN típica~\cite{DNV2017}.}
-\label{fig:viv-sncurve}
-\vspace{-0.7cm}
-\end{figure}
-
-\sloppy
-Em relação ao critério ULS, a \dnvf105 determina que todos os cálculos de flambagem local devem estar de acordo com os critérios de carga combinada estabelecidos pela \mbox{DNVGL-ST-F101}~cite{DNVF101}.
-Além disso, os efeitos dos carregamentos ambientais devido a VIV e carregamento direto de onda também devem ser incluídos nos cálculos de flambagem local como um momento fletor ambiental.
-
-Em geral, os carregamentos considerados por este critério são:
-\begin{itemize}
-	\item \textbf{Direção Vertical}:
-	\begin{itemize}
-		\item Flexão estática (peso próprio, perfil do solo etc);
-		\item VIV \textit{cross-flow};
-		\item Arrasto.
-	\end{itemize}
-	\item \textbf{Direção Horizontal}:
-	\begin{itemize}
-		\item VIV IL;
-		\item Efeitos do arrasto e inércia de onda e corrente combinados;
-		\item Arrasto.
-	\end{itemize}
-\end{itemize}
-
-
-\section{Condições ambientais}
-\label{sec:condicoes-ambientais}
-
-As estruturas \textit{offshore} estão submetidas a diversas formas de carregamentos, como: cargas permanentes, cargas operacionais, cargas ambientais, cargas de construção e instalação, cargas acidentais.
-Dentre os carregamentos ambientais encontramos: as cargas do vento, da correnteza, temperatura e pressão atmosférica, atividades sísmicas, ações de ondas, entre outras~cite{Valenca2017}.
-
-Os tipos de carregamentos ambientais analisados nos projetos de dutos em vãos livres são os exercidos pelas ondas e pela corrente, com dados coletados na região de instalação e com valores representativos para a análise.
-Essas descrições ambientais podem ser aplicadas como informação direcional, a probabilidade de fluxo em cada direção, ou considerando que o fluxo é distribuído de forma uniforme~\cite{DNV2017}.
-
-A corrente resultante pode ser formada por meio de um somatório de correntes advindas de corrente de maré, corrente induzida pelo vento, corrente induzida por tempestades, corrente exercida pelas diferenças de gravidade.
-Em algumas localidades, como no Sudeste Asiático, ocorrem formações de ondas internas que devem ser levadas em consideração, pois podem conter alta carga de velocidade, podendo ser consideradas como correntes equivalentes.
-
-As mesmas devem ser medidas em zonas fora da camada limite, em áreas onde a separação de fluxo não ocorre.
-O perfil de velocidade é aproximadamente logarítmico, dado pela equação
-\begin{equation}
-\label{eq:viv-eq1}
-U(z) = R_c U(z_r) \frac{\ln{(z)}- \ln(z_0)}{\ln (z_r)- \ln (z_0)}
-\end{equation}
-em que $R_c$ é o fator de redução, $U(z_r)$ é a velocidade da corrente na altura de referência, $z$ é a elevação acima do fundo do mar, $z_r$ é a altura de medição de referência, e $z_0$ é o parâmetro de rugosidade.
-
-Segundo a recomendação técnica, para os casos onde não existam informações precisas ou detalhadas, o valor médio da corrente no vão livre pode ser aproximado a partir dos valores mensurados no ponto de medição mais próximo.
-
-A componente onda pode ser calculada utilizando teorias diversas, a depender do tipo de análise que é feita.
-
-As ondas podem ser classificadas quanto à linearidade e quanto à regularidade:
-\begin{itemize}
-	\item[a)] Quanto à regularidade
-	\begin{itemize}
-		\item Regulares: são periódicas e uniformes possuindo, altura, comprimento e período bem definidos no tempo e no espaço;
-
-		\item Irregulares: possuem comportamento aleatório, podendo ser representadas pela superposição de ondas regulares com características bem definidas e diferentes entre si.
-	\end{itemize}
-
-	\item[b)] Quanto à linearidade
-
-	\begin{itemize}
-		\item Lineares: não há deslocamento de matéria;
-		\item Não lineares: as cristas da onda se movem com maior velocidade que o cavado e verifica-se o deslocamento de matéria.
-	\end{itemize}
-\end{itemize}
-
-Com isso, a \dnvf105 recomenda, quanto à regularidade, a utilização da teoria de onda irregular, e quanto à linearidade, a utilização da teoria de onda linear.
-Caso não seja possível, isto é, a teoria de onda irregular não se aplique às condições e ao estado de mar, utiliza-se uma teoria de onda regular.
-As ondas irregulares são representadas por meio de um espectro que descreve a energia em função da frequência de onda, podendo ser de vários modelos, onde o de JONSWAP ou de Pierson-Moskowitz são os frequentemente utilizados, sendo representados por cite{DNV2017}
-\begin{equation}
-\label{eq:viv-eq2}
-S_{\eta\eta}(\omega) = \alpha g^2 \omega^{-5} \exp\left(-\frac{5}{4}\left(\frac{\omega}{\omega_p}\right)^{-4}\right)\gamma^{\exp \left(-0,5\left(\frac{\omega-\omega_p}{\sigma \omega_p}\right)^2\right)}
-\end{equation}
-com
-\begin{equation}
-\label{eq:viv-eq3}
-\alpha = \frac{5}{6} \frac{H_s^2 \omega_p^4}{g^2} \left(1- 0,287 \ln{\gamma}\right)
-\end{equation}
-onde
-
-%%%%%%%%%%%%%%%%%% falata alfta e sigam ???????????????????
-\begin{tabular}{rl}
-	$\omega = 2\pi/T_w$   & frequência angular\\
-	$\omega_p = 2\pi/T_p$ & frequência angular de pico\\
-	$T_w$                 & período\\
-	$T_p$                 & período de pico\\
-	$g$                   & aceleração da gravidade\\
-	$\gamma$              & fator de aumento de pico\\
-	$\sigma$              & parâmetro de largura espectral\\
-	$\alpha$              & constante de Phillips generalizada\\
-	$H_s$                 & altura significativa
-\end{tabular}
-
-Para Pierson-Moskowitz o $\gamma=1$, e a constante de Phillips generalizada é encontrada a partir de
-\begin{equation}
-\label{eq:viv-phillips}
-\alpha = \frac{5}{6} \frac{H_s^2 \omega_p^4}{g^2} \left(1- 0,287 \ln{\gamma}\right)
-\end{equation}
-onde $H_s$ é a altura significativa.
-
-Por meio da análise do espectro obtido são extraídos dados importantes para o cálculo da elevação e da cinemática da onda.
-É necessário que seja feita uma modelagem ambiental a longo prazo, com dados estatísticos, sendo calculados os períodos de retorno das ações ambientais.
-Tendo os dados relativos às ondas e as correntes é possível desenvolver os modelos de amplitudes de respostas.
