@@ -16,11 +16,25 @@
 		"editor.minimap.maxColumn": 50,
 		"editor.wordWrap": "on",
 		"cSpell.words": [
+			"Bokeh",
 			"DNVGL",
 			"Keulegan",
 			"Kármán",
-			"abntex"
-		],
+			"Numpy",
+			"abntex",
+			"Bokeh",
+			"DNVGL",
+			"Indenta",
+			"Keulegan",
+			"Kármán",
+			"LKCR",
+			"Matplotlib",
+			"Numpy",
+			"Strouhal",
+			"abntex",
+			"indentação",
+			"interar"
+		]
 		"latex-workshop.chktex.enabled": true,
 		"extensions.showRecommendationsOnlyOnDemand": true,
 		"git.autofetch": true,
