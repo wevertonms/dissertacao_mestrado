@@ -4,7 +4,7 @@ Quando um fluido de baixa viscosidade encontra um obstáculo, forma-se uma camad
 Esta fina camada de fluido está sujeita aos efeitos das forças viscosas.
 Nesta camada a velocidade do fluxo varia rapidamente, ficando cada vez mais lenta, formando um escoamento rotacional dentro da camada limite.
 Para determinadas velocidades de escoamento, a camada limite se desprende do obstáculo, formando uma esteira de vórtices, conhecida como esteira de von Kármán~\cite{Currie2002}, conforme visto na Figura~\ref{fig:viv_shading}.
-Como consequência direta do desprendimento de vórtices, surge uma força oscilatória transversal ao fluxo, que age sobre o obstáculo, resultando em oscilações verticais e horizontais~cite{Ni}.
+Como consequência direta do desprendimento de vórtices, surge uma força oscilatória transversal ao fluxo, que age sobre o obstáculo, resultando em oscilações verticais e horizontais~\cite{Nielsen2002}.
 
 \begin{figure}[!hbt]
     \centering
@@ -15,9 +15,9 @@ Como consequência direta do desprendimento de vórtices, surge uma força oscil
 
 A frequência do desprendimento de vórtices causado por um fluxo normal ao obstáculo (o duto em vão livre, no caso em questão), é governado pelo número de Strouhal, diâmetro externo e velocidade de fluxo~\cite{Mork2003}.
 O número de Strouhal pode ser obtido pela expressão $S_t = (f L) / V$, onde $f$ é a frequência de vórtices, $L$ é o comprimento característico e $V$ é a velocidade do fluxo.
-Quando a velocidade do fluxo alcança uma das frequências naturais da estrutura, ela começa a vibrar e estas duas vibrações se correlacionam, causando vibrações de grande amplitude e grande dano (\textit{lock-in}) \cite{Mork2003}.
+Quando a velocidade do fluxo alcança uma das frequências naturais da estrutura, ela começa a vibrar e estas duas vibrações se correlacionam, causando vibrações de grande amplitude e grande dano (\textit{lock-in})~\cite{Mork2003}.
 
-Como os dutos são geralmente modelados como cilindros, é importante entender como funciona o comportamento do fluxo de fluido ao redor dessa estrutura. Segundo \apudonline{Sumer1995}{Batchelor1967}, ao estudar vibrações de cilindros em corrente constante, inicia-se o desprendimento de vórtices quando o número de Reynolds, $R_e = (U\cdot D)/\nu$, é maior que $40$, onde $U$ é a velocidade do fluxo, $D$ é o diâmetro do cilindro e $\nu$ é a viscosidade cinemática~\cite{Sumer1995}.
+Como os dutos são geralmente modelados como cilindros, é importante entender como funciona o comportamento do fluxo de fluido ao redor dessa estrutura. Segundo \apudonline{Sumer1995}{Batchelor1967}, ao estudar vibrações de cilindros em corrente constante, inicia-se o desprendimento de vórtices quando o número de Reynolds, $R_e = (U\cdot D)/\nu$, é maior que $40$, onde $U$ é a velocidade do fluxo, $D$ é o diâmetro do cilindro e $\nu$ é a viscosidade cinemática\~cite{Sumer1995}.
 
 O desprendimento de vórtices induz uma variação cíclica de forças no cilindro.
 Assim, enquanto uma força de sustentação (\textit{lift force}) oscila à mesma frequência do desprendimento de vórtices, a força de arrasto (\textit{drag force}) oscila à duas vezes esta mesma frequência~\cite{Sumer1995}.
@@ -28,7 +28,7 @@ Essas cargas, tornam-se um desafio ainda maior quando os dutos, instalados diret
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=1\textwidth]{freespan}
+	\includegraphics[width=1\textwidth]{imagens/freespan}
 	\caption[Duto em Vão livre e direções das oscilações]{Duto em Vão livre e direções das oscilações.\\Fonte:~\cite{DNV2017}.}\label{fig:freespan}
 \end{figure}
 
@@ -38,7 +38,7 @@ Caso a frequência de desprendimento alcance uma das frequências naturais do du
 As excitações dinâmicas podem causar danos por fadiga, sendo importante identificar os corretos procedimentos de intervenção, seja no duto ou no leito marinho.
 
 A \dnvf105 utiliza uma metodologia baseada em modelos de resposta para avaliar a fadiga causada por VIV em dutos em vão livre.
-Estes modelos representa relações empíricas entre a velocidade reduzida (\autoref{eq:viv-Vr}) e a amplitude de resposta adimensional, utilizadas para prever as amplitudes de vibração nas direções \textit{in-line} e \textit{cross-flow} \cite{Mork2003,DNV2017}.
+Estes modelos representa relações empíricas entre a velocidade reduzida (\autoref{eq:viv-Vr}) e a amplitude de resposta adimensional, utilizadas para prever as amplitudes de vibração nas direções \textit{in-line} e \textit{cross-flow}~\cite{Mork2003,DNV2017}.
 Além desta, a recomendação prática sugere também um método baseado no coeficiente de sustentação e nas curvas do coeficiente de massa adicional como função da amplitude de resposta adimensional e da frequência de vibração adimensional~\cite{DNV2017}.
 Como terceira opção, a \dnvf105 indica o uso de fluidodinâmica computacional (CFD, na sigla em inglês) para escoamento turbulento ao redor dos dutos para avaliação do VIV.
 
@@ -92,7 +92,7 @@ onde
 
 A constante empírica $k_c$ considera a deformação/deslizamento no revestimento anti-corrosão e as fraturas no revestimento de concreto.
 
-O comprimento efetivo do vão, dado pelo produto do comprimento do vão por um fator de escala, é necessário visto que as condições de contorno nos ombros (\textit{shoulders}) que o duto se apoia estão entre \textit{pinned-pinned} e \textit{fixed-fixed}\footnote{Valores dos fatores $C_1$ a $C_6$ estão dispostos na Tabela 6-1 \cite[p. 111]{DNV2017}, e só devem ser utilizados apenas para cenários \textit{single-span}.}.
+O comprimento efetivo do vão, dado pelo produto do comprimento do vão por um fator de escala, é necessário visto que as condições de contorno nos ombros (\textit{shoulders}) que o duto se apoia estão entre \textit{pinned-pinned} e \textit{fixed-fixed}\footnote{Valores dos fatores $C_1$ a $C_6$ estão dispostos na Tabela 6-1~cite[p. 111]{DNV2017}, e só devem ser utilizados apenas para cenários \textit{single-span}.}.
 Logo, temos que
 \begin{equation}
 \label{eq:viv-LeffL}

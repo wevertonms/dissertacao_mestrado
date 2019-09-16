@@ -5,13 +5,19 @@ Neste capítulo serão apresentados os aspectos para o desenvolvimento da ferram
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \section{Requisitos da ferramenta}
 O levantamento dos requisitos de um sistema é o elemento que fornece elementos que dever nortear uma série de decisões a serem tomadas no seu desenvolvimento.
-A ferramenta a ser implementada deve atender a uma série de requisitos relacionados com o casos de uso a qual se propõe.
+A ferramenta a ser implementada se propõe:
+\begin{itemize}
+    \item A partir de um arquivo de entrada com informações do modelo, criar arquivos de entrada para o Abaqus (\texttt{.inp}) que simulem todo o processo de simulação do comportamento do duto apresentado (\autoref{chap:assentamento}).
+    \item Processar os arquivos de saída do Abaqus (\texttt{.odb}) extraindo os informações relevantes como a configuração deformada, modos de vibração, etc., gerando arquivos em outros formatos de fácil leitura para pós-processamento, tanto por esta ferramenta, quando por outro \textit{softwares}.
+    \item Pós-processar as as informações gerando gráficos e relatórios relevantes para as tomadas de decisão do usuário quanto ao projeto.
+\end{itemize}
 
 % \section{Boas práticas para computação científica}
 
-softwares de cunho científico \citeonline{Wilson2014} apresenta um conjunto de boas práticas a serem adotadas no desenvolvimento desse tipo de. A seguir é apresentado o resumo do autor sobre essas práticas:
+Embora o uso e desenvolvimento de softwares de cunho científico seja uma atividade extremamente importante para pesquisadores, nem sempre são observadas boas práticas são observadas no seu desenvolvimento~\cite{Hannay2009}.
+\citeonline{Wilson2014} apresenta um conjunto de boas práticas a serem adotadas no desenvolvimento desse tipo de. A seguir é apresentado o resumo do autor sobre essas práticas:
 
-% \vspace*{0.9cm}
+\vspace{0.5cm}
 \begin{tcolorbox}[breakable, enhanced]
 
 \textbf{Boas práticas para computação científica}
@@ -88,7 +94,7 @@ O uso de Programação Orientada a Objeto promove um alto índice de reaproveita
 
 \item Linguagem de programação
 
-A linguagem adotada será \textbf{Python}\footnote{https://www.python.org}. \citeonline{rao2018} apresenta as principais vantagens que destaca a linguagem para este tipo de aplicação para essa aplicação por algumas características:
+A linguagem adotada será Python\footnote{https://www.python.org}. \citeonline{Rao2018} apresenta algumas das principais vantagens que destaca a linguagem para este tipo de aplicação:
 
 \begin{itemize}
     \item Disponibilidade de bibliotecas para aplicações cientificas contemplando manipulação de matrizes (Numpy), funções matemáticas (SciPy), manipulação de dados em forma tabular (Pandas), criação de gráficos interativos (Matplotlib e Bokeh);

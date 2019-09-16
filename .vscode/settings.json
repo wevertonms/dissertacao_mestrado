@@ -46,9 +46,18 @@
         "**/.directory": true,
     },
     "cSpell.words": [
+        "Abaqus",
         "Bokeh",
+        "DNVGL",
+        "Indenta",
+        "Keulegan",
+        "Kármán",
+        "LKCR",
         "Matplotlib",
         "Numpy",
+        "Strouhal",
+        "abntex",
+        "indentação",
         "interar"
     ],
 }
