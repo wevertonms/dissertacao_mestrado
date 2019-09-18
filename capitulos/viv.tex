@@ -9,7 +9,8 @@ Como consequência direta do desprendimento de vórtices, surge uma força oscil
 \begin{figure}[!hbt]
     \centering
     \includegraphics[width=0.6\textwidth]{imagens/viv_shading}
-    \caption[Esteira de von Kármán]{Esteira de Von Kármán.\\Fonte:~\cite{VandenAbeele2013}.}
+    \caption[]{Esteira de Von Kármán.}
+    Fonte:~\cite{VandenAbeele2013}
     \label{fig:viv_shading}
 \end{figure}
 
@@ -29,7 +30,7 @@ Essas cargas, tornam-se um desafio ainda maior quando os dutos, instalados diret
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=1\textwidth]{imagens/freespan}
-	\caption[Duto em Vão livre e direções das oscilações]{Duto em Vão livre e direções das oscilações.\\Fonte:~\cite{DNV2017}.}\label{fig:freespan}
+	\caption[]{Duto em Vão livre e direções das oscilações.\\Fonte:~\cite{DNV2017}.}\label{fig:freespan}
 \end{figure}
 
 Porém, vãos livres não aparecem apenas quando os dutos são instalados em leito irregular, mas também quando ocorre erosão posterior (\textit{scouring}\footnote{Erosão do solo marinho causada pela ação de ondas ou correntes. Caracteriza-se pela remoção de sedimentos com formação de cavidades ou canais.}), devido, por exemplo, a suportes artificiais.
@@ -37,8 +38,8 @@ Com o duto exposto à ondas e correntes, a parte não apoiada estará suscetíve
 Caso a frequência de desprendimento alcance uma das frequências naturais do duto, esse poderá entrar em ressonância.
 As excitações dinâmicas podem causar danos por fadiga, sendo importante identificar os corretos procedimentos de intervenção, seja no duto ou no leito marinho.
 
-A \dnvf105 utiliza uma metodologia baseada em modelos de resposta para avaliar a fadiga causada por VIV em dutos em vão livre.
-Estes modelos representa relações empíricas entre a velocidade reduzida (\autoref{eq:viv-Vr}) e a amplitude de resposta adimensional, utilizadas para prever as amplitudes de vibração nas direções \textit{in-line} e \textit{cross-flow}~\cite{Mork2003,DNV2017}.
+A \dnvf105 utiliza uma metodologia baseada em modelos de resposta a fim de avaliar a fadiga causada por VIV em dutos em vão livre.
+Estes modelos representam relações empíricas entre a velocidade reduzida (\autoref{eq:viv-Vr}) e a amplitude de resposta adimensional, utilizadas para prever as amplitudes de vibração nas direções \textit{in-line} e \textit{cross-flow}~\cite{Mork2003,DNV2017}.
 Além desta, a recomendação prática sugere também um método baseado no coeficiente de sustentação e nas curvas do coeficiente de massa adicional como função da amplitude de resposta adimensional e da frequência de vibração adimensional~\cite{DNV2017}.
 Como terceira opção, a \dnvf105 indica o uso de fluidodinâmica computacional (CFD, na sigla em inglês) para escoamento turbulento ao redor dos dutos para avaliação do VIV.
 
@@ -46,8 +47,14 @@ A \dnvf105 considera dois modelos para estimar a resposta dinâmica em um vão l
 A escolha do modelo, segundo~\citeonline{Tura1994}, depende: (i) do comportamento dos carregamentos ambientais, isto é, quando há ressonância induzida por vórtice, aplica-se RM; e quando o comportamento do vão livre é afetado por carregamentos periódicos com pouca ou nenhuma amplificação dinâmica, aplica-se FM; (ii) da direção e tipo de fluxo, RM é aplicável na direção \textit{in-line} para corrente contínua e na direção \textit{cross-flow} para qualquer padrão de fluxo; o FM é aplicado na direção \textit{in-line} para carregamentos de onda direto.
 
 % Caracteriza-se \textit{single mode} quando há um único valor para amplitude de corrente, sem que haja variações com a direção, e não houver presença de ondas.
-A \dnvf105 pode ser aplicada para vãos únicos e múltiplos onde um modo de vibração é predominante (\textit{single-mode}).
+A \dnvf105 pode ser aplicada para vãos únicos e múltiplos onde um modo de vibração é predominante (\textit{single-mode}), conforme a \autoref{fig:vaos_tipicos}.
 Porém, a combinação de vãos de grande extensão e altas correntes, ou ainda vãos múltiplos, faz com que não apenas os modos fundamentais sejam ativados, mas também diversos outros modos de ordem mais alta (\textit{multi-mode}).
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{imagens/vaos_tipicos}
+	\caption[]{Configurações típicas para vãos.\\Fonte:~\cite{Bai2014}.}\label{fig:vaos_tipicos}
+\end{figure}
 
 A primeira etapa do cálculo das frequências de vibração dos dutos em vão livre é o cálculo da força axial efetiva, $S_\mathit{eff}$, e os parâmetros de rigidez do solo $K_v$, $K_l$ calculados por meio das Equações \ref{eq:viv-Kv} e \ref{eq:viv-Kl}, sendo $K_\mathrm{v,s}$ um valor tabelado de acordo com o tipo de solo escolhido.
 
@@ -272,7 +279,7 @@ onde $\gamma_{\mathit{on}, \mathit{IL}}$ é o fator de segurança para velocidad
 \begin{figure}[th!]
     \centering
     \includegraphics[width=0.8\linewidth]{imagens/response_model_IL}
-    \caption[Curva de modelo de resposta \textit{in-line}]{Curva de modelo de resposta \textit{in-line}.\\Fonte:~\citeonline{DNV2017}}
+    \caption[]{Curva de modelo de resposta \textit{in-line}.\\Fonte:~\citeonline{DNV2017}}
     \label{fig:viv-responsemodelil}
 \end{figure}
 
@@ -295,7 +302,7 @@ Para o modelo de resposta \textit{cross-flow} também  é necessário calcular u
 \right.
 \end{equation}
 
-Caso o duto esteja localizado próximo ou em trincheiras é necessário levar em consideração o fator de correção específico
+Caso o duto esteja localizado próximo ou em trincheiras é necessário considerar o fator de correção específico
 
 \begin{equation}
 \label{eq:viv-Psitren}
@@ -365,12 +372,12 @@ Com esses valores calculados, pode-se construir a curva que relaciona velocidade
 \begin{figure}[th!]
     \centering
     \includegraphics[width=0.8\linewidth]{imagens/response_model_CF}
-    \caption[Curva de modelo de resposta \textit{cross-flow}]{Curva de modelo de resposta \textit{cross-flow}.\\Fonte:~\citeonline{DNV2017}}
+    \caption[]{Curva de modelo de resposta \textit{cross-flow}.\\Fonte:~\citeonline{DNV2017}}
     \label{fig:viv-responsemodelcf}
 \end{figure}
 
 
-\section{Resposta \textit{multi-mode}}
+\section{\label{sec:multimode}Resposta \textit{multi-mode}}
 
 A resposta do vão livre pode ser dada em função de uma coordenada $x$ ao longo da direção longitudinal do duto.
 Para cada combinação relevante de estado de mar e velocidade de corrente, um número de modos pode ser excitado simultaneamente na mesma direção, dando origem a uma resposta \textit{multi-mode}.

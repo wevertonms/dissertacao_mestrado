@@ -1,18 +1,17 @@
-\chapter{Modelagem computacional}
+\chapter{Modelagem do sistema computacional}
 
 Neste capítulo serão apresentados os aspectos para o desenvolvimento da ferramenta, como os pré-requisitos, escolhas das ferramentas, decisões de modelagem, e as práticas adotadas no processo.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \section{Requisitos da ferramenta}
 O levantamento dos requisitos de um sistema é o elemento que fornece elementos que dever nortear uma série de decisões a serem tomadas no seu desenvolvimento.
 A ferramenta a ser implementada se propõe:
 \begin{itemize}
     \item A partir de um arquivo de entrada com informações do modelo, criar arquivos de entrada para o Abaqus (\texttt{.inp}) que simulem todo o processo de simulação do comportamento do duto apresentado (\autoref{chap:assentamento}).
     \item Processar os arquivos de saída do Abaqus (\texttt{.odb}) extraindo os informações relevantes como a configuração deformada, modos de vibração, etc., gerando arquivos em outros formatos de fácil leitura para pós-processamento, tanto por esta ferramenta, quando por outro \textit{softwares}.
-    \item Pós-processar as as informações gerando gráficos e relatórios relevantes para as tomadas de decisão do usuário quanto ao projeto.
+    \item Pós-processar as as informações gerando gráficos e relatórios relevantes para as tomadas de decisão do usuário quanto ao projeto. Esse é o requisito mais crítico, uma vez que é fundamental o entendimento sobre a análise de tudo em vão-livre. Entre as tarefas que fazem parte deste itém está a automação da escolha dos modos de vibração ativos e relevantes e para cada vão de interesse, a qual deve devem ser norteadas pelos aspectos discutidos no ítem \ref{sec:multimode}, e a manipulação da FatFree \footnote{Planilha Microsoft Office Excel desenvolvida pela DNV-GL focada no cálculo de vida a fadiga de dutos submarinos.}.
 \end{itemize}
 
-% \section{Boas práticas para computação científica}
+\section{Computação científica}
 
 Embora o uso e desenvolvimento de softwares de cunho científico seja uma atividade extremamente importante para pesquisadores, nem sempre são observadas boas práticas são observadas no seu desenvolvimento~\cite{Hannay2009}.
 \citeonline{Wilson2014} apresenta um conjunto de boas práticas a serem adotadas no desenvolvimento desse tipo de. A seguir é apresentado o resumo do autor sobre essas práticas:
@@ -81,20 +80,13 @@ Embora o uso e desenvolvimento de softwares de cunho científico seja uma ativid
 \end{enumerate}
 \end{tcolorbox}
 
-Em observância à estas práticas, algumas decisões foram tomadas quanto ao desenvolvimento da ferramenta, e serão apresentadas a seguir.
-
-
-% \subsection{}
+Em observância a estas práticas, algumas decisões relativas ao desenvolvimento da ferramenta foram tomadas, e serão apresentadas a seguir.
 
 \begin{itemize}
 
-\item Paradigma de programação
-
-O uso de Programação Orientada a Objeto promove um alto índice de reaproveitamento de código, que vai da direção do item 4 apresentado.
-
 \item Linguagem de programação
 
-A linguagem adotada será Python\footnote{https://www.python.org}. \citeonline{Rao2018} apresenta algumas das principais vantagens que destaca a linguagem para este tipo de aplicação:
+A linguagem adotada será Python\footnote{https://www.python.org}. \citeonline{rao2018} apresenta algumas das principais vantagens que destaca a linguagem para este tipo de aplicação:
 
 \begin{itemize}
     \item Disponibilidade de bibliotecas para aplicações cientificas contemplando manipulação de matrizes (Numpy), funções matemáticas (SciPy), manipulação de dados em forma tabular (Pandas), criação de gráficos interativos (Matplotlib e Bokeh);
@@ -102,9 +94,13 @@ A linguagem adotada será Python\footnote{https://www.python.org}. \citeonline{R
     \begin{figure}[!ht]
         \centering
         \includegraphics[width=0.6\textwidth]{imagens/python_ecosystem}
-        \caption[Amostra das principais bibliotecas científicas em Python]{Amostra das principais bibliotecas científicas em Python.}\label{fig:python_ecosystem}
+        \caption[]{Amostra das principais bibliotecas científicas em Python.}\label{fig:python_ecosystem}
     \end{figure}
 
-    \item 
+    \item Orientada a Objeto: o paradigma de programação da Programação Orientada a Objeto promove um alto índice de reaproveitamento de código.
+    
+    \item Sintaxe simples: 
 \end{itemize}
+
+
 \end{itemize}
