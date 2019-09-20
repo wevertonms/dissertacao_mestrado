@@ -136,16 +136,49 @@ Já dentre as principais classes estão:
 
 \begin{itemize}
     \item \texttt{Model}: classe que contém as informações do modelo do problema.
-    A classe armazena todas as informações para construção dos arquivos \texttt{.inp}.
+    A classe armazena todas as informações para construção dos arquivos \texttt{.inp}, isto é, dados de batimetria, material, geometria do duto, coeficientes de segurança, entre outros.
+    A instanciação dessa classe deve ocorrer mediante o processamento de um arquivo principal de entrada com esses dados, possivelmente em formado JSON (\autoref{tab:arquivojson}).
     
-    \item \texttt{Inp}: lida com a escrita do arquivo de entrada (\texttt{.inp}) para o Abaqus.
+    \begin{lstlisting}[language=json, label={tab:arquivojson},caption={Aspecto de arquivo principal de entrada no formato JSON.}]
+{
+"MODEL": {
+    "NAME": "Duto_1",
+    "BATIMETRIA": "C:/Batimetria/batimetria.csv",
+    "RESULTS_FOLDER": "C:/Resultados",
+    "SPRING_PIPE_EXTREMITY": 0
+},
+"FILE_BAT": {
+    "N_CPU": 12,
+},
+"CONDITIONS": {
+    "TYPE_SEABED": "ANALYTICAL",
+    "SUPPORTS": true,
+},
+"MODE_SELECTOR": {
+    "NODESET": "PIPE",
+    "ELEMENTSET": "PIPE",
+    "SEABEDSET": "M_FUNDO",
+    "SPANS": [
+        {
+            "kp_inicial": 9958.2,
+            "kp_final": 9975.2,
+            "azimute": 60.00
+        }
+    ],
+    "N_MODES_IN_LINE": 4,
+    "N_MODES_CROSS": 3
+},
+...
+        \end{lstlisting}
+
+    \item \texttt{Inp}: lida com a escrita modularizada de arquivos de entrada  para o ABAQUS. A proposta é que se crie um arquivo principal que terá inclusão de outros arquivos acessórios que terão as informações específicas de cada 
     
     \item \texttt{Span}: classe que representa um vão do duto. Dentre os métodos da classe estão os métodos responsáveis pela seleção dos modos de vibração.
     
     \item \texttt{ModeShape}: classe que representa um mode de vibração (\textit{mode shape}).
 \end{itemize}
 
-A \autoref{fig:UML} exibe um diagrama UML com esses módulos e classes, suas relações e os principais métodos e atributos das classes.
+A \autoref{fig:UML} exibe um diagrama UML com esses módulos e classes, suas relações de pertencimento e dependência, e os principais métodos e atributos das classes.
 
 \begin{figure}[!ht]
     \centering

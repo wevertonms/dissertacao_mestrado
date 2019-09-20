@@ -2,9 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "/home/weverton/Dropbox/UFAL/Mestrado/Dissertação/integrispan-report"
 		}
 	],
 	"settings": {
@@ -13,47 +10,13 @@
 			"titleBar.activeBackground": "#503C28",
 			"titleBar.activeForeground": "#FCFAF9"
 		},
-		"editor.minimap.maxColumn": 50,
+		"explorer.autoReveal": false,
 		"editor.wordWrap": "on",
 		"cSpell.words": [
-			"Bokeh",
-			"DNVGL",
-			"Keulegan",
-			"Kármán",
-			"Numpy",
-			"abntex",
-			"Bokeh",
-			"DNVGL",
-			"Indenta",
-			"Keulegan",
-			"Kármán",
-			"LKCR",
-			"Matplotlib",
-			"Numpy",
-			"Strouhal",
-			"abntex",
-			"indentação",
+			"fısico",
 			"interar"
 		],
-		"latex-workshop.chktex.enabled": true,
-		"extensions.showRecommendationsOnlyOnDemand": true,
-		"git.autofetch": true,
-		"latex-workshop.synctex.afterBuild.enabled": true,
-		"latex-workshop.chktex.args.active": [
-			"-wall",
-			"-n22",
-			"-n30",
-			"-e16",
-			"-q",
-			"-n46",
-			"-n8",
-			"-n13",
-			"-n45",
-			"-n1",
-			"-n19",
-			"-n21"
-		],
 		"latex-workshop.latex.autoBuild.run": "never",
-		"ltex.language": "pt-BR"
+		"cSpell.language": "en,pt-BR"
 	}
 }
