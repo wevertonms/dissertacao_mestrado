@@ -1,15 +1,24 @@
 \chapter{Modelagem do sistema computacional}
 
-Neste capítulo serão apresentados os aspectos para o desenvolvimento da ferramenta, como os pré-requisitos, escolhas das ferramentas, decisões de modelagem, e as práticas adotadas no processo.
+% Neste capítulo serão apresentados os aspectos para o desenvolvimento da ferramenta, como os pré-requisitos, escolhas das ferramentas, decisões de modelagem, e as práticas adotadas no processo.
 
-% \section{Requisitos da ferramenta}
-O levantamento dos requisitos de um sistema é o elemento que fornece elementos que dever nortear uma série de decisões a serem tomadas no seu desenvolvimento.
-A ferramenta a ser implementada se propõe:
-\begin{itemize}
-    \item A partir de um arquivo de entrada com informações do modelo, criar arquivos de entrada para o Abaqus (\texttt{.inp}) que simulem todo o processo de simulação do comportamento do duto apresentado (\autoref{chap:assentamento}).
-    \item Processar os arquivos de saída do Abaqus (\texttt{.odb}) extraindo os informações relevantes como a configuração deformada, modos de vibração, etc., gerando arquivos em outros formatos de fácil leitura para pós-processamento, tanto por esta ferramenta, quando por outro \textit{softwares}.
-    \item Pós-processar as as informações gerando gráficos e relatórios relevantes para as tomadas de decisão do usuário quanto ao projeto. Esse é o requisito mais crítico, uma vez que é fundamental o entendimento sobre a análise de tudo em vão-livre. Entre as tarefas que fazem parte deste itém está a automação da escolha dos modos de vibração ativos e relevantes e para cada vão de interesse, a qual deve devem ser norteadas pelos aspectos discutidos no ítem \ref{sec:multimode}, e a manipulação da FatFree \footnote{Planilha Microsoft Office Excel desenvolvida pela DNV-GL focada no cálculo de vida a fadiga de dutos submarinos.}.
-\end{itemize}
+O levantamento dos requisitos de um sistema é o elemento que fornece elementos que dever nortear uma série de decisões a serem tomadas no seu desenvolvimento. A ferramenta proposta visa agilizar o fluxo de trabalho do profissional que realiza análises de vida a fadiga, ou seja, propõem-se o seguinte fluxo padrão:
+
+\begin{figure}[!ht]
+    \centering
+    \caption{Fluxo de operação da proposto para a ferramenta.}\label{fig:workflow}
+    \includegraphics[width=0.7\textwidth]{imagens/workflow}
+\end{figure}
+
+De forma mais detalhada, a ferramente deve:
+
+\begin{enumerate}
+    \item A partir de um arquivo de entrada com informações do modelo, criar arquivos de entrada para o ABAQUS (\texttt{.inp}) que simulem todo o processo de simulação do comportamento do duto apresentado (\autoref{chap:assentamento}).
+    \item Submeter o arquivo gerado para análise no ABAQUS.\@
+    \item Processar os arquivos de saída do ABAQUS (\texttt{.odb}) extraindo os informações relevantes como a configuração deformada, modos de vibração, etc., gerando arquivos em outros formatos de fácil leitura para pós-processamento, tanto por esta ferramenta, quando por outro \textit{softwares}.
+    \item Pós-processar as as informações gerando gráficos e relatórios relevantes para as tomadas de decisão do usuário quanto ao projeto. Esse é o requisito mais crítico, uma vez que é fundamental o entendimento sobre a análise de tudo em vão livre. Entre as tarefas que fazem parte deste itém está a automação da escolha dos modos de vibração ativos e relevantes e para cada vão de interesse -- a qual deve ser norteada pelos aspectos discutidos na~\autoref{sec:multimode} -- e a manipulação da FatFree\footnote{Planilha Microsoft Office Excel desenvolvida pela DNV-GL focada no cálculo de vida a fadiga de dutos submarinos.}.
+    \item Apresentar os resultados finais na forma de gráficos e relatórios.
+\end{enumerate}
 
 \section{Computação científica}
 
@@ -80,27 +89,66 @@ Embora o uso e desenvolvimento de softwares de cunho científico seja uma ativid
 \end{enumerate}
 \end{tcolorbox}
 
+
+\section{Implementação}
+
+
 Em observância a estas práticas, algumas decisões relativas ao desenvolvimento da ferramenta foram tomadas, e serão apresentadas a seguir.
 
-\begin{itemize}
 
-\item Linguagem de programação
+\subsection{Linguagem de programação}
 
-A linguagem adotada será Python\footnote{https://www.python.org}. \citeonline{rao2018} apresenta algumas das principais vantagens que destaca a linguagem para este tipo de aplicação:
+A linguagem adotada será Python\footnote{https://www.python.org}. Além de ser uma linguagem interpretada de alto nível Orientada a Objeto -- que permite um alto índice de reaproveitamento de código -- e da sintaxe simples, \citeonline{rao2018} apresenta algumas das principais vantagens que destaca a linguagem para este tipo de aplicação:
 
 \begin{itemize}
     \item Disponibilidade de bibliotecas para aplicações cientificas contemplando manipulação de matrizes (Numpy), funções matemáticas (SciPy), manipulação de dados em forma tabular (Pandas), criação de gráficos interativos (Matplotlib e Bokeh);
     
     \begin{figure}[!ht]
         \centering
+        \caption{Amostra das principais bibliotecas científicas em Python.}\label{fig:python_ecosystem}
         \includegraphics[width=0.6\textwidth]{imagens/python_ecosystem}
-        \caption[]{Amostra das principais bibliotecas científicas em Python.}\label{fig:python_ecosystem}
+        \\Fonte:~\citeonline{DataCamp2017}.
     \end{figure}
 
-    \item Orientada a Objeto: o paradigma de programação da Programação Orientada a Objeto promove um alto índice de reaproveitamento de código.
+    \item Suporte para automação de tarefas. Os recursos de \textit{script} internos do Python e vários pacotes têm um forte suporte à automação de tarefas. A automação de tarefas repetitivas e a realização do registro de dados são fáceis e requerem pouco esforço.
     
-    \item Sintaxe simples: 
+    \item Pacotes Python como Django e Flask tornam possível desenvolver e usar o Python como uma API\footnote{Na programação de computadores, uma Interface de Programação de Aplicativos (\textit{Application Programming Interface} -- API) é um conjunto de definições de sub-rotinas e ferramentas para a criação de software. Em termos gerais, é um conjunto de métodos de comunicação claramente definidos entre vários componentes.} com um \textit{front-end} da web. Essa funcionalidade é particularmente útil ao usar uma infraestrutura baseada em nuvem como plataforma para acessar \textit{back-ends} de computação de alto desempenho (HPC).
 \end{itemize}
 
 
+\subsection{Estrutura de módulos e classes}
+
+Para implementação do fluxo de trabalho proposto para a ferramenta, prevê-se a implementações de módulos para lidar com cada contexto específico. São eles:
+
+\begin{itemize}
+    \item \texttt{model\_generator}: módulo principal responsável orquestrar o fluxo de trabalho da ferramenta desde o processamento dos dados de entrada, geração dos arquivos para o ABAQUS e os pós-processamentos.
+    
+    \item \texttt{odb\_handler}: responsável por lidar com os arquivos de saída do ABAQUS (odb) e guardar os dados relevantes em arquivos com formatos de fácil manipulação (CSV, JSON, etc\ldots).
+    
+    \item \texttt{mode\_selector}: módulo responsável pela estratégia de seleção automática de modos de vibração para cada vão e manipulação dos dados associados vãos e seus respectivos modos.
+    
+    \item \texttt{dnv}: módulo que implementa os cálculos do modelos de resposta da \dnvf105 e manipula a planilha FatFree por meio da biblioteca xlwings.
+    
+    \item \texttt{plots}: módulo responsável pro agregar as funções de geração de gráficos dos resultados.
 \end{itemize}
+
+Já dentre as principais classes estão:
+
+\begin{itemize}
+    \item \texttt{Model}: classe que contém as informações do modelo do problema.
+    A classe armazena todas as informações para construção dos arquivos \texttt{.inp}.
+    
+    \item \texttt{Inp}: lida com a escrita do arquivo de entrada (\texttt{.inp}) para o Abaqus.
+    
+    \item \texttt{Span}: classe que representa um vão do duto. Dentre os métodos da classe estão os métodos responsáveis pela seleção dos modos de vibração.
+    
+    \item \texttt{ModeShape}: classe que representa um mode de vibração (\textit{mode shape}).
+\end{itemize}
+
+A \autoref{fig:UML} exibe um diagrama UML com esses módulos e classes, suas relações e os principais métodos e atributos das classes.
+
+\begin{figure}[!ht]
+    \centering
+    \caption{Diagrama UML dos módulos e classes.}\label{fig:UML}
+    \includegraphics[width=0.95\textwidth]{imagens/UML}
+\end{figure}

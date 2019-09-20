@@ -1,12 +1,5 @@
-\chapter{Modelagem numérica de dutos submarinos}
-\label{chap:assentamento}
+\chapter{Modelagem numérica de dutos submarinos\label{chap:assentamento}}
 
-
-O assentamento de dutos submarinos tem sido o núcleo da engenharia \textit{offshore} por meio século.
-Vários métodos e técnicas tem sido desenvolvidas e usadas para dutos submarinos~\cite{Ivic2016}.
-O processo de lançamento de dutos é uma das tarefas mais desafiadoras, mesmo quando a rota ideal já está definida.
-Modelar a instalação de dutos em um \textit{software} de elementos finitos para uso geral pode ser um trabalho demorado e tedioso, principalmente devido a grandes quantidades de dados da batimetria.
-Na maioria das vezes, são necessárias técnicas avançadas de \textit{script} para definir o perfil do leito marinho, selecionar a rota ideal do duto e simular o processo de assentamento~\cite{VandenAbeele2013}.
 
 A simulação do duto projetado em um ambiente tridimensional realista obtido por medições da topografia do fundo marinho, permite que os engenheiros explorem quaisquer oportunidades que o comportamento do mesmo pode oferecer para desenvolver soluções seguras e econômicas.
 Por exemplo, o projetista pode analisar primeiro o comportamento do duto na batimetria original.
@@ -36,10 +29,11 @@ A modelagem da instalação do duto é o primeiro passo para o estudo do comport
 Esta configuração serve como ponto de partida para as etapas posteriores da análise.
 Mais importante do que investigar o comportamento do duto durante a instalação é garantir que a correta representação da tração e ângulo de lançamento de tal modo que consigam gerar forças residuais no duto, oriundas do atrito quando o duto se assenta sobre a batimetria.
 
-\begin{figure}[th!]
+\begin{figure}[!ht]
     \centering
+    \caption{Modelo de elementos finitos durante o lançamento.}\label{fig:lancamentododuto}
     \includegraphics[width=0.7\linewidth]{imagens/lancamento_do_duto}
-    \caption[]{Modelo de elementos finitos durante o lançamento.\\Fonte:~\cite{Bai2014}}\label{fig:lancamentododuto}
+    \\Fonte:~\citeonline{Bai2014}.
 \end{figure}
 
 Por simplicidade, neste trabalho, será assumido que o ângulo entre o duto e a horizontal o será nulo, isto é, o duto estará num plano horizontal que desce em direção a superfície batimétrica.
@@ -48,7 +42,7 @@ Essa modelagem visa garantir a correta representação do contato entre o duto e
 A Figura~\ref{fig:lancamentododuto} mostra o duto antes e durante o processo de instalação.
 
 A medida que o duto se assenta é necessário garantir um equilíbrio estável entre o duto e o solo, o que é feito mediante um modelo representativo dessa iteração, no qual deve-se definir o atrito e rigidez do leito marinho.
-No \abaqus~\cite{Dassault2018}, pode-ser relacionar a penetração e a pressão de resposta do solo por meio de uma curva de rigidez axial, além de usar modelo anisotrópico para o atrito do solo para representar as diferenças entre os atritos nas direções longitudinal e transversal.
+No ABAQUS~\cite{Dassault2018}, pode-ser relacionar a penetração e a pressão de resposta do solo por meio de uma curva de rigidez axial, além de usar modelo anisotrópico para o atrito do solo para representar as diferenças entre os atritos nas direções longitudinal e transversal.
 
 Após a descida do duto, tem-se os processos de alagamento e desalagamento, que acarreta em mudanças no peso submerso do duto e, consequentemente, altera na sua configuração.
 Esses processos podem ser facilmente modelados por uma variação numa carga vertical atuando no duto.
@@ -56,8 +50,9 @@ Mas, um duto sujeito a essa variação de carga na condição alagada sofrem gra
 
 \begin{figure}[th!]
     \centering
+    \caption{Modelo com o duto vazio (acima) e alagado (abaixo).}\label{fig:duto_alagado}
     \includegraphics[width=0.7\linewidth]{imagens/duto_alagado}
-    \caption[]{Modelo com o duto vazio (acima) e alagado (abaixo).\\Fonte:~\cite{Ose1999}}\label{fig:duto_alagado}
+    \\Fonte:~\citeonline{Ose1999}.
 \end{figure}
 
 Dessa maneira, é desejável que o modelo a ser estabelecido use um procedimento de análise que considere grandes deslocamentos e o efeito de alterações na área da seção do duto devido a alta tensão axial.
@@ -71,7 +66,7 @@ Já a pressão interna pode ser assumida como constante, mas a possibilidade de 
 \section{Procedimentos e etapas de carregamento na análise de elementos finitos}
 
 
-Um conceito base no \abaqus~é a divisão do histórico do cargamentos em etapas de carga. Para cada etapa, o usuário escolhe um método de análise.
+Um conceito base no ABAQUS~é a divisão do histórico do cargamentos em etapas de carga. Para cada etapa, o usuário escolhe um método de análise.
 Dessa forma, é possível representar qualquer sequência  e tipo de histórico de carregamento.
 Por exemplo, em um passo estático, o duto pode ser carregado com gás, no passo estático seguinte descarregado, e na terceira etapa, pode-se realizar uma análise exclusiva do duto vazio.
 Um histórico de carga de um modelo construído para análise é apresentado na~\autoref{tab:load_steps}.
@@ -81,8 +76,7 @@ Um histórico de carga de um modelo construído para análise é apresentado na~
 \renewcommand{\arraystretch}{1.2}
 \small
 \centering
-\caption[]{Histórico de carga típico em uma análise de dutos no ABAQUS.}
-\label{tab:load_steps}
+\caption{Histórico de carga típico em uma análise de dutos no ABAQUS.}\label{tab:load_steps}
 \begin{tabular}{cll}
 \toprule[1.5pt]
 
@@ -106,10 +100,12 @@ Um histórico de carga de um modelo construído para análise é apresentado na~
 \bottomrule[1.25pt]
 \end{tabular}
 \\[6pt]
-Fonte: \citeonline{Bai2014}
+Fonte: \citeonline{Bai2014}.
 \end{table}
 
-É válido de nota que a análise estática disponível no ABAQUS usada no modelo lida com respostas não lineares de efeitos de grandes deslocamentos, não-linearidade do material e não-linearidades de contorno, como contato, deslizamento e atrito (interação solo-duto). O ABAQUS usa o método de Newton para resolver as equações de equilíbrio não lineares. Portanto, a solução é obtida como uma série de incrementos com iterações para obter equilíbrio dentro de cada incremento \cite{SIMULIA2018}.
+Após os passos referentes ao processos de assentamento do duto, é possível incluir uma passo de pertubação linear para obtenção dos modos de vibração, que essenciais na análise de fadiga.
+
+É válido de nota que a análise estática disponível no ABAQUS usada no modelo lida com respostas não lineares de efeitos de grandes deslocamentos, não-linearidade do material e não-linearidades de contorno, como contato, deslizamento e atrito (interação solo-duto). O ABAQUS usa o método de Newton para resolver as equações de equilíbrio não lineares. Portanto, a solução é obtida como uma série de incrementos com iterações para obter equilíbrio dentro de cada incremento~\cite{SIMULIA2018}.
 
 \section{Tipos de elementos}
 
@@ -123,8 +119,9 @@ O Abaqus dispõe de alguns tipos de elementos a serem usados no modelo do sistem
 
 \begin{figure}[th!]
     \centering
+    \caption{Tipos de elementos usados no modelo.}\label{fig:elements_type}
     \includegraphics[width=0.8\linewidth]{imagens/elements_types}
-    \caption[]{Tipos de elementos usados no modelo.\\Fonte:~\cite{Bai2014}}\label{fig:elements_type}
+    \\Fonte:~\cite{Bai2014}.
 \end{figure}
 
 \subsection{Elemento PIPE31/PIPE32}
@@ -144,8 +141,9 @@ O elemento também pode considerar alterações na área da seção do duto devi
 
 \begin{figure}[!ht]
     \centering
+    \caption{Elemento PIPE31.}\label{fig:elemen_PIPE31H}
     \includegraphics[width=0.5\linewidth]{imagens/elemen_PIPE31H}
-    \caption[]{Elemento PIPE31.\\Fonte:~\cite{Bai2014}}\label{fig:elemen_PIPE31H}
+    \\Fonte:~\citeonline{Bai2014}.
 \end{figure}
 
 \subsection{Elemento R3D4}
@@ -154,8 +152,9 @@ O elemento rígido R3D4 de quatro nós, como mostrado na \autoref{fig:element_R3
 
 \begin{figure}[th!]
     \centering
+    \caption{Elemento rígido R3D4 (a), e suavização da superfície de elementos (b).}\label{fig:element_R3D4}
     \includegraphics[width=0.7\linewidth]{imagens/element_R3D4}
-    \caption[]{Elemento rígido R3D4 (a), e suavização da superfície superfície de elementos (b).\\Fonte:~\cite{Bai2014}}\label{fig:element_R3D4}
+    \\Fonte:~\citeonline{Bai2014}.
 \end{figure}
 
 A suavização é feita pela ABAQUS, criando superfícies de Bèzier com base na superfície facetada do fundo do mar formada pelos elementos rígidos. As superfícies de Bèzier resultantes, diferentemente da superfície do elemento facetado, são lisas e têm uma superfície externa com direção normal contínua. As superfícies de Bèzier não correspondem exatamente à geometria facetada da superfície rígida, mas os nós dos elementos rígidos que definem o fundo do mar permanecem sempre na superfície de Bèzier. Além disso, o usuário pode especificar o grau de suavização para controlar a geometria da superfície suavizada.
@@ -177,7 +176,7 @@ Por outro lado, como desvantagens do uso deste tipo de superfície:
 \begin{itemize}
     \item Uma superfície analítica rígida sempre agirá como superfície \textit{master} em uma interação de contato, impossibilitando que se modele o contato entre duas superfícies rígidas analíticas.
     \item Forças de contato e pressões não podem ser plotadas em uma superfície rígida analítica, apenas na superfície \textit{slave}.
-    \item Um número muito grande de segmentos, na ordem de milhares, para definir uma superfície rígida analítica pode diminuir o desempenho. Sendo mais recomendável o uso de superfícies baseadas em elementos.
+    \item Um número muito grande de segmentos, na ordem de milhares, para definir uma superfície rígida analítica pode diminuir o desempenho. Sendo mais recomendável o uso de superfície baseada em elementos.
 \end{itemize}
 
 
@@ -185,6 +184,7 @@ Para os casos estudados, utilizou-se uma superfície cilíndrica rígida tridime
 
 \begin{figure}[!ht]
     \centering
+    \caption{Exemplo de superfície analítica rígida.}\label{fig:superficie_analitica} 
     \includegraphics[width=0.7\textwidth]{imagens/superficie_analitica}
-    \caption[]{\label{fig:superficie_analitica} Exemplo de superfície analítica rígida.\\Fonte: \citeonline{SIMULIA2018}}
+    \\Fonte: \citeonline{SIMULIA2018}.
 \end{figure}

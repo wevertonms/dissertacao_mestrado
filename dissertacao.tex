@@ -37,7 +37,7 @@
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx,graphicx}	% Inclusão de gráficos
-\usepackage{epsfig,subfig}		% Inclusão de figuras
+% \usepackage{epsfig,subfig}		% Inclusão de figuras
 \usepackage{microtype} 			% Melhorias de justificação
 % ---------------------
 
@@ -45,14 +45,14 @@
 % Pacotes ADICIONAIS
 % ---------------------
 % \usepackage{lipsum}					% Geração de dummy text
-\usepackage{amsmath,amssymb}	        % Comandos matemáticos avançados
+\usepackage{amsmath,amssymb,mathrsfs}	% Comandos matemáticos avançados
 \usepackage{setspace}  					% Para permitir espaçamento simples, 1 1/2 e duplo
 \usepackage{verbatim}					% Para poder usar o ambiente "comment"
 \usepackage{tabularx} 					% Para poder ter tabelas com colunas de largura auto-ajustável
 \usepackage{afterpage} 					% Para executar um comando depois do fim da página corrente
 \usepackage{url} 						% Para formatar URLs (endereços da Web)
 \usepackage{svg}
-\counterwithin{figure}{chapter}         % Para numerar figuras por capítulo
+% \counterwithin{figure}{chapter}         % Para numerar figuras por capítulo
 \usepackage{enumerate}
 \usepackage[most]{tcolorbox}
 %\usepackage{tocloft}
@@ -68,7 +68,7 @@
 % ---------------------
 
 % Definição de diretório de imagens
-\graphicspath{imagens/}
+\graphicspath{{imagens/}}
 
 % Configurações de CITAÇÕES para abntex2
 \include{extras/conf_citacoes}
@@ -175,13 +175,10 @@
 \textual
 
 % Ajusta o header para conter apenas o número da página
-% \pagestyle{simple}
+\pagestyle{simple}
 
 % Atalhos para escritas comuns
-\def\fatfree{FatFree}
 \def\dnvf105{DNVGL-RP-F105}
-\def\abaqus{ABAQUS}
-%\def\petrobras{Petrobras}
 
 % ----------------------------------------------------------
 % TEXTO DA DISSERTAÇÃO

@@ -57,8 +57,12 @@
         "Matplotlib",
         "Numpy",
         "Strouhal",
+        "Subsea",
         "abntex",
+        "fısico",
+        "hyperpageref",
         "indentação",
-        "interar"
+        "interar",
+        "xlwings"
     ],
 }

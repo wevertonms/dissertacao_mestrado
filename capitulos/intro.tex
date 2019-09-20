@@ -1,15 +1,27 @@
 \chapter{Introdução}
 
 
-Recentemente, as indústrias \textit{offshore} e submarina experimentaram uma revolução técnica no processo de projeto.
-Métodos avançados e ferramentas de análise permitiram uma abordagem mais sofisticada ao projeto, que aproveita os materiais modernos e os códigos de projeto revisados, que dão suporte aos conceitos de estado limite de projeto e aos métodos de confiabilidade.
-A nova abordagem é chamada de Projeto Através de Análise (\textit{Design Through Analysis} -- DTA), onde o Método dos Elementos Finitos é usado para simular o comportamento global dos dutos, bem como os esforços estruturais locais.
-% TODO falta referencias aqui
+Ao longo das últimas décadas, à medida que novos campos de petróleo e gás foram descobertos em águas profundas e distantes da costa, surgiu a necessidade de aplicação de sistemas de coleta e exportação submarinos utilizando dutos rígidos cada vez mais extensos, e consequentemente com maior propensão à ocorrência de vãos livres induzidos por irregularidades do piso marinho.
 
-O processo de duas etapas é usado de maneira complementar para determinar os estados limites normativos e otimizar um projeto específico.
+A configuração de dutos no fundo do mar depende das características topográficas do fundo do mar, tipo de solo, tensão residual, rigidez do tubo e seu peso submerso. Seções de tubo não suportadas pelo do fundo do mar são chamadas de vãos. Se o fundo do mar for muito irregular, os dutos tendem a formar vãos em vez de seguir as características topográficas do fundo do mar. Os vãos podem ser criados devido a irregularidades no fundo do mar durante a instalação ou aos subsequentes movimentos horizontais de \textit{scouring} de dutos durante a operação.
 
-Devido a quantidade de fatores envolvidos, a análise requer o uso de métodos numéricos robustos para seu tratamento
+A presença de vãos no dutos no fundo do mar exige uma avaliação para determinar se é necessária uma ação corretiva para evitar danos aos mesmos. As características estáticas e dinâmicas dos vãos da dutos devem ser investigadas para garantir que o duto possa ser mantida em um estado aceitavelmente seguro. Se a segurança necessária não puder ser garantida, as ações corretivas na forma de reencaminhamento, correção de vãos, supressão do VIV e similares são usadas para garantir que os critérios de projeto relativos aos níveis de tensão e possíveis danos à fadiga devido ao VIV não sejam excedidos.
+
+Ainda na fase de projeto, uma avaliação do perfil do fundo do mar ao longo da rota proposta pode ser realizada para identificar se é esperado que ocorram vãos da dutos. Se ocorrerem vãos de dutos, será necessário determinar onde e quanto dos vãos será calculado. Esta análise fornece previsões dos números e tamanhos dos vãos esperados.
+Devido a quantidade de fatores envolvidos, o processo de lançamento de dutos é uma das tarefas mais desafiadoras, mesmo quando a rota ideal já está definida. A análise requer o uso de métodos numéricos robustos para seu tratamento.
 O Método dos Elementos Finitos (MEF) é amplamente usado nessa tarefa.
+
 De modo a representar adequadamente as condições de campo, é necessário modelar desde a etapa de instalação até a operação do duto, assim como considerar efeito de carregamentos dos diferentes valores de pressões internas e externas nas respectivas etapas.
+Modelar a instalação de dutos em um \textit{software} de elementos finitos para uso geral pode ser um trabalho demorado e tedioso, principalmente devido a grandes quantidades de dados da batimetria.
+Na maioria das vezes, são necessárias técnicas avançadas de \textit{script} para definir o perfil do leito marinho, selecionar a rota ideal do duto e simular o processo de assentamento~\cite{VandenAbeele2013}.
+
+Nesse cenário, são essenciais ferramentas que auxiliem na pré e pós-processamento de dados e na automação de procedimentos. Uma ferramenta com essas características traz ganhos significativos para a produtividade e reduzem a probabilidade de erro humano. Além disso, quando essa ferramenta integra ferramentas de uso específicos (análises e visualização), pode-se reduzir atritos do fluxo de trabalhar que usa várias ferramentas de forma isolada.
 
 \section{Objetivos}
+
+Este trabalho tem como objetivo geral desenvolver uma ferramenta para a análise de fadiga em dutos submarinos em vãos livre, que permita um fluxo de trabalho que inclua de um software de análise de elementos finitos e uma planilha de cálculo de vida a fadiga. Além disso,este trabalho tem como objetivos específicos:
+
+\begin{itemize}
+    \item Modelar e implementar a ferramenta utilizando o paradigma da programação orientada a objetos, através da linguagem Python.
+    \item Contribuir para a metodologia de análise de fadiga em dutos por meio da criação de uma metodologia de seleção de modos de vibração.
+\end{itemize}

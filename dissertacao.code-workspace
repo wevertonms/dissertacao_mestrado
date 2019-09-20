@@ -34,11 +34,26 @@
 			"abntex",
 			"indentação",
 			"interar"
-		]
+		],
 		"latex-workshop.chktex.enabled": true,
 		"extensions.showRecommendationsOnlyOnDemand": true,
 		"git.autofetch": true,
 		"latex-workshop.synctex.afterBuild.enabled": true,
-		"latex-workshop.latex.recipe.default": "lastUsed"
+		"latex-workshop.chktex.args.active": [
+			"-wall",
+			"-n22",
+			"-n30",
+			"-e16",
+			"-q",
+			"-n46",
+			"-n8",
+			"-n13",
+			"-n45",
+			"-n1",
+			"-n19",
+			"-n21"
+		],
+		"latex-workshop.latex.autoBuild.run": "never",
+		"ltex.language": "pt-BR"
 	}
 }
