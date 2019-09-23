@@ -42,13 +42,13 @@ Essa modelagem visa garantir a correta representação do contato entre o duto e
 A Figura~\ref{fig:lancamentododuto} mostra o duto antes e durante o processo de instalação.
 
 A medida que o duto se assenta é necessário garantir um equilíbrio estável entre o duto e o solo, o que é feito mediante um modelo representativo dessa iteração, no qual deve-se definir o atrito e rigidez do leito marinho.
-No ABAQUS~\cite{Dassault2018}, pode-ser relacionar a penetração e a pressão de resposta do solo por meio de uma curva de rigidez axial, além de usar modelo anisotrópico para o atrito do solo para representar as diferenças entre os atritos nas direções longitudinal e transversal.
+No ABAQUS~\cite{Dassault2018}, pode-ser relacionar a penetração e a força de reação do solo por meio de uma curva de rigidez axial, além de usar modelo anisotrópico para o atrito do solo para representar as diferenças entre os atritos nas direções longitudinal e transversal.
 
-Após a descida do duto, tem-se os processos de alagamento e desalagamento, que acarreta em mudanças no peso submerso do duto e, consequentemente, altera na sua configuração.
+Após a descida do duto, têm-se os processos de alagamento e desalagamento, que acarreta em mudanças no peso submerso do duto e, consequentemente, altera na sua configuração.
 Esses processos podem ser facilmente modelados por uma variação numa carga vertical atuando no duto.
 Mas, um duto sujeito a essa variação de carga na condição alagada sofrem grandes deformações axiais devido à mudança em geometria, e assim o duto se deforma e afunda nos vãos livres ao longo da rota do duto, como mostra a \autoref{fig:duto_alagado}.
 
-\begin{figure}[th!]
+\begin{figure}[!ht]
     \centering
     \caption{Modelo com o duto vazio (acima) e alagado (abaixo).}\label{fig:duto_alagado}
     \includegraphics[width=0.7\linewidth]{imagens/duto_alagado}
@@ -117,7 +117,7 @@ O Abaqus dispõe de alguns tipos de elementos a serem usados no modelo do sistem
     \item Os elementos de molas usados para representar a continuidade do duto nas extremidades.
 \end{itemize}
 
-\begin{figure}[th!]
+\begin{figure}[!ht]
     \centering
     \caption{Tipos de elementos usados no modelo.}\label{fig:elements_type}
     \includegraphics[width=0.8\linewidth]{imagens/elements_types}
@@ -150,7 +150,7 @@ O elemento também pode considerar alterações na área da seção do duto devi
 
 O elemento rígido R3D4 de quatro nós, como mostrado na \autoref{fig:element_R3D4}, possibilita modelar superfícies complexas com geometria arbitrária e é geralmente escolhido ao modelar a topografia do fundo do mar. Uma característica muito importante do ABAQUS ao modelar o fundo do mar tem sido a possibilidade de suavizar as superfícies geradas com os elementos rígidos, o que leva a uma representação muito melhor do fundo do mar do que a superfície facetada inicial.
 
-\begin{figure}[th!]
+\begin{figure}[!ht]
     \centering
     \caption{Elemento rígido R3D4 (a), e suavização da superfície de elementos (b).}\label{fig:element_R3D4}
     \includegraphics[width=0.7\linewidth]{imagens/element_R3D4}

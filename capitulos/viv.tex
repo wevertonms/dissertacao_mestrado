@@ -209,13 +209,13 @@ Em seguida, deve-se calcular os fatores de correção para considerar a turbulê
 \begin{equation}
 \label{eq:viv-Riot}
 \begin{aligned}
-	R_{I\theta,1} &= 1 - \pi^2\left(\frac{\pi}{2} - \sqrt{2 \theta_\mathit{rel}}\right)(I_c - 0,03) & \quad \mbox 0 \leq R_{I\theta,1} \leq 1\\
+    R_{I\theta,1} &= 1 - \pi^2\left(\frac{\pi}{2} - \sqrt{2 \theta_\mathit{rel}}\right)(I_c - 0,03) & \quad \mbox 0 \leq R_{I\theta,1} \leq 1\\
     R_{I\theta,2} &= 1 - \frac{I_c - 0,03}{0,17}                                                    & \quad \mbox  0 \leq R_{I\theta,2} \leq 1
 \end{aligned}
 \end{equation}
 onde $I_c$ é a intensidade de turbulência.
 
-Segundo a \dnvf105 o fluxo pode ser dividido em duas zonas: (i) uma zona exterior, distante do solo marinho, onde velocidade de corrente média e a turbulência variam muito pouco na direção horizontal, e (ii) uma zona interior, onde a velocidade de corrente média e a turbulência tem variações consideráveis na direção horizontal. Uma vez que as medições da corrente são realizadas na zona exterior, fora da camada limite, a velocidade de corrente no duto pode ser aproximada a partir da equação
+Segundo a \dnvf105 o fluxo pode ser dividido em duas zonas: (i) uma zona exterior, distante do solo marinho, onde velocidade de corrente média e a turbulência variam muito pouco na direção horizontal, e (ii) uma zona interior, onde a velocidade de corrente média e a turbulência têm variações consideráveis na direção horizontal. Uma vez que as medições da corrente são realizadas na zona exterior, fora da camada limite, a velocidade de corrente no duto pode ser aproximada a partir da equação
 \begin{equation}
 \label{eq:vel-corrente}
 U_c = R_c U(z_r) \frac{\ln{(e+D/2)} - \ln(z_0)}{\ln (z_r)- \ln (z_0)}
@@ -270,7 +270,7 @@ V_{R, 2}^\mathit{IL} =  V_{R, \mathit{end}}^\mathit{IL} - 2 \left(\frac{A_{Y, 2}
 
 onde $\gamma_{\mathit{on}, \mathit{IL}}$ é o fator de segurança para velocidade de corrente inicial \textit{in-line} e $\frac{A_Y}{D}$ é a amplitude \textit{in-line} normalizada. Com esses valores calculados, pode-se construir a curva que relaciona velocidade reduzida e amplitude de vibração para diâmetro unitário, semelhante a \autoref{fig:viv-responsemodelil}.
 
-\begin{figure}[th!]
+\begin{figure}[!ht]
     \centering
     \caption{Curva de modelo de resposta \textit{in-line}.}\label{fig:viv-responsemodelil}
     \includegraphics[width=0.8\linewidth]{imagens/response_model_IL}
@@ -353,7 +353,7 @@ V_{R, 2}^\mathit{CF} = V^\mathit{CF}_{R, \mathit{end}} - \frac{7}{1,3} \frac{A_{
 
 Com esses valores calculados, pode-se construir a curva que relaciona velocidade reduzida e amplitude de vibração para diâmetro unitário, semelhante a \autoref{fig:viv-responsemodelcf}.
 
-\begin{figure}[th!]
+\begin{figure}[!ht]
     \centering
     \caption{Curva de modelo de resposta \textit{cross-flow}.}\label{fig:viv-responsemodelcf}
     \includegraphics[width=0.8\linewidth]{imagens/response_model_CF}
@@ -381,7 +381,7 @@ A \dnvf105 define três diferentes tipos de modos:
     definição do vão livre (item 2.7.2 da DNVGL-RP-F105).
     Um modo que não passível de ativação pode ser totalmente desconsiderado nas análises em todos os pontos e velocidades de fluxo.
 
-    \item[Modos participantes] são modos ativos que tem amplitude de tensão relevante em um, ou ambos os lados, de um ponto x. Para que um modo j seja considerado participante no vão, é necessário que a seguinte condição (presente no item 4.3.3) seja atendida:
+    \item[Modos participantes] são modos ativos que têm amplitude de tensão relevante em um, ou ambos os lados, de um ponto x. Para que um modo j seja considerado participante no vão, é necessário que a seguinte condição (presente no item 4.3.3) seja atendida:
     $$
     \left|A_{\textbf{IL/CF}, j}(x)\right| \geq \frac{A_{IL/CF}^{\max}}{10} \text{ para algum } x \in (x_{\text{start},j}, x_{\text{end}, j})
     $$
@@ -471,12 +471,12 @@ Assim, precisamos calcular VIV \textit{cross-flow} e \textit{in-line} para cada 
         \item Reduzir os modos fracos.
         Para VIV \textit{in-line}, dois modos adjacentes podem competir se suas frequências forem próximas, ou agir de forma independente se estiverem distantes.
         A \dnvf105 define que os modos competem se a razão entre as frequências é menor que 2, isto é, $\frac{f_\mathit{n+1}}{f_n} < 2$.
-        Em modos adjacentes considera-se que apenas o ``vencedor'' da competição pode ter máxima amplificação, enquanto a amplificação do modo ``perdedor'' é reduzida à metade. É interessante ressaltar que modos que não competem não tem redução.
+        Em modos adjacentes considera-se que apenas o ``vencedor'' da competição pode ter máxima amplificação, enquanto a amplificação do modo ``perdedor'' é reduzida à metade. É interessante ressaltar que modos que não competem não têm redução.
 
         \item Calcular o intervalo de tensões \textit{in-line} excitados pelo modo \textit{cross-flow} dominante $S_{\mathit{\textit{cross-flow}}-\mathit{IL}}(x)$.
 
         Para cada ponto e cada modo, calcula-se o intervalo de tensões induzido por VIV \textit{in-line} para os modos contribuintes:
-        		\[S_{\mathit{IL}, \mathit{j}}^\mathit{RM}(x) = S_{\mathit{IL}, \mathit{j}}^{P} \cdot 0,5^{\beta_j (x)}\]
+            \[S_{\mathit{IL}, \mathit{j}}^\mathit{RM}(x) = S_{\mathit{IL}, \mathit{j}}^{P} \cdot 0,5^{\beta_j (x)}\]
 
         Assume-se que apenas o modo \textit{cross-flow} dominante é capaz de contribuir para o movimento \textit{in-line} induzido pelo modo transversal.
         Desta forma, o modo \textit{in-line} participante cuja frequência natural é próxima a duas vezes a resposta \textit{cross-flow} dominante é escolhido como candidato a VIV \textit{in-line} induzido por \textit{cross-flow}.
@@ -485,7 +485,7 @@ Assim, precisamos calcular VIV \textit{cross-flow} e \textit{in-line} para cada 
 
         A amplitude de tensões \textit{in-line} excitados pelo modo \textit{cross-flow} dominante é dado por:
 
-       		\[S_{\mathit{CF-IL}}(x) = 0,8 \cdot A_{\mathit{IL}, \mathit{k}}~(x) \cdot {\left(\frac{A_{z}}{D}\right)}_{\max}~\cdot~R_k \cdot \gamma_s\]
+       	    \[S_{\mathit{CF-IL}}(x) = 0,8 \cdot A_{\mathit{IL}, \mathit{k}}~(x) \cdot {\left(\frac{A_{z}}{D}\right)}_{\max}~\cdot~R_k \cdot \gamma_s\]
 
     \item  Escolher o maior $S_\mathit{IL}^\mathit{RM}(x)$ e $S_{\mathit{CF-IL}}(x)$ para cada modo;
 

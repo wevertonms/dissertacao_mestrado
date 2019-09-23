@@ -6,8 +6,6 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        ////// Latex files //////
-        // Core latex/pdflatex auxiliary files:
         "**/*.aux": true,
         "**/*.lof": true,
         "**/*.log": true,
@@ -25,10 +23,8 @@
         "**/*.ind": true,
         "**/*.ilg": true,
         "**/__*": true,
-        // Intermediate documents:
         "**/*.dvi": true,
         "**/*.xdv": true,
-        // Bibliography auxiliary files (bibtex/biblatex/biber):
         "**/*.bbl": true,
         "**/*.bcf": true,
         "**/*.blg": true,
@@ -36,14 +32,16 @@
         "**/*-blx.bib": true,
         "**/*.brf": true,
         "**/*.run.xml": true,
-        // Build tool auxiliary files:
         "**/*.synctex": true,
         "**/*.synctex(busy)": true,
         "**/*.synctex.gz": true,
         "**/*.synctex.gz(busy)": true,
         "**/*_latexmk": true,
-        // Outros:
         "**/.directory": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
     },
     "cSpell.words": [
         "Abaqus",
@@ -65,4 +63,5 @@
         "interar",
         "xlwings"
     ],
+    "editor.wordWrap": "on",
 }
