@@ -33,7 +33,7 @@ Mais importante do que investigar o comportamento do duto durante a instalação
     \centering
     \caption{Modelo de elementos finitos durante o lançamento.}\label{fig:lancamentododuto}
     \includegraphics[width=0.7\linewidth]{imagens/lancamento_do_duto}
-    \\Fonte:~\citeonline{Bai2014}.
+    \fonte{\citeonline{Bai2014}}
 \end{figure}
 
 Por simplicidade, neste trabalho, será assumido que o ângulo entre o duto e a horizontal o será nulo, isto é, o duto estará num plano horizontal que desce em direção a superfície batimétrica.
@@ -52,7 +52,7 @@ Mas, um duto sujeito a essa variação de carga na condição alagada sofrem gra
     \centering
     \caption{Modelo com o duto vazio (acima) e alagado (abaixo).}\label{fig:duto_alagado}
     \includegraphics[width=0.7\linewidth]{imagens/duto_alagado}
-    \\Fonte:~\citeonline{Ose1999}.
+    \fonte{\citeonline{Ose1999}}
 \end{figure}
 
 Dessa maneira, é desejável que o modelo a ser estabelecido use um procedimento de análise que considere grandes deslocamentos e o efeito de alterações na área da seção do duto devido a alta tensão axial.
@@ -121,7 +121,7 @@ O Abaqus dispõe de alguns tipos de elementos a serem usados no modelo do sistem
     \centering
     \caption{Tipos de elementos usados no modelo.}\label{fig:elements_type}
     \includegraphics[width=0.8\linewidth]{imagens/elements_types}
-    \\Fonte:~\cite{Bai2014}.
+    \fonte{\citeonline{Bai2014}}
 \end{figure}
 
 \subsection{Elemento PIPE31/PIPE32}
@@ -143,7 +143,7 @@ O elemento também pode considerar alterações na área da seção do duto devi
     \centering
     \caption{Elemento PIPE31.}\label{fig:elemen_PIPE31H}
     \includegraphics[width=0.5\linewidth]{imagens/elemen_PIPE31H}
-    \\Fonte:~\citeonline{Bai2014}.
+    \fonte{\citeonline{Bai2014}}
 \end{figure}
 
 \subsection{Elemento R3D4}
@@ -154,7 +154,7 @@ O elemento rígido R3D4 de quatro nós, como mostrado na \autoref{fig:element_R3
     \centering
     \caption{Elemento rígido R3D4 (a), e suavização da superfície de elementos (b).}\label{fig:element_R3D4}
     \includegraphics[width=0.7\linewidth]{imagens/element_R3D4}
-    \\Fonte:~\citeonline{Bai2014}.
+    \fonte{\citeonline{Bai2014}}
 \end{figure}
 
 A suavização é feita pela ABAQUS, criando superfícies de Bèzier com base na superfície facetada do fundo do mar formada pelos elementos rígidos. As superfícies de Bèzier resultantes, diferentemente da superfície do elemento facetado, são lisas e têm uma superfície externa com direção normal contínua. As superfícies de Bèzier não correspondem exatamente à geometria facetada da superfície rígida, mas os nós dos elementos rígidos que definem o fundo do mar permanecem sempre na superfície de Bèzier. Além disso, o usuário pode especificar o grau de suavização para controlar a geometria da superfície suavizada.
@@ -186,5 +186,5 @@ Para os casos estudados, utilizou-se uma superfície cilíndrica rígida tridime
     \centering
     \caption{Exemplo de superfície analítica rígida.}\label{fig:superficie_analitica} 
     \includegraphics[width=0.7\textwidth]{imagens/superficie_analitica}
-    \\Fonte: \citeonline{SIMULIA2018}.
+    \fonte{\citeonline{SIMULIA2018}}
 \end{figure}

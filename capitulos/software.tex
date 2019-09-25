@@ -107,7 +107,7 @@ A linguagem adotada será Python\footnote{https://www.python.org}. Além de ser 
         \centering
         \caption{Amostra das principais bibliotecas científicas em Python.}\label{fig:python_ecosystem}
         \includegraphics[width=0.6\textwidth]{imagens/python_ecosystem}
-        \\Fonte:~\citeonline{DataCamp2017}.
+        \fonte{\citeonline{DataCamp2017}}
     \end{figure}
 
     \item Suporte para automação de tarefas. Os recursos de \textit{script} internos do Python e vários pacotes têm um forte suporte à automação de tarefas. A automação de tarefas repetitivas e a realização do registro de dados são fáceis e requerem pouco esforço.
@@ -143,41 +143,9 @@ Já dentre as principais classes estão:
         \centering
         \caption{Aspecto de arquivo principal de entrada no formato JSON}\label{fig:json_sample}
         \includegraphics[width=0.5\textwidth]{imagens/json_sample}
-        \\Fonte: Autor.
+        \fonte{Autor (2019)}
     \end{figure}
-    
-%     \begin{lstlisting}[language=json, label={tab:arquivojson},caption={Aspecto de arquivo principal de entrada no formato JSON.}]
-% {
-% "MODEL": {
-%     "NAME": "Duto_1",
-%     "BATIMETRIA": "C:/Batimetria/batimetria.csv",
-%     "RESULTS_FOLDER": "C:/Resultados",
-%     "SPRING_PIPE_EXTREMITY": 0
-% },
-% "FILE_BAT": {
-%     "N_CPU": 12,
-% },
-% "CONDITIONS": {
-%     "TYPE_SEABED": "ANALYTICAL",
-%     "SUPPORTS": true,
-% },
-% "MODE_SELECTOR": {
-%     "NODESET": "PIPE",
-%     "ELEMENTSET": "PIPE",
-%     "SEABEDSET": "M_FUNDO",
-%     "SPANS": [
-%         {
-%             "kp_inicial": 9958.2,
-%             "kp_final": 9975.2,
-%             "azimute": 60.00
-%         }
-%     ],
-%     "N_MODES_IN_LINE": 4,
-%     "N_MODES_CROSS": 3
-% },
-% ...
-%         \end{lstlisting}
-
+ 
     \item \texttt{Inp}: lida com a escrita modularizada de arquivos de entrada  para o ABAQUS. A proposta é que se crie um arquivo principal que terá inclusão de outros arquivos acessórios que terão as informações específicas de cada aspecto da modelagem: batimetria, passos de carga, etc.
     
     \item \texttt{Span}: classe que representa um vão do duto. Dentre os métodos da classe estão os métodos responsáveis pela seleção dos modos de vibração.
@@ -191,5 +159,5 @@ A \autoref{fig:UML} exibe um diagrama UML com esses módulos e classes, suas rel
     \centering
     \caption{Diagrama UML dos módulos e classes.}\label{fig:UML}
     \includegraphics[width=0.95\textwidth]{imagens/UML}
-    \\Fonte: Autor.
+    \fonte{Autor (2019)}
 \end{figure}
