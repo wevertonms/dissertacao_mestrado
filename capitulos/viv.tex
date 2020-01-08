@@ -14,16 +14,24 @@ Como consequência direta do desprendimento de vórtices, surge uma força oscil
 \end{figure}
 
 A frequência do desprendimento de vórtices causado por um fluxo normal ao obstáculo (o duto em vão livre, no caso em questão), é governado pelo número de Strouhal, diâmetro externo e velocidade de fluxo~\cite{Mork2003}.
-O número de Strouhal pode ser obtido pela expressão $S_t = (f L) / V$, onde $f$ é a frequência de vórtices, $L$ é o comprimento característico e $V$ é a velocidade do fluxo.
+O número de Strouhal pode ser obtido pela expressão
+\begin{equation}
+    S_t = (f L) / V
+\end{equation}
+onde $f$ é a frequência de vórtices, $L$ é o comprimento característico e $V$ é a velocidade do fluxo.
 Quando a velocidade do fluxo alcança uma das frequências naturais da estrutura, ela começa a vibrar e estas duas vibrações se correlacionam, causando vibrações de grande amplitude e grande dano (\textit{lock-in})~\cite{Mork2003}.
 
-Como os dutos são geralmente modelados como cilindros, é importante entender como funciona o comportamento do fluxo de fluido ao redor dessa estrutura. Segundo \apudonline{Sumer1995}{Batchelor1967}, ao estudar vibrações de cilindros em corrente constante, inicia-se o desprendimento de vórtices quando o número de Reynolds, $R_e = (U\cdot D)/\nu$, é maior que $40$, onde $U$ é a velocidade do fluxo, $D$ é o diâmetro do cilindro e $\nu$ é a viscosidade cinemática~\cite{Sumer1995}.
+Como os dutos são geralmente modelados como cilindros, é importante entender como funciona o comportamento do fluxo de fluido ao redor dessa estrutura. Segundo \apudonline{Sumer1995}{Batchelor1967}, ao estudar vibrações de cilindros em corrente constante, inicia-se o desprendimento de vórtices quando o número de Reynolds,
+\begin{equation}
+    R_e = (U D)/\nu
+\end{equation}
+é maior que $40$, onde $U$ é a velocidade do fluxo, $D$ é o diâmetro do cilindro e $\nu$ é a viscosidade cinemática~\cite{Sumer1995}.
 
 O desprendimento de vórtices induz uma variação cíclica de forças no cilindro.
 Assim, enquanto uma força de sustentação (\textit{lift force}) oscila à mesma frequência do desprendimento de vórtices, a força de arrasto (\textit{drag force}) oscila à duas vezes esta mesma frequência~\cite{Sumer1995}.
-Estas forças oscilatórias, os vórtices, podem induzir vibrações na direção ortogonal ao fluxo, \textit{cross-flow} (CF), e na direção do fluxo, \textit{in-line} (IL), denominadas: vibrações induzidas por vórtices (VIV).
+Essas forças oscilatórias, os vórtices, podem induzir vibrações na direção ortogonal ao fluxo, \textit{cross-flow} (CF), e na direção do fluxo, \textit{in-line} (IL), denominadas: vibrações induzidas por vórtices (VIV).
 
-Os diversos dutos submarinos, que tem como objetivo o transporte de fluidos, seja entre o poço e a plataforma, entre plataformas etc., estão sujeitos ao fluxo intermitente de cargas ambientais.
+Os diversos dutos submarinos, que tem como objetivo o transporte de fluidos, seja entre o poço e a plataforma, entre plataformas, etc., estão sujeitos ao fluxo intermitente de cargas ambientais.
 Essas cargas, tornam-se um desafio ainda maior quando os dutos, instalados diretamente no irregular leito marinho, encontram-se em vãos livres~\cite{Fyrileiv1998}, como ilustrado na~\autoref{fig:freespan}.
 
 \begin{figure}[!ht]
@@ -33,12 +41,13 @@ Essas cargas, tornam-se um desafio ainda maior quando os dutos, instalados diret
     \fonte{\citeonline{DNV2017}}
 \end{figure}
 
-Porém, vãos livres não aparecem apenas quando os dutos são instalados em leito irregular, mas também quando ocorre erosão posterior (\textit{scouring}\footnote{Erosão do solo marinho causada pela ação de ondas ou correntes. Caracteriza-se pela remoção de sedimentos com formação de cavidades ou canais.}), devido, por exemplo, a suportes artificiais.
-Com o duto exposto à ondas e correntes, a parte não apoiada estará suscetível à VIV.\@
+Vãos livres não aparecem apenas quando os dutos são instalados em leito irregular, mas também quando ocorre erosão posterior (\textit{scouring}\footnote{Erosão do solo marinho causada pela ação de ondas ou correntes. Caracteriza-se pela remoção de sedimentos com formação de cavidades ou canais.}), devido, por exemplo, a suportes artificiais.
+Com o duto exposto às ondas e correntes, a parte não apoiada estará suscetível à VIV.\@
 Caso a frequência de desprendimento alcance uma das frequências naturais do duto, esse poderá entrar em ressonância.
 As excitações dinâmicas podem causar danos por fadiga, sendo importante identificar os corretos procedimentos de intervenção, seja no duto ou no leito marinho.
 
-A \dnvf105 utiliza uma metodologia baseada em modelos de resposta a fim de avaliar a fadiga causada por VIV em dutos em vão livre.
+A \dnvf105 é uma referência técnica adotada mundialmente no estudo de dutos em vão livre.
+Nele está presente uma metodologia baseada em modelos de resposta a fim de avaliar a fadiga causada por VIV.
 Estes modelos representam relações empíricas entre a velocidade reduzida (\autoref{eq:viv-Vr}) e a amplitude de resposta adimensional, utilizadas para prever as amplitudes de vibração nas direções \textit{in-line} e \textit{cross-flow}~\cite{Mork2003,DNV2017}.
 Além desta, a recomendação prática sugere também um método baseado no coeficiente de sustentação e nas curvas do coeficiente de massa adicional como função da amplitude de resposta adimensional e da frequência de vibração adimensional~\cite{DNV2017}.
 Como terceira opção, a \dnvf105 indica o uso de fluidodinâmica computacional (CFD, na sigla em inglês) para escoamento turbulento ao redor dos dutos para avaliação do VIV.
@@ -53,10 +62,26 @@ Porém, a combinação de vãos de grande extensão e altas correntes, ou ainda 
 	\centering
     \caption{Configurações típicas para vãos.}\label{fig:vaos_tipicos}
 	\includegraphics[width=0.7\textwidth]{imagens/vaos_tipicos}
-    \fonte{\citeonline{Bai2014}}
+    \fonte{Adaptado de \citeonline{Bai2014}}
 \end{figure}
 
-\subsection{Modelo de resposta \textit{in-line}}\label{sec:modelo-resposta-inline}
+
+\subsection{Modelos de respostas}
+
+
+Segundo a \dnvf105 o fluxo pode ser dividido em duas zonas: (i) uma zona exterior, distante do solo marinho, onde velocidade de corrente média e a turbulência variam muito pouco na direção horizontal, e (ii) uma zona interior, onde a velocidade de corrente média e a turbulência têm variações consideráveis na direção horizontal. Uma vez que as medições da corrente são realizadas na zona exterior, fora da camada limite, a velocidade de corrente no duto pode ser aproximada a partir da equação
+\begin{equation}
+\label{eq:vel-corrente}
+U_c = R_c U(z_r) \frac{\ln{(e+D/2)} - \ln(z_0)}{\ln (z_r)- \ln (z_0)}
+\end{equation}
+em que $U(z_r)$ é a velocidade da corrente na altura de referência.
+
+Uma vez encontrada a velocidade da corrente na zona interior, isto é, próxima do solo, a velocidade reduzida pode ser calculada assim
+\begin{equation}
+\label{eq:viv-Vr}
+V_R = \frac{U_c + U_w}{f_n D}
+\end{equation}
+onde $U_w$ é a velocidade de fluxo induzida por onda e $f_n$ é a frequência natural de amplitude.
 
 O parâmetro de estabilidade, $K_S$, representa o amortecimento para uma dada forma modal, sendo obtido a partir da equação
 \begin{equation}
@@ -75,20 +100,6 @@ Em seguida, deve-se calcular os fatores de correção para considerar a turbulê
 \end{aligned}
 \end{equation}
 onde $I_c$ é a intensidade de turbulência.
-
-Segundo a \dnvf105 o fluxo pode ser dividido em duas zonas: (i) uma zona exterior, distante do solo marinho, onde velocidade de corrente média e a turbulência variam muito pouco na direção horizontal, e (ii) uma zona interior, onde a velocidade de corrente média e a turbulência têm variações consideráveis na direção horizontal. Uma vez que as medições da corrente são realizadas na zona exterior, fora da camada limite, a velocidade de corrente no duto pode ser aproximada a partir da equação
-\begin{equation}
-\label{eq:vel-corrente}
-U_c = R_c U(z_r) \frac{\ln{(e+D/2)} - \ln(z_0)}{\ln (z_r)- \ln (z_0)}
-\end{equation}
-em que $U(z_r)$ é a velocidade da corrente na altura de referência.
-
-Uma vez encontrada a velocidade da corrente na zona interior, isto é, próxima do solo, a velocidade reduzida pode ser calculada assim
-\begin{equation}
-\label{eq:viv-Vr}
-V_R = \frac{U_c + U_w}{f_n D}
-\end{equation}
-onde $U_w$ é a velocidade de fluxo induzida por onda e $f_n$ é a frequência natural de amplitude.
 
 A amplitude de resposta \textit{in-line} depende da  (\autoref{eq:viv-Vr}), $V_R$, do parâmetro de estabilidade, $K_\mathit{Sd}$, da intensidade da turbulência, $\mathit{I}_c$, e do ângulo do fluxo, $\theta_\mathit{rel}$.
 O modelo de resposta pode então ser construído através do conjunto de equações a seguir
@@ -140,7 +151,7 @@ onde $\gamma_{\mathit{on}, \mathit{IL}}$ é o fator de segurança para velocidad
 
 Conforme observado na \dnvf105, a resposta de amplitude de um duto vibrando na direção \textit{in-line}, contempla regiões com velocidade de corrente entre 1,0 e 4,5.
 Temos então que a resposta na direção longitudinal depende dos parâmetros de velocidade de corrente, estabilidade, intensidade de turbulência e do ângulo entre a corrente e o duto.
-Percebe-se que, à medida em que o parâmetro de estabilidade aumenta, a amplitude de resposta tende à diminuir, uma vez que este é proporcional ao amortecimento do sistema~(\autoref{eq:viv-Ks}).
+Percebe-se que, à medida que o parâmetro de estabilidade aumenta, a amplitude de resposta tende à diminuir, uma vez que este é proporcional ao amortecimento do sistema~(\autoref{eq:viv-Ks}).
 
 
 \subsection{Modelo de resposta \textit{cross-flow}}
