@@ -47,13 +47,13 @@ Caso a frequência de desprendimento alcance uma das frequências naturais do du
 As excitações dinâmicas podem causar danos por fadiga, sendo importante identificar os corretos procedimentos de intervenção, seja no duto ou no leito marinho.
 
 A \dnvf105 é uma referência técnica adotada mundialmente no estudo de dutos em vão livre.
-Nele está presente uma metodologia baseada em modelos de resposta a fim de avaliar a fadiga causada por VIV.
+Nele está presente uma metodologia baseada em modelos de resposta a fim de avaliar a fadiga causada por VIV\@.
 Estes modelos representam relações empíricas entre a velocidade reduzida (\autoref{eq:viv-Vr}) e a amplitude de resposta adimensional, utilizadas para prever as amplitudes de vibração nas direções \textit{in-line} e \textit{cross-flow}~\cite{Mork2003,DNV2017}.
 Além desta, a recomendação prática sugere também um método baseado no coeficiente de sustentação e nas curvas do coeficiente de massa adicional como função da amplitude de resposta adimensional e da frequência de vibração adimensional~\cite{DNV2017}.
-Como terceira opção, a \dnvf105 indica o uso de fluidodinâmica computacional (CFD, na sigla em inglês) para escoamento turbulento ao redor dos dutos para avaliação do VIV.
+Como terceira opção, a \dnvf105 indica o uso de fluidodinâmica computacional (CFD, na sigla em inglês) para escoamento turbulento ao redor dos dutos para avaliação do VIV\@.
 
-A \dnvf105 considera dois modelos para estimar a resposta dinâmica em um vão livre: Modelo de Resposta (\textit{Response Model} - RM) e Modelo de Força (\textit{Force Model} - FM).
-A escolha do modelo, segundo~\citeonline{Tura1994}, depende: (i) do comportamento dos carregamentos ambientais, isto é, quando há ressonância induzida por vórtice, aplica-se RM; e quando o comportamento do vão livre é afetado por carregamentos periódicos com pouca ou nenhuma amplificação dinâmica, aplica-se FM; (ii) da direção e tipo de fluxo, RM é aplicável na direção \textit{in-line} para corrente contínua e na direção \textit{cross-flow} para qualquer padrão de fluxo; o FM é aplicado na direção \textit{in-line} para carregamentos de onda direto.
+A \dnvf105 considera dois modelos para estimar a resposta dinâmica em um vão livre: Modelo de Resposta (\textit{Response Model}--RM) e Modelo de Força (\textit{Force Model}--FM).
+A escolha do modelo, segundo~\citeonline{Tura1994}, depende: (i) do comportamento dos carregamentos ambientais, isto é, quando há ressonância induzida por vórtice, aplica-se RM\@; e quando o comportamento do vão livre é afetado por carregamentos periódicos com pouca ou nenhuma amplificação dinâmica, aplica-se FM\@; (ii) da direção e tipo de fluxo, RM é aplicável na direção \textit{in-line} para corrente contínua e na direção \textit{cross-flow} para qualquer padrão de fluxo; o FM é aplicado na direção \textit{in-line} para carregamentos de onda direto.
 
 A \dnvf105 pode ser aplicada para vãos únicos e múltiplos onde um modo de vibração é predominante (\textit{single-mode}), conforme a \autoref{fig:vaos_tipicos}.
 Porém, a combinação de vãos de grande extensão e altas correntes, ou ainda vãos múltiplos, faz com que não apenas os modos fundamentais sejam ativados, mas também diversos outros modos de ordem mais alta (\textit{multi-mode}).
@@ -140,7 +140,7 @@ Todavia, o número de modos que responderão e o quanto cada modo contribuirá p
 
 A \dnvf105 define três diferentes tipos de modos:
 \begin{description}
-	\item[Modos ativos] são os modos que podem ser excitados por VIV. Com base no itém 2.3.3 da DNVGL-RP-F105, os critério de definição para que um modo \textit{in-line} com frequência $f_{IL,j}$, ou \textit{cross-flow} com frequência $f_{CF,j}$, seja considerado ativo é:
+	\item[Modos ativos] são os modos que podem ser excitados por VIV\@. Com base no itém 2.3.3 da DNVGL-RP-F105, os critério de definição para que um modo \textit{in-line} com frequência $f_{IL,j}$, ou \textit{cross-flow} com frequência $f_{CF,j}$, seja considerado ativo é:
 
     \begin{equation}
         \begin{aligned}
@@ -153,13 +153,13 @@ A \dnvf105 define três diferentes tipos de modos:
     Um modo que não passível de ativação pode ser totalmente desconsiderado nas análises em todos os pontos e velocidades de fluxo.
 
     \item[Modos participantes] são modos ativos que têm amplitude de tensão relevante em um, ou ambos os lados, de um ponto na coordenada $x$ ao longo do duto. Para que um modo $j$ seja considerado participante no vão, é necessário que a seguinte condição (presente no item 4.3.3) seja atendida:
-    $$
+    \[
     \left|A_{\textbf{IL/CF}, j}(x)\right| \geq \frac{A_{IL/CF}^{\max}}{10} \text{ para algum } x \in (x_{\text{start},j}, x_{\text{end}, j})
-    $$
+    \]
     sendo
-    $$
+    \[
     A_{IL/CF, j}(x) = (1+CSF) D \kappa_{j}(x) E r
-    $$
+    \]
     onde
 
     \begin{tabular}{rl}
@@ -203,12 +203,12 @@ Assim, precisamos calcular VIV \textit{cross-flow} e \textit{in-line} para cada 
     \item Desconsidera-se os modos irrelevantes: ${(A_Z/D)}_j$ < $0,1{(A_Z/D)}_{\max}$
     \end{enumerate}
 
-\item Usando o modelo de resposta para baixos valores de Keulegan-Carpenter (\textit{low Keulegan Carpenter flow regime} - LKCR), calcula-se ${(A_Z/D)}_j$ para cada modo.
+\item Usando o modelo de resposta para baixos valores de Keulegan-Carpenter (\textit{low Keulegan Carpenter flow regime}--LKCR), calcula-se ${(A_Z/D)}_j$ para cada modo.
 
 \item Determina-se a resposta de tensão combinada:
-    $$
+    \[
     S_{\mathit{comb}, \mathit{CF}} = \max\left( S_{\mathit{comb}, \mathit{CF}}^\mathit{RM} ~,~ S_{\mathit{comb}, \mathit{CF}}^\mathit{LKCR} \right)
-    $$
+    \]
 
 \item Determina-se a frequência de contagem de ciclos.
 

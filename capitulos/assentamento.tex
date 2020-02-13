@@ -1,4 +1,4 @@
-\section{Modelagem numérica de dutos submarinos\label{chap:assentamento}}
+\section{Modelagem numérica de dutos submarinos}\label{chap:assentamento}
 
 
 A simulação numérica do duto projetado em um ambiente tridimensional realista obtido por medições da topografia do fundo marinho, permite que os engenheiros explorem quaisquer oportunidades que o comportamento do mesmo pode oferecer para desenvolver soluções seguras e econômicas.
@@ -82,7 +82,7 @@ Um histórico de carga de um modelo construído para uma análise de assentament
 4 & Assentamento do duto no fundo do mar (ver \autoref{fig:lancamentododuto}) & Estática \\
 5 & Remoção dos elementos de guincho & Estática \\
 6 & Modificando condições de contorno para a condição de instalação & Estática \\
-7 & Enchimento de água para condições alagadas (ver \autoref{fig:duto_alagado}) & Estática \\
+7 & Enchimento de água para condições alagadas & Estática \\
 8 & Aplicação de pressão do teste hidrostático. & Estática \\
 9 & Remoção da pressão do teste hidrostático & Estática \\
 10 & Enchimento de gás & Estática \\
@@ -118,7 +118,7 @@ O Abaqus dispõe de alguns tipos de elementos a serem usados no modelo do sistem
     \fonte{\citeonline{Bai2014}}
 \end{figure}
 
-\subsubsection{Elemento PIPE31/PIPE32}
+\subsubsection{Elementos para representação do duto}
 
 A \autoref{fig:elemen_PIPE31H} mostra o elemento de duto finito 3D usado no modelo estabelecido, com 2 nós e 12 graus de liberdade.
 O elemento PIPE31 usa interpolação linear, e o elemento PIPE32 interpolação quadrática.
@@ -130,7 +130,7 @@ Os elementos híbridos superam essa dificuldade usando uma formulação mais ger
 Embora essa formulação torne esses elementos mais custosos computacionalmente, eles geralmente convergem muito mais rapidamente quando as rotações dos dutos são grandes.
 
 O elemento está disponível com uma seção circular vazada de paredes finas e suporta a possibilidade de o usuário especificar pressão externa ou interna.
-Elementos de paredes espessas também estão incluídos no ABAQUS.
+Elementos de paredes espessas também estão incluídos no ABAQUS\@.
 O elemento também pode considerar alterações na área da seção do duto devido ao alto nível tensão axial do duto.
 
 \begin{figure}[!ht]
@@ -140,7 +140,12 @@ O elemento também pode considerar alterações na área da seção do duto devi
     \fonte{\citeonline{Bai2014}}
 \end{figure}
 
-\subsubsection{Elemento R3D4}
+
+\subsubsection{Elementos para representação do fundo do mar}
+
+
+\subsubsubsection{Elemento R3D4}
+
 
 O elemento rígido R3D4 de quatro nós, como mostrado na \autoref{fig:element_R3D4}, possibilita modelar superfícies complexas com geometria arbitrária e é geralmente escolhido ao modelar a topografia do fundo do mar. Uma característica muito importante do ABAQUS ao modelar o fundo do mar tem sido a possibilidade de suavizar as superfícies geradas com os elementos rígidos, o que leva a uma representação muito melhor do fundo do mar do que a superfície facetada inicial.
 
@@ -156,9 +161,17 @@ A suavização é feita pela ABAQUS, criando superfícies de Bèzier com base na
 Um conjunto de elementos R3D4 que definem o fundo do mar é usado como a superfície principal chamada para aplicações de contato com os elementos do duto. Isso significa que um par de contatos (solo-duto) é definido e um modelo de interação é especificado. Esse modelo de interação geralmente consiste em uma definição de rigidez e atrito no fundo do mar.
 
 
-\subsubsection{Superfície analítica rígida}
+\subsubsubsection{Superfície analítica rígida}
 
-Outra forma deb representar a batimetria do piso marinho é utilizar uma superfície analítica rígida, isto é, uma superfície geométrica com perfis que podem ser descritos com segmentos de linha reta ou curva. Estes perfis podem ser varridos por um vetor gerador ou rotacionados em relação a um eixo para formar uma superfície tridimensional. Uma superfície analítica rígida está associada a um nó de referência de corpo rígido, cujo movimento governa toda a superfície. É importante frisar que este tipo de superfície possui apenas um lado disponível para contato, especificado de acordo com a orientação de eixos definida.
+
+Outra forma de representar a batimetria do piso marinho é utilizar uma superfície analítica rígida, isto é, uma superfície geométrica com perfis que podem ser descritos com segmentos de linha reta ou curva, conforme Figura~\ref{fig:superficie_analitica}. Esses perfis podem ser varridos por um vetor gerador ou rotacionados em relação a um eixo para formar uma superfície tridimensional. Uma superfície analítica rígida está associada a um nó de referência de corpo rígido, cujo movimento governa toda a superfície. É importante frisar que este tipo de superfície possui apenas um lado disponível para contato, especificado de acordo com a orientação de eixos definida.
+
+\begin{figure}[!ht]
+    \centering
+    \caption{Exemplo de superfície analítica rígida.}\label{fig:superficie_analitica}
+    \includegraphics[width=0.7\textwidth]{imagens/superficie_analitica}
+    \fonte{\citeonline{SIMULIA2018}}
+\end{figure}
 
 Em relação ao uso de superfícies formadas por elementos, o uso de superfícies analíticas rígidas apresenta duas vantagens:
 \begin{itemize}
@@ -174,11 +187,4 @@ Por outro lado, como desvantagens do uso deste tipo de superfície:
 \end{itemize}
 
 
-Para os casos estudados, utilizou-se uma superfície cilíndrica rígida tridimensional, conforme Figura~\ref{fig:superficie_analitica}. Para criação desta superfície é necessário fixar os pontos que definem um sistema de coordenadas locais, \textbf{a}, \textbf{b} e \textbf{c}. As coordenadas destes pontos, $(X_a, Y_a, Z_a)$, $(X_b, Y_b, Z_b)$ e $(X_c, Y_c, Z_c)$, são dadas em relação ao sistema de coordenas global. O ponto \textbf{a} define a origem do sistema de coordenadas local; o ponto \textbf{b} define o eixo-$x$ local e o ponto \textbf{c}, que se refere ao eixo-$z$ local negativo, define o vetor de geração.  Portanto, os segmentos que formam o perfil da superfície rígida são definidos no eixo $x$-$y$ local e a superfície rígida tridimensional, de acordo com o vetor de geração.
-
-\begin{figure}[!ht]
-    \centering
-    \caption{Exemplo de superfície analítica rígida.}\label{fig:superficie_analitica} 
-    \includegraphics[width=0.7\textwidth]{imagens/superficie_analitica}
-    \fonte{\citeonline{SIMULIA2018}}
-\end{figure}
+Para os casos estudados, utilizou-se uma superfície cilíndrica rígida tridimensional.

@@ -7,7 +7,6 @@
 % Versão: v0.9
 % ---------------------------------------------------------------------------
 % ---------------------------------------------------------------------------
-
 \PassOptionsToPackage{inline}{enumitem}
 
 \documentclass[
@@ -151,13 +150,12 @@
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS (Capa, Resumo, Abstract, etc.)
 % ----------------------------------------------------------
-\pretextual
-
+% \pretextual\
 % Capa
 % \include{pretextual/capa}
 
 % Folha de rosto (o * indica que haverá a ficha bibliográfica)
-\imprimirfolhaderosto
+% \imprimirfolhaderosto\
 
 % Imprimir Ficha Catalográfica
 %\include{pretextual/catalografica}
@@ -209,7 +207,7 @@
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS (Capítulos)
 % ----------------------------------------------------------
-\textual
+\textual\
 
 % Ajusta o header para conter apenas o número da página
 \pagestyle{simple}
@@ -228,7 +226,7 @@
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS (Referências, Glossário, Apêndices)
 % ----------------------------------------------------------
-\postextual
+\postextual\
 
 \bibliography{bibliografia}
 
