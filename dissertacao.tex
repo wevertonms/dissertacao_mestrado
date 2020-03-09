@@ -36,7 +36,7 @@
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx,graphicx}	% Inclusão de gráficos
-% \usepackage{epsfig,subfig}		% Inclusão de figuras
+% \usepackage{epsfig,subfig}	% Inclusão de figuras
 \usepackage{microtype} 			% Melhorias de justificação
 % ---------------------
 
@@ -49,50 +49,52 @@
 \usepackage{verbatim}					% Para poder usar o ambiente "comment"
 \usepackage{tabularx} 					% Para poder ter tabelas com colunas de largura auto-ajustável
 \usepackage{afterpage} 					% Para executar um comando depois do fim da página corrente
-\usepackage{url} 						% Para formatar URLs (endereços da Web)
+\usepackage{url} 			                % Para formatar URLs (endereços da Web)
 \usepackage{svg}
-% \counterwithin{figure}{chapter}         % Para numerar figuras por capítulo
+% \counterwithin{figure}{chapter}                       % Para numerar figuras por capítulo
 \usepackage{enumerate}
 \usepackage[most]{tcolorbox}
 %\usepackage{tocloft}
 %\setlength{\cftfignumwidth}{4em}% change 4em to suit
 % \usepackage{svg}
-% \usepackage{listings}
-% \usepackage{xcolor}
+\usepackage{bera}
+\usepackage{listings}
+\usepackage{xcolor}
 
-% \colorlet{punct}{red!60!black}
-% \definecolor{background}{HTML}{EEEEEE}
-% \definecolor{delim}{RGB}{20,105,176}
-% \colorlet{numb}{magenta!60!black}
 
-% \lstdefinelanguage{json}{
-%     basicstyle=\scriptsize\ttfamily,
-%     numbers=left,
-%     numberstyle=\scriptsize,
-%     stepnumber=1,
-%     numbersep=8pt,
-%     showstringspaces=false,
-%     breaklines=true,
-%     frame=lines,
-%     backgroundcolor=\color{background},
-%     literate=
-%      *{0}{{{\color{numb}0}}}{1}
-%       {1}{{{\color{numb}1}}}{1}
-%       {2}{{{\color{numb}2}}}{1}
-%       {3}{{{\color{numb}3}}}{1}
-%       {4}{{{\color{numb}4}}}{1}
-%       {5}{{{\color{numb}5}}}{1}
-%       {6}{{{\color{numb}6}}}{1}
-%       {7}{{{\color{numb}7}}}{1}
-%       {8}{{{\color{numb}8}}}{1}
-%       {9}{{{\color{numb}9}}}{1}
-%       {:}{{{\color{punct}{:}}}}{1}
-%       {,}{{{\color{punct}{,}}}}{1}
-%       {\{}{{{\color{delim}{\{}}}}{1}
-%       {\}}{{{\color{delim}{\}}}}}{1}
-%       {[}{{{\color{delim}{[}}}}{1}
-%       {]}{{{\color{delim}{]}}}}{1},
-% }
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\fontsize{10}{12}\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
 % ---------------------
 
 % ---------------------
@@ -164,10 +166,10 @@
 %\include{pretextual/assinaturas}
 
 % Dedicatória
-%\include{pretextual/dedicatoria}
+% \include{pretextual/dedicatoria}
 
 % Agradecimentos
-%\include{pretextual/agradecimentos}
+% \include{pretextual/agradecimentos}
 
 % Epígrafe
 %\include{pretextual/epigrafe}
@@ -200,9 +202,9 @@
 %\end{simbolos}
 
 % Inserir o SUMÁRIO
-% \pdfbookmark[0]{\contentsname}{toc}
-% \tableofcontents*
-% \cleardoublepage
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
 
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS (Capítulos)
@@ -213,21 +215,24 @@
 \pagestyle{simple}
 
 % Atalhos para escritas comuns
+\def\fatfree{FatFree},
+\def\abaqus{Abaqus}
 \def\dnvf105{DNVGL-RP-F105}
+\def\integrispan{IntegriSpan}
 
 % ----------------------------------------------------------
 % TEXTO DA DISSERTAÇÃO
 % ----------------------------------------------------------
-% \include{capitulos/intro}
-%\include{capitulos/metodologia}
-\include{capitulos/fundamentacao}
+\include{capitulos/intro}
+\include{capitulos/metodologia}
+% \include{capitulos/fundamentacao}
 % \include{capitulos/software}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS (Referências, Glossário, Apêndices)
 % ----------------------------------------------------------
-\postextual\
+% \postextual\
 
-\bibliography{bibliografia}
+% \bibliography{bibliografia}
 
 \end{document}
