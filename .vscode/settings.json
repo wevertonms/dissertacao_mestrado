@@ -57,11 +57,17 @@
     "Strouhal",
     "Subsea",
     "abntex",
+    "backgroundcolor",
+    "breaklines",
     "delim",
     "fısico",
     "hyperpageref",
     "indentação",
     "interar",
+    "numbersep",
+    "numberstyle",
+    "showstringspaces",
+    "stepnumber",
     "xlwings"
   ],
   "editor.wordWrap": "on",
@@ -80,6 +86,8 @@
     "-synctex=1",
     "./dissertação.tex"
   ],
-  // "latex.build.onSave": true,
-  "latex.lint.onSave": true
+  "latex-workshop.latex.autoBuild.run": "onFileChange",
+  "latex-workshop.latex.build.forceRecipeUsage": true,
+  "latex-workshop.latex.recipe.default": "lastUsed",
+  "latex-workshop.synctex.afterBuild.enabled": true
 }
