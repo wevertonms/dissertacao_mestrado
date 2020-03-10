@@ -8,92 +8,20 @@ Uma vez que o trabalho pretende desenvolver uma ferramente que facilite o fluxo 
     \item Entender o completo fluxo de trabalho de profissional, desde a acesso as informações até chegar nos resultados de fadiga. Nessa etapa, é que serão identificados os principais gaŕgalos do processos e aqueles de maior potencial de automatização.
 \end{itemize}
 
-Inicialmente a revisão da literatura foi feita por meio de leitura de livros, artigos e referências/recomendações técnicas. Aqui se destacaram a \dnvf105, no tocante ao VIV, e o livro de \citeonline{Bai2014}, na parte de modelagem. Ambos os textos são referências mundiais no assunto, como milhares de citações em outro trabalhos, sendo a \dnvf105 a principal referência no assunto que se propõe.
+Inicialmente a revisão da literatura foi feita por meio de leitura de livros, artigos e referências/recomendações técnicas.
+Aqui se destacaram a \dnvf105, no tocante ao VIV, e o livro de \citeonline{Bai2014}, na parte de modelagem.
+Ambos os textos são referências mundiais no assunto, como milhares de citações em outro trabalhos, sendo a \dnvf105 a principal referência no assunto que se propõe.
 
-A etapa de análise do fluxo de trabalho, e parte da etapa de revisão da literatura, foram realizadas por meio de reuniões e oficinas ministrados pelos próprios profissionais no decorrer do desenvolvimento do projeto \integrispan. Onde cada encontro era uma oportunidades de diagnosticar novos itens a serem trabalhados, definindo assim os requisitos da ferramenta a ser desenvolvida.
+A etapa de análise do fluxo de trabalho, e parte da etapa de revisão da literatura, foram realizadas por meio de reuniões e oficinas ministrados pelos próprios profissionais no decorrer do desenvolvimento do projeto \integrispan.
+Onde cada encontro era uma oportunidades de diagnosticar novos itens a serem trabalhados, definindo assim os requisitos da ferramenta a ser desenvolvida.
 
-Superada esta fase de revisão da literatura e algumas oficinas, deu-se inicio ao desenvolvimento
-de uma série de \textit{scripts} em linguagem Pyhton (\ref{subsec:python})
+Superada esta fase de revisão da literatura e algumas oficinas, houve o desenvolvimento de uma série de \textit{scripts} em linguagem Pyhton para automação de algumas tarefas.
+Essa fase, de caráter exploratório, permitiu o desenvolvimento de pequenas ferramentas que podiam ter feedback mais rápido, melhorando o entendimento dos requisitos e compressão da visão geral do fluxo de trabalho.
 
-\section{Computação científica}
+Essa forma de trabalho, com loops de feedback rápidos, influenciou fortemente a na adoção de Python como a linguagem de programação adotada.
+A linguagem adotada para Implementação da ferramenta será Python\footnote{https://www.python.org}.
+Além de ser uma linguagem interpretada de alto nível Orientada a Objeto -- que permite um alto índice de reaproveitamento de código -- e da sintaxe simples, \citeonline{rao2018} apresenta algumas das principais vantagens que destaca a linguagem para este tipo de aplicação:
 
-Embora o uso e desenvolvimento de softwares de cunho científico seja uma atividade extremamente importante para pesquisadores, nem sempre são observadas boas práticas são observadas no seu desenvolvimento~\cite{Hannay2009}.
-\citeonline{Wilson2014} apresenta um conjunto de boas práticas a serem adotadas no desenvolvimento desse tipo de. A seguir é apresentado o resumo do autor sobre essas práticas:
-
-\vspace{0.5cm}
-\begin{tcolorbox}[breakable, enhanced]
-
-\textbf{Boas práticas para computação científica}
-
-\begin{enumerate}
-\item \textbf{Escreva programas para pessoas, não para computadores.}
-    \begin{enumerate}
-        \item Um programa não deve exigir que seus leitores mantenham mais de um punhado de fatos na memória de uma só vez.
-        \item Torne os nomes consistentes, distintos e significativos.
-        \item Tornar consistente o estilo e a formatação do código.
-    \end{enumerate}
-
-\item \textbf{Deixe o computador fazer o trabalho.}
-    \begin{enumerate}
-        \item Faça o computador repetir tarefas.
-        \item Salve comandos recentes em um arquivo para reutilização.
-        \item Use uma ferramenta de construção para automatizar fluxos de trabalho.
-    \end{enumerate}
-
-\item \textbf{Faça alterações incrementais.}
-    \begin{enumerate}
-        \item Trabalhe em pequenos passos com feedback frequente e correção de rumo.
-        \item Use um sistema de controle de versão.
-        \item Coloque tudo o que foi criado manualmente no controle de versão.
-    \end{enumerate}
-
-\item \textbf{Não se repita (ou repita outros).}
-    \begin{enumerate}
-        \item Todos os dados devem ter uma única representação oficial no sistema.
-        \item Modularize o código em vez de copiar e colar.
-        \item Reutilize o código em vez de reescrevê-lo.
-    \end{enumerate}
-
-\item \textbf{Planeje erros.}
-    \begin{enumerate}
-        \item Adicione asserções aos programas para verificar seu funcionamento.
-        \item Use uma biblioteca de testes unitários pronta para uso.
-        \item Transforme erros em casos de teste.
-        \item Use um depurador simbólico.
-    \end{enumerate}
-
-\item \textbf{Otimize o software somente depois que ele funcionar corretamente.}
-    \begin{enumerate}
-        \item Use um \textit{profiler} para identificar gargalos.
-        \item Escreva o código na linguagem de nível mais alto possível.
-    \end{enumerate}
-
-\item \textbf{Documente design e finalidade, não a mecânica.}
-    \begin{enumerate}
-        \item Documente interfaces e razões, não implementações.
-        \item Refatore o código, em vez de explicar como ele funciona.
-        \item Incorpore a documentação do software no próprio software.
-    \end{enumerate}
-
-\item \textbf{Colabore.}
-    \begin{enumerate}
-        \item Use revisões de código de pré-\textit{merge}.
-        \item Use a programação em pares ao interar alguém novo e ao lidar com problemas particularmente difíceis.
-        \item Use uma ferramenta de acompanhamento de problemas.
-    \end{enumerate}
-\end{enumerate}
-\end{tcolorbox}
-
-
-\section{Implementação}
-
-
-Em observância a estas práticas, algumas decisões relativas ao desenvolvimento da ferramenta foram tomadas, e serão apresentadas a seguir.
-
-
-\subsection{Linguagem de programação}\label{subsec:python}
-
-A linguagem adotada será Python\footnote{https://www.python.org}. Além de ser uma linguagem interpretada de alto nível Orientada a Objeto -- que permite um alto índice de reaproveitamento de código -- e da sintaxe simples, \citeonline{rao2018} apresenta algumas das principais vantagens que destaca a linguagem para este tipo de aplicação:
 
 \begin{itemize}
     \item Disponibilidade de bibliotecas para aplicações cientificas contemplando manipulação de matrizes (Numpy), funções matemáticas (SciPy), manipulação de dados em forma tabular (Pandas), criação de gráficos interativos (Matplotlib e Bokeh);
