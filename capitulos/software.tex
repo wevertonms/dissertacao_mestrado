@@ -1,6 +1,6 @@
-\chapter{Modelagem do sistema computacional}\label{chap:software}
+\chapter{Modelagem do Sistema Computacional}\label{sec:software}
 
-O levantamento dos requisitos de um sistema é o elemento que fornece elementos que dever nortear uma série de decisões a serem tomadas no seu desenvolvimento. A ferramenta proposta visa agilizar o fluxo de trabalho do profissional que realiza análises de vida a fadiga, ou seja, propõem-se o seguinte fluxo padrão:
+O levantamento dos requisitos de um sistema é o elemento que fornece elementos que deve nortear uma série de decisões a serem tomadas no seu desenvolvimento. A ferramenta proposta visa agilizar o fluxo de trabalho do profissional que realiza análises de vida a fadiga, ou seja, propõem-se o seguinte fluxo padrão:
 
 \begin{figure}[!ht]
     \centering
@@ -11,21 +11,33 @@ O levantamento dos requisitos de um sistema é o elemento que fornece elementos 
 De forma mais detalhada, a ferramente deve:
 
 \begin{enumerate}
-    \item A partir de um arquivo de entrada com informações do modelo, criar arquivos de entrada para o ABAQUS (\texttt{.inp}) que simulem todo o processo de simulação do comportamento do duto apresentado (\autoref{chap:assentamento}).
-    \item Submeter o arquivo gerado para análise no ABAQUS.\@
-    \item Processar os arquivos de saída do ABAQUS (\texttt{.odb}) extraindo os informações relevantes como a configuração deformada, modos de vibração, etc., gerando arquivos em outros formatos de fácil leitura para pós-processamento, tanto por esta ferramenta, quando por outro \textit{softwares}.
-    \item Pós-processar as as informações gerando gráficos e relatórios relevantes para as tomadas de decisão do usuário quanto ao projeto. Esse é o requisito mais crítico, uma vez que é fundamental o entendimento sobre a análise de tudo em vão livre. Entre as tarefas que fazem parte deste itém está a automação da escolha dos modos de vibração ativos e relevantes e para cada vão de interesse -- a qual deve ser norteada pelos aspectos discutidos na~\autoref{sec:multimode} -- e a manipulação da FatFree\footnote{Planilha Microsoft Office Excel desenvolvida pela DNV-GL focada no cálculo de vida a fadiga de dutos submarinos.}.
+    \item A partir de um arquivo de entrada com informações do modelo, criar arquivos de entrada para o \abaqus (\texttt{.inp}) que reproduza todo o processo de simulação do comportamento do duto apresentado (\autoref{chap:assentamento}).
+    \item Submeter o arquivo gerado para análise no \abaqus.\@
+    \item Processar os arquivos de saída do \abaqus (\texttt{.odb}) extraindo os informações relevantes como a configuração deformada, modos de vibração, etc., gerando arquivos em outros formatos de fácil leitura para pós-processamento, tanto por esta ferramenta, quanto por outro \textit{softwares}.
+    \item Pós-processar as informações gerando gráficos e relatórios relevantes para as tomadas de decisão do usuário quanto ao projeto. Esse é o requisito mais crítico, uma vez que é fundamental o entendimento sobre a análise de duto em vão livre. Entre as tarefas que fazem parte deste item está a automação da escolha dos modos de vibração ativos e relevantes e para cada vão de interesse -- a qual deve ser norteada pelos aspectos discutidos na~\autoref{sec:multimode} -- e a manipulação da FatFree\footnote{Planilha Microsoft Office Excel desenvolvida pela DNV-GL focada no cálculo de vida a fadiga de dutos submarinos.}.
     \item Apresentar os resultados finais na forma de gráficos e relatórios.
 \end{enumerate}
+
+\section{Linguagem de programação}
+
+Python\footnote{https://www.python.org} foi a linguagem de programação adotada. Além de ser uma linguagem interpretada de alto nível Orientada a Objeto -- que permite um alto índice de reaproveitamento de código -- e da sintaxe simples, \citeonline{rao2018} apresenta algumas das principais vantagens que destaca a linguagem para este tipo de aplicação:
+
+\begin{itemize}
+    \item Disponibilidade de bibliotecas para aplicações cientificas contemplando manipulação de matrizes (Numpy), funções matemáticas (SciPy), manipulação de dados em forma tabular (Pandas), criação de gráficos interativos (Matplotlib e Bokeh).
+
+    \item Suporte para automação de tarefas. Os recursos de \textit{script} internos do Python e vários pacotes têm um forte suporte à automação de tarefas. A automação de tarefas repetitivas e a realização do registro de dados são fáceis e requerem pouco esforço. O Abaqus, por exemplo, permite modelagem e acesso a informações em arquivos de saída via Python. A biblioteca xlwings permite manipulação planilhas Excel, a exemplo da FatFree.
+
+    \item Pacotes Python como Django e Flask tornam possível desenvolver e usar o Python como uma API\footnote{Na programação de computadores, uma Interface de Programação de Aplicativos (\textit{Application Programming Interface} -- API) é um conjunto de definições de sub-rotinas e ferramentas para a criação de software. Em termos gerais, é um conjunto de métodos de comunicação claramente definidos entre vários componentes.} com um \textit{front-end} da web. Essa funcionalidade é particularmente útil para reaproveitamento da ferramenta em outras aplicações.
+\end{itemize}
 
 \subsection{Estrutura de módulos e classes}
 
 Para implementação do fluxo de trabalho proposto para a ferramenta, prevê-se a implementações de módulos para lidar com cada contexto específico. São eles:
 
 \begin{itemize}
-    \item \texttt{model\_generator}: módulo principal responsável orquestrar o fluxo de trabalho da ferramenta desde o processamento dos dados de entrada, geração dos arquivos para o ABAQUS e os pós-processamentos.
+    \item \texttt{model\_generator}: módulo principal responsável orquestrar o fluxo de trabalho da ferramenta desde o processamento dos dados de entrada, geração dos arquivos para o \abaqus e os pós-processamentos.
 
-    \item \texttt{odb\_handler}: responsável por lidar com os arquivos de saída do ABAQUS (odb) e guardar os dados relevantes em arquivos com formatos de fácil manipulação (CSV, JSON, etc\ldots).
+    \item \texttt{odb\_handler}: responsável por lidar com os arquivos de saída do \abaqus (odb) e guardar os dados relevantes em arquivos com formatos de fácil manipulação (CSV, JSON, etc\ldots).
 
     \item \texttt{mode\_selector}: módulo responsável pela estratégia de seleção automática de modos de vibração para cada vão e manipulação dos dados associados vãos e seus respectivos modos.
 
@@ -41,7 +53,7 @@ Já dentre as principais classes estão:
     A classe armazena todas as informações para construção dos arquivos \texttt{.inp}, isto é, dados de batimetria, material, geometria do duto, coeficientes de segurança, entre outros.
     A instanciação dessa classe deve ocorrer mediante o processamento de um arquivo principal de entrada com esses dados, em formato JSON (\autoref{sec:estru_sim}).
 
-    \item \texttt{Inp}: lida com a escrita modularizada de arquivos de entrada  para o ABAQUS. A proposta é que se crie um arquivo principal que terá inclusão de outros arquivos acessórios que terão as informações específicas de cada aspecto da modelagem: batimetria, passos de carga, etc.
+    \item \texttt{Inp}: lida com a escrita modularizada de arquivos de entrada  para o \abaqus. A proposta é que se crie um arquivo principal que terá inclusão de outros arquivos acessórios que terão as informações específicas de cada aspecto da modelagem: batimetria, passos de carga, etc.
 
     \item \texttt{Span}: classe que representa um vão do duto. Dentre os métodos da classe estão os métodos responsáveis pela seleção dos modos de vibração.
 

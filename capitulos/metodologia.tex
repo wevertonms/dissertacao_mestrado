@@ -1,11 +1,12 @@
 \chapter{Metodologia}\label{chap:metodologia}
 
 
-Uma vez que o trabalho pretende desenvolver uma ferramente que facilite o fluxo de trabalho do profissional que avalia a vida a fadiga de dutos em vão live, foi necessário, como etapas inciais do trabalho realizar:
+Uma vez que o trabalho pretende desenvolver uma ferramente que facilite o fluxo de trabalho do profissional que avalia a vida a fadiga de dutos em vão live, foi necessário, como etapas inciais do trabalho, realizar:
 
 \begin{itemize}
-    \item Revisão da literatura acerca dos temas nos quais esse profissional lida nesta tarefa - modelagem do assentamento de dutos e vibração induzida por vórtice - a fim de nivelar os conhecimentos básicos necessário para o próximo item.
-    \item Entender o completo fluxo de trabalho de profissional, desde a acesso as informações até chegar nos resultados de fadiga. Nessa etapa, é que serão identificados os principais gargalos do processos e aqueles de maior potencial de automatização.
+    \item Revisar a literatura acerca dos temas nos quais esse profissional lida nesta tarefa -- modelagem do assentamento de dutos e vibração induzida por vórtice -- a fim de nivelar os conhecimentos básicos necessário para o próximo item.
+    \item Entender o fluxo básico de trabalho de profissional, desde a acesso as informações até chegar nos resultados de fadiga. Nessa etapa, é que foram identificados os principais gargalos do processo, destacando aqueles de maior potencial de automatização.
+    \item Inteirar-se das funcionalidades e formas de manipulação das ferramentas usadas nas tarefas de análise, como o \abaqus e a planilha \fatfree.
 \end{itemize}
 
 Inicialmente a revisão da literatura foi feita por meio de leitura de livros, artigos e referências/recomendações técnicas.
@@ -13,20 +14,15 @@ Aqui se destacaram a \dnvf105, no tocante ao VIV, e o livro de \citeonline{Bai20
 Ambos os textos são referências mundiais no assunto, como milhares de citações em outro trabalhos, sendo a \dnvf105 a principal referência no assunto que se propõe.
 
 A etapa de análise do fluxo de trabalho, e parte da etapa de revisão da literatura, foram realizadas por meio de reuniões e oficinas ministrados pelos próprios profissionais no decorrer do desenvolvimento do projeto \integrispan.
-Onde cada encontro era uma oportunidades de diagnosticar novos itens a serem trabalhados, definindo assim os requisitos da ferramenta a ser desenvolvida.
+Cada encontro foi uma oportunidade de diagnosticar novos itens a serem trabalhados, definindo assim os requisitos da ferramenta a ser desenvolvida, e chegando ao modelo de fluxo de trabalho apresentado mais adiante.
 
-Superada esta fase de revisão da literatura e algumas oficinas, houve o desenvolvimento de uma série de \textit{scripts} em linguagem Pyhton para automação de algumas tarefas.
+Superada esta fase de revisão da literatura e algumas oficinas, houve o desenvolvimento de uma série de \textit{scripts} em linguagem Python para automação de algumas tarefas.
 Essa fase, de caráter exploratório, permitiu o desenvolvimento de pequenas ferramentas que podiam ter feedback mais rápido, melhorando o entendimento dos requisitos e compressão da visão geral do fluxo de trabalho.
+Essa forma de trabalho, com \textit{loops} de desenvolvimento com feedbacks rápidos, influenciou fortemente a na adoção de uma linguagem dinâmica para desenvolvimento de \textit{scripts} (ver \autoref{sec:software}).
 
-Essa forma de trabalho, com loops de feedback rápidos, influenciou fortemente a na adoção de Python como a linguagem de programação adotada.
-A linguagem adotada para Implementação da ferramenta será Python\footnote{https://www.python.org}.
-Além de ser uma linguagem interpretada de alto nível Orientada a Objeto -- que permite um alto índice de reaproveitamento de código -- e da sintaxe simples, \citeonline{rao2018} apresenta algumas das principais vantagens que destaca a linguagem para este tipo de aplicação:
+Tendo em mãos um conjunto inicial de \textit{scripts}, fez-se então a modelagem dos módulos da aplicação com base nas diferentes funcionalidades previstas para a ferramenta.
+Os códigos dos \textit{scripts} foram, então, reagrupados nesses módulos, e que se comunicam por meio da utilização das diversas classes e respectivos métodos.
+Paralelamente a esta etapa, deu-se a elaboração da especificação do arquivo de entrada para facilitar a passagem de informações a aplicação. 
 
-
-\begin{itemize}
-    \item Disponibilidade de bibliotecas para aplicações cientificas contemplando manipulação de matrizes (Numpy), funções matemáticas (SciPy), manipulação de dados em forma tabular (Pandas), criação de gráficos interativos (Matplotlib e Bokeh);
-
-    \item Suporte para automação de tarefas. Os recursos de \textit{script} internos do Python e vários pacotes têm um forte suporte à automação de tarefas. A automação de tarefas repetitivas e a realização do registro de dados são fáceis e requerem pouco esforço.
-
-    \item Pacotes Python como Django e Flask tornam possível desenvolver e usar o Python como uma API\footnote{Na programação de computadores, uma Interface de Programação de Aplicativos (\textit{Application Programming Interface} -- API) é um conjunto de definições de sub-rotinas e ferramentas para a criação de software. Em termos gerais, é um conjunto de métodos de comunicação claramente definidos entre vários componentes.} com um \textit{front-end} da web. Essa funcionalidade é particularmente útil ao usar uma infraestrutura baseada em nuvem como plataforma para acessar \textit{back-ends} de computação de alto desempenho (HPC).
-\end{itemize}
+Finalmente, fez-se a validação da ferramenta usando dados de dutos reais da PETROBRAS.
+No entanto, devido a confidencialidade destes dados, neste trabalho não serão apresentados os casos usados a validação, mas casos com dados fictícios para exemplificar as funcionalidades da ferramenta.
