@@ -198,7 +198,7 @@ O arquivo compreende informações que servirão tanto para a análise do \abaqu
         \item \texttt{"INITIAL\_KP"}: ponto de início do duto a ser modelado;
         \item \texttt{"END\_KP"}: ponto final do duto modelado;
         \item \texttt{"LAUNCH\_HEIGHT"}: altura de lançamento do duto, sob o qual será modelado a superfície fictícia;
-        \item \texttt{"LENGHT\_ELEMENT"}: comprimento do elemento do tipo PIPE31 utilizado na modelagem do duto.
+        \item \texttt{"LENGTH\_ELEMENT"}: comprimento do elemento do tipo PIPE31 utilizado na modelagem do duto.
     \end{enumerate}
     \item \texttt{"AUXILIARY\_NODE"}: fornece os dados para a criação de nós auxiliares.
     \begin{enumerate}
@@ -253,7 +253,7 @@ O arquivo compreende informações que servirão tanto para a análise do \abaqu
     \item \texttt{"PIPE\_MATERIAL"}: fornece as propriedades do duto.
     \begin{enumerate}
         \item \texttt{"DENSITY"}: densidade;
-        \item \texttt{"ELASTICY\_MODULE"}: módulo de elasticidade;
+        \item \texttt{"ELASTICITY\_MODULE"}: módulo de elasticidade;
         \item \texttt{"POISSON"}: coeficiente de \textit{Poisson};
         \item \texttt{"COEFFICIENT\_EXPANSION"}: coeficiente de expansão térmica;
         \item \texttt{"YIELD\_STRESS"}: limite de escoamento do aço;
@@ -360,7 +360,7 @@ O arquivo compreende informações que servirão tanto para a análise do \abaqu
 \end{lstlisting}
 
 \begin{enumerate}
-    \item \texttt{"STEPS\_DEFAULTS"}: reúne as informações recorrentes em todos os \textit{steps} no arquivo \texttt{*.inp}.
+    \item \texttt{"STEPS\_DEFAULTS"}\label{step_default}: reúne as informações recorrentes em todos os passos de carga (\textit{steps}) no arquivo \texttt{*.inp}.
     \begin{enumerate}
         \item \texttt{"MAXIMUM\_INCREMENT\_NUMBER"}: define o máximo de incrementos para o \textit{step};
         \item \texttt{"AUTOMATIC\_STABILIZATION"}: parâmetro de estabilização para casos onde há contato;
@@ -424,7 +424,7 @@ O arquivo compreende informações que servirão tanto para a análise do \abaqu
         \end{enumerate}
     \end{enumerate}
     \item \texttt{"STEP\_NODAL\_FIX"}: \textit{Step} no qual serão aplicadas as restrições nodais, relacionadas aos diferentes tipos de suporte. Chave vazia refere-se aos valores passados na \textit{keyword} \texttt{STEPS\_DEFAULTS}.
-    \item \texttt{"STEP\_SURFACE\_SUPPORTS"}: \textit{Step} no qual a superfície analítica referentes aos suportes são posicionadas. Chave vazia refere-se aos valores passados na \textit{keyword} \texttt{STEPS\_DEFAULTS}.
+    \item \texttt{"STEP\_SURFACE\_SUPPORTS"}: \textit{Step} no qual as superfícies analíticas referentes aos suportes são posicionadas. Pode-se incluir as chaves presentes na chave \texttt{STEPS\_DEFAULTS} para modificar os valores .
 \end{enumerate}
 
 \begin{lstlisting}[firstnumber=207, language=json, label={tab:jdsn-arquivojson7}, caption={Exemplo de arquivo de entrada de dados - Parte 7/7}]
@@ -468,7 +468,7 @@ O arquivo compreende informações que servirão tanto para a análise do \abaqu
 \begin{enumerate}
     \item \texttt{"FATFREE"}: passa os dados necessários para preenchimento da \fatfree via \textit{xlwings}.
     \begin{enumerate}
-        \item \texttt{"CURRENT\_FILE"}: indica caminho para o arquivo de corrente, retirado das ETs forncecidas pela na forma de histograma. A rotina realiza os cálculos necessários para incluir os dados na \textit{sheet Current} da planilha de cálculo;
+        \item \texttt{"CURRENT\_FILE"}: indica caminho para o arquivo de corrente, retirado das ETs fornecidas pela na forma de histograma. A rotina realiza os cálculos necessários para incluir os dados na \textit{sheet Current} da planilha de cálculo;
         \item \texttt{"ISIGHT\_FILE"}: indica o caminho onde será salvo o arquivo \texttt{*.txt} com os dados que serão utilizados para o pós-processamento no iSight;
         \item \texttt{"Flag"}: permite o usuário escolher se os dados de rigidez (Kv, KL e  Kv\_s) serão os passados pelo usuário acima ou extraídos do \abaqus.
     \end{enumerate}
