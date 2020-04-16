@@ -98,4 +98,5 @@
   "latex-workshop.latex.recipe.default": "lastUsed",
   "latex-workshop.synctex.afterBuild.enabled": true,
   "editor.formatOnSave": false,
+  "editor.fontSize": 16,
 }

@@ -2,23 +2,21 @@
 
 
 Ao longo das últimas décadas, à medida que novos campos de petróleo e gás foram descobertos em águas profundas e distantes da costa, surgiu a necessidade de utilização de sistemas de coleta e exportação submarinos utilizando dutos rígidos cada vez mais extensos.
-Com uma maior extensão, aumentou-se a propensão à ocorrência de seções de duto não suportadas, chamadas de vãos livres, devido à irregularidades do leito marinho, sejam elas pré-existentes durante a instalação ou devido a subsequentes movimentos horizontais de \textit{scouring}\footnote{retirada de solo que suporta o duto devido às intensas correntes de fundo.} de dutos durante a operação.
-
-Atualmente, existem diversos sistemas submarinos em operação nas Bacias de Campos e Espírito Santo que estão no final ou já ultrapassaram a metade de sua vida útil de projeto, o que torna ainda mais relevante uma ferramenta auxiliar para a reavaliação de integridade e extensão de vida operacional com critérios de cálculo validados.
+Com uma maior extensão, aumentou-se a propensão à ocorrência de seções de duto não suportadas, chamadas de vãos-livres, devido às irregularidades do leito marinho, sejam elas preexistentes durante a instalação ou devido a subsequentes movimentos horizontais de \textit{scouring}\footnote{retirada de solo que suporta o duto devido às intensas correntes de fundo.} de dutos durante a operação.
 
 A presença de trechos do duto em vão-livre exige uma avaliação para determinar a necessidade de ações corretivas para evitar danos aos mesmos.
 Ainda na fase de projeto, uma avaliação do perfil do fundo do mar ao longo da rota proposta pode ser realizada para identificar se é esperado que haja trechos do duto em vão-livre.
 Na existência de tais trechos, será necessária uma análise que forneça previsões dos números e tamanhos dos vãos esperados, que são indicadores da necessidade de possíveis alterações na rota ou ações corretivas.
 
 Devido aos elevados custos (ambientais, financeiros, e à imagem da empresa), associados aos acidentes, o transporte seguro de hidrocarbonetos e outros fluidos nos oleodutos é uma das principais prioridades da indústria de petróleo e gás.
-A vibração livre é uma grande preocupação na análise de fadiga de componentes de dutos submarinos, incluindo dutos em vãos livres \cite{Gamino2013}.
+A vibração livre é uma grande preocupação na análise de fadiga de componentes de dutos submarinos, incluindo dutos em vãos-livres \cite{Gamino2013}.
 
 Sendo assim, o comportamento estático e dinâmico do duto deve ser investigado para garantir a segurança, combatendo o dano estrutural por fadiga, mantendo-o em um estado aceitavelmente seguro.
 Se as condições necessárias à segurança não puderem ser garantidas, as ações corretivas na forma de mudança de rota, correção de vãos, supressão do VIV e similares são usadas para garantir que os critérios de projeto relativos aos níveis de tensão e possíveis danos por fadiga devido ao VIV não sejam excedidos.
 A análise requer o uso de métodos numéricos robustos para seu tratamento, e o Método dos Elementos Finitos (MEF) é amplamente usado nessa tarefa.
 A configuração de dutos no fundo do mar depende das características topográficas do leito marinho, características do solo, tensão residual de lançamento, rigidez do duto e seu peso submerso.
 
-Para que as condições de contorno e características do problema simulado reproduzam comportamento in-loco, é necessário modelar desde a etapa de instalação até a operação do duto, assim como considerar efeito de carregamentos dos diferentes valores de pressões internas e externas nas respectivas etapas.
+Para que as condições de contorno e características do problema simulado reproduzam comportamento in loco, é necessário modelar desde a etapa de instalação até a operação do duto, assim como considerar efeito de carregamentos dos diferentes valores de pressões internas e externas nas respectivas etapas.
 Modelar a instalação de dutos em um \textit{software} de elementos finitos para uso geral pode ser um trabalho demorado e tedioso, principalmente devido a grandes quantidades de dados da batimetria.
 Na maioria das vezes, são necessárias técnicas avançadas de \textit{script} para definir o perfil do leito marinho e simular o processo de assentamento~\cite{VandenAbeele2013}.
 
@@ -26,11 +24,13 @@ Nesse cenário, são essenciais ferramentas que auxiliem no pré e pós-processa
 Uma ferramenta com essas características traz ganhos significativos para a produtividade e reduzem a probabilidade de erro humano.
 Além disso, uma ferramenta que integre \textit{softwares} de uso específico (para análise e visualização, por exemplo), pode reduzir atritos do fluxo de trabalho, em comparação ao uso isolado destes \textit{softwares}.
 
+Atualmente, existem diversos sistemas submarinos em operação nas Bacias de Campos e Espírito Santo que estão no final ou já ultrapassaram a metade de sua vida útil de projeto, o que torna ainda mais relevante uma ferramenta auxiliar para a reavaliação de integridade e extensão de vida operacional com critérios de cálculo validados.
+
 
 \section{Ferramentas existentes}
 
 
-No cenário mundial existe a tendência da indústria de óleo e gás de investimento em transformação digital em todas as áreas da cadeia, com desenvolvimento de práticas e ferramentas. Esse movimento levou ao surgimentos de ferramentas específicas para análise, visualização, predição e resultados de VIV em dutos em vão-livre \cite{Mittal2017}.
+No cenário mundial existe a tendência da indústria de óleo e gás de investimento em transformação digital em todas as áreas da cadeia, com desenvolvimento de práticas e ferramentas. Esse movimento levou ao surgimento de ferramentas específicas para análise, visualização, predição e resultados de VIV em dutos em vão-livre \cite{Mittal2017}.
 
 
 \input{capitulos/workflow}
@@ -38,9 +38,7 @@ No cenário mundial existe a tendência da indústria de óleo e gás de investi
 
 \section{Objetivos}
 
-Este trabalho tem como objetivo geral desenvolver uma ferramenta para a análise de fadiga em dutos submarinos em vãos livres,
-% que permita um fluxo de trabalho que inclua de um software de análise de elementos finitos e uma planilha de cálculo de vida a fadiga.
-que integre um \textit{software} de análise de elementos finitos e o estudo de vida a fadiga.
+Este trabalho tem como objetivo geral desenvolver uma ferramenta para a análise de fadiga em dutos submarinos em vãos-livres, que permita um fluxo de trabalho que inclua um software de análise de elementos finitos e uma planilha de cálculo de vida a fadiga.
 Além disso, este trabalho tem como objetivos específicos:
 
 \begin{itemize}
@@ -51,4 +49,3 @@ Além disso, este trabalho tem como objetivos específicos:
 \end{itemize}
 
 % \input{capitulos/organizacao}
-Ao longo das últimas décadas, à medida que novos campos de petróleo e gás foram descobertos em águas profundas e distantes da costa, surgiu a necessidade de utilização de sistemas de coleta e exportação submarinos utilizando dutos rígidos cada vez mais extensos.
