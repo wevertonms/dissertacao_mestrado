@@ -60,7 +60,8 @@
 \usepackage{bera}
 \usepackage{listings}
 \usepackage{xcolor}
-
+\usepackage{caption}
+\usepackage{subcaption}
 
 \colorlet{punct}{red!60!black}
 \definecolor{background}{HTML}{EEEEEE}
@@ -135,7 +136,7 @@
 % ---------------------
 % Compila o índice
 % ---------------------
-\makeindex
+% \makeindex
 % ---------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -154,7 +155,7 @@
 % ----------------------------------------------------------
 % \pretextual\
 % Capa
-\include{pretextual/capa}
+% \include{pretextual/capa}
 
 % Folha de rosto (o * indica que haverá a ficha bibliográfica)
 % \imprimirfolhaderosto\
@@ -175,17 +176,17 @@
 %\include{pretextual/epigrafe}
 
 % Resumo e Abstract
-\include{pretextual/resumos}
+% \include{pretextual/resumos}
 
 % Lista de ilustrações
-\pdfbookmark[0]{\listfigurename}{lof}
-\listoffigures*
-\cleardoublepage
+% \pdfbookmark[0]{\listfigurename}{lof}
+% \listoffigures*
+% \cleardoublepage
 
 % Lista de tabelas
-\pdfbookmark[0]{\listtablename}{lot}
-\listoftables*
-\cleardoublepage
+% \pdfbookmark[0]{\listtablename}{lot}
+% \listoftables*
+% \cleardoublepage
 
 % Lista de abreviaturas e siglas
 % \begin{siglas}
@@ -202,9 +203,9 @@
 %\end{simbolos}
 
 % Inserir o SUMÁRIO
-\pdfbookmark[0]{\contentsname}{toc}
-\tableofcontents*
-\cleardoublepage
+% \pdfbookmark[0]{\contentsname}{toc}
+% \tableofcontents*
+% \cleardoublepage
 
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS (Capítulos)
@@ -218,15 +219,17 @@
 \def\fatfree{FatFree},
 \def\abaqus{Abaqus}
 \def\dnvf105{DNVGL-RP-F105}
+\def\dnv{\dnv}
+% \def\sage{SAGE Profile}
 \def\integrispan{IntegriSpan}
 
 % ----------------------------------------------------------
 % TEXTO DA DISSERTAÇÃO
 % ----------------------------------------------------------
 \include{capitulos/intro}
-\include{capitulos/metodologia}
-\include{capitulos/fundamentacao}
-\include{capitulos/software}
+% \include{capitulos/metodologia}
+% \include{capitulos/fundamentacao}
+% \include{capitulos/software}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS (Referências, Glossário, Apêndices)

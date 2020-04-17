@@ -27,13 +27,44 @@ Além disso, uma ferramenta que integre \textit{softwares} de uso específico (p
 Atualmente, existem diversos sistemas submarinos em operação nas Bacias de Campos e Espírito Santo que estão no final ou já ultrapassaram a metade de sua vida útil de projeto, o que torna ainda mais relevante uma ferramenta auxiliar para a reavaliação de integridade e extensão de vida operacional com critérios de cálculo validados.
 
 
-\section{Ferramentas existentes}
+\section{Cenário atual}
 
 
-No cenário mundial existe a tendência da indústria de óleo e gás de investimento em transformação digital em todas as áreas da cadeia, com desenvolvimento de práticas e ferramentas. Esse movimento levou ao surgimento de ferramentas específicas para análise, visualização, predição e resultados de VIV em dutos em vão-livre \cite{Mittal2017}.
+No cenário mundial existe a tendência da indústria de óleo e gás de investimento em transformação digital em todas as áreas da cadeia, com desenvolvimento de práticas e ferramentas. Esse movimento levou ao surgimento de ferramentas específicas ao auxílio do profissional responsável pela análise, visualização, predição dos resultados de VIV em dutos em vão-livre \cite{Mittal2017}. No entanto, pela específicidade dessas ferramentas, seu número ainda é reduzido, destacando apenas duas a nível comercial.
 
 
-\input{capitulos/workflow}
+\subsection{SAGE Profile}
+
+
+Desenvolvido pela empresa Fugro, que atual no monitoramento de dutos submarinos, o SAGE Profile
+% \cite{sage_profile}
+é o software deles para análise de dutos submarinos. Por ser uma aplicação específica para este uso, esta aplicação representa avanços em relação a modelagem com um software de elementos finitos genéricos, a aplicação se limita a análise de elementos finitos, deixando a análise de fadiga a cargo do usuário. Além disso, a interação do usuário está limitada a interface gráfica (sem CLI\footnote{\textit{Command Line Interface}: interface de linha de comando}), o que dificulta a automação de tarefas corriqueiras.
+
+\begin{figure}[!ht]
+    \centering
+    \caption{Interface gráfica do SAGE Profile.}\label{fig:sage_profile}
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagens/sage_profile_1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{imagens/sage_profile_2}
+    \end{subfigure}
+    \fonte{www.sage-profile.com.}
+\end{figure}
+
+
+\subsection{Sesam for pipelines}
+
+A \dnv é uma referência mundial, entre outro áreas, em análise de dutos em vão-livre. Esta empresa é responsável pelo desenvolvimento da suíte \textit{Sesam for pipelines}
+% \cite{dnvgl_sesam}
+focados na análise de dutos submarinos.
+Essa súite consiste de 6 aplicações em VBA\footnote{Visual Basic for Applications, com uma interface de planilha do Microsoft Excel.}, dentre as quais a mais destacada é a \fatfree, responsável pelo cálculo da vida a fadiga em si. Sendo desenvolvidas pela \dnv, as aplicações seguem as recomendações práticas propostas pela mesma - o que trás bastante confiabilidade nos resultados. Entretanto apesar de conter uma aplicação para análise de comportamento mecânico, estas aplicação são simples, e estão muito aquém de um solução completa para simulação assentamento do tudo no solo, como o SAGE Profile.
+
+
+% \input{capitulos/workflow}
 
 
 \section{Objetivos}
