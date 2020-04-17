@@ -36,7 +36,7 @@ No cenário mundial existe a tendência da indústria de óleo e gás de investi
 \subsection{SAGE Profile}
 
 
-Desenvolvido pela empresa Fugro, que atual no monitoramento de dutos submarinos, o SAGE Profile \cite{sage_profile} é o software deles para análise de dutos submarinos. Por ser uma aplicação específica para este uso, esta aplicação representa avanços em relação a modelagem com um software de elementos finitos genéricos, a aplicação se limita a análise de elementos finitos, deixando a análise de fadiga a cargo do usuário. Além disso, a interação do usuário está limitada a interface gráfica (sem CLI\footnote{\textit{Command Line Interface}: interface de linha de comando}), o que dificulta a automação de tarefas corriqueiras.
+Desenvolvido pela empresa Fugro, que atual no monitoramento de dutos submarinos, o SAGE Profile \cite{sage_profile} é o software deles para análise de dutos submarinos. Por ser uma aplicação específica para este uso, esta aplicação representa avanços em relação a modelagem com um software de elementos finitos genéricos, a aplicação se limita a análise de elementos finitos, deixando a análise de fadiga a cargo do usuário. Além disso, a interação do usuário está limitada a interface gráfica (GUI\footnote{\textit{Graphical User Interface}: interface de usuário gráfica}, como na \autoref{fig:sage_profile}), o que dificulta a automação de tarefas corriqueiras.
 
 \begin{figure}[!ht]
     \centering
@@ -58,6 +58,15 @@ Desenvolvido pela empresa Fugro, que atual no monitoramento de dutos submarinos,
 
 A DNG-GL é uma referência mundial, entre outro áreas, em análise de dutos em vão-livre. Esta empresa é responsável pelo desenvolvimento da suíte \textit{Sesam for pipelines} \cite{dnvgl_sesam} focados na análise de dutos submarinos.
 Essa súite consiste de 6 aplicações em VBA\footnote{Visual Basic for Applications, com uma interface de planilha do Microsoft Excel.}, dentre as quais a mais destacada é a \fatfree, responsável pelo cálculo da vida a fadiga em si. Sendo desenvolvidas pela DNG-GL, as aplicações seguem as recomendações práticas propostas pela mesma - o que trás bastante confiabilidade nos resultados. Entretanto apesar de conter uma aplicação para análise de comportamento mecânico, estas aplicação são simples, e estão muito aquém de um solução completa para simulação assentamento do tudo no solo, como o SAGE Profile.
+
+\begin{figure}[!ht]
+    \centering
+    \caption{Interface gráfica (planilha) da \fatfree.}\label{fig:fatfree}
+    \includegraphics[width=0.8\textwidth]{imagens/fatfree}
+    \fonte{Autor (2020)}
+\end{figure}
+
+Como se pode ver, dentre as melhores ferramentas atuais para análise fadiga de duto em vão-livre ainda há espaço para melhorias, especialmente no que se refere a integração. Uma ferramenta que pudesse automátizar o fluxo de trabalho desde a análise de elementos finitos até análise de fadiga traria uma importante Contribuição para o panorama atual.
 
 
 % \input{capitulos/workflow}
