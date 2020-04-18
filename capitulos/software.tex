@@ -1,10 +1,10 @@
 \chapter{Modelagem do Sistema Computacional}\label{sec:software}
 
-O levantamento dos requisitos de um sistema é o elemento que fornece elementos que deve nortear uma série de decisões a serem tomadas no seu desenvolvimento. A ferramenta proposta visa agilizar o fluxo de trabalho do profissional que realiza análises de vida a fadiga, ou seja, propõem-se o seguinte fluxo padrão:
+O levantamento dos requisitos de um sistema é o elemento que fornece elementos que deve nortear uma série de decisões a serem tomadas no seu desenvolvimento. O \textit{framework}  proposta visa agilizar o fluxo de trabalho do profissional que realiza análises de vida a fadiga, ou seja, propõem-se o seguinte fluxo padrão:
 
 \begin{figure}[!ht]
     \centering
-    \caption{Fluxo de operação proposto para a ferramenta.}\label{fig:workflow}
+    \caption{Fluxo de operação proposto para o \textit{framework} .}\label{fig:workflow}
     \includegraphics[width=0.7\textwidth]{imagens/workflow}
 \end{figure}
 
@@ -13,7 +13,7 @@ De forma mais detalhada, a ferramente deve:
 \begin{enumerate}
     \item A partir de um arquivo de entrada com informações do modelo, criar arquivos de entrada para o \abaqus (\texttt{.inp}) que reproduza todo o processo de simulação do comportamento do duto apresentado (\autoref{chap:assentamento}).
     \item Submeter o arquivo gerado para análise no \abaqus.\@
-    \item Processar os arquivos de saída do \abaqus (\texttt{.odb}) extraindo os informações relevantes como a configuração deformada, modos de vibração, etc., gerando arquivos em outros formatos de fácil leitura para pós-processamento, tanto por esta ferramenta, quanto por outro \textit{softwares}.
+    \item Processar os arquivos de saída do \abaqus (\texttt{.odb}) extraindo os informações relevantes como a configuração deformada, modos de vibração, etc., gerando arquivos em outros formatos de fácil leitura para pós-processamento, tanto por este \textit{framework} , quanto por outro \textit{softwares}.
     \item Pós-processar as informações gerando gráficos e relatórios relevantes para as tomadas de decisão do usuário quanto ao projeto. Esse é o requisito mais crítico, uma vez que é fundamental o entendimento sobre a análise de duto em vão-livre. Entre as tarefas que fazem parte deste item está a automação da escolha dos modos de vibração ativos e relevantes e para cada vão de interesse -- a qual deve ser norteada pelos aspectos discutidos na~\autoref{sec:multimode} -- e a manipulação da FatFree\footnote{Planilha Microsoft Office Excel desenvolvida pela \dnv focada no cálculo de vida a fadiga de dutos submarinos.}.
     \item Apresentar os resultados finais na forma de gráficos e relatórios.
 \end{enumerate}
@@ -27,15 +27,15 @@ Python\footnote{https://www.python.org} foi a linguagem de programação adotada
 
     \item Suporte para automação de tarefas. Os recursos de \textit{script} internos do Python e vários pacotes têm um forte suporte à automação de tarefas. A automação de tarefas repetitivas e a realização do registro de dados são fáceis e requerem pouco esforço. O Abaqus, por exemplo, permite modelagem e acesso a informações em arquivos de saída via Python. A biblioteca xlwings permite manipulação planilhas Excel, a exemplo da FatFree.
 
-    \item Pacotes Python como Django e Flask tornam possível desenvolver e usar o Python como uma API\footnote{Na programação de computadores, uma Interface de Programação de Aplicativos (\textit{Application Programming Interface} -- API) é um conjunto de definições de sub-rotinas e ferramentas para a criação de software. Em termos gerais, é um conjunto de métodos de comunicação claramente definidos entre vários componentes.} com um \textit{front-end} da web. Essa funcionalidade é particularmente útil para reaproveitamento da ferramenta em outras aplicações.
+    \item Pacotes Python como Django e Flask tornam possível desenvolver e usar o Python como uma API\footnote{Na programação de computadores, uma Interface de Programação de Aplicativos (\textit{Application Programming Interface} -- API) é um conjunto de definições de sub-rotinas e ferramentas para a criação de software. Em termos gerais, é um conjunto de métodos de comunicação claramente definidos entre vários componentes.} com um \textit{front-end} da web. Essa funcionalidade é particularmente útil para reaproveitamento do \textit{framework}  em outras aplicações.
 \end{itemize}
 
 \subsection{Estrutura de módulos e classes}
 
-Para implementação do fluxo de trabalho proposto para a ferramenta, prevê-se a implementações de módulos para lidar com cada contexto específico. São eles:
+Para implementação do fluxo de trabalho proposto para o \textit{framework} , prevê-se a implementações de módulos para lidar com cada contexto específico. São eles:
 
 \begin{itemize}
-    \item \texttt{model\_generator}: módulo principal responsável orquestrar o fluxo de trabalho da ferramenta desde o processamento dos dados de entrada, geração dos arquivos para o \abaqus e os pós-processamentos.
+    \item \texttt{model\_generator}: módulo principal responsável orquestrar o fluxo de trabalho do \textit{framework}  desde o processamento dos dados de entrada, geração dos arquivos para o \abaqus e os pós-processamentos.
 
     \item \texttt{odb\_handler}: responsável por lidar com os arquivos de saída do \abaqus (odb) e guardar os dados relevantes em arquivos com formatos de fácil manipulação (CSV, JSON, etc\ldots).
 
