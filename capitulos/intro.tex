@@ -9,7 +9,7 @@ Ainda na fase de projeto, uma avaliação do perfil do fundo do mar ao longo da 
 Na existência de tais trechos, será necessária uma análise que forneça previsões dos números e tamanhos dos vãos esperados, que são indicadores da necessidade de possíveis alterações na rota ou ações corretivas.
 
 Devido aos elevados custos (ambientais, financeiros, e à imagem da empresa), associados aos acidentes, o transporte seguro de hidrocarbonetos e outros fluidos nos oleodutos é uma das principais prioridades da indústria de petróleo e gás.
-A vibração livre é uma grande preocupação na análise de fadiga de componentes de dutos submarinos, incluindo dutos em vãos-livres \cite{Gamino2013}.
+A vibração livre é uma grande preocupação na análise de fadiga de componentes de dutos submarinos, incluindo dutos em vãos-livres~\cite{Gamino2013}.
 
 Sendo assim, o comportamento estático e dinâmico do duto deve ser investigado para garantir a segurança, combatendo o dano estrutural por fadiga, mantendo-o em um estado aceitavelmente seguro.
 Se as condições necessárias à segurança não puderem ser garantidas, as ações corretivas na forma de mudança de rota, correção de vãos, supressão do VIV e similares são usadas para garantir que os critérios de projeto relativos aos níveis de tensão e possíveis danos por fadiga devido ao VIV não sejam excedidos.
@@ -20,27 +20,25 @@ Para que as condições de contorno e características do problema simulado repr
 Modelar a instalação de dutos em um \textit{software} de elementos finitos para uso geral pode ser um trabalho demorado e tedioso, principalmente devido a grandes quantidades de dados da batimetria.
 Na maioria das vezes, são necessárias técnicas avançadas de \textit{script} para definir o perfil do leito marinho e simular o processo de assentamento~\cite{VandenAbeele2013}.
 
-Nesse cenário, são essenciais ferramentas que auxiliem no pré e pós-processamento de dados e na automação de procedimentos.
-Uma ferramenta com essas características traz ganhos significativos para a produtividade e reduzem a probabilidade de erro humano.
+Nesse cenário, são essenciais ferramentas que possam auxiliar não só no processamento (como os softwares de simulação), mas também o pré e pós-processamento de dados e, até mesmo, na automação de procedimentos.
+Uma ferramenta com essas características traz ganhos significativos para a produtividade e reduz a possibilidade de ocorrência de erros humanos.
 Além disso, uma ferramenta que integre \textit{softwares} de uso específico (para análise e visualização, por exemplo), pode reduzir atritos do fluxo de trabalho, em comparação ao uso isolado destes \textit{softwares}.
 
-Atualmente, existem diversos sistemas submarinos em operação nas Bacias de Campos e Espírito Santo que estão no final ou já ultrapassaram a metade de sua vida útil de projeto, o que torna ainda mais relevante uma ferramenta auxiliar para a reavaliação de integridade e extensão de vida operacional com critérios de cálculo validados.
+
+\section{Soluções comerciais existentes}
 
 
-\section{Cenário atual}
-
-
-No cenário mundial existe a tendência da indústria de óleo e gás de investimento em transformação digital em todas as áreas da cadeia, com desenvolvimento de práticas e ferramentas. Esse movimento levou ao surgimento de ferramentas específicas ao auxílio do profissional responsável pela análise, visualização, predição dos resultados de VIV em dutos em vão-livre \cite{Mittal2017}.~No entanto, pela especificidade dessas ferramentas, seu número ainda é reduzido, destacando apenas duas a nível comercial.
+No cenário mundial existe a tendência da indústria de óleo e gás de investimento em transformação digital em todas as áreas da cadeia, com desenvolvimento de práticas e ferramentas. Esse movimento levou ao surgimento de ferramentas específicas ao auxílio do profissional responsável pela análise, visualização, predição dos resultados de VIV em dutos em vão-livre~\cite{Mittal2017}. No entanto, pela especificidade dessas ferramentas, seu número ainda é reduzido, destacando apenas duas de nível comercial.
 
 
 \subsection{SAGE Profile}
 
 
-Desenvolvido pela empresa Fugro, que atual no monitoramento de dutos submarinos, o SAGE Profile \cite{Sage} é o software deles para análise de dutos submarinos. Por ser uma aplicação específica para este uso, esta aplicação representa avanços em relação a modelagem com um software de elementos finitos genéricos, a aplicação se limita a análise de elementos finitos, deixando a análise de fadiga a cargo do usuário. Além disso, a interação do usuário está limitada a interface gráfica (GUI\footnote{\textit{Graphical User Interface}: interface de usuário gráfica}, como na \autoref{fig:sage_profile}), o que dificulta a automação de tarefas corriqueiras.
+Desenvolvido pela empresa Fugro, que atua no monitoramento de dutos submarinos, o SAGE Profile~\cite{sageprofile} é o software deles para análise de dutos submarinos. Por ser uma aplicação específica para este uso, esta aplicação representa avanços em relação a modelagem com um software de elementos finitos genéricos, a aplicação se limita a análise de elementos finitos, deixando a análise de fadiga a cargo do usuário. Além disso, a interação do usuário está limitada a interface gráfica (GUI\footnote{\textit{Graphical User Interface}: interface de usuário gráfica}, como na \autoref{fig:sageprofile}), o que dificulta a automação de tarefas corriqueiras.
 
 \begin{figure}[!ht]
     \centering
-    \caption{Interface gráfica do SAGE Profile.}\label{fig:sage_profile}
+    \caption{Interface gráfica do SAGE Profile.}\label{fig:sageprofile}
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{imagens/sage_profile_1}
@@ -56,8 +54,8 @@ Desenvolvido pela empresa Fugro, que atual no monitoramento de dutos submarinos,
 
 \subsection{Sesam for pipelines}
 
-A DNG-GL é uma referência mundial, entre outro áreas, em análise de dutos em vão-livre. Esta empresa é responsável pelo desenvolvimento da suíte \textit{Sesam for pipelines} \cite{Sesam} focados na análise de dutos submarinos.
-Essa suíte consiste de 6 aplicações em VBA\footnote{Visual Basic for Applications, com uma interface de planilha do Microsoft Excel.}, dentre as quais a mais destacada é a \fatfree, responsável pelo cálculo da vida a fadiga em si. Sendo desenvolvidas pela DNG-GL, as aplicações seguem as recomendações práticas propostas pela mesma -- o que trás bastante confiabilidade nos resultados. Entretanto apesar de conter uma aplicação para análise de comportamento mecânico, estas aplicação são simples, e estão muito aquém de um solução completa para simulação assentamento do tudo no solo, como o SAGE Profile.
+A DNG-GL é uma referência mundial, entre outro áreas, em análise de dutos em vão-livre. Esta empresa é responsável pelo desenvolvimento da suíte \textit{Sesam for pipelines}~\cite{dnvsesam} focados na análise de dutos submarinos.
+Essa suíte consiste de 6 aplicações em VBA\footnote{Visual Basic for Applications, com uma interface de planilha do Microsoft Excel.}, dentre as quais a mais destacada é a \fatfree, responsável pelo cálculo da vida a fadiga em si. Sendo desenvolvidas pela DNG-GL, as aplicações seguem as recomendações práticas propostas pela mesma -- o que trás bastante confiabilidade nos resultados. Entretanto apesar de conter uma aplicação para análise de comportamento mecânico, estas aplicação são simples, e estão muito aquém de um solução completa para simulação assentamento do tudo no solo, como o SAGE Profile. % chktex 8
 
 \begin{figure}[!ht]
     \centering
@@ -66,7 +64,15 @@ Essa suíte consiste de 6 aplicações em VBA\footnote{Visual Basic for Applicat
     \fonte{Autor (2020)}
 \end{figure}
 
-Como se pode ver, dentre as melhores ferramentas atuais para análise fadiga de duto em vão-livre ainda há espaço para melhorias, especialmente no que se refere a integração. Diante dessas limitações, é comum usar um software para a análise de elementos finitos genérico (como Abaqus e ANSYS\footnote{https://www.ansys.com}) e realizam o cálculo de fadiga em folhas de cálculo pessoais ou comerciais, como a \fatfree. Portanto, uma ferramenta que pudesse automatizar o fluxo de trabalho desde a análise de elementos finitos até análise de fadiga traria uma importante Contribuição para o panorama atual.
+
+\section{Motivação}
+
+
+Atualmente, existem diversos sistemas submarinos em operação nas Bacias de Campos e Espírito Santo que estão no final ou já ultrapassaram a metade de sua vida útil de projeto, o que torna ainda mais relevante uma análise de integridade avaliando possibilidade de extensão de vida operacional com critérios de cálculo validados.
+
+Como se pode ver, dentre as melhores ferramentas atuais para análise fadiga de duto em vão-livre ainda há espaço para melhorias, especialmente no que se refere a integração. Diante dessas limitações, é comum usar um software para a análise de elementos finitos genérico (como Abaqus e ANSYS\footnote{https://www.ansys.com}) e realizam o cálculo de fadiga em folhas de cálculo pessoais ou comerciais, como a \fatfree.
+
+Visando desenvolver uma nova ferramenta para. Portanto, um framework com o qual se possam construir aplicações para automatizar tarefas no fluxo de trabalho desde a análise de elementos finitos até análise de fadiga traria uma importante Contribuição para o panorama atual.
 
 
 % \input{capitulos/workflow}

@@ -68,6 +68,7 @@
     "abntex",
     "backgroundcolor",
     "breaklines",
+    "chktex",
     "delim",
     "elset",
     "fısico",
@@ -96,10 +97,11 @@
     "-synctex=1",
     "./dissertação.tex"
   ],
-  "latex-workshop.latex.autoBuild.run": "never",
   "latex-workshop.latex.build.forceRecipeUsage": true,
   "latex-workshop.latex.recipe.default": "lastUsed",
   "latex-workshop.synctex.afterBuild.enabled": true,
   "editor.formatOnSave": false,
   "editor.fontSize": 16,
+  "ltex.additionalRules.motherTongue": "pt-BR",
+  "ltex.language": "pt-BR",
 }
