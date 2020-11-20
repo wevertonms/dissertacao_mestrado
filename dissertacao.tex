@@ -60,41 +60,12 @@
 \usepackage{xcolor}
 \usepackage{caption}
 \usepackage{subcaption}
-% \usepackage{minted}
-
-% \colorlet{punct}{red!60!black}
-% \definecolor{background}{HTML}{EEEEEE}
-% \definecolor{delim}{RGB}{20,105,176}
-% \colorlet{numb}{magenta!60!black}
-
-% \lstdefinelanguage{json}{
-    % basicstyle=\fontsize{10}{12}\ttfamily,
-    % numbers=left,
-    % numberstyle=\scriptsize,
-    % stepnumber=1,
-    % numbersep=8pt,
-    % showstringspaces=false,
-    % breaklines=true,
-    % frame=lines,
-    % backgroundcolor=\color{background},
-    % literate=
-     % *{0}{{{\color{numb}0}}}{1}
-      % {1}{{{\color{numb}1}}}{1}
-      % {2}{{{\color{numb}2}}}{1}
-      % {3}{{{\color{numb}3}}}{1}
-      % {4}{{{\color{numb}4}}}{1}
-      % {5}{{{\color{numb}5}}}{1}
-      % {6}{{{\color{numb}6}}}{1}
-      % {7}{{{\color{numb}7}}}{1}
-      % {8}{{{\color{numb}8}}}{1}
-      % {9}{{{\color{numb}9}}}{1}
-      % {:}{{{\color{punct}{:}}}}{1}
-      % {,}{{{\color{punct}{,}}}}{1}
-      % {\{}{{{\color{delim}{\{}}}}{1}
-      % {\}}{{{\color{delim}{\}}}}}{1}
-      % {[}{{{\color{delim}{[}}}}{1}
-      % {]}{{{\color{delim}{]}}}}{1},
-% }
+\usepackage[newfloat=true]{minted}
+\usemintedstyle{emacs}
+\SetupFloatingEnvironment{listing}{name=Figura,listname=Lista de códigos-fontes}
+\newminted{json}{gobble=2,frame=single,fontsize=\small}
+\usepackage{silence} % Silenciar erros e warnings
+\WarningsOff
 % % ---------------------
 %
 % ---------------------
@@ -189,8 +160,8 @@
 
 % Lista de abreviaturas e siglas
 % \begin{siglas}
-%  	\item[MEF] Método dos Elementos Finitos
-% 	\item[VIV] Vibração Induzida por Vórtice
+%   \item[MEF] Método dos Elementos Finitos
+%   \item[VIV] Vibração Induzida por Vórtice
 % \end{siglas}
 
 % Lista de símbolos
@@ -201,10 +172,16 @@
 %  \item[$ \in $] Pertence
 %\end{simbolos}
 
+% Lisa de listing (códigos)
+% \listoflistings*
+% \cleardoublepage
+
 % Inserir o SUMÁRIO
 % \pdfbookmark[0]{\contentsname}{toc}
+% \settocdepth{section}
 % \tableofcontents*
 % \cleardoublepage
+
 
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS (Capítulos)
@@ -215,8 +192,7 @@
 \pagestyle{simple}
 
 % Atalhos para escritas comuns
-\def\fatfree{FatFree},
-\def\abaqus{Abaqus}
+\def\fatfree{FatFree}
 \def\dnvf105{DNVGL-RP-F105}
 \def\integrispan{IntegriSpan}
 
@@ -224,9 +200,11 @@
 % TEXTO DA DISSERTAÇÃO
 % ----------------------------------------------------------
 \include{capitulos/intro}
-% \include{capitulos/metodologia}
-% \include{capitulos/fundamentacao}
-% \include{capitulos/software}
+\include{capitulos/metodologia}
+\include{capitulos/fundamentacao}
+\include{capitulos/software}
+% \include{capitulos/aplicacoes}
+% \include{capitulos/conclusoes}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS (Referências, Glossário, Apêndices)
@@ -234,5 +212,8 @@
 % \postextual\
 
 \bibliography{bibliografia}
+
+% \partapendices*
+\include{capitulos/apendice}
 
 \end{document}

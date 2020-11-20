@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:xhtml="http://www.w3.org/1999/xhtml"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="745"
+   height="142"
+   viewBox="-0.5 -0.5 745 142"
+   content="&lt;mxfile host=&quot;app.diagrams.net&quot; modified=&quot;2020-10-15T13:58:28.539Z&quot; agent=&quot;5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36&quot; etag=&quot;M-qTQWv5JWa2UoOg9Ai3&quot; version=&quot;13.8.0&quot; type=&quot;device&quot;&gt;&lt;diagram id=&quot;3391O2_36BOtCRyPOIfj&quot; name=&quot;Page-1&quot;&gt;5VvbcqM4EP0aP8YFyIB5dJx4Z7aSqdRmd3bnaUsxMtasjBwh3+brVwJxs8AmYxviiR8o1EhCdJ8+3WpwD4wX298YXM4fqY9IzzL8bQ/c9SzLA544SsEuEdi2nQgChv1EZOaCZ/wDKaGhpCvso6jUkVNKOF6WhVMahmjKSzLIGN2Uu80oKd91CQOkCZ6nkOjSv7HP54nUtY1c/gnhYK7u7Cr5AqZdlSCaQ59uCiJw3wNjRilPzhbbMSJSc6lWknGTmqvZshgKeZMBD3/9PnwwrSdz9Hk5XkfgX/cluFGzRHyXPi7yxdOrJmV8TgMaQnKfS28ZXYU+krMaopX3eaB0KYSmEH5HnO+UKeGKUyGa8wVRV9EW838K59/kVH1bte62aua4sVONGQ35BC4wkYI/8UIgwjK+oI04/kEXMFRdxpRQFj8ImMQ/IY84o/9ltrPkzCFnO7mCG6NvGJkkWcfAzQT5UuLWrth6QkysgiOmhIkipfZq7ZMqm67YFB0wij1QMIcsQPxAR2BnOBLeh6hYD9uJgQwRyPG6vBKo/CDI+uVgEScKL2/AjpXMu4Zkpe7UBZjOCwyFzByN3wo4rUbmGQ0P7IaGt40uDQ+uhTQyPzfKLm4fcfCzYuqc+PCa4mPQJT4GXeLD+Bl8mL8GPtKc5Cg+3C7hYR+PG4GAw1J1Q4yjbVWmB1/S7kaNyvQnVBNZjuIwlZN6ak2bPMETiarIDQo/NWJeyPWGxoVU5LShonrj6Hp7o2Jc+0KKcTXFjMLeGPRGJsERkrsMeZhAHwdQnIQwbvEJQ0jTYE450v03c8zR8xLGDrYRO5k3pxlZgm9qfi4lAYFRpAhEWgyLLcaI4EAMveOS5G5rrXnUas5BtKc7qV25WbSpaetGHFwK3UPNiLYeMQgRGzzUwDCYkALRzmYzazqV6mYCBKhEwrOZ7zlOQ2PG9isMTrCuM3smP7v1ivYxdPNYlzKP2emmsI34rQfhEyL6GeO32zB8m6DL+G022PhdOoDvUVp1/G4xYJtA08lXHK0gwT9gHJ/c+AioDFE0im0VrQiHceO9B6Y6jtVI0ndeHNs5iQwTdF1NLDMHmuGdDx3M6uzXVTSzvC6jWWclzuZR6Wi0sWryk8bRRg19oljcOt+DgbIrZ4SdTpGESzVqDwXZMk6oYhnXAowrK2MdL1vXUMSJgBoMjdLG1OoWXnpgaD1Lsq3j0bLVNAnotZ/7LWd6iiR38QuaZkoErWHI0RVkSlC1psJC8tVQq6kTqKn61qROVrPUCQwvBQa9ylXxZuEDpU519juaOpXrccbgUgbTCzetU1qD/D9NwNthNK9CJw7hCiDiPJDnY4Yr9oFyQex1hdcZ58kADn1ZtSzPYsygqhw4ryv5xcDtF8rlqGcYStA+0pDm1+RskMMbOfYmYtPSwDnn8suJkXxuayK7RP2A0oAguMRRf0oXQjyVPDeZpb6R3Ow2udnt/s2SR+zjcJkuWk2cXqoVn0rnKs0yrT1y1qm7xOw1u9wG6VKbbD487AjmUUdodSOcTlxwhIo64kdi8xr7dbURHrwD9t5PSN/be7dBFZufXUcHzHPym7eLqcbW/TuldR+vU0p/YgiF07lwvjAOT37pBVwWBQojTg8Cv1L1MwHg1VQ/bVMDRcXHHx+I9Ovs1xXp2/p7idZJf/9ji6qNZ1UVwnEupZSq0szhbLsKWVoGvPcpwiP1oVyLTJaN0Qt8XUUXS4QzF/iEyBpJEjsH8/28H9g1byhP4zFwMUTopQjdTz4Sj9XZr2Ah0+t7Q8MzXBMAcwiGwK3itT4wXMez0iN4swFFM/9GPinO5n8zAPf/Aw==&lt;/diagram&gt;&lt;/mxfile&gt;"
+   id="svg160"
+   sodipodi:docname="Fluxograma - Automatizado.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata164">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1856"
+     inkscape:window-height="1043"
+     id="namedview162"
+     showgrid="false"
+     inkscape:zoom="1.1712346"
+     inkscape:cx="373.16354"
+     inkscape:cy="93.080407"
+     inkscape:window-x="64"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="switch84"
+     inkscape:document-rotation="0" />
+  <defs
+     id="defs20">
+    <linearGradient
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1"
+       id="mx-gradient-fff2cc-1-ffd966-1-s-0">
+      <stop
+         offset="0%"
+         style="stop-color:#fff2cc"
+         id="stop2" />
+      <stop
+         offset="100%"
+         style="stop-color:#ffd966"
+         id="stop4" />
+    </linearGradient>
+    <style
+       type="text/css"
+       id="style7">@import url(https://fonts.googleapis.com/css?family=Noto+Sans+Mono);
+</style>
+    <filter
+       id="dropShadow">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="1.7"
+         result="blur"
+         id="feGaussianBlur9" />
+      <feOffset
+         in="blur"
+         dx="3"
+         dy="3"
+         result="offsetBlur"
+         id="feOffset11" />
+      <feFlood
+         flood-color="#3D4574"
+         flood-opacity="0.4"
+         result="offsetColor"
+         id="feFlood13" />
+      <feComposite
+         in="offsetColor"
+         in2="offsetBlur"
+         operator="in"
+         result="offsetBlur"
+         id="feComposite15" />
+      <feBlend
+         in="SourceGraphic"
+         in2="offsetBlur"
+         id="feBlend17"
+         mode="normal" />
+    </filter>
+  </defs>
+  <g
+     filter="url(#dropShadow)"
+     id="g150">
+    <path
+       d="m 478,30 21,0.03 V 29.9 l 12.33,0.02"
+       fill="none"
+       stroke="#000000"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="stroke"
+       id="path22" />
+    <path
+       d="m 517.33,29.93 -8,3.99 2,-4 -1.99,-4 z"
+       fill="#000000"
+       stroke="#000000"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="all"
+       id="path24" />
+    <path
+       d="M 627.5,50 V 86.76"
+       fill="none"
+       stroke="#000000"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="stroke"
+       id="path26" />
+    <path
+       d="m 627.5,92.76 -4,-8 4,2 4,-2 z"
+       fill="#000000"
+       stroke="#000000"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="all"
+       id="path28" />
+    <path
+       d="m 226,30 h 28.76"
+       fill="none"
+       stroke="#000000"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="stroke"
+       id="path30" />
+    <path
+       d="m 260.76,30 -8,4 2,-4 -2,-4 z"
+       fill="#000000"
+       stroke="#000000"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="all"
+       id="path32" />
+    <path
+       d="M 520,115 H 486.24"
+       fill="none"
+       stroke="#000000"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="stroke"
+       id="path34" />
+    <path
+       d="m 480.24,115 8,-4 -2,4 2,4 z"
+       fill="#000000"
+       stroke="#000000"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="all"
+       id="path36" />
+    <rect
+       x="263"
+       y="95"
+       width="215"
+       height="40"
+       rx="6"
+       ry="6"
+       fill="#000000"
+       stroke="#000000"
+       transform="translate(2,3)"
+       opacity="0.25"
+       id="rect38" />
+    <rect
+       x="263"
+       y="95"
+       width="215"
+       height="40"
+       rx="6"
+       ry="6"
+       fill="#ffffff"
+       stroke="#000000"
+       pointer-events="all"
+       id="rect40" />
+    <g
+       transform="translate(-0.5,4.1900961)"
+       id="g46">
+      <switch
+         id="switch44">
+        <foreignObject
+           style="overflow: visible; text-align: left;"
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 213px; height: 1px; padding-top: 102px; margin-left: 264px;">
+            <xhtml:div
+               style="box-sizing: border-box; font-size: 0; text-align: center; ">
+              <xhtml:div
+                 style="display: inline-block; font-size: 12px; font-family: Times New Roman; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Análise de Fadiga na FatFree</xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="371"
+           y="114"
+           fill="#000000"
+           font-family="'Times New Roman'"
+           font-size="12px"
+           text-anchor="middle"
+           id="text42"
+           style="font-size:13.3333px">Análise de Fadiga na FatFree</text>
+      </switch>
+    </g>
+    <circle
+       cx="263"
+       cy="95"
+       fill="url(#mx-gradient-fff2cc-1-ffd966-1-s-0)"
+       stroke="#000000"
+       pointer-events="all"
+       id="ellipse48"
+       r="10" />
+    <g
+       transform="translate(-0.5,-0.5)"
+       id="g54">
+      <switch
+         id="switch52">
+        <foreignObject
+           style="overflow: visible; text-align: left;"
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 18px; height: 1px; padding-top: 95px; margin-left: 254px;">
+            <xhtml:div
+               style="box-sizing: border-box; font-size: 0; text-align: center; ">
+              <xhtml:div
+                 style="display: inline-block; font-size: 12px; font-family: Times New Roman; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">5</xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="263"
+           y="99"
+           fill="#000000"
+           font-family="'Times New Roman'"
+           font-size="12px"
+           text-anchor="middle"
+           id="text50">5</text>
+      </switch>
+    </g>
+    <path
+       d="M 263,115 H 233.24"
+       fill="none"
+       stroke="#000000"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="stroke"
+       id="path56" />
+    <path
+       d="m 227.24,115 8,-4 -2,4 2,4 z"
+       fill="#000000"
+       stroke="#000000"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="all"
+       id="path58" />
+    <rect
+       x="10"
+       y="95"
+       width="215"
+       height="40"
+       rx="6"
+       ry="6"
+       fill="#000000"
+       stroke="#000000"
+       transform="translate(2,3)"
+       opacity="0.25"
+       id="rect60" />
+    <rect
+       x="10"
+       y="95"
+       width="215"
+       height="40"
+       rx="6"
+       ry="6"
+       fill="#fff2cc"
+       stroke="#d6b656"
+       pointer-events="all"
+       id="rect62" />
+    <g
+       transform="translate(-0.5,4.3593665)"
+       id="g68">
+      <switch
+         id="switch66">
+        <foreignObject
+           style="overflow: visible; text-align: left;"
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 213px; height: 1px; padding-top: 102px; margin-left: 11px;">
+            <xhtml:div
+               style="box-sizing: border-box; font-size: 0; text-align: center; ">
+              <xhtml:div
+                 style="display: inline-block; font-size: 12px; font-family: Times New Roman; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Visualização dos resultados</xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="118"
+           y="114"
+           fill="#000000"
+           font-family="'Times New Roman'"
+           font-size="12px"
+           text-anchor="middle"
+           id="text64"
+           style="font-size:13.3333px">Visualização dos resultados</text>
+      </switch>
+    </g>
+    <circle
+       cx="10"
+       cy="95"
+       fill="url(#mx-gradient-fff2cc-1-ffd966-1-s-0)"
+       stroke="#000000"
+       pointer-events="all"
+       id="ellipse70"
+       r="10" />
+    <g
+       transform="translate(-0.5,-0.5)"
+       id="g76">
+      <switch
+         id="switch74">
+        <foreignObject
+           style="overflow: visible; text-align: left;"
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 18px; height: 1px; padding-top: 95px; margin-left: 1px;">
+            <xhtml:div
+               style="box-sizing: border-box; font-size: 0; text-align: center; ">
+              <xhtml:div
+                 style="display: inline-block; font-size: 12px; font-family: Times New Roman; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">6</xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="10"
+           y="99"
+           fill="#000000"
+           font-family="'Times New Roman'"
+           font-size="12px"
+           text-anchor="middle"
+           id="text72">6</text>
+      </switch>
+    </g>
+    <rect
+       x="520"
+       y="12"
+       width="215"
+       height="38"
+       rx="5.6999998"
+       ry="5.6999998"
+       fill="#000000"
+       stroke="#000000"
+       transform="translate(2,3)"
+       opacity="0.25"
+       id="rect78" />
+    <rect
+       x="520"
+       y="11"
+       width="215"
+       height="38"
+       rx="5.6999998"
+       ry="5.6999998"
+       fill="#fff2cc"
+       stroke="#d6b656"
+       pointer-events="all"
+       id="rect80" />
+    <g
+       transform="translate(-0.5,2.3593665)"
+       id="g86">
+      <switch
+         id="switch84">
+        <foreignObject
+           style="overflow: visible; text-align: left;"
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 213px; height: 1px; padding-top: 19px; margin-left: 521px;">
+            <xhtml:div
+               style="box-sizing: border-box; font-size: 0; text-align: center; ">
+              <xhtml:div
+                 style="display: inline-block; font-size: 12px; font-family: Times New Roman; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Extração de modos relevantes</xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="627"
+           y="31"
+           fill="#000000"
+           font-family="'Times New Roman'"
+           font-size="12px"
+           text-anchor="middle"
+           id="text82"
+           style="font-size:13.33329964px;white-space:pre;inline-size:247.063;-inkscape-font-specification:'Times New Roman, Normal';font-family:'Times New Roman';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;"
+           xml:space="preserve"><tspan
+             x="627"
+             y="31"><tspan>Extração de dados relevantes do .odb</tspan></tspan></text>
+      </switch>
+    </g>
+    <circle
+       cx="520"
+       cy="10"
+       fill="url(#mx-gradient-fff2cc-1-ffd966-1-s-0)"
+       stroke="#000000"
+       pointer-events="all"
+       id="ellipse88"
+       r="10" />
+    <g
+       transform="translate(-0.5,-0.5)"
+       id="g94">
+      <switch
+         id="switch92">
+        <foreignObject
+           style="overflow: visible; text-align: left;"
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 18px; height: 1px; padding-top: 10px; margin-left: 511px;">
+            <xhtml:div
+               style="box-sizing: border-box; font-size: 0; text-align: center; ">
+              <xhtml:div
+                 style="display: inline-block; font-size: 12px; font-family: Times New Roman; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">3</xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="520"
+           y="14"
+           fill="#000000"
+           font-family="'Times New Roman'"
+           font-size="12px"
+           text-anchor="middle"
+           id="text90">3</text>
+      </switch>
+    </g>
+    <rect
+       x="11"
+       y="10"
+       width="215"
+       height="40"
+       rx="6"
+       ry="6"
+       fill="#000000"
+       stroke="#000000"
+       transform="translate(2,3)"
+       opacity="0.25"
+       id="rect96" />
+    <rect
+       x="11"
+       y="10"
+       width="215"
+       height="40"
+       rx="6"
+       ry="6"
+       fill="#fff2cc"
+       stroke="#d6b656"
+       pointer-events="all"
+       id="rect98" />
+    <g
+       transform="translate(-0.51302156,4.2031169)"
+       id="g104">
+      <switch
+         id="switch102">
+        <foreignObject
+           style="overflow: visible; text-align: left;"
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 213px; height: 1px; padding-top: 17px; margin-left: 12px;">
+            <xhtml:div
+               style="box-sizing: border-box; font-size: 0; text-align: center; ">
+              <xhtml:div
+                 style="display: inline-block; font-size: 12px; font-family: Times New Roman; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                <xhtml:font>Criação do arquivo de entrada <xhtml:font
+   face="Noto Sans Mono"
+   data-font-src="https://fonts.googleapis.com/css?family=Noto+Sans+Mono">.inp</xhtml:font>
+</xhtml:font>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="119"
+           y="29"
+           fill="#000000"
+           font-family="'Times New Roman'"
+           font-size="12px"
+           text-anchor="middle"
+           id="text100"
+           style="font-size:13.3333px">Criação do arquivo de entrada .inp</text>
+      </switch>
+    </g>
+    <circle
+       cx="10"
+       cy="10"
+       fill="url(#mx-gradient-fff2cc-1-ffd966-1-s-0)"
+       stroke="#000000"
+       pointer-events="all"
+       id="ellipse106"
+       r="10" />
+    <g
+       transform="translate(-0.5,-0.5)"
+       id="g112">
+      <switch
+         id="switch110">
+        <foreignObject
+           style="overflow: visible; text-align: left;"
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 18px; height: 1px; padding-top: 10px; margin-left: 1px;">
+            <xhtml:div
+               style="box-sizing: border-box; font-size: 0; text-align: center; ">
+              <xhtml:div
+                 style="display: inline-block; font-size: 12px; font-family: Times New Roman; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">1</xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="10"
+           y="14"
+           fill="#000000"
+           font-family="'Times New Roman'"
+           font-size="12px"
+           text-anchor="middle"
+           id="text108">1</text>
+      </switch>
+    </g>
+    <rect
+       x="520"
+       y="95"
+       width="215"
+       height="40"
+       rx="6"
+       ry="6"
+       fill="#000000"
+       stroke="#000000"
+       transform="translate(2,3)"
+       opacity="0.25"
+       id="rect114" />
+    <rect
+       x="520"
+       y="95"
+       width="215"
+       height="40"
+       rx="6"
+       ry="6"
+       fill="#fff2cc"
+       stroke="#d6b656"
+       pointer-events="all"
+       id="rect116" />
+    <g
+       transform="translate(-0.5,5.5377489)"
+       id="g122">
+      <switch
+         id="switch120">
+        <foreignObject
+           style="overflow: visible; text-align: left;"
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 213px; height: 1px; padding-top: 102px; margin-left: 521px;">
+            <xhtml:div
+               style="box-sizing: border-box; font-size: 0; text-align: center; ">
+              <xhtml:div
+                 style="display: inline-block; font-size: 12px; font-family: Times New Roman; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                <xhtml:div>Preenchimento da FatFree</xhtml:div>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="627"
+           y="114"
+           fill="#000000"
+           font-family="'Times New Roman'"
+           font-size="12px"
+           text-anchor="middle"
+           id="text118"
+           style="font-size:13.3333px">Preenchimento da FatFree</text>
+      </switch>
+    </g>
+    <circle
+       cx="520"
+       cy="95"
+       fill="url(#mx-gradient-fff2cc-1-ffd966-1-s-0)"
+       stroke="#000000"
+       pointer-events="all"
+       id="ellipse124"
+       r="10" />
+    <g
+       transform="translate(-0.5,-0.5)"
+       id="g130">
+      <switch
+         id="switch128">
+        <foreignObject
+           style="overflow: visible; text-align: left;"
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 18px; height: 1px; padding-top: 95px; margin-left: 511px;">
+            <xhtml:div
+               style="box-sizing: border-box; font-size: 0; text-align: center; ">
+              <xhtml:div
+                 style="display: inline-block; font-size: 12px; font-family: Times New Roman; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">4</xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="520"
+           y="99"
+           fill="#000000"
+           font-family="'Times New Roman'"
+           font-size="12px"
+           text-anchor="middle"
+           id="text126">4</text>
+      </switch>
+    </g>
+    <rect
+       x="263"
+       y="12"
+       width="215"
+       height="36"
+       rx="5.4000001"
+       ry="5.4000001"
+       fill="#000000"
+       stroke="#000000"
+       transform="translate(2,3)"
+       opacity="0.25"
+       id="rect132" />
+    <rect
+       x="263"
+       y="11"
+       width="215"
+       height="36"
+       rx="5.4000001"
+       ry="5.4000001"
+       fill="#ffffff"
+       stroke="#000000"
+       pointer-events="all"
+       id="rect134" />
+    <g
+       transform="translate(-0.5,1.2031169)"
+       id="g140">
+      <switch
+         id="switch138">
+        <foreignObject
+           style="overflow: visible; text-align: left;"
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 213px; height: 1px; padding-top: 19px; margin-left: 264px;">
+            <xhtml:div
+               style="box-sizing: border-box; font-size: 0; text-align: center; ">
+              <xhtml:div
+                 style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                <xhtml:font
+                   face="Times New Roman">Análise Modal no ABAQUS</xhtml:font>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="371"
+           y="31"
+           fill="#000000"
+           font-family="Helvetica"
+           font-size="12px"
+           text-anchor="middle"
+           id="text136"
+           style="font-size:13.3333px"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, '"
+             id="tspan166">Análise Modal no ABAQUS</tspan></text>
+      </switch>
+    </g>
+    <ellipse
+       cx="262.98999"
+       cy="12.15"
+       rx="9.9904537"
+       ry="10.153846"
+       fill="url(#mx-gradient-fff2cc-1-ffd966-1-s-0)"
+       stroke="#000000"
+       pointer-events="all"
+       id="ellipse142" />
+    <g
+       transform="translate(-0.5,-0.5)"
+       id="g148">
+      <switch
+         id="switch146">
+        <foreignObject
+           style="overflow: visible; text-align: left;"
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 18px; height: 1px; padding-top: 12px; margin-left: 254px;">
+            <xhtml:div
+               style="box-sizing: border-box; font-size: 0; text-align: center; ">
+              <xhtml:div
+                 style="display: inline-block; font-size: 12px; font-family: Times New Roman; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">2</xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="263"
+           y="16"
+           fill="#000000"
+           font-family="'Times New Roman'"
+           font-size="12px"
+           text-anchor="middle"
+           id="text144">2</text>
+      </switch>
+    </g>
+  </g>
+  <switch
+     id="switch158">
+    <g
+       requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+       id="g152" />
+    <a
+       transform="translate(0,-5)"
+       xlink:href="https://desk.draw.io/support/solutions/articles/16000042487"
+       target="_blank"
+       id="a156">
+      <text
+         text-anchor="middle"
+         font-size="10px"
+         x="50%"
+         y="100%"
+         id="text154">Viewer does not support full SVG 1.1</text>
+    </a>
+  </switch>
+</svg>

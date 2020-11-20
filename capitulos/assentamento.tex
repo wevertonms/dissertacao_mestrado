@@ -1,7 +1,7 @@
 \section{Modelagem numérica de dutos submarinos}\label{chap:assentamento}
 
 
-A simulação numérica do duto projetado em um ambiente tridimensional realista obtido por medições da topografia do fundo marinho, permite que os engenheiros explorem quaisquer oportunidades que o comportamento do mesmo pode oferecer para desenvolver soluções seguras e econômicas.
+A simulação numérica do duto projetado em um ambiente tridimensional realista obtido por medições da topografia do fundo marinho, permite que os engenheiros explorem quaisquer oportunidades que o comportamento do mesmo pode oferecer para desenvolver soluções seguras e econômicas. % chktex 19
 Por exemplo, o projetista pode analisar primeiro o comportamento do duto na batimetria original.
 Se alguns dos casos de carga resultam em tensões além do limite aceitável, pode-se simular uma modificação do fundo do mar no modelo de elementos finitos.
 A análise é executada novamente para confirmar que as modificações levaram à diminuição desejada de tensão ou deformação.
@@ -19,7 +19,7 @@ Por comportamento \textit{in-situ} de um duto, entenda-se a resposta do mesmo à
     \item Cargas de impacto.
 \end{enumerate}
 
-\citeonline{Bai2014} apresentam o processo de análise do comportamento \textit{in loco} desses duto através do  MEF, que será detalhado a seguir.
+\citeonline{Bai2014} apresentam o processo de análise do comportamento \textit{in loco} desses dutos através do MEF, que será detalhado a seguir.
 
 FLUXOGRAMA
 
@@ -28,7 +28,7 @@ FLUXOGRAMA
 
 A modelagem da instalação do duto é o primeiro passo para o estudo do comportamento \textit{in-situ} do duto. Visa reproduzir a configuração indeformada do duto assim que lançado sobre a leito marinho.
 Essa configuração é o ponto de partida para as etapas posteriores da análise.
-Mais importante do que investigar o comportamento do duto durante a instalação é garantir que a correta representação da tração e ângulo de lançamento de tal modo que consigam gerar forças residuais no duto, oriundas do atrito quando o duto se assenta sobre a batimetria.
+Mais importante do que investigar o comportamento do duto durante a instalação é garantir que a correta representação da tração e ângulo de lançamento de tal modo que consigam gerar forças residuais no duto, oriundas do atrito quando o mesmo se assenta sobre a batimetria.
 
 Por simplicidade, neste trabalho, assume-se o ângulo entre o duto e a horizontal nulo, isto é, o duto está em um plano horizontal que desce em direção a superfície batimétrica.
 Desse modo, o modelo permite especificar somente a tração de lançamento.
@@ -45,11 +45,11 @@ A \autoref{fig:lancamentododuto} mostra o duto antes e durante o processo de ins
 A medida que o duto se assenta, é necessário garantir um equilíbrio estável entre ele e o solo, o que é feito mediante um modelo representativo dessa iteração, no qual deve-se definir o atrito e rigidez do leito marinho.
 No ABAQUS~\cite{Dassault2018}, pode-se relacionar a penetração e a força de reação do solo por meio de uma curva de rigidez axial, além de usar modelo anisotrópico para o atrito do solo, representando as diferenças entre os atritos nas direções longitudinal e transversal.
 
-Após a descida do duto, têm-se os processos de alagamento e desalagamento, que acarreta em mudanças no peso submerso do duto e, consequentemente, altera na sua configuração.
+Após a descida do duto, têm-se os processos de alagamento e desalagamento, que acarreta mudanças no peso submerso do duto e, consequentemente, altera na sua configuração.
 Esses processos podem ser facilmente modelados por uma variação em uma carga vertical atuando no duto.
 Mas, um duto sujeito a essa variação de carga na condição alagada sofrem grandes deformações axiais devido à mudança em geometria, e assim o duto se deforma e afunda nos vãos-livres ao longo da rota do duto.
 
-Dessa maneira, é desejável que o modelo a ser estabelecido use um procedimento de análise que considere grandes deslocamentos e o efeito de alterações na área da seção do duto devido a alta tensão axial.
+Dessa maneira, é desejável que o modelo a ser estabelecido use um procedimento de análise que considere grandes deslocamentos e o efeito de alterações na área da seção do duto devido à alta tensão axial.
 Além disso, é interessante que o modelo do material seja capaz de representar o comportamento plástico da seção do duto. No trabalho aqui proposto, não são contempladas nas análises os efeitos de carregamentos de temperatura.
 
 A pressão hidrostática externa é um fator importante para a capacidade de resistência de duto em águas profundas.
@@ -61,7 +61,7 @@ Já a pressão interna pode ser assumida como constante, mas a possibilidade de 
 
 
 Um conceito base no ABAQUS~é a divisão do histórico do cargamentos em etapas de carga. Para cada etapa, o usuário escolhe um método de análise.
-Dessa forma, é possível representar qualquer sequência  e tipo de histórico de carregamento.
+Dessa forma, é possível representar qualquer sequência  e histórico de carregamento.
 Por exemplo, em um passo estático, o duto pode ser carregado com gás, no passo estático seguinte descarregado, e na terceira etapa, pode-se realizar uma análise exclusiva do duto vazio.
 Um histórico de carga de um modelo construído para uma análise de assentamento de duto é apresentado na~\autoref{tab:load_steps}.
 
@@ -97,13 +97,13 @@ Um histórico de carga de um modelo construído para uma análise de assentament
 Fonte: \citeonline{Bai2014}.
 \end{table}
 
-Após os passos referentes ao processos de assentamento do duto, é possível incluir uma passo de pertubação linear para obtenção dos modos de vibração, que são essenciais na análise de fadiga.
+Após os passos referentes aos processos de assentamento do duto, é possível incluir um passo de pertubação linear para obtenção dos modos de vibração, que são essenciais na análise de fadiga.
 
 É válido de nota que a análise estática disponível no ABAQUS usada no modelo lida com respostas não lineares de efeitos de grandes deslocamentos, não-linearidade do material e não-linearidades de contorno, como contato, deslizamento e atrito (interação solo-duto). O ABAQUS usa o método de Newton para resolver as equações de equilíbrio não lineares. Portanto, a solução é obtida como uma série de incrementos com iterações para obter equilíbrio dentro de cada incremento~\cite{SIMULIA2018}.
 
 \subsection{Tipos de elementos}
 
-O Abaqus dispõe de alguns tipos de elementos a serem usados no modelo do sistema de solo-duto com elementos finitos, conforme a \autoref{fig:elements_type}:
+O ABAQUS dispõe de alguns tipos de elementos a serem usados no modelo do sistema de solo-duto com elementos finitos, conforme a \autoref{fig:elements_type}:
 
 \begin{itemize}
     \item Para modelar o fundo do mar pode-ser usar os elementos rígidos do tipo R3D4 usados, ou superfícies analíticas rígidas.
@@ -131,7 +131,7 @@ Embora essa formulação torne esses elementos mais custosos computacionalmente,
 
 O elemento está disponível com uma seção circular vazada de paredes finas e suporta a possibilidade de o usuário especificar pressão externa ou interna.
 Elementos de paredes espessas também estão incluídos no ABAQUS\@.
-O elemento também pode considerar alterações na área da seção do duto devido ao alto nível tensão axial do duto.
+O elemento também pode considerar alterações na área da seção do duto devido ao alto nível de tensão axial do duto.
 
 \begin{figure}[!ht]
     \centering
@@ -156,7 +156,7 @@ O elemento rígido R3D4 de quatro nós, como mostrado na \autoref{fig:element_R3
     \fonte{\citeonline{Bai2014}}
 \end{figure}
 
-A suavização é feita pela ABAQUS, criando superfícies de Bèzier com base na superfície facetada do fundo do mar formada pelos elementos rígidos. As superfícies de Bèzier resultantes, diferentemente da superfície do elemento facetado, são lisas e têm uma superfície externa com direção normal contínua. As superfícies de Bèzier não correspondem exatamente à geometria facetada da superfície rígida, mas os nós dos elementos rígidos que definem o fundo do mar permanecem sempre na superfície de Bèzier. Além disso, o usuário pode especificar o grau de suavização para controlar a geometria da superfície suavizada.
+A suavização é feita pela ABAQUS, criando superfícies de Bèzier com base na superfície facetada do fundo do mar, formada pelos elementos rígidos. As superfícies de Bèzier resultantes, diferentemente da superfície do elemento facetado, são lisas e têm uma superfície externa com direção normal contínua. As superfícies de Bèzier não correspondem exatamente à geometria facetada da superfície rígida, mas os nós dos elementos rígidos que definem o fundo do mar permanecem sempre na superfície de Bèzier. Além disso, o usuário pode especificar o grau de suavização para controlar a geometria da superfície suavizada.
 
 Um conjunto de elementos R3D4 que definem o fundo do mar é usado como a superfície principal chamada para aplicações de contato com os elementos do duto. Isso significa que um par de contatos (solo-duto) é definido e um modelo de interação é especificado. Esse modelo de interação geralmente consiste em uma definição de rigidez e atrito no fundo do mar.
 

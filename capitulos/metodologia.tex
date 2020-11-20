@@ -4,9 +4,9 @@
 Uma vez que o trabalho pretende desenvolver uma ferramente que facilite o fluxo de trabalho do profissional que avalia a vida a fadiga de dutos em vão live, foi necessário, como etapas inciais do trabalho, realizar:
 
 \begin{itemize}
-    \item Revisar a literatura acerca dos temas nos quais esse profissional lida nesta tarefa -- modelagem do assentamento de dutos e vibração induzida por vórtice -- a fim de nivelar os conhecimentos básicos necessário para o próximo item.
+    \item Revisar a literatura acerca dos temas nos quais esse profissional lida nesta tarefa --- modelagem do assentamento de dutos e vibração induzida por vórtice --- a fim de nivelar os conhecimentos básicos necessário para o próximo item.
     \item Entender o fluxo básico de trabalho de profissional, desde a acesso as informações até chegar nos resultados de fadiga. Nessa etapa, é que foram identificados os principais gargalos do processo, destacando aqueles de maior potencial de automatização.
-    \item Inteirar-se das funcionalidades e formas de manipulação das ferramentas usadas nas tarefas de análise, como o \abaqus e a planilha \fatfree.
+    \item Inteirar-se das funcionalidades e formas de manipulação das ferramentas usadas nas tarefas de análise, como o ABAQUS e a planilha \fatfree.
 \end{itemize}
 
 Inicialmente, a revisão da literatura foi feita por meio de leitura de livros, artigos e referências/recomendações técnicas.
@@ -17,12 +17,12 @@ A etapa de análise do fluxo de trabalho, e parte da etapa de revisão da litera
 Cada encontro foi uma oportunidade de diagnosticar novos itens a serem trabalhados, definindo assim os requisitos do \textit{framework}  a ser desenvolvida, e chegando ao modelo de fluxo de trabalho apresentado mais adiante.
 
 Superada esta fase de revisão da literatura e algumas oficinas, houve o desenvolvimento de uma série de \textit{scripts} em linguagem Python para automação de algumas tarefas.
-Essa fase, de caráter exploratório, permitiu o desenvolvimento de pequenas ferramentas que podiam ter feedback mais rápido, melhorando o entendimento dos requisitos e compressão da visão geral do fluxo de trabalho.
-Essa forma de trabalho, com \textit{loops} de desenvolvimento com feedbacks rápidos, influenciou fortemente a na adoção de uma linguagem dinâmica para desenvolvimento (ver \autoref{sec:software}).
+Essa fase, de caráter exploratório, permitiu o desenvolvimento de pequenas ferramentas que podiam ter \textit{feedback} mais rápido, melhorando o entendimento dos requisitos e compressão da visão geral do fluxo de trabalho.
+Essa forma de trabalho, com \textit{loops} de desenvolvimento com \textit{feedbacks} rápidos, influenciou fortemente a na adoção de uma linguagem dinâmica para desenvolvimento (ver \autoref{chap:software}).
 
-Tendo em mãos um conjunto inicial de \textit{scripts}, fez-se então a modelagem dos módulos da aplicação com base nas diferentes funcionalidades previstas para o \textit{framework} .
+Tendo em mãos um conjunto inicial de \textit{scripts}, fez-se então a modelagem dos módulos da aplicação com base nas diferentes funcionalidades previstas para o \textit{framework}.
 Os códigos dos \textit{scripts} foram, então, reagrupados nesses módulos, e que se comunicam por meio da utilização das diversas classes e respectivos métodos.
 Paralelamente a esta etapa, deu-se a elaboração da especificação do arquivo de entrada para facilitar a passagem de informações a aplicação.
 
-Finalmente, fez-se a validação do \textit{framework}  usando dados de dutos reais da PETROBRAS.
-No entanto, devido a confidencialidade destes dados, neste trabalho não serão apresentados os casos usados a validação, mas casos com dados fictícios para exemplificar as funcionalidades do \textit{framework} .
+Finalmente, fez-se a validação do \textit{framework} usando dados de dutos reais da PETROBRAS\@.
+No entanto, devido à confidencialidade destes dados, neste trabalho não serão apresentados os casos usados a validação, mas casos com dados fictícios para exemplificar as funcionalidades do \textit{framework}.

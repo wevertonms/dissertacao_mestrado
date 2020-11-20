@@ -10,6 +10,7 @@
     "**/*.lof": true,
     "**/*.log": true,
     "**/*.lot": true,
+    "**/*.lol": true,
     "**/*.fls": true,
     "**/*.out": true,
     "**/*.toc": true,
@@ -45,7 +46,7 @@
   },
   "cSpell.words": [
     "ANSYS",
-    "Abaqus",
+    "ABAQUS",
     "Bokeh",
     "Bèzier",
     "COEFF",
@@ -68,6 +69,7 @@
     "abntex",
     "backgroundcolor",
     "breaklines",
+    "captionof",
     "chktex",
     "delim",
     "elset",
@@ -77,31 +79,96 @@
     "interar",
     "numbersep",
     "numberstyle",
+    "partapendices",
     "showstringspaces",
     "stepnumber",
     "xlwings"
   ],
   "editor.wordWrap": "on",
   "latex-workshop.chktex.run": "onSave",
-  "latex-workshop.chktex.args.active": [
-    "-wall",
-    "-n22",
-    "-n30",
-    "-n1",
-    "-e16",
-    "-q"
-  ],
-  "latex.build.args": [
-    "-pdf",
-    "-interaction=nonstopmode",
-    "-synctex=1",
-    "./dissertação.tex"
-  ],
   "latex-workshop.latex.build.forceRecipeUsage": true,
   "latex-workshop.latex.recipe.default": "lastUsed",
   "latex-workshop.synctex.afterBuild.enabled": true,
   "editor.formatOnSave": false,
   "editor.fontSize": 16,
-  "ltex.additionalRules.motherTongue": "pt-BR",
-  "ltex.language": "pt-BR",
+  "latex-workshop.latex.external.build.args": [
+    "-shell-escape"
+  ],
+  "latex-workshop.latex.tools": [
+   {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-shell-escape",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "lualatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-lualatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "latexmk_rconly",
+      "command": "latexmk",
+      "args": [
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": [
+        "%DOCFILE%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "rnw2tex",
+      "command": "Rscript",
+      "args": [
+        "-e",
+        "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
+      ],
+      "env": {}
+    }
+  ],
+  "latex-workshop.chktex.enabled": true,
+  "latex-workshop.chktex.args.active": [
+    "-wall",
+    "-n22",
+    "-n30",
+    "-e16",
+    "-q",
+    "-n18",
+    "-n46",
+    "-n1",
+    "-n13"
+  ],
 }
