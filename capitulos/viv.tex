@@ -1,4 +1,4 @@
-\section{Vibração induzida por vórtices em vãos-livres}\label{chap:viv}
+\section{Vibração induzida por vórtices em vãos-livres}\label{sec:viv}
 
 Quando um fluido de baixa viscosidade encontra um obstáculo, forma-se uma camada limite.
 Esta fina camada de fluido está sujeita aos efeitos das forças viscosas.
@@ -55,8 +55,8 @@ Como terceira opção, a \dnvf105 indica o uso de fluidodinâmica computacional 
 A \dnvf105 considera dois modelos para estimar a resposta dinâmica em um vão-livre: Modelo de Resposta (\textit{Response Model}--RM) e Modelo de Força (\textit{Force Model}--FM).
 A escolha do modelo, segundo~\citeonline{Tura1994}, depende: (i) do comportamento dos carregamentos ambientais, isto é, quando há ressonância induzida por vórtice, aplica-se RM\@; e quando o comportamento do vão-livre é afetado por carregamentos periódicos com pouca ou nenhuma amplificação dinâmica, aplica-se FM\@; (ii) da direção e tipo de fluxo, RM é aplicável na direção \textit{in-line} para corrente contínua e na direção \textit{cross-flow} para qualquer padrão de fluxo; o FM é aplicado na direção \textit{in-line} para carregamentos de onda direto.
 
-A \dnvf105 pode ser aplicada para vãos únicos e múltiplos onde um modo de vibração é predominante (\textit{single-mode}), conforme a \autoref{fig:vaos_tipicos}.
-Porém, a combinação de vãos de grande extensão e altas correntes, ou ainda vãos múltiplos, faz com que não apenas os modos fundamentais sejam ativados, mas também diversos outros modos de ordem mais alta (\textit{multi-mode}).
+A \dnvf105 pode ser aplicada para vãos únicos e múltiplos onde um modo de vibração é predominante (unimodal), conforme a \autoref{fig:vaos_tipicos}.
+Porém, a combinação de vãos de grande extensão e altas correntes, ou ainda vãos múltiplos, faz com que não apenas os modos fundamentais sejam ativados, mas também diversos outros modos de ordem mais alta (multimodal).
 
 \begin{figure}[!ht]
 	\centering
@@ -131,11 +131,11 @@ Com esses valores calculados, pode-se construir a curva que relaciona velocidade
 \end{figure}
 
 
-\subsection{Resposta \textit{multi-mode}}\label{sec:multimode}
+\subsection{Resposta multimodal}\label{sec:multimode}
 
 
 A resposta do vão-livre pode ser dada em função de uma coordenada $x$ ao longo da direção longitudinal do duto.
-Para cada combinação relevante de estado de mar e velocidade de corrente, um número de modos pode ser excitado simultaneamente na mesma direção, dando origem a uma resposta \textit{multi-mode}.
+Para cada combinação relevante de estado de mar e velocidade de corrente, um número de modos pode ser excitado simultaneamente na mesma direção, dando origem a uma resposta multimodal.
 Todavia, o número de modos que responderão e o quanto cada modo contribuirá para o dano por fadiga dependerá da velocidade do fluxo, da posição no eixo $x$ e da competição com outros modos.
 
 A \dnvf105 define três diferentes tipos de modos:
@@ -182,7 +182,7 @@ A \dnvf105 define três diferentes tipos de modos:
 
 \end{description}
 
-Baseado nos modelos de resposta \textit{single-mode}, pode-se calcular as amplitudes do VIV para todos os modos.
+Baseado nos modelos de resposta unimodal, pode-se calcular as amplitudes do VIV para todos os modos.
 Assim, precisamos calcular VIV \textit{cross-flow} e \textit{in-line} para cada velocidade de corrente, estado de mar e em cada ponto com se os seguintes procedimentos:
 
 \begin{itemize}

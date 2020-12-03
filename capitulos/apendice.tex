@@ -1,27 +1,33 @@
-\apendices\
+\apendices
+\renewcommand{\apendicesname}{AP\^ENDICES}
+\partpage
 
-\chapter{Arquivo de entrada\label{apendice:json}}
+\chapter{Descrição do formato do arquivo de entrada\label{apendice:json}}
 
-JSON é um formato de arquivo em texto puro que representa informações atribuindo um nome (ou rótulo) que descreve o seu significado e a seguir, o seu valor. Esta sintaxe de representação é derivada da forma utilizada pelo JavaScript para representar objetos. Muito mais que um formato de arquivo, é um modelo para armazenamento e transmissão de informações no formato texto e que é bastante utilizado por aplicações web. A representação de informações utilizada em arquivos JSON é muito simples e sua forma de estruturação é bem mais compacta do que a que normalmente é feita em arquivos XML, o que torna o processamento das informações muito mais rápido.
+JSON é um formato de arquivo em texto puro que representa informações atribuindo um nome (ou rótulo) que descreve o seu significado e a seguir, o seu valor. Esta sintaxe de representação é derivada da forma utilizada pelo JavaScript para representar objetos. Muito mais que um formato de arquivo, é um modelo para armazenamento e transmissão de informações no formato texto e que é bastante utilizado por aplicações web. A representação de informações utilizada em arquivos JSON é simples, e sua forma de estruturação é bem mais compacta do que a que normalmente é feita em arquivos XML, o que torna o processamento das informações muito mais rápido. A especificação completa do formato JSON pode ser encontrado em \texttt{www.json.org}.
+\\
 
-O arquivo foi feito pensando na facilidade do usuário em reconhecer os rótulos e preenchê-los de forma fácil e prática.
-O arquivo compreende informações que servirão tanto para a análise do ABAQUS (construindo um ou mais arquivos \texttt{.inp}) quanto para a \fatfree.
-A seguir descreve-se brevemente a estruturação das chaves no arquivo de entrada, apresentado nos códigos-fontes na \autoref{lst:model} ao \autoref{lst:fatfree}.
+O arquivo foi feito pensando na facilidade do usuário em reconhecer os rótulos e preenchê-los de forma fá\newline
+cil e prática.
+O arquivo compreende informações que servirão tanto para a análise do ABAQUS (construindo um ou mais arquivos \texttt{.inp}), quanto para a \fatfree.
+A seguir descreve-se brevemente a estruturação das chaves no arquivo de entrada, apresentado nos códigos-fontes na \autoref{lst:model} ao
+% \autoref{lst:fatfree}.
 
-\section{Palavras-chaves e descrições}
+\section*{Palavras-chave no arquivo de entrada}
 
 \subsection{\texttt{MODEL}}
 
 Dados gerais do modelo, como:
 
 \begin{itemize}
-  \item \texttt{NAME}: Nome do arquivo;
+  \item \texttt{NAME}: Nome do modelo. Usado como base para o nome dos arquivos e diretórios criados;
   \item \texttt{BATIMETRIA}: indicação do arquivo de batimetria;
   \item \texttt{RESULTS\_FOLDER}: indicação do caminho para armazenamento dos resultados;
   \item \texttt{SPRING\_PIPE\_EXTREMITY}: indicação da extremidade onde será colocada a mola, a mesma na qual foi aplicada a tração residual de lançamento.
 \end{itemize}
 
-\captionof{listing}{Exemplo de arquivo de entrada de dados: chave \texttt{MODEL}.\label{lst:model}}
+\begin{figure}
+\caption{Exemplo de arquivo de entrada de dados: chave \texttt{MODEL}.}\label{lst:model}
 \begin{jsoncode}
 {
   "MODEL": {
@@ -32,6 +38,7 @@ Dados gerais do modelo, como:
   }
 }
 \end{jsoncode}
+\end{figure}
 
 \subsection{\texttt{FILE\_BAT}}
 
@@ -43,7 +50,8 @@ Parâmetros para a execução da simulação no ABAQUS.
   \item \texttt{INTERACTIVE}: garante que as simulações ocorram sequencialmente, e não simultaneamente.
 \end{itemize}
 
-\captionof{listing}{Exemplo de arquivo de entrada de dados: chave \texttt{FILE\_BAT}.\label{lst:file_bat}}
+\begin{figure}
+\caption{Exemplo de arquivo de entrada de dados: chave \texttt{FILE\_BAT}.\label{lst:file_bat}}
 \begin{jsoncode}
 {
   "FILE_BAT": {
@@ -53,6 +61,7 @@ Parâmetros para a execução da simulação no ABAQUS.
   },
 }
 \end{jsoncode}
+\end{figure}
 
 \subsection{\texttt{CONDITIONS}}
 
@@ -84,7 +93,8 @@ Configurações gerais do modelo:
   \item \texttt{DELETE\_FOLDER}: indica se o conteúdo da pasta de resultados deve ser apagado antes da nova simulação
 \end{itemize}
 
-\captionof{listing}{Exemplo de arquivo de entrada de dados: chave \texttt{CONDITIONS}.\label{lst:conditions}}
+\begin{figure}
+\caption{Exemplo de arquivo de entrada de dados: chave \texttt{CONDITIONS}.\label{lst:conditions}}
 \begin{jsoncode}
 {
   "CONDITIONS": {
@@ -98,6 +108,7 @@ Configurações gerais do modelo:
   },
 }
 \end{jsoncode}
+\end{figure}
 
 \subsection{\texttt{MODE\_SELECTOR}}
 
@@ -112,7 +123,8 @@ Parâmetros necessários para o módulo de seleção de frequências.
   \item \texttt{N\_MODES\_CROSS}: indica o número de nós que serão extraídos na direção \textit{cross-flow}.
 \end{itemize}
 
-\captionof{listing}{Exemplo de arquivo de entrada de dados: chave \texttt{MODE\_SELECTOR}.\label{lst:mode-selector}}
+\begin{figure}
+\caption{Exemplo de arquivo de entrada de dados: chave \texttt{MODE\_SELECTOR}.\label{lst:mode-selector}}
 \begin{jsoncode}
 {
   "MODE_SELECTOR": {
@@ -131,8 +143,11 @@ Parâmetros necessários para o módulo de seleção de frequências.
   }
 }
 \end{jsoncode}
+\end{figure}
+
 
 \subsection{\texttt{PIPE\_GEOMETRY}}
+
 
 Indica as informações relativas ao duto, como comprimento, altura de lançamento e tamanho do elemento.
 
@@ -140,20 +155,22 @@ Indica as informações relativas ao duto, como comprimento, altura de lançamen
   \item \texttt{INITIAL\_KP}: ponto de início do duto a ser modelado;
   \item \texttt{END\_KP}: ponto final do duto modelado;
   \item \texttt{LAUNCH\_HEIGHT}: altura de lançamento do duto, sob o qual será modelado a superfície fictícia;
-  \item \texttt{LENGTH\_ELEMENT}: comprimento do elemento do tipo PIPE31 utilizado na modelagem do duto.
+  \item \texttt{LendTH\_ELEMENT}: comprimento do elemento do tipo PIPE31 utilizado na modelagem do duto.
 \end{itemize}
 
-\captionof{listing}{Exemplo de arquivo de entrada de dados: chave \texttt{PIPE\_GEOMETRY}.\label{lst:pipe-geometry}}
+\begin{figure}
+\caption{Exemplo de arquivo de entrada de dados: chave \texttt{PIPE\_GEOMETRY}.\label{lst:pipe-geometry}}
 \begin{jsoncode}
 {
   "PIPE_GEOMETRY": {
     "INITIAL_KP": 0,
     "END_KP": 1000,
     "LAUNCH_HEIGHT": -100,
-    "LENGTH_ELEMENT": 0.25
+    "LendTH_ELEMENT": 0.25
   },
 }
 \end{jsoncode}
+\end{figure}
 
 \subsection{\texttt{AUXILIARY\_NODE}}
 
@@ -165,7 +182,8 @@ Fornece os dados para a criação de nós auxiliares.
   \item \texttt{INCREASE\_FICTION\_PLAN\_Y}: aumento lateral do plano fictício na extremidade final;
 \end{itemize}
 
-\captionof{listing}{Exemplo de arquivo de entrada de dados: chave \texttt{AUXILIARY\_NODE}.\label{lst:auxiliary-node}}
+\begin{figure}
+\caption{Exemplo de arquivo de entrada de dados: chave \texttt{AUXILIARY\_NODE}.\label{lst:auxiliary-node}}
 \begin{jsoncode}
 {
   "AUXILIARY_NODE": {
@@ -175,6 +193,7 @@ Fornece os dados para a criação de nós auxiliares.
   },
 }
 \end{jsoncode}
+\end{figure}
 
 \subsection{\texttt{CURTAIN\_SPRINGS}}
 
@@ -185,7 +204,8 @@ Caso o modelo seja simulado com cortina de molas, é necessário passar os dados
   \item \texttt{STIFFNESS}: dados de rigidez das molas.
 \end{itemize}
 
-\captionof{listing}{Exemplo de arquivo de entrada de dados: chave \texttt{CURTAIN\_SPRINGS}.\label{lst:curtain-springs}}
+\begin{figure}
+\caption{Exemplo de arquivo de entrada de dados: chave \texttt{CURTAIN\_SPRINGS}.\label{lst:curtain-springs}}
 \begin{jsoncode}
 {
   "CURTAIN_SPRINGS": {
@@ -207,7 +227,20 @@ Caso o modelo seja simulado com cortina de molas, é necessário passar os dados
   }
 }
 \end{jsoncode}
+\end{figure}
 
+
+\subsection{\texttt{SPRING\_STIFFNESS}}
+
+Fornece os dados da rigidez das molas nas extremidades do duto.
+
+\begin{itemize}
+  \item \texttt{INITIAL}: dados da mola da extremidade inicial;
+  \item \texttt{END}: dados da mola da extremidade final.
+\end{itemize}
+
+\begin{figure}
+\caption{Exemplo de arquivo de entrada de dados: chave \texttt{SPRING\_STIFFNESS}.\label{lst:spring_stiffness}}
 \begin{jsoncode}
 {
   "SPRING_STIFFNESS": {
@@ -234,6 +267,8 @@ Caso o modelo seja simulado com cortina de molas, é necessário passar os dados
   },
 }
 \end{jsoncode}
+\end{figure}
+
 
 \subsection{\texttt{PIPE\_MATERIAL}}
 
@@ -250,7 +285,8 @@ Propriedades físicas e geométricas da sessão do duto.
   \item \texttt{THICKNESS}: espessura da parede duto.
 \end{itemize}
 
-\captionof{listing}{Exemplo de arquivo de entrada de dados: chave \texttt{PIPE\_MATERIAL}.\label{lst:pipe_material}}
+\begin{figure}
+\caption{Exemplo de arquivo de entrada de dados: chave \texttt{PIPE\_MATERIAL}.\label{lst:pipe_material}}
 \begin{jsoncode}
 {
   "PIPE_MATERIAL": {
@@ -265,15 +301,7 @@ Propriedades físicas e geométricas da sessão do duto.
   },
 }
 \end{jsoncode}
-
-\subsection{\texttt{SPRING\_STIFFNESS}}
-
-Fornece os dados da rigidez das molas nas extremidades do duto.
-
-\begin{itemize}
-  \item \texttt{INITIAL}: dados da mola da extremidade inicial;
-  \item \texttt{END}: dados da mola da extremidade final.
-\end{itemize}
+\end{figure}
 
 
 \subsection{CONTACT\_PIPE\_SEABED}
@@ -290,7 +318,8 @@ Propriedades do contato entre o duto e a superfície referente à batimetria.
   \item \texttt{STIFFNESS}: dados de rigidez do solo, para interação duto-solo.
 \end{itemize}
 
-\captionof{listing}{Exemplo de arquivo de entrada de dados: chave \texttt{MODE\_SELECTOR}.\label{lst:mode_selector}}
+\begin{figure}
+\caption{Exemplo de arquivo de entrada de dados: chave \texttt{MODE\_SELECTOR}.\label{lst:mode_selector}}
 \begin{jsoncode}
 {
   "CONTACT_PIPE_SEABED": {
@@ -312,12 +341,15 @@ Propriedades do contato entre o duto e a superfície referente à batimetria.
   },
 }
 \end{jsoncode}
+\end{figure}
 
 
 \subsection{\texttt{CONTACT\_PIPE\_PLAN}}
 
 Fornece as propriedades do contato entre o duto e a superfície fictícia.
 
+\begin{figure}
+\caption{Exemplo de arquivo de entrada de dados: chave \texttt{CONTACT\_PIPE\_PLAN}.\label{lst:contact_pipe_plan}}
 \begin{jsoncode}
 {
   "CONTACT_PIPE_PLAN": {
@@ -340,9 +372,10 @@ Fornece as propriedades do contato entre o duto e a superfície fictícia.
   },
 }
 \end{jsoncode}
+\end{figure}
 
 
-\subsection{STEPS\_DEFAULTS}
+\subsection{\texttt{STEPS\_DEFAULTS}}
 
 Reúne as informações recorrentes em todos os passos de carga (\textit{steps}) no arquivo \texttt{*.inp}.
 
@@ -357,7 +390,8 @@ Reúne as informações recorrentes em todos os passos de carga (\textit{steps})
 
 \texttt{STEP\_X}: informação específica para cada \textit{step} conforme os passos de carga anteriormente citados. Caso existam informações específicas do suporte, essas informações devem ser passadas respectivamente. Caso contrário, são utilizadas as informações do \texttt{STEP\_DEFAULTS}.
 
-\captionof{listing}{Exemplo de arquivo de entrada de dados: chave \texttt{STEPS\_DEFAULTS}.\label{lst:steps_defaults}}
+\begin{figure}
+\caption{Exemplo de arquivo de entrada de dados: chave \texttt{STEPS\_DEFAULTS}.\label{lst:steps_defaults}}
 \begin{jsoncode}
 {
 "STEPS_DEFAULTS": {
@@ -414,6 +448,7 @@ Reúne as informações recorrentes em todos os passos de carga (\textit{steps})
   },
 }
 \end{jsoncode}
+\end{figure}
 
 \subsection{\texttt{SUPPORTS}}
 
@@ -432,7 +467,8 @@ Reúne as informações referentes à posição dos suportes.
   \end{itemize}
 \end{itemize}
 
-\captionof{listing}{Exemplo de arquivo de entrada de dados: chave \texttt{SUPPORTS}.\label{lst:supports}}
+\begin{figure}
+\caption{Exemplo de arquivo de entrada de dados: chave \texttt{SUPPORTS}.\label{lst:supports}}
 \begin{jsoncode}
 {
   "SUPPORTS": {
@@ -453,6 +489,7 @@ Reúne as informações referentes à posição dos suportes.
   },
 }
 \end{jsoncode}
+\end{figure}
 
 
 \subsection{\texttt{STEP\_NODAL\_FIX}}
@@ -474,7 +511,8 @@ Passa os dados necessários para preenchimento da \fatfree~via \texttt{Xlwings}.
   \item \texttt{Flag}: permite o usuário escolher se os dados de rigidez (Kv, KL e  Kv\_s) serão os passados pelo usuário acima ou extraídos do ABAQUS.
 \end{itemize}
 
-\captionof{listing}{Exemplo de arquivo de entrada de dados: chave \texttt{FATFREE}.\label{lst:fatfree}}
+\begin{figure}
+\caption{Exemplo de arquivo de entrada de dados: chave \texttt{FATFREE}.}\label{lst:fatfree}
 \begin{jsoncode}
 {
   "FATFREE": {
@@ -513,3 +551,11 @@ Passa os dados necessários para preenchimento da \fatfree~via \texttt{Xlwings}.
   }
 }
 \end{jsoncode}
+\end{figure}
+
+% \chapter{Arquivo de entrada usado no exemplo de aplicação\label{apendice:arquivo-exemplo}}
+
+% \begin{figure}
+% \caption{Conteúdo do arquivo de \texttt{exemplo.json}\label{lst:input-json}}
+% \inputminted[frame=single,fontsize=\tiny,linenos]{python}{exemplo/exemplo.json}
+% \end{figure}

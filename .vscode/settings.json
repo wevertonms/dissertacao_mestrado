@@ -45,8 +45,8 @@
     "**/.factorypath": true
   },
   "cSpell.words": [
-    "ANSYS",
     "ABAQUS",
+    "ANSYS",
     "Bokeh",
     "Bèzier",
     "COEFF",
@@ -76,10 +76,12 @@
     "fısico",
     "hyperpageref",
     "indentação",
+    "integrispan",
     "interar",
     "numbersep",
     "numberstyle",
     "partapendices",
+    "partpage",
     "showstringspaces",
     "stepnumber",
     "xlwings"
@@ -110,27 +112,6 @@
       "env": {}
     },
     {
-      "name": "lualatexmk",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-lualatex",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "latexmk_rconly",
-      "command": "latexmk",
-      "args": [
-        "%DOC%"
-      ],
-      "env": {}
-    },
-    {
       "name": "pdflatex",
       "command": "pdflatex",
       "args": [
@@ -149,15 +130,6 @@
       ],
       "env": {}
     },
-    {
-      "name": "rnw2tex",
-      "command": "Rscript",
-      "args": [
-        "-e",
-        "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
-      ],
-      "env": {}
-    }
   ],
   "latex-workshop.chktex.enabled": true,
   "latex-workshop.chktex.args.active": [
@@ -169,6 +141,9 @@
     "-n18",
     "-n46",
     "-n1",
-    "-n13"
+    "-n13",
+    "-n36"
   ],
+  "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|%|\\\\)\\s*($TAGS)\\{*|^\\s*- \\[ \\])",
+  "todo-tree.filtering.includeGlobs": ["**/*.tex",]
 }

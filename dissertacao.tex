@@ -25,9 +25,9 @@
 	brazil					% o último idioma é o principal do documento
 ]{abntex2}
 
-% ---------------------
+% --------------------
 % Pacotes OBRIGATÓRIOS
-% ---------------------
+% --------------------
 \usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
@@ -51,22 +51,35 @@
 \usepackage{svg}
 % \counterwithin{figure}{chapter}         % Para numerar figuras por capítulo
 \usepackage{enumerate}
-\usepackage[most]{tcolorbox}
-%\usepackage{tocloft}
-%\setlength{\cftfignumwidth}{4em}% change 4em to suit
+% \usepackage[most]{tcolorbox}
 % \usepackage{svg}
-\usepackage{bera}
-\usepackage{listings}
-\usepackage{xcolor}
+% \usepackage{xcolor}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage[newfloat=true]{minted}
+\usepackage[newfloat=true]{minted} % don't need to import `listing` or `listings`
+% \DeclareFloatingEnvironment[
+% fileext=lox,
+% listname={Lista de códigos-fonte},
+% name=Código-fonte,
+% placement=htp,
+% chapterlistsgaps=off,
+% ]{code}
+\SetupFloatingEnvironment{listing}{
+	placement=htp,
+	% name=Código-fonte,
+	% listname=Lista de códigos-fonte,
+	within=none,
+	chapterlistsgaps=off
+}
+% \renewcommand\listingscaption{Código-fonte} % custom labels, according to the docs
+% \renewcommand\listoflistingscaption{Lista de códigos-fonte}
+% \counterwithout{listing}{chapter}
 \usemintedstyle{emacs}
-\SetupFloatingEnvironment{listing}{name=Figura,listname=Lista de códigos-fontes}
-\newminted{json}{gobble=2,frame=single,fontsize=\small}
+\newminted{json}{gobble=2,frame=single,fontsize=\tiny}
+\newminted{python}{frame=single,fontsize=\tiny,linenos}
 \usepackage{silence} % Silenciar erros e warnings
 \WarningsOff
-% % ---------------------
+% ---------------------
 %
 % ---------------------
 % Pacotes de CITAÇÕES
@@ -124,64 +137,7 @@
 % ELEMENTOS PRÉ-TEXTUAIS (Capa, Resumo, Abstract, etc.)
 % ----------------------------------------------------------
 % \pretextual\
-% Capa
-% \include{pretextual/capa}
-
-% Folha de rosto (o * indica que haverá a ficha bibliográfica)
-% \imprimirfolhaderosto\
-
-% Imprimir Ficha Catalográfica
-%\include{pretextual/catalografica}
-
-% Inserir Folha de Aprovação
-%\include{pretextual/assinaturas}
-
-% Dedicatória
-% \include{pretextual/dedicatoria}
-
-% Agradecimentos
-% \include{pretextual/agradecimentos}
-
-% Epígrafe
-%\include{pretextual/epigrafe}
-
-% Resumo e Abstract
-% \include{pretextual/resumos}
-
-% Lista de ilustrações
-% \pdfbookmark[0]{\listfigurename}{lof}
-% \listoffigures*
-% \cleardoublepage
-
-% Lista de tabelas
-% \pdfbookmark[0]{\listtablename}{lot}
-% \listoftables*
-% \cleardoublepage
-
-% Lista de abreviaturas e siglas
-% \begin{siglas}
-%   \item[MEF] Método dos Elementos Finitos
-%   \item[VIV] Vibração Induzida por Vórtice
-% \end{siglas}
-
-% Lista de símbolos
-%\begin{simbolos}
-%  \item[$ \Gamma $] Letra grega Gama
-%  \item[$ \Lambda $] Lambda
-%  \item[$ \zeta $] Letra grega minúscula zeta
-%  \item[$ \in $] Pertence
-%\end{simbolos}
-
-% Lisa de listing (códigos)
-% \listoflistings*
-% \cleardoublepage
-
-% Inserir o SUMÁRIO
-% \pdfbookmark[0]{\contentsname}{toc}
-% \settocdepth{section}
-% \tableofcontents*
-% \cleardoublepage
-
+\input{pretextual/itens}
 
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS (Capítulos)
@@ -195,7 +151,8 @@
 \def\fatfree{FatFree}
 \def\dnvf105{DNVGL-RP-F105}
 \def\integrispan{IntegriSpan}
-
+\def\frame{\textit{framework}}
+\def\code{Código-fonte}
 % ----------------------------------------------------------
 % TEXTO DA DISSERTAÇÃO
 % ----------------------------------------------------------
@@ -203,8 +160,8 @@
 \include{capitulos/metodologia}
 \include{capitulos/fundamentacao}
 \include{capitulos/software}
-% \include{capitulos/aplicacoes}
-% \include{capitulos/conclusoes}
+\include{capitulos/aplicacoes}
+\include{capitulos/conclusoes}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS (Referências, Glossário, Apêndices)
@@ -213,7 +170,6 @@
 
 \bibliography{bibliografia}
 
-% \partapendices*
 \include{capitulos/apendice}
 
 \end{document}

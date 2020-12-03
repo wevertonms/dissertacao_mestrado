@@ -1,0 +1,1 @@
+abaqus job=LD60  cpus=4  gpus=0

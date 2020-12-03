@@ -55,7 +55,7 @@ Desenvolvido pela empresa Fugro, que atua no monitoramento de dutos submarinos, 
 \subsection{Sesam for pipelines}
 
 A DNG-GL é uma referência mundial, entre outras áreas, em análise de dutos em vão-livre. Esta empresa é responsável pelo desenvolvimento da suíte \textit{Sesam for pipelines}~\cite{dnvsesam} focados na análise de dutos submarinos.
-Essa suíte consiste em 6 aplicações em VBA\footnote{Sigla para \textit{Visual Basic for Applications}, uma linguagem pela qual se pode customizar e extender aplicações com Microsoft.}, dentre as quais a mais destacada é a \fatfree, responsável pelo cálculo da vida a fadiga em si. Sendo desenvolvidas pela DNG-GL, as aplicações seguem as recomendações práticas propostas pela mesma --- que traz bastante confiabilidade nos resultados. Entretanto, apesar de conter uma aplicação para análise de comportamento mecânico, estas aplicações são simples, e estão muito aquém de uma solução completa para simulação assentamento do tudo no solo, como o SAGE Profile.
+Essa suíte consiste em 6 aplicações em VBA\footnote{Sigla para \textit{Visual Basic for Applications}, uma linguagem pela qual se pode customizar e extender aplicações desktop da suíte Microsoft.}, dentre as quais a mais destacada é a \fatfree\footnote{Planilha Microsoft Office Excel desenvolvida pela \dnvf105 focada no cálculo de vida a fadiga de dutos submarinos.}, responsável pelo cálculo da vida a fadiga em si. Sendo desenvolvidas pela DNG-GL, as aplicações seguem as recomendações práticas propostas pela mesma --- que traz bastante confiabilidade nos resultados. Entretanto, apesar de conter uma aplicação para análise de comportamento mecânico, estas aplicações são simples, e estão muito aquém de uma solução completa para simulação assentamento do tudo no solo, como o SAGE Profile.
 
 \begin{figure}[!ht]
     \centering
@@ -72,10 +72,7 @@ Atualmente, existem diversos sistemas submarinos em operação nas Bacias de Cam
 
 Como se pode ver, dentre as melhores ferramentas atuais para análise fadiga de duto em vão-livre ainda há espaço para melhorias, especialmente no que se refere a integração. Diante dessas limitações, é comum usar um software para a análise de elementos finitos genérico (como ABAQUS e ANSYS\footnote{https://www.ansys.com}) e realizam o cálculo de fadiga em folhas de cálculo pessoais ou comerciais, como a \fatfree.
 
-Visando desenvolver uma nova ferramenta para. Portanto, um framework com o qual se possam construir aplicações para automatizar tarefas no fluxo de trabalho desde a análise de elementos finitos até análise de fadiga traria uma importante Contribuição para o panorama atual.
-
-
-\input{capitulos/workflow}
+Visando desenvolver uma nova ferramenta para. Portanto, um \textit{framework} com o qual se possam construir aplicações para automatizar tarefas no fluxo de trabalho desde a análise de elementos finitos até análise de fadiga traria uma importante contribuição para o panorama atual.
 
 
 \section{Objetivos}
@@ -91,10 +88,10 @@ Além disso, este trabalho tem como objetivos específicos:
 \end{itemize}
 
 
-\section{Delimitação do trabalho}
+%TODO \section{Delimitação do trabalho}
 
 
-Este trabalho descreve o processo de desenvolvimento de um \textit{framework} para auxílio.
+% Este trabalho descreve o processo de desenvolvimento de um \textit{framework} para auxílio.
 
 
 \input{capitulos/organizacao}

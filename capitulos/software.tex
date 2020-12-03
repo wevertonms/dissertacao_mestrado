@@ -1,42 +1,51 @@
-\chapter{Modelagem do Sistema Computacional}\label{chap:software}
+\chapter{Desenvolvimento do \frame}\label{chap:software}
 
-O levantamento dos requisitos de um sistema é o elemento que fornece elementos que deve nortear uma série de decisões a serem tomadas no seu desenvolvimento. O \textit{framework} proposto visa automatizar etapas do fluxo de trabalho do profissional que realiza análises de vida a fadiga, de maneira que o seguinte fluxo padrão estaria de acordo com o apresentado na \autoref{fig:workflow}, onde os itens coloridos são cobertos pelo \textit{framework} e os itens  branco são realizados em aplicações externas.
+O levantamento dos requisitos de um sistema é o elemento que fornece elementos que deve nortear uma série de decisões a serem tomadas no seu desenvolvimento. Primeiramente, apresenta-se aqui o fluxo de trabalho tradicional para análise de fadiga.
+
+\input{capitulos/workflow}
+
+
+\section{Fluxo de trabalho proposto com uso do \frame}
+
+
+O \frame\ proposto tem como requisito atender o fluxo na apresentado na \autoref{sec:workflow}, automatizando certas etapas da análise de vida a fadiga. Os itens coloridos são cobertos pela implementação \frame, e os itens  branco são realizados em aplicações externas.
+
 
 \begin{figure}[!ht]
     \centering
-    \caption{Fluxo de operação proposto para o \textit{framework}.}\label{fig:workflow}
+    \caption{Fluxo de operação proposto para o \frame.}\label{fig:workflow}
     \includegraphics[width=\textwidth]{imagens/fluxograma_automatizado}
 \end{figure}
 
 De forma mais detalhada, a ferramente deve:
 
 \begin{enumerate}[label= (\arabic*)]
-    \item A partir de um arquivo de entrada com informações do modelo, criar arquivos de entrada para o ABAQUS (.inp) que reproduza todo o processo de simulação do comportamento do duto apresentado (\autoref{chap:assentamento}).
+    \item A partir de um arquivo de entrada com informações do modelo, criar arquivos de entrada para o ABAQUS (.inp) que reproduza todo o processo de simulação do comportamento do duto apresentado (\autoref{sec:assentamento}).
     \item Submeter o arquivo gerado para análise no ABAQUS.
-    \item Processar os arquivos de saída do ABAQUS (.odb) extraindo os informações relevantes como a configuração deformada, modos de vibração, etc., gerando arquivos em outros formatos de fácil leitura para pós-processamento, tanto por este \textit{framework}, quanto por outro softwares.
-    \item Pós-processar as informações gerando gráficos e relatórios relevantes para as tomadas de decisão do usuário quanto ao projeto. Esse é o requisito mais crítico, uma vez que é fundamental o entendimento sobre a análise de duto em vão-livre. Entre as tarefas que fazem parte deste item está a automação da escolha dos modos de vibração ativos e relevantes e para cada vão de interesse---a qual deve ser norteada pelos aspectos discutidos na \autoref{sec:multimode} --- e a manipulação da FatFree\footnote{Planilha Microsoft Office Excel desenvolvida pela \dnvf105 focada no cálculo de vida a fadiga de dutos submarinos.}.
+    \item Processar os arquivos de saída do ABAQUS (.odb) extraindo os informações relevantes como a configuração deformada, modos de vibração, etc., gerando arquivos em outros formatos de fácil leitura para pós-processamento, tanto por este \frame, quanto por outro softwares.
+    \item Pós-processar as informações gerando gráficos e relatórios relevantes para as tomadas de decisão do usuário quanto ao projeto. Esse é o requisito mais crítico, uma vez que é fundamental o entendimento sobre a análise de duto em vão-livre. Entre as tarefas que fazem parte deste item está a automação da escolha dos modos de vibração ativos e relevantes e para cada vão de interesse --- a qual deve ser norteada pelos aspectos discutidos na \autoref{sec:multimode} --- e a manipulação da FatFree.
     \item Ativar o processo de cálculo de fadiga no arquivo preenchido no passo anterior.
     \item Capturar os resultados arquivo, que agora contém os resultados do cálculo de vida a fadiga, e apresentá-los na forma de gráficos e relatórios.
 \end{enumerate}
 
 \section{Linguagem de programação}
 
-Python\footnote{https://www.python.org} foi a linguagem de programação adotada. Além de ser uma linguagem interpretada de alto nível Orientada a Objeto --- que permite um alto índice de reaproveitamento de código --- e da sintaxe simples, \citeonline{rao2018} apresenta algumas das principais vantagens que destaca a linguagem para este tipo de aplicação:
+Python\footnote{https://www.python.org} foi a linguagem de programação adotada. Além de ser uma linguagem interpretada de alto nível Orientada a Objeto --- que permite um alto índice de reaproveitamento de código --- e da sintaxe simples. \citeonline{Rao2018} apresenta algumas das principais vantagens que destaca a linguagem para este tipo de aplicação:
 
 \begin{itemize}
     \item Disponibilidade de bibliotecas para aplicações cientificas contemplando manipulação de matrizes (Numpy), funções matemáticas (SciPy), manipulação de dados em forma tabular (Pandas), criação de gráficos interativos (Matplotlib e Bokeh).
 
     \item Suporte para automação de tarefas. Os recursos de \textit{script} internos do Python e vários pacotes têm um forte suporte à automação de tarefas. A automação de tarefas repetitivas e a realização do registro de dados são fáceis e requerem pouco esforço. O ABAQUS, por exemplo, permite modelagem e acesso a informações em arquivos de saída via Python. A biblioteca xlwings permite manipulação planilhas Excel, a exemplo da FatFree.
 
-    \item Pacotes Python como Django e Flask tornam possível desenvolver e usar o Python como uma API\footnote{Na programação de computadores, uma Interface de Programação de Aplicativos (\textit{Application Programming Interface}---API) é um conjunto de definições de sub-rotinas e ferramentas para a criação de software. Em termos gerais, é um conjunto de métodos de comunicação claramente definidos entre vários componentes.} com um \textit{front-end} da web. Essa funcionalidade é particularmente útil para reaproveitamento do \textit{framework}  em outras aplicações.
+    \item Pacotes Python como Django e Flask tornam possível desenvolver e usar o Python como uma API\footnote{Na programação de computadores, uma Interface de Programação de Aplicativos (\textit{Application Programming Interface}---API) é um conjunto de definições de sub-rotinas e ferramentas para a criação de software. Em termos gerais, é um conjunto de métodos de comunicação claramente definidos entre vários componentes.} com um \textit{front-end} da web. Essa funcionalidade é particularmente útil para reaproveitamento do \frame\  em outras aplicações.
 \end{itemize}
 
 \section{Pacotes e classes}
 
-Para implementação do fluxo de trabalho proposto para o \textit{framework}, prevê-se a implementação de módulos para lidar com cada contexto específico. Em python, módulos podem ser quaisquer arquivos com extensão \texttt{.py}. Estes módulos podem ser agrupados em pacotes, que são pastas que, além dos módulos, contém um arquivo \texttt{\_\_init\_\_.py}. No \textit{framework} têm-se os seguintes pacotes: % chktex 21
+Para implementação do fluxo de trabalho proposto para o \frame, fez-se a implementação de módulos para lidar com cada contexto específico. Em python, módulos podem ser quaisquer arquivos com extensão \texttt{.py}. Estes módulos podem ser agrupados em pacotes, que são pastas que, além dos módulos, contém um arquivo \texttt{\_\_init\_\_.py}. No \frame\ têm-se os seguintes pacotes: % chktex 21
 
 \begin{itemize}
-    \item \texttt{model\_generator}: pacote principal responsável orquestrar o fluxo de trabalho do \textit{framework} desde o processamento dos dados de entrada, geração dos arquivos para o ABAQUS e os pós-processamentos.
+    \item \texttt{model\_generator}: pacote principal responsável orquestrar o fluxo de trabalho do \frame\ desde o processamento dos dados de entrada, geração dos arquivos para o ABAQUS e os pós-processamentos.
 
     \item \texttt{odb\_handler}: responsável por lidar com os arquivos de saída do ABAQUS (odb) e guardar os dados relevantes em arquivos com formatos de fácil manipulação (CSV, JSON, etc\ldots).
 
@@ -61,11 +70,11 @@ Já dentre as principais classes estão:
     \item \texttt{ModeShape}: classe que representa um mode de vibração (\textit{mode shape}).
 \end{itemize}
 
-A \autoref{fig:UML} exibe um diagrama UML com esses módulos e classes, suas relações de pertencimento e dependência, e os principais métodos e atributos das classes.
+Uma forma gráfica de apresentar essas entidades e seus relacionamento é por meio do diagrama de diagrama UML\footnote{sigla para \textit{Unified Modeling Language}: Linguagem Unificada de Modelagem é uma linguagem padrão para modelagem orientada a objetos}\cite{infoescolauml}. Para o caso do \frame\ aqui desenvolvido, a \autoref{fig:UML} apresenta esses módulos e classes, suas relações de pertencimento e dependência, e os principais métodos e atributos das classes.
 
 \begin{figure}[!ht]
     \centering
     \caption{Diagrama UML dos módulos e classes.}\label{fig:UML}
-    \includegraphics[width=0.95\textwidth]{imagens/UML}
+    \includegraphics[width=\textwidth]{imagens/UML}
     \fonte{Autor (2019)}
 \end{figure}
