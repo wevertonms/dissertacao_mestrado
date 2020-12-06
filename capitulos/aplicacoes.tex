@@ -156,8 +156,7 @@ O próximo passo pode ser a visualização dos modos de vibração com o objetiv
 \end{figure}
 
 Como é possível ver nessas figuras, há muitos modos espúrios, que devem ser desconsiderados da análise de fadiga. Esse é o papel do método \texttt{select\_modes} da classe \texttt{Span}. Este método consiste, boa parte, na implementação dos processos de seleção de modos recomendados pela \dnvf105, apresentados na
-% TODO \autoref{sec:multimode}
-. Para o exemplo aqui apresentado, o resultado são os modos exibidos na \autoref{fig:modos-IL} e \autoref{fig:modos-CF}.
+\autoref{sec:multimode}. Para o exemplo aqui apresentado, o resultado são os modos exibidos na \autoref{fig:modos-IL} e \autoref{fig:modos-CF}.
 
 \begin{figure}[!ht]
 	\centering
@@ -193,8 +192,8 @@ Segundo o item 6.7.4 da \dnvf105, a análise de elementos finitos com para um ú
 \toprule
 Direção & ABAQUS & FatFree & Diferença relativa\\
 \midrule
-\textit{In-line}    & 1,315 & 1,351 & -2,66\%\\
-\textit{Cross-flow} & 1,317 & 1,357 & -2,95\%\\
+\textit{In-line}    & 1,315 & 1,351 & -2,66\%\\ % chktex 21
+\textit{Cross-flow} & 1,317 & 1,357 & -2,95\%\\ % chktex 21
 \bottomrule
 \end{tabular}
 \end{table}
@@ -213,7 +212,7 @@ dashboard.save("fatigue_pipe_dashboard.html")
 	\fonte{Autor (2020)}
 \end{figure}
 
-Vale destaque para o uso do operador de divisão (\texttt{/}) na linha 4. Com ele é possível combinar dois gráficos (instâncias da classe Plot) posicionado-os um sobre o em um mesmo gráfico. O gráfico resultante é exibido na \autoref{fig:vida-a-fadiga}, onde se tem a vida a fadiga na direções \textit{n-line} (IL Comb) e \textit{cross-flow} (CF RM) na região do vão.
+Vale destaque para o uso do operador de divisão (\texttt{/}) na linha 4. Com ele é possível combinar dois gráficos (instâncias da classe Plot) posicionado-os um sobre o em um mesmo gráfico. O gráfico resultante é exibido na \autoref{fig:vida-a-fadiga}, onde se tem a vida a fadiga nas direções \textit{in-line} (IL Comb) e \textit{cross-flow} (CF RM) na região do vão, bem como uma linha de referência que ajuda a identificar os trechos cuja previsão de vida a fadiga está abaixo do esperado.
 
 \begin{figure}[!ht]
 	\centering

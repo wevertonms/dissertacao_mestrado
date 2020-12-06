@@ -19,9 +19,8 @@ Por comportamento \textit{in-situ} de um duto, entenda-se a resposta do mesmo à
     \item Cargas de impacto.
 \end{enumerate}
 
-\citeonline{Bai2014} apresentam o processo de análise do comportamento \textit{in loco} desses dutos através do MEF, que será detalhado a seguir.
+\citeonline{Bai2014} apresenta o processo de análise do comportamento \textit{in loco} desses dutos através do MEF, que será detalhado mais adiante.
 
-FLUXOGRAMA
 
 \subsection{Análise estática}
 
@@ -70,7 +69,7 @@ Um histórico de carga de um modelo construído para uma análise de assentament
 \renewcommand{\arraystretch}{1.2}
 \small
 \centering
-\caption{Histórico de carga típico em uma análise de dutos no ABAQUS.}\label{tab:load_steps}
+\caption{Sequenĉia típica de carregamentos em uma análise de dutos no ABAQUS.}\label{tab:load_steps}
 \begin{tabular}{cll}
 \toprule[1.5pt]
 
@@ -106,7 +105,7 @@ Após os passos referentes aos processos de assentamento do duto, é possível i
 O ABAQUS dispõe de alguns tipos de elementos a serem usados no modelo do sistema de solo-duto com elementos finitos, conforme a \autoref{fig:elements_type}:
 
 \begin{itemize}
-    \item Para modelar o fundo do mar pode-ser usar os elementos rígidos do tipo R3D4 usados, ou superfícies analíticas rígidas.
+    \item Para modelar o fundo do mar pode-se usar os elementos rígidos do tipo R3D4 usados, ou superfícies analíticas rígidas.
     \item Os elementos do tipo PIPE31H usados para modelar o duto.
     \item Os elementos de molas usados para representar a continuidade do duto nas extremidades.
 \end{itemize}

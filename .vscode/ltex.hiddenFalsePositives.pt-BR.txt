@@ -50,3 +50,6 @@
 {"rule":"SPACE_BEFORE_PUNCTUATION","sentence":"^\\QComparação entre frequências calculadas com análise modal e .\\E$"}
 {"rule":"FINAL_STOPS","sentence":"^\\QDireção ABAQUS FatFree Diferença relativa In-line 1,315 1,351 2,66% Cross-flow 1,317 1,357 2,95%\\E$"}
 {"rule":"HUNSPELL_RULE","sentence":"^\\QPara carregar esses dados e criar uma instância da classe Model, o que pode ser feito com a função loadjson, como mostrado na \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"GENERAL_GENDER_AGREEMENT_ERRORS","sentence":"^\\QOs arquivos de entrada para simulação gerados pelo representam o tipo de análise corriqueiro apresentado no , mas existem outros tipo de simulação com uma sequencias de passos de carga ou modelagem diferentes.\\E$"}
+{"rule":"HUNSPELL_RULE","sentence":"^\\QExperimentar a utilização de uma linguagem de templates para a geração dos arquivo .inp, a exemplo da linguagem Jinja.\\E$"}
+{"rule":"HUNSPELL_RULE","sentence":"^\\Q[MEF] Método dos Elementos Finitos [VBA] Visual Basic for Applications [VIV] Vibração Induzida por Vórtice\\E$"}

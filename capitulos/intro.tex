@@ -22,7 +22,7 @@ Na maioria das vezes, são necessárias técnicas avançadas de \textit{script} 
 
 Nesse cenário, são essenciais ferramentas que possam auxiliar não só no processamento (como os softwares de simulação), mas também o pré e pós-processamento de dados e, até mesmo, na automação de procedimentos.
 Uma ferramenta com essas características traz ganhos significativos para a produtividade e reduz a possibilidade de ocorrência de erros humanos.
-Além disso, uma ferramenta que integre softwares de uso específico (para análise e visualização, por exemplo), pode reduzir atritos do fluxo de trabalho, em comparação ao uso isolado destes softwares.
+Além disso, uma ferramenta que integre softwares de uso específico (para análise e visualização, por exemplo), pode reduzir atritos e padronizar o fluxo de trabalho, em comparação ao uso isolado destes softwares.
 
 
 \section{Soluções comerciais existentes}
@@ -55,7 +55,7 @@ Desenvolvido pela empresa Fugro, que atua no monitoramento de dutos submarinos, 
 \subsection{Sesam for pipelines}
 
 A DNG-GL é uma referência mundial, entre outras áreas, em análise de dutos em vão-livre. Esta empresa é responsável pelo desenvolvimento da suíte \textit{Sesam for pipelines}~\cite{dnvsesam} focados na análise de dutos submarinos.
-Essa suíte consiste em 6 aplicações em VBA\footnote{Sigla para \textit{Visual Basic for Applications}, uma linguagem pela qual se pode customizar e extender aplicações desktop da suíte Microsoft.}, dentre as quais a mais destacada é a \fatfree\footnote{Planilha Microsoft Office Excel desenvolvida pela \dnvf105 focada no cálculo de vida a fadiga de dutos submarinos.}, responsável pelo cálculo da vida a fadiga em si. Sendo desenvolvidas pela DNG-GL, as aplicações seguem as recomendações práticas propostas pela mesma --- que traz bastante confiabilidade nos resultados. Entretanto, apesar de conter uma aplicação para análise de comportamento mecânico, estas aplicações são simples, e estão muito aquém de uma solução completa para simulação assentamento do tudo no solo, como o SAGE Profile.
+Essa suíte consiste em 6 aplicações em VBA\footnote{Sigla para \textit{Visual Basic for Applications}, uma linguagem pela qual se pode customizar e estender aplicações \textit{desktop} da suíte Microsoft.}, dentre as quais a mais destacada é a \fatfree\footnote{Planilha Microsoft Office Excel desenvolvida pela \dnvf105 focada no cálculo de vida a fadiga de dutos submarinos.}, responsável pelo cálculo da vida a fadiga em si. Sendo desenvolvidas pela DNG-GL, as aplicações seguem as recomendações práticas propostas pela mesma --- que traz bastante confiabilidade nos resultados. Entretanto, apesar de conter uma aplicação para análise de comportamento mecânico, estas aplicações são simples, e estão muito aquém de uma solução completa para simulação assentamento do tudo no solo, como o SAGE Profile.
 
 \begin{figure}[!ht]
     \centering
@@ -72,7 +72,7 @@ Atualmente, existem diversos sistemas submarinos em operação nas Bacias de Cam
 
 Como se pode ver, dentre as melhores ferramentas atuais para análise fadiga de duto em vão-livre ainda há espaço para melhorias, especialmente no que se refere a integração. Diante dessas limitações, é comum usar um software para a análise de elementos finitos genérico (como ABAQUS e ANSYS\footnote{https://www.ansys.com}) e realizam o cálculo de fadiga em folhas de cálculo pessoais ou comerciais, como a \fatfree.
 
-Visando desenvolver uma nova ferramenta para. Portanto, um \textit{framework} com o qual se possam construir aplicações para automatizar tarefas no fluxo de trabalho desde a análise de elementos finitos até análise de fadiga traria uma importante contribuição para o panorama atual.
+Visando desenvolver uma nova ferramenta para suprir esta necessidade. Portanto, um \textit{framework} com o qual se possam construir aplicações para automatizar tarefas no fluxo de trabalho desde a análise de elementos finitos até análise de fadiga traria uma importante contribuição para o panorama atual.
 
 
 \section{Objetivos}
@@ -84,14 +84,14 @@ Além disso, este trabalho tem como objetivos específicos:
 \begin{itemize}
     \item Contribuir para a metodologia de análise de fadiga em dutos por meio da criação de uma metodologia de seleção de modos de vibração;
     \item Modelar e implementar um \textit{framework} utilizando o paradigma da programação orientada a objetos, através da linguagem \textit{Python};
-    \item Validar o \textit{framework} com aplicação de casos.
+    \item Apresentar a aplicação de algumas das funcionalidades o \textit{framework} em um exemplo.
 \end{itemize}
 
 
-%TODO \section{Delimitação do trabalho}
+\section{Delimitação do trabalho}
 
 
-% Este trabalho descreve o processo de desenvolvimento de um \textit{framework} para auxílio.
+Este trabalho descreve o processo de desenvolvimento de um \frame\ computacional para auxílio no processo de análise de vida a fadiga de dutos submarinos em vão-livre. O \frame\ desenvolvido não pretende implementar o processo de análise numérica de elementos finitos, nem o cálculo de vida a fadiga, estes ficaram a cargo de ferramentas comerciais de terceiros: ABAQUS e \fatfree, respectivamente. A a entrega de valor do \frame\ reside na automação de tarefas das etapas de pré e pós-processamento dos dados de entrada do ABAQUS e \fatfree, bem como a possibilidade de execução programática do destas ferramentas.
 
 
 \input{capitulos/organizacao}
