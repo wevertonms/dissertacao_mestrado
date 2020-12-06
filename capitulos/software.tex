@@ -5,7 +5,7 @@ O levantamento dos requisitos de um sistema é o elemento que fornece elementos 
 \input{capitulos/workflow}
 
 
-\section{Fluxo de trabalho proposto com uso do \frame}
+\section{Fluxo de avaliação de vida à fadiga com uso do \frame}
 
 
 O \frame\ proposto tem como requisito atender o fluxo na apresentado na \autoref{sec:workflow}, automatizando certas etapas da análise de vida a fadiga. Os itens coloridos são cobertos pela implementação \frame, e os itens  branco são realizados em aplicações externas.
@@ -21,11 +21,11 @@ De forma mais detalhada, a ferramente deve:
 
 \begin{enumerate}[label= (\arabic*)]
     \item A partir de um arquivo de entrada com informações do modelo, criar arquivos de entrada para o ABAQUS (.inp) que reproduza todo o processo de simulação do comportamento do duto apresentado (\autoref{sec:assentamento}).
-    \item Submeter o arquivo gerado para análise no ABAQUS.
-    \item Processar os arquivos de saída do ABAQUS (.odb) extraindo os informações relevantes como a configuração deformada, modos de vibração, etc., gerando arquivos em outros formatos de fácil leitura para pós-processamento, tanto por este \frame, quanto por outro softwares.
+    \item Submeter o arquivo gerado para análise no ABAQUS. No caso de haver a colocação de suportes, a simulação é executada em duas partes: a primeira com os passos de carga anteriores a passo da colocação dos suportes, e a segunda com o passo da colação dos mesmos e os passos de carga seguintes.
+    \item Processar os arquivos de saída do ABAQUS (.odb) extraindo as informações relevantes como a configuração deformada, modos de vibração, etc., gerando arquivos em outros formatos de fácil leitura para pós-processamento, tanto por este \frame, quanto por outros softwares.
     \item Pós-processar as informações gerando gráficos e relatórios relevantes para as tomadas de decisão do usuário quanto ao projeto. Esse é o requisito mais crítico, uma vez que é fundamental o entendimento sobre a análise de duto em vão-livre. Entre as tarefas que fazem parte deste item está a automação da escolha dos modos de vibração ativos e relevantes e para cada vão de interesse --- a qual deve ser norteada pelos aspectos discutidos na \autoref{sec:multimode} --- e a manipulação da FatFree.
     \item Ativar o processo de cálculo de fadiga no arquivo preenchido no passo anterior.
-    \item Capturar os resultados arquivo, que agora contém os resultados do cálculo de vida a fadiga, e apresentá-los na forma de gráficos e relatórios.
+    \item Capturar os resultados no arquivo \texttt{.xls} da \fatfree, que agora contém os resultados do cálculo de vida a fadiga, e apresentá-los na forma de gráficos e relatórios.
 \end{enumerate}
 
 \section{Linguagem de programação}
@@ -65,12 +65,14 @@ Já dentre as principais classes estão:
 
     \item \texttt{Inp}: lida com a escrita modularizada de arquivos de entrada  para o ABAQUS. A proposta é que se crie um arquivo principal que terá inclusão de outros arquivos acessórios que terão as informações específicas de cada aspecto da modelagem: batimetria, passos de carga, etc.
 
-    \item \texttt{Span}: classe que representa um vão do duto. Dentre os métodos da classe estão os métodos responsáveis pela seleção dos modos de vibração.
+    \item \texttt{ModeShape}: classe que representa um modo de vibração (\textit{mode shape}).
 
-    \item \texttt{ModeShape}: classe que representa um mode de vibração (\textit{mode shape}).
+    \item \texttt{Span}: classe que representa um vão do duto. Uma vez que análise de fadiga é feita por vão, é nesta que são implementados os métodos responsáveis pela seleção dos modos de vibração, que são ligados à classe por um dos seus atributos.
+
+    \item \texttt{Plot}: facilita a criação dos gráficos devido a implementação de métodos que permitem desde alterar os componentes mais comuns das figuras, como títulos dos eixos e legendas, até combinar gráficos e formar dashboards com gráficos integrados.
 \end{itemize}
 
-Uma forma gráfica de apresentar essas entidades e seus relacionamento é por meio do diagrama de diagrama UML\footnote{sigla para \textit{Unified Modeling Language}: Linguagem Unificada de Modelagem é uma linguagem padrão para modelagem orientada a objetos}\cite{infoescolauml}. Para o caso do \frame\ aqui desenvolvido, a \autoref{fig:UML} apresenta esses módulos e classes, suas relações de pertencimento e dependência, e os principais métodos e atributos das classes.
+Uma forma gráfica de apresentar essas entidades e seus relacionamentos é por meio do diagrama de diagrama UML\footnote{Sigla para \textit{Unified Modeling Language}: Linguagem Unificada de Modelagem é uma linguagem padrão para modelagem orientada a objetos}\cite{infoescolauml}. Para o caso do \frame\ aqui desenvolvido, a \autoref{fig:UML} apresenta esses módulos e classes, suas relações de pertencimento e dependência, e os principais métodos e atributos das classes.
 
 \begin{figure}[!ht]
     \centering

@@ -56,6 +56,7 @@
 % \usepackage{xcolor}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{float}
 \usepackage[newfloat=true]{minted} % don't need to import `listing` or `listings`
 % \DeclareFloatingEnvironment[
 % fileext=lox,
@@ -137,7 +138,7 @@
 % ELEMENTOS PRÉ-TEXTUAIS (Capa, Resumo, Abstract, etc.)
 % ----------------------------------------------------------
 % \pretextual\
-\input{pretextual/itens}
+% \input{pretextual/itens}
 
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS (Capítulos)
@@ -156,20 +157,20 @@
 % ----------------------------------------------------------
 % TEXTO DA DISSERTAÇÃO
 % ----------------------------------------------------------
-\include{capitulos/intro}
-\include{capitulos/metodologia}
-\include{capitulos/fundamentacao}
-\include{capitulos/software}
+% \include{capitulos/intro}
+% \include{capitulos/metodologia}
+% \include{capitulos/fundamentacao}
+% \include{capitulos/software}
 \include{capitulos/aplicacoes}
-\include{capitulos/conclusoes}
+% \include{capitulos/conclusoes}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS (Referências, Glossário, Apêndices)
 % ----------------------------------------------------------
 % \postextual\
 
-\bibliography{bibliografia}
+% \bibliography{bibliografia}
 
-\include{capitulos/apendice}
+% \include{capitulos/apendice}
 
 \end{document}

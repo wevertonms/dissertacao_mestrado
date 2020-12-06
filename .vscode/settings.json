@@ -60,6 +60,7 @@
     "Kármán",
     "LKCR",
     "Matplotlib",
+    "Multimode",
     "NODESET",
     "Numpy",
     "SEABEDSET",
@@ -145,5 +146,12 @@
     "-n36"
   ],
   "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^|%|\\\\)\\s*($TAGS)\\{*|^\\s*- \\[ \\])",
-  "todo-tree.filtering.includeGlobs": ["**/*.tex",]
+  "todo-tree.filtering.includeGlobs": [
+    "**/*.tex",
+  ],
+  "ltex.additionalRules.motherTongue": "pt-BR",
+  "ltex.checkFrequency": "save",
+  "ltex.enabled": false,
+  "ltex.language": "pt-BR",
+  "window.zoomLevel": 1,
 }
