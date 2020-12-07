@@ -44,41 +44,121 @@ Python\footnote{https://www.python.org} foi a linguagem de programação adotada
 \section{Pacotes e classes}
 
 
-Para implementação do fluxo de trabalho proposto para o \frame, fez-se a implementação de módulos para lidar com cada contexto específico. Em python, módulos podem ser quaisquer arquivos com extensão \texttt{.py}. Estes módulos podem ser agrupados em pacotes, que são pastas que, além dos módulos, contém um arquivo \texttt{\_\_init\_\_.py}. No \frame\ têm-se os seguintes pacotes: % chktex 21
+Para implementação do fluxo de trabalho proposto para o \frame, fez-se a implementação de módulos para lidar com cada contexto específico. Em python, módulos podem ser quaisquer arquivos com extensão \texttt{.py}. Estes módulos podem ser agrupados em pacotes, que são pastas que, além dos módulos, contém um arquivo \texttt{\_\_init\_\_.py}. No \frame\ têm-se alguns pacotes que agrupam módulos em torno do contexto de um problema que o \textit{software} resolve. % chktex 21
 
-\begin{itemize}
-    \item \texttt{analysis}: pacote principal responsável orquestrar o fluxo de trabalho do \frame\ desde o processamento dos dados de entrada, geração dos arquivos para o ABAQUS e os pós-processamentos.
 
-    \item \texttt{odb\_handler}: responsável por lidar com os arquivos de saída do ABAQUS (odb) e guardar os dados relevantes em arquivos com formatos de fácil manipulação (CSV, JSON, etc\ldots).
+\subsection{Pacote \texttt{analysis}}
 
-    \item \texttt{mode\_selector}: pacote responsável pela estratégia de seleção automática de modos de vibração para cada vão e manipulação dos dados associados vãos e seus respectivos modos.
 
-    \item \texttt{dnv}: pacote que implementa os cálculos dos modelos de resposta da \dnvf105 e manipula a planilha FatFree por meio da biblioteca xlwings.
-
-    \item \texttt{plots}: pacote responsável pro agregar as funções de geração de gráficos dos resultados.
-\end{itemize}
-
-Já dentre as principais classes estão:
+É o pacote principal responsável orquestrar o fluxo de trabalho do \frame\ desde o processamento dos dados de entrada, geração dos arquivos para o ABAQUS e os pós-processamentos. As funções de pré-processamento de dados estão aqui. Este pacote tem dois módulos (\texttt{models.py} e \texttt{inp.py}) que contém duas classes principais, respectivamente:
 
 \begin{itemize}
     \item \texttt{Model}: classe que contém as informações do modelo do problema.
     A classe armazena todas as informações para construção dos arquivos \texttt{.inp}, isto é, dados de batimetria, material, geometria do duto, coeficientes de segurança, entre outros.
-    A instanciação dessa classe deve ocorrer mediante o processamento de um arquivo principal de entrada com esses dados, em formato JSON (\autoref{apendice:json}).
+    A principal forma de criação da instancias dessa classe é pelo método estático \texttt{load\_json}, que recebe um arquivo principal de entrada (em formato JSON, ver \autoref{apendice:json}), e realiza o pré-processamento dos dados contídos nele.
 
-    \item \texttt{Inp}: lida com a escrita modularizada de arquivos de entrada  para o ABAQUS. A proposta é que se crie um arquivo principal que terá inclusão de outros arquivos acessórios que terão as informações específicas de cada aspecto da modelagem: batimetria, passos de carga, etc.
-
-    \item \texttt{ModeShape}: classe que representa um modo de vibração (\textit{mode shape}).
-
-    \item \texttt{Span}: classe que representa um vão do duto. Uma vez que análise de fadiga é feita por vão, é nesta que são implementados os métodos responsáveis pela seleção dos modos de vibração, que são ligados à classe por um dos seus atributos.
-
-    \item \texttt{Plot}: facilita a criação dos gráficos devido a implementação de métodos que permitem desde alterar os componentes mais comuns das figuras, como títulos dos eixos e legendas, até combinar gráficos e formar \textit{dashboards} com gráficos integrados.
+    \item \texttt{Inp}: lida com a escrita modularizada de arquivos de entrada  para o ABAQUS. A proposta é que se tenha um arquivo \texttt{.inp} principal que terá conterá informações para a localização de outros arquivos acessórios que, por sua vez, terão as informações específicas de cada aspecto da modelagem: batimetria, passos de carga, etc. Isso facilita o reaproveitamento dos arquivos acessórios, sem precisa de alterações no arquivo principal.
 \end{itemize}
 
-Uma forma gráfica de apresentar essas entidades e seus relacionamentos é por meio do diagrama de diagrama UML\footnote{Sigla para \textit{Unified Modeling Language}: Linguagem Unificada de Modelagem é uma linguagem padrão para modelagem orientada a objetos}\cite{infoescolauml}. Para o caso do \frame\ aqui desenvolvido, a \autoref{fig:UML} apresenta esses módulos e classes, suas relações de pertencimento e dependência, e os principais métodos e atributos das classes.
+A \autoref{fig:analysis-uml} exibe um diagrama um diagrama UML\footnote{Sigla para \textit{Unified Modeling Language}: Linguagem Unificada de Modelagem é uma linguagem padrão para modelagem orientada a objetos~\cite{infoescolauml}} com uma visão geral do pacote \texttt{analysis}.
 
 \begin{figure}[!ht]
     \centering
-    \caption{Diagrama UML dos módulos e classes.}\label{fig:UML}
-    \includegraphics[width=\textwidth]{imagens/UML}
-    \fonte{Autor (2019)}
+    \caption{Digrama UML do pacote \texttt{analysis}.}\label{fig:analysis-uml}
+    \includegraphics[width=0.8\textwidth]{imagens/analysis-uml}
+    \fonte{Autor (2020)}
+\end{figure}
+
+
+\subsection{Pacote \texttt{odb\_handler}}
+
+
+Neste pacote está o módulo responsável por lidar com os arquivos de saída do ABAQUS (odb) no sentido de acessar e guardar os dados relevantes em arquivos com formatos de fácil manipulação por outros softwares (CSV e JSON, por exemplo, que módulos para leitura e escrita nativos em Python).
+
+% A \autoref{fig:odb-handler-uml} exibe um diagrama um diagrama UML com uma visão geral do pacote \texttt{odb\_handler}.
+
+\begin{figure}[!ht]
+    \centering
+    \caption{Digrama UML do pacote \texttt{odb\_handler}.}\label{fig:odb-handler-uml}
+    \includegraphics[width=0.5\textwidth]{imagens/odb-handler-uml}
+    \fonte{Autor (2020)}
+\end{figure}
+
+
+\subsection{Pacote \texttt{mode\_selector}}
+
+
+Neste pacote estão implementados os métodos responsáveis pela estratégia de seleção automática de modos de vibração (que depende da definição dos vãos), bem como e manipulação dos dados associados vãos e seus respectivos modos. As abstrações dos conceitos de vão e modo de vibração estão implementadas nas seguintes classes:
+
+\begin{itemize}
+    \item \texttt{Span}: classe que representa um vão do duto. Uma vez que análise de fadiga é feita por vão, é nesta que são implementados os métodos responsáveis pela seleção dos modos de vibração, que são ligados à classe por um dos seus atributos.
+
+    \item \texttt{ModeShape}: classe que representa um modo de vibração (\textit{mode shape}). A principal forma de criação de objetos dessa classe é por meio da função \texttt{load\_json} do módulos \texttt{mode\_shapes.py}, que carrega os dados do arquivo gerado com utilização do \texttt{odb\_handler}, e retorna uma lista de objetos desta classe.
+\end{itemize}
+
+A \autoref{fig:mode-selector-uml} exibe um diagrama um diagrama UML com uma visão geral do pacote \texttt{mode\_selector}.
+
+\begin{figure}[!ht]
+    \centering
+    \caption{Digrama UML do pacote \texttt{mode\_selector}.}\label{fig:mode-selector-uml}
+    \includegraphics[width=0.8\textwidth]{imagens/mode-selector-uml}
+    \fonte{Autor (2020)}
+\end{figure}
+
+
+\subsection{Pacote \texttt{dnv}}
+
+Neste pacote são agrupadas módulos referentes à \dnvf105, como cálculos dos modelos de resposta da \dnvf105, subsidiam o algorítmo de seleção de modos de vibração, e entrada de saída de dados da planilha FatFree. As principais classes contidas nesses pacotes são:
+
+\begin{itemize}
+    \item \texttt{ResponseModel}: implementa formulação dos modelos de resposta apresentados na \autoref{sec:viv}.
+
+    \item \texttt{FatFree}: responsável fazer a entrada dos dados nas planilha e invocar a execução dos cálculos. Essa classe faz uso da biblioteca \texttt{Xlwings}, que consegue se comunicar com o Microsoft Excel e manipular os componentes (caixas de seleção, botões, etc) que formam a interface da FatFree.
+
+    \item \texttt{FatFreeResults}: Esta classe permite o acesso facilita o acesso programático as dados contidos em um determinado aqui da FatFree.
+\end{itemize}
+
+A \autoref{fig:dnv-uml} exibe um diagrama um diagrama UML com uma visão geral do pacote \texttt{dnv}.
+
+\begin{figure}[!ht]
+    \centering
+    \caption{Digrama UML do pacote \texttt{dnv}.}\label{fig:dnv-uml}
+    \includegraphics[width=\textwidth]{imagens/dnv-uml}
+    \fonte{Autor (2020)}
+\end{figure}
+
+
+\subsection{Pacote \texttt{plots}}
+
+
+Pacote responsável pro agregar as funções de geração de gráficos dos resultados. Disponibilizar essas funções dentro do \frame permite que os gráficos com os resultados das análise seja gerados automaticamente, o visual e forma de apresentação sejam padronizados. As principais classe neste pacotes são:
+
+\begin{itemize}
+
+    \item \texttt{Plot}: é construída em cima da classe \texttt{Figure} da biblioteca \texttt{Bokeh}\footnote{www.bokeh.org}, que permite a criação de gráficos interativos em HMTL. Os gráficos gerados por essa biblioteca possuem controles permitem, por exemplo, que o usuário dê zoom ou translate os dados exibidos, ative/desative os ítem mostrado por meio de clique respectivos ítens nas legendas, sabe o gráfico em formato de imagem estática (\texttt{png}). A \autoref{fig:exemplo-bokeh} exibe um exemplo desses gráficos destacando os elementos interativos em vermelho.
+
+    \begin{figure}[!ht]
+        \centering
+        \caption{Exemplo de gráfico customizado criado com a biblioteca Bokeh.}\label{fig:exemplo-bokeh}
+        \includegraphics[width=0.8\textwidth]{imagens/exemplo-bokeh}
+        \fonte{Autor (2020)}
+    \end{figure}
+
+    O trabalho da classe \texttt{Plot} é simplificar a criação dos gráficos devido a implementação de métodos que facilitam desde alterar os componentes mais comuns das figuras, como títulos dos eixos e legendas, até combinar gráficos e formar \textit{dashboards} com gráficos integrados. A combinação de gráficos pode ser feita por meio dos operadores matemáticos:
+    \begin{itemize}
+        \item \texttt{a + b}: para sobrepor os gráficos \texttt{a} e \texttt{b};
+        \item \texttt{a | b}: para posicionar dois gráficos, com \texttt{a} à esquerda de \texttt{b};
+        \item \texttt{a / b}: para posicionar dois gráficos, com \texttt{a} acima de \texttt{b};
+    \end{itemize}
+
+    \item \texttt{PipeProfileDashboards}: esta classe se utilizada da classe \texttt{Plot} para facilitar a criação de um tipo \textit{dashboard} recorrente no processo de análise: dois gráficos empilhados verticalmente, um com dados que podem ser associados a posição ao longo do duto (como esforço axial, modos de vibração, enterramento, vida à fadiga, etc), e o outro abaixo dele com o perfil do duto. Nesse tipo de arranjo é interessante que os eixos das abcissas estejam atrelados, permitindo ao usuário movimentar os dois eixos em sincronia.
+\end{itemize}
+
+A \autoref{fig:plots-uml} exibe um diagrama um diagrama UML com uma visão geral do pacote \texttt{plots}.
+
+\begin{figure}[!ht]
+    \centering
+    \caption{Digrama UML do pacote \texttt{plots}.}\label{fig:plots-uml}
+    \includegraphics[width=0.7\textwidth]{imagens/plots-uml}
+    \fonte{Autor (2020)}
 \end{figure}
