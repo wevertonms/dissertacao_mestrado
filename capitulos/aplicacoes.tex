@@ -1,3 +1,4 @@
+
 \chapter{Aplicações e resultados\label{chap:aplicacoes}}
 
 Este capítulo apresenta um exemplo básico de aplicação do \frame, apresentando as funções principais para geração de modelos (.inp) e para simulação no ABAQUS, chamada do ABAQUS, pós-processamento e visualização dos resultados. Serão apresentados tanto os resultados obtidos com a simulação quanto os códigos básicos utilizados geração desses resultados, bem como trechos de código demonstrando a forma de utilização das principais funcionalidades implementadas.
@@ -6,7 +7,7 @@ Embora não haja restrições do \frame\ quanto ao perfil da batimetria, este ex
 Vale salientar que os dados utilizados são de domínio público ou fictícios, mas não representam um caso real, até porque que esse tipo de dado é mantido sob sigilo devido a aspectos relacionados à segurança, competitividade tecnológica e propriedade intelectual das empresas do setor.
 
 
-\section{Exemplo: análise de vida a fadiga de um pequeno trecho de duto\label{sec:model-exemplo}}
+\section{Exemplo: análise de vida à fadiga de um pequeno trecho de duto\label{sec:model-exemplo}}
 
 
 O modelo consiste um pequeno trecho de duto com comprimento total de 1000~m com um vão de 17~m posicionado no centro. A grande extensão do duto a direita e à esquerda do vão é usada simplesmente para reduzir a influência das condições de contorno nas extremidades.
@@ -130,7 +131,7 @@ seabed_pipe_plot.save("configuração_deformada.html")
 \fonte{Autor (2020)}
 \end{figure}
 
-Vale destaque o uso do operador de adição (\texttt{+})na linha 6. Com ele é possível combinar dois gráficos (instâncias da classe Plot) sobrepondo-os em um mesmo gráficos.
+Vale destaque o uso do operador de adição (\texttt{+}) na linha 6. Com ele é possível combinar dois gráficos (instâncias da classe Plot) sobrepondo-os em um mesmo gráficos.
 
 \begin{figure}[!ht]
 	\centering
@@ -198,7 +199,7 @@ Direção & ABAQUS & FatFree & Diferença relativa\\
 \end{tabular}
 \end{table}
 
-Uma vez que se tenha atingido sucesso na tarefa de modelar o problema de modo a condizentes, pode-se agora usar a classe \texttt{FatFreeResults} para extrair os resultados de uma dada instância da \fatfree. Por exemplo, pode-se construir um gráfico da vida a fadiga ao longo vão com perfil do duto com a batimetria abaixo dele (ver \autoref{fig:ex-config-deformada}), como mostra a \autoref{code:vida-a-fadiga}.
+Uma vez que se tenha atingido sucesso na tarefa de modelar o problema de modo a condizentes, pode-se agora usar a classe \texttt{FatFreeResults} para extrair os resultados de uma dada instância da \fatfree. Por exemplo, pode-se construir um gráfico da vida à fadiga ao longo vão com perfil do duto com a batimetria abaixo dele (ver \autoref{fig:ex-config-deformada}), como mostra a \autoref{code:vida-a-fadiga}.
 
 \begin{figure}[!ht]
 	\caption{Código paa geração do gráficos de vida à fadiga.}\label{code:vida-a-fadiga}
@@ -212,11 +213,11 @@ dashboard.save("fatigue_pipe_dashboard.html")
 	\fonte{Autor (2020)}
 \end{figure}
 
-Vale destaque para o uso do operador de divisão (\texttt{/}) na linha 4. Com ele é possível combinar dois gráficos (instâncias da classe Plot) posicionado-os um sobre o em um mesmo gráfico. O gráfico resultante é exibido na \autoref{fig:vida-a-fadiga}, onde se tem a vida a fadiga nas direções \textit{in-line} (IL Comb) e \textit{cross-flow} (CF RM) na região do vão, bem como uma linha de referência que ajuda a identificar os trechos cuja previsão de vida a fadiga está abaixo do esperado.
+Vale destaque para o uso do operador de divisão (\texttt{/}) na linha 4. Com ele é possível combinar dois gráficos (instâncias da classe Plot) posicionado-os um sobre o em um mesmo gráfico. O gráfico resultante é exibido na \autoref{fig:vida-a-fadiga}, onde se tem a vida à fadiga nas direções \textit{in-line} (IL Comb) e \textit{cross-flow} (CF RM) na região do vão, bem como uma linha de referência que ajuda a identificar os trechos cuja previsão de vida à fadiga está abaixo do esperado.
 
 \begin{figure}[!ht]
 	\centering
-	\caption{Gráfico de vida a fadiga e perfil do duto.}\label{fig:vida-a-fadiga}
+	\caption{Gráfico de vida à fadiga e perfil do duto.}\label{fig:vida-a-fadiga}
 	\includegraphics[width=\textwidth]{imagens/exemplo/vida-a-fadiga}
 	\fonte{Autor (2020)}
 \end{figure}
