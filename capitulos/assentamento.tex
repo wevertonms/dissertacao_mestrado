@@ -3,7 +3,7 @@
 
 A simulação numérica do duto projetado em um ambiente tridimensional realista obtido por medições da topografia do fundo marinho, permite que os engenheiros explorem quaisquer oportunidades que o comportamento do mesmo pode oferecer para desenvolver soluções seguras e econômicas. % chktex 19
 Por exemplo, o projetista pode analisar primeiro o comportamento do duto na batimetria original.
-Se alguns dos casos de carga resultam em tensões além do limite aceitável, pode-se simular uma modificação do fundo do mar no modelo de elementos finitos.
+Se alguns dos casos de carga resultam em tensões além do limite aceitável, pode-se simular uma alteração dos parâmetros ou até um intervenção do leito marinho (como colocação de suportes).
 A análise é executada novamente para confirmar que as modificações levaram à diminuição desejada de tensão ou deformação.
 
 O modelo de elementos finitos pode ser uma forma para analisar o comportamento \textit{in-situ} de um duto.
@@ -16,7 +16,6 @@ Por comportamento \textit{in-situ} de um duto, entenda-se a resposta do mesmo à
     \item Ciclos de carga/descarga;
     \item Flambagem lateral e vertical (\textit{upheaval});
     \item Onda dinâmica e/ou de corrente;
-    \item Cargas de impacto.
 \end{enumerate}
 
 \citeonline{Bai2014} apresenta o processo de análise do comportamento real desses dutos através do MEF, que será detalhado mais adiante.
@@ -46,7 +45,7 @@ No ABAQUS~\cite{Dassault2018}, pode-se relacionar a penetração e a força de r
 
 Após a descida do duto, têm-se os processos de alagamento e desalagamento, que acarreta mudanças no peso submerso do duto e, consequentemente, altera na sua configuração.
 Esses processos podem ser facilmente modelados por uma variação em uma carga vertical atuando no duto.
-Mas, um duto sujeito a essa variação de carga na condição alagada sofrem grandes deformações axiais devido à mudança em geometria, e assim o duto se deforma e afunda nos vãos-livres ao longo da rota do duto.
+Mas, um duto sujeito a essa variação de carga na condição alagada podem sofrer grandes deformações axiais devido à mudança em geometria, e assim o duto se deforma e assenta com outra configuração nos vãos-livres ao longo da rota do duto.
 
 Dessa maneira, é desejável que o modelo a ser estabelecido use um procedimento de análise que considere grandes deslocamentos e o efeito de alterações na área da seção do duto devido à alta tensão axial.
 Além disso, é interessante que o modelo do material seja capaz de representar o comportamento plástico da seção do duto.
@@ -60,17 +59,17 @@ Já a pressão interna pode ser assumida como constante, mas a possibilidade de 
 \subsection{Procedimentos e etapas de carregamento na análise de elementos finitos}
 
 
-Um conceito base no ABAQUS~é a divisão do histórico de cargamentos em etapas de carga. Para cada etapa, o usuário escolhe um método de análise.
+Um conceito base no ABAQUS~é a divisão do histórico de carregamentos em etapas de carga. Para cada etapa, o usuário escolhe um método de análise.
 Dessa forma, é possível representar qualquer sequência  e histórico de carregamento.
 Por exemplo, em um passo estático, o duto pode ser carregado com gás, no passo estático seguinte descarregado, e na terceira etapa, pode-se realizar uma análise exclusiva do duto vazio.
-Um histórico de carga de um modelo construído para uma análise de assentamento de duto é apresentado na~\autoref{tab:load_steps}.
+Um histórico de carga de um modelo construído para uma análise estrutural é apresentado na~\autoref{tab:load_steps}.
 
 
 \begin{table}[!ht]
 \renewcommand{\arraystretch}{1.2}
 \small
 \centering
-\caption{Sequenĉia típica de carregamentos em uma análise de dutos no ABAQUS.}\label{tab:load_steps}
+\caption{Sequência típica de carregamentos em uma análise de dutos no ABAQUS.}\label{tab:load_steps}
 \begin{tabular}{cll}
 \toprule[1.5pt]
 
@@ -78,7 +77,7 @@ Um histórico de carga de um modelo construído para uma análise de assentament
 \midrule
 1 & Aplicação de peso próprio e empuxo do duto & Estática \\
 2 & Aplicação de pressão externa hidrostática & Estática \\
-3 & AAplica-se a tração de lançamento; & Estática \\
+3 & Aplicação da tração de lançamento; & Estática \\
 4 & Assentamento do duto no fundo do mar (ver \autoref{fig:lancamentododuto}) & Estática \\
 5 & Remoção dos elementos de guincho & Estática \\
 6 & Modificando condições de contorno para a condição de instalação & Estática \\
@@ -121,11 +120,11 @@ O ABAQUS dispõe de alguns tipos de elementos a serem usados no modelo do sistem
 \subsubsection{Elementos para representação do duto}
 
 A \autoref{fig:elemen_PIPE31H} mostra o elemento de duto finito 3D usado no modelo estabelecido, com 2 nós e 12 graus de liberdade.
-O elemento PIPE31 usa interpolação linear, e o elemento PIPE32 interpolação quadrática.
-A formulação híbrida torna o elemento adequado para casos com estruturas delgadas e problemas de contato, como um duto descendo sobre o fundo do mar.
+O elemento PIPE31 (padrão usado na ferramenta aqui apresentado) usa interpolação linear, e o elemento PIPE32 interpolação quadrática.
+A formulação híbrida torna o elemento adequado para casos com estruturas delgadas e problemas de contato, como um duto assentando sobre o fundo do mar.
 
 Os elementos híbridos (PIPE31H/PIPE32H) são fornecidos para uso nos casos em que é numericamente difícil calcular as forças axiais e de cisalhamento pelo método de deslocamento próprio do Método dos Elementos Finitos.
-O problema nesses casos é que pequenas diferenças em posições nodais podem causar forças muito grandes em algumas partes do modelo, o que por sua vez, causar grandes deslocamentos em outras direções.
+O problema nesses casos é que pequenas diferenças em posições nodais podem causar forças muito grandes em algumas partes do modelo, o que por sua vez, causar grandes deslocamentos em outras direções, a exemplo das deformações transversais provenientes de deformações axiais.
 Os elementos híbridos superam essa dificuldade usando uma formulação mais geral, na qual as forças de cisalhamento axial e transversal nos elementos são incluídas, juntamente com os deslocamentos e rotações nodais, como variáveis primárias.
 Embora essa formulação torne esses elementos mais custosos computacionalmente, eles geralmente convergem muito mais rapidamente quando as rotações dos dutos são grandes.
 
