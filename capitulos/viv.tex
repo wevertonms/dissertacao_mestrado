@@ -1,7 +1,7 @@
 \section{Vibração induzida por vórtices em vãos-livres}\label{sec:viv}
 
 Quando um fluido de baixa viscosidade encontra um obstáculo, forma-se uma camada limite.
-Esta fina camada de fluido está sujeita aos efeitos das forças viscosas.
+Essa fina camada de fluido está sujeita aos efeitos das forças viscosas.
 Nesta camada, a velocidade do fluxo varia rapidamente, ficando cada vez mais lenta, formando um escoamento rotacional dentro da camada limite.
 Para determinadas velocidades de escoamento, a camada limite se desprende do obstáculo, formando uma esteira de vórtices, conhecida como esteira de von Kármán~\cite{Currie2002}, conforme visto na Figura~\ref{fig:viv_shading}.
 Como consequência direta do desprendimento de vórtices, surge uma força oscilatória transversal ao fluxo, que age sobre o obstáculo, resultando em oscilações verticais e horizontais~\cite{Nielsen2002}.
@@ -64,16 +64,16 @@ Porém, a combinação de vãos de grande extensão e altas correntes, ou ainda 
 \pagebreak
 \subsection{Modelos de respostas para VIV}
 
-Os modelos de resposta relacionam a velocidade do fluxo do fluido externo e a amplitude de vibração do duto em casa direção (\textit{in-line} e \textit{cross-flow}). Estes modelos podem então ser construído através do conjunto de equações que dependem principalmente da velocidade reduzida $V_R$ e do ângulo do fluxo $\theta_\mathit{rel}$.
+Os modelos de resposta relacionam a velocidade do fluxo do fluido externo e a amplitude de vibração do duto em casa direção (\textit{in-line} e \textit{cross-flow}). Estes modelos podem ser construído através do conjunto de equações que dependem principalmente da velocidade reduzida $V_R$ e do ângulo do fluxo $\theta_\mathit{rel}$.
 
-Segundo a \dnvf105 o fluxo pode ser dividido em duas zonas: (i) uma zona exterior, distante do solo marinho, onde velocidade de corrente média e a turbulência variam muito pouco na direção horizontal, e (ii) uma zona interior, onde a velocidade de corrente média e a turbulência têm variações consideráveis na direção horizontal. Uma vez que as medições da corrente são realizadas na zona exterior, fora da camada limite, a velocidade de corrente $U_c$ incidente no duto pode ser aproximada a partir da equação
+Segundo a \dnvf105, o fluxo pode ser dividido em duas zonas: (i) uma zona exterior, distante do solo marinho, onde velocidade de corrente média e a turbulência variam muito pouco na direção horizontal; e (ii) uma zona interior, onde a velocidade de corrente média e a turbulência têm variações consideráveis na direção horizontal. Uma vez que as medições da corrente são realizadas na zona exterior, fora da camada limite, a velocidade de corrente $U_c$ incidente no duto pode ser aproximada a partir da equação
 \begin{equation}
 \label{eq:vel-corrente}
 U_c = R_c U(z_r) \frac{\ln{(e+D/2)} - \ln(z_0)}{\ln (z_r)- \ln (z_0)},
 \end{equation}
 em que $U(z_r)$ é a velocidade da corrente na altura $z_r$ em relação ao leito marinho, $e$ é distância o duto e solo (\textit{gap}), $z_0$ é o parâmetro de rugosidade do leito marinho (conforme a tabela 3-1 da \citeonline{DNV2017}), e $D$ é o diâmetro externo do duto. %chktex 8
 
-Uma vez encontrada a velocidade da corrente na zona interior, isto é, próxima do solo, a velocidade reduzida $V_R$ pode ser calculada assim
+Uma vez encontrada a velocidade da corrente na zona interior, isto é, próxima do solo, a velocidade reduzida $V_R$ pode ser calculada por
 \begin{equation}
 \label{eq:viv-Vr}
 V_R = \frac{U_c + U_w}{f_n D},
@@ -87,7 +87,7 @@ K_S = \frac{4 \pi m_e \zeta_T}{\rho_w D^2},
 \end{equation}
 em que $\rho_w$ é a densidade da água e $\zeta_T$ é a taxa de amortecimento modal total.
 
-Com esses valores calculados, e pode-se construir a curva que relaciona velocidade reduzida e amplitude de vibração \textit{in-line} adimensionalizada pelo diâmetro, semelhante a \autoref{fig:viv-responsemodelil}, onde as coordenadas dos pontos são dados nas equações do item 4.6.4 da \dnvf105.
+Com esses valores calculados, e pode-se construir a curva que relaciona velocidade reduzida e amplitude de vibração \textit{in-line} adimensionalizada pelo diâmetro, semelhante a \autoref{fig:viv-responsemodelil}, onde as coordenadas dos pontos são encontradas nas equações do item 4.6.4 da \dnvf105.
 
 \begin{figure}[!ht]
     \centering
@@ -95,10 +95,11 @@ Com esses valores calculados, e pode-se construir a curva que relaciona velocida
     \includegraphics[width=0.65\linewidth]{imagens/response_model_IL}
     \fonte{Adaptado de \citeonline{DNV2017}}
 \end{figure}
+% TODO Faltou a continuação da explicação dos parâmetros que estão no gráfico. Vreduzida inicial, final, nos pontos 1 e 2 e amplitudes de vibração 1 e 2.
 
-Conforme observado na \dnvf105, a resposta de amplitude de um duto vibrando na direção \textit{in-line}, contempla regiões com velocidade de corrente entre 1,0 e 4,5.
-Tem-se então que a resposta na direção longitudinal depende dos parâmetros de velocidade de corrente, estabilidade, intensidade de turbulência e do ângulo entre a corrente e o duto.
-Percebe-se que, à medida que o parâmetro de estabilidade aumenta, a amplitude de resposta tende a diminuir, uma vez que este é proporcional ao amortecimento do sistema~(\autoref{eq:viv-Ks}).
+Conforme observado na \dnvf105, a resposta de amplitude de um duto vibrando na direção \textit{in-line}, contempla regiões com velocidade de corrente entre 1,0 e 4,5. % TODO: Como se chega a este intervalo? Não pode se visualizar isso no gráfico.
+Tem-se que a resposta na direção longitudinal depende dos parâmetros de velocidade de corrente, estabilidade, intensidade de turbulência e do ângulo entre a corrente e o duto.
+% Percebe-se que, à medida que o parâmetro de estabilidade aumenta, a amplitude de resposta tende a diminuir, uma vez que este é proporcional ao amortecimento do sistema~(\autoref{eq:viv-Ks}). %TODO Como esse parâmetro influencia?
 
 Para o modelo de resposta \textit{cross-flow} também  é necessário calcular alguns outros parâmetros. Dessa vez, inicia-se com o cálculo do fator de correção para considerar a proximidade do duto com o solo
 \begin{equation}
@@ -117,7 +118,7 @@ Caso o duto esteja localizado próximo ou em trincheiras é necessário consider
 \end{equation}
 onde $\Delta$ é a profundidade da trincheira.
 
-Com esses valores calculados, pode-se construir a curva que relaciona velocidade reduzida e amplitude de vibração adimensionalizada pelo diâmetro, semelhante a \autoref{fig:viv-responsemodelcf}, onde as coordenadas dos pontos são dados nas equações do item 4.6.4 da \dnvf105.
+Com esses valores calculados, pode-se construir a curva que relaciona velocidade reduzida e amplitude de vibração adimensionalizada pelo diâmetro, semelhante a \autoref{fig:viv-responsemodelcf}, onde as coordenadas dos pontos são encontradas nas equações do item 4.6.4 da \dnvf105.
 
 \begin{figure}[!ht]
     \centering
@@ -125,6 +126,8 @@ Com esses valores calculados, pode-se construir a curva que relaciona velocidade
     \includegraphics[width=0.65\linewidth]{imagens/response_model_CF}
     \fonte{Adaptado de \citeonline{DNV2017}}
 \end{figure}
+% TODO Faltou a continuação da explicação dos parâmetros que estão no gráfico. Vreduzida inicial, final, nos pontos 1 e 2 e amplitudes de vibração 1 e 2.
+
 
 
 \subsection{Resposta multimodal}\label{sec:multimode}
@@ -136,7 +139,7 @@ Todavia, o número de modos que responderão e o quanto cada modo contribuirá p
 
 A \dnvf105 define três diferentes tipos de modos:
 \begin{description}
-	\item[Modos ativos] são os modos que podem ser excitados por VIV\@. Com base no item 2.3.3 da DNVGL-RP-F105, os critérios de definição para que um modo \textit{in-line} com frequência $f_{IL,j}$, ou \textit{cross-flow} com frequência $f_{CF,j}$, seja considerado ativo é:
+	\item[Modos ativos] são aqueles que podem ser excitados por VIV\@. Com base no item 2.3.3 da DNVGL-RP-F105, os critérios de definição para que um modo \textit{in-line} com frequência $f_{IL,j}$, ou \textit{cross-flow} com frequência $f_{CF,j}$, seja considerado ativo é:
 
     \begin{equation}
         \begin{aligned}
@@ -146,7 +149,7 @@ A \dnvf105 define três diferentes tipos de modos:
     \end{equation}
     sendo $\gamma_{f,IL}$ e $\gamma_{f,CF}$ coeficientes de segurança, variando de 1 a 1,3 a depender da classe de segurança e nível de
     definição do vão-livre (item 2.7.2 da DNVGL-RP-F105). Já $U_{extreme}$ é a velocidade do fluxo perpendicular ao duto que considera velocidades de corrente e onda, e pode considerar combinações de períodos de retorno de 1, 10 e 100 anos.
-    Um modo que não passível de ativação pode ser desconsiderado nas análises em todos os pontos e velocidades de fluxo.
+    Um modo que não é passível de ativação pode ser desconsiderado nas análises em todos os pontos e velocidades de fluxo;
 
     \item[Modos participantes] são modos ativos com amplitude de tensão relevante em um, ou ambos os lados, de um ponto na coordenada $x$ ao longo do duto. Para que um modo $j$ seja considerado participante no vão, é necessário que a seguinte condição (presente no item 4.3.3) seja atendida:
     \[
@@ -169,9 +172,9 @@ A \dnvf105 define três diferentes tipos de modos:
 	\item [Modos contribuintes] são modos participantes que deve satisfizer um dos seguintes critérios:
 
         \begin{itemize}
-    	\item direção \textit{cross-flow}: ${(A_Z/D)}_j \geq 0,1{(A_Z/D)}_{\max}$
+    	\item direção \textit{cross-flow}: ${(A_Z/D)}_j \geq 0,1{(A_Z/D)}_{\max}$;
 
-        \item direção \textit{in-line}: $S_{\mathit{IL}, \mathit{j}}^{P}(x) \geq 0,1 S_\mathit{IL}^{\max}(x)$
+        \item direção \textit{in-line}: $S_{\mathit{IL}, \mathit{j}}^{P}(x) \geq 0,1 S_\mathit{IL}^{\max}(x)$.
         \end{itemize}
 
 	onde ${(A_Z/D)}_j$ é a amplitude VIV normalizada para o j-ésimo modo, ${(A_Z/D)}_{\max}$ é a amplitude VIV normalizada para o modo \textit{cross-flow}  dominante, $S_{\mathit{IL}, \mathit{j}}^{P}(x)$ é a amplitude de tensões de reposta preliminar para o j-ésimo modo \textit{in-line} e $S_\mathit{IL}^{\max}(x)$ é a amplitude de tensões de resposta associadas ao modo \textit{in-line} dominante.
@@ -179,7 +182,7 @@ A \dnvf105 define três diferentes tipos de modos:
 \end{description}
 
 Baseado nos modelos de resposta unimodal, pode-se calcular as amplitudes do VIV para todos os modos.
-Assim, precisamos calcular VIV \textit{cross-flow} e \textit{in-line} para cada velocidade de corrente, estado de mar e em cada ponto com se os seguintes procedimentos:
+Assim, é necessário calcular VIV \textit{cross-flow} e \textit{in-line} para cada velocidade de corrente, estado de mar e em cada ponto com se os seguintes procedimentos:
 
 \begin{itemize}
 
@@ -190,20 +193,20 @@ Assim, precisamos calcular VIV \textit{cross-flow} e \textit{in-line} para cada 
 
 \item Com o modelo de resposta \textit{cross-flow}:
 	\begin{enumerate}
-    \item Calcula-se a amplitude VIV normalizada para cada modo ${(A_Z/D)}_j$
+    \item Calcula-se a amplitude VIV normalizada para cada modo ${(A_Z/D)}_j$;
 
-	\item Identifica-se o modo dominante, isto é, ${(A_Z/D)}_{\max}$
+	\item Identifica-se o modo dominante, isto é, ${(A_Z/D)}_{\max}$;
 
-    \item Identificam-se os modos fracos $0,1{(A_Z/D)}_{\max} \leq {(A_Z/D)}_j \leq {(A_Z/D)}_{\max}$
+    \item Identificam-se os modos fracos $0,1{(A_Z/D)}_{\max} \leq {(A_Z/D)}_j \leq {(A_Z/D)}_{\max}$;
 
-    \item Desconsidera-se os modos irrelevantes: ${(A_Z/D)}_j$ < $0,1{(A_Z/D)}_{\max}$
+    \item Desconsidera-se os modos irrelevantes: ${(A_Z/D)}_j$ < $0,1{(A_Z/D)}_{\max}$.
     \end{enumerate}
 
-\item Usando o modelo de resposta para baixos valores de Keulegan-Carpenter (\textit{low Keulegan Carpenter flow regime}--LKCR), calcula-se ${(A_Z/D)}_j$ para cada modo.
+\item Usando o modelo de resposta para baixos valores de Keulegan-Carpenter (\textit{low Keulegan Carpenter flow regime}--LKCR), calcula-se ${(A_Z/D)}_j$ para cada modo;
 
 \item Determina-se a resposta de tensão combinada:
     \[
-    S_{\mathit{comb}, \mathit{CF}} = \max\left( S_{\mathit{comb}, \mathit{CF}}^\mathit{RM} ~,~ S_{\mathit{comb}, \mathit{CF}}^\mathit{LKCR} \right)
+    S_{\mathit{comb}, \mathit{CF}} = \max\left( S_{\mathit{comb}, \mathit{CF}}^\mathit{RM} ~,~ S_{\mathit{comb}, \mathit{CF}}^\mathit{LKCR} \right);
     \]
 
 \item Determina-se a frequência de contagem de ciclos.
@@ -213,36 +216,34 @@ Assim, precisamos calcular VIV \textit{cross-flow} e \textit{in-line} para cada 
 \item VIV \textit{in-line}
 
 \begin{enumerate}
-    \item Identifica-se todos os modos participantes (\textit{single} ou \textit{multi location})
+    \item Identifica-se todos os modos participantes (\textit{single} ou \textit{multi location});
 
     \item Com o modelo de resposta \textit{in-line}:
 
     \begin{enumerate}
-    	\item Calcula-se a amplitude VIV normalizada para cada modo ${(A_Y/D)}_j$
+    	\item Calcula-se a amplitude VIV normalizada para cada modo ${(A_Y/D)}_j$;
 
-    	\item Identifica-se o modo dominante, isto é, o modo com $S_\mathit{IL}^{\max}(x)$
+    	\item Identifica-se o modo dominante, isto é, o modo com $S_\mathit{IL}^{\max}(x)$;
 
-    	\item Identificam-se potenciais modos fracos: $0,1 S_\mathit{IL}^{\max}(x) \leq S_{\mathit{IL}, \mathit{j}}^{P}(x) \leq S_\mathit{IL}^{\max}(x)$
+    	\item Identificam-se potenciais modos fracos: $0,1 S_\mathit{IL}^{\max}(x) \leq S_{\mathit{IL}, \mathit{j}}^{P}(x) \leq S_\mathit{IL}^{\max}(x)$;
 
-    	\item Desconsideram-se os modos irrelevantes: $S_{\mathit{IL}, \mathit{j}}^{P}(x) < 0,1 S_\mathit{IL}^{\max}(x)$
+    	\item Desconsideram-se os modos irrelevantes: $S_{\mathit{IL}, \mathit{j}}^{P}(x) < 0,1 S_\mathit{IL}^{\max}(x)$.
     \end{enumerate}
 
         \item Reduzir os modos fracos.
         Para VIV \textit{in-line}, dois modos adjacentes podem competir se suas frequências forem próximas, ou agir de forma independente se estiverem distantes.
         A \dnvf105 define que os modos competem se a razão entre as frequências é menor que 2, isto é, $\frac{f_\mathit{n+1}}{f_n} < 2$.
-        Em modos que estão competindo, considera-se que apenas o ``vencedor'' da competição (maior valor de $S_{\mathit{IL}}^{P}(x)$) pode ter máxima amplificação, enquanto a amplificação do modo ``perdedor'' é reduzida à metade. É interessante ressaltar que modos que não competem não têm redução.
+        Em modos que estão competindo, considera-se que apenas o ``vencedor'' da competição (maior valor de $S_{\mathit{IL}}^{P}(x)$) pode ter máxima amplificação, enquanto a amplificação do modo ``perdedor'' é reduzida à metade. É interessante ressaltar que modos que não competem não têm redução;
 
         \item Calcular o intervalo de tensões \textit{in-line} excitados pelo modo \textit{cross-flow} dominante $S_{\mathit{\textit{cross-flow}}-\mathit{IL}}(x)$.
 
         Para cada ponto e cada modo, calcula-se o intervalo de tensões induzido por VIV \textit{in-line} para os modos contribuintes:
-            \[S_{\mathit{IL}, \mathit{j}}^\mathit{RM}(x) = S_{\mathit{IL}, \mathit{j}}^{P} \cdot 0,5^{\beta_j (x)}\]
+            \[S_{\mathit{IL}, \mathit{j}}^\mathit{RM}(x) = S_{\mathit{IL}, \mathit{j}}^{P} \cdot 0,5^{\beta_j (x)};\]
 
         Assume-se que apenas o modo \textit{cross-flow} dominante é capaz de contribuir para o movimento \textit{in-line} induzido pelo modo transversal.
-        Desta forma, o modo \textit{in-line} participante cuja frequência natural é próxima a duas vezes a resposta \textit{cross-flow} dominante é escolhido como candidato a VIV \textit{in-line} induzido por \textit{cross-flow}.
+        Desta forma, o modo \textit{in-line} participante cuja frequência natural é próxima a duas vezes a resposta \textit{cross-flow} dominante é escolhido como candidato a VIV \textit{in-line} induzido por \textit{cross-flow}. A amplitude de tensões \textit{in-line} excitados pelo modo \textit{cross-flow} dominante é dado por:
 
-        A amplitude de tensões \textit{in-line} excitados pelo modo \textit{cross-flow} dominante é dado por:
-
-       	    \[S_{\mathit{CF-IL}}(x) = 0,8 \cdot A_{\mathit{IL}, \mathit{k}}~(x) \cdot {\left(\frac{A_{z}}{D}\right)}_{\max}~\cdot~R_k \cdot \gamma_s\]
+       	    \[S_{\mathit{CF-IL}}(x) = 0,8 \cdot A_{\mathit{IL}, \mathit{k}}~(x) \cdot {\left(\frac{A_{z}}{D}\right)}_{\max}~\cdot~R_k \cdot \gamma_s;\]
 
         \item  Escolher o maior $S_\mathit{IL}^\mathit{RM}(x)$ e $S_{\mathit{CF-IL}}(x)$ para cada modo;
 

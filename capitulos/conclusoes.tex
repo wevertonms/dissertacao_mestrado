@@ -1,26 +1,26 @@
 \chapter{Conclusões}\label{chap:conclusao}
 
 
-A tendência da indústria de óleo e gás de investimentos em ferramentas computacionais que aumentem a produtividade do profissional nos processos de análise motivou o desenvolvimento deste trabalho. A principal contribuição do \frame\ é automatização processos, tornando transparentes complexidades que não agregam valor à análise. Dessa maneira, o usuário pode explorar um maior número de combinação de parâmetros e modelos.
+A tendência da indústria de óleo e gás de investimentos em ferramentas computacionais que aumentem a produtividade do profissional nos processos de análise motivou o desenvolvimento deste trabalho. A principal contribuição da ferramenta é a automatização de processos, tornando transparentes complexidades que não agregam valor à análise. Dessa maneira, o usuário pode explorar um maior número de combinações de parâmetros e modelos.
 
-Ao abstrair certas complexidades da análise, o \frame\ também diminui a curva de aprendizagem para novos profissionais, tornando-os produtivos mais rapidamente.
-Para além do ganho em produtividade, o fato de o \frame\ incluir as funcionalidades de geração de gráficos permite aos usuários padronizar a elaboração e apresentação dos resultados das análises. Esta padronização facilita o entendimento destes resultados e favorece adoção de aplicações construídas com base no \frame\ dentro de um grupo de usuários.
+Ao abstrair certas complexidades da análise, a ferramenta também diminui a curva de aprendizagem para novos profissionais, tornando-os produtivos mais rapidamente.
+Para além do ganho em produtividade, o fato de a ferramenta incluir as funcionalidades de geração de gráficos permite aos usuários padronizar a elaboração e apresentação dos resultados das análises. Essa padronização facilita o entendimento destes resultados e favorece a adoção de aplicações construídas com base na ferramenta dentro de um grupo de usuários.
 
-O ecossistema de bibliotecas e ferramentas existentes ao redor da linguagem Python se mostrou bastante útil no desenvolvimento do \frame, e deve facilitar também a sua utilização. Aqui pode-se destacar o ambiente Jupyter\footnote{https://jupyter.org/} permite a execução e visualização da saída de blocos de código de forma iterativa. O uso conjunto desta ferramenta ao pacote \texttt{plots} do \frame\ deve facilitar o fluxo de análise exploratório dos dados e dos resultados.
+O ecossistema de bibliotecas e ferramentas existentes ao redor da linguagem Python se mostrou bastante útil no desenvolvimento da ferramenta, e deve facilitar também a sua utilização. Aqui pode-se destacar o ambiente Jupyter\footnote{https://jupyter.org/}, que permite a execução e visualização da saída de blocos de código de forma iterativa. O uso conjunto deste ambiente com o pacote \texttt{plots} da ferramenta deve facilitar o fluxo de análise exploratório dos dados e dos resultados.
 
-A principal dificuldade no desenvolvimento do \frame\ se deu na integração com as ferramentas de terceiros (ABAQUS e \fatfree). No caso da planilha FatFree os dados devem ser inseridos nas células da planilha na própria aplicação. Se fosse possível a utilização de um arquivo de entrada com os dados, assim como o \texttt{.inp} utilizado pelo ABAQUS, facilitaria sua utilização de forma programática. O ABAQUS por sua vez tem um formato do arquivo de saída proprietário (\texttt{odb}), cujo acesso aos dados só é possível com o uso do próprio ABAQUS. Essas limitações diminuem consideravelmente a flexibilidades da implementação de um \frame\ como aqui desenvolvido.
+A principal dificuldade no desenvolvimento da ferramenta se deu na integração com as ferramentas de terceiros (ABAQUS e \fatfree). No caso da planilha FatFree, os dados devem ser inseridos nas células da planilha na própria aplicação. Se fosse possível a utilização de um arquivo de entrada com os dados, assim como o \texttt{.inp} utilizado pelo ABAQUS, facilitaria sua utilização de forma programática. O ABAQUS por sua vez tem um formato do arquivo de saída proprietário (\texttt{odb}), cujo acesso aos dados só é possível com o uso do próprio ABAQUS. Essas limitações diminuem consideravelmente a flexibilidades da implementação de um \frame\ como aqui desenvolvido.
 
 
 \section{Sugestões de trabalhos futuros}
 
 
-Aqui faz-se a apresentação de algumas sugestões de melhorias no \frame\ que podem melhorar o e expandas suas funcionalidades. Alguns destes itens já estão em desenvolvimento no contexto do projeto IntegriSpan desenvolvido pela PETROBRAS.
+Aqui faz-se a apresentação de algumas sugestões de melhorias na ferramenta que podem melhorar e expandir suas funcionalidades. Alguns destes itens já estão em desenvolvimento no contexto do projeto IntegriSpan da PETROBRAS.
 
 \begin{itemize}
-    \item Implementação de outros modelos de análise. Os arquivos de entrada para simulação gerados pelo \frame\ representam o tipo de análise corriqueiro apresentado no \autoref{sec:assentamento}, mas existem outros tipos de simulação com uma sequência de passos de carga ou modelagem diferentes.
-    \item Refatorar classes grandes para melhorar a reutilização de código na implementação de novos modelos. Os principais exemplos seriam a classe \texttt{Model} e \texttt{Inp}.
-    \item Experimentar a utilização de uma linguagem de \textit{templates} para a geração dos arquivos \texttt{.inp}, a exemplo da linguagem Jinja\footnote{https://jinja.palletsprojects.com}. Isso pode simplificar significativamente o código da classe \texttt{Inp}, e até trazer ganho de performance.
-    \item Estudar a utilização de programação paralela. As funcionalidades de pós-processamento podem se beneficiar grandemente do provável ganho de performance.
-    \item Implementação dos cálculos de fadiga realizados pela FatFree. Isso aumentaria a integração dessas funcionalidades no \frame.
-    \item Elaborar uma documentação técnica, onde seja possível consultar informações sobre qualquer classe e seus respectivos atributos e métodos, facilitando o entendimento global do \frame\ para outros desenvolvedores.
+    \item Implementação de outros modelos de análise. Os arquivos de entrada para simulação gerados pela ferramenta representam o tipo de análise corriqueiro apresentado no \autoref{sec:assentamento}, mas existem outros tipos de simulação com uma sequência de passos de carga ou modelagem diferentes;
+    \item Refatorar classes grandes para melhorar a reutilização de código na implementação de novos modelos. Os principais exemplos seriam as classes \texttt{Model} e \texttt{Inp};
+    \item Experimentar a utilização de uma linguagem de \textit{templates} para a geração dos arquivos \texttt{.inp}, a exemplo da linguagem Jinja\footnote{https://jinja.palletsprojects.com}. Isso pode simplificar significativamente o código da classe \texttt{Inp}, e até trazer ganho de performance;
+    \item Estudar a utilização de programação paralela. As funcionalidades de pós-processamento podem se beneficiar grandemente do provável ganho de performance;
+    \item Implementação dos cálculos de fadiga realizados pela FatFree dentro da ferramenta, eliminando a dependência da \fatfree. Isso aumentaria a integração dessas funcionalidades na ferramenta;
+    \item Elaborar uma documentação técnica, onde seja possível consultar informações sobre qualquer classe e seus respectivos atributos e métodos, facilitando o entendimento global da ferramenta para outros desenvolvedores.
 \end{itemize}

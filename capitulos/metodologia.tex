@@ -1,28 +1,34 @@
 \chapter{Metodologia}\label{chap:metodologia}
+% TODO: Acho que a ideia deste capítulo não é a ideal. Do ponto de vista científico, normalmente escrevemos a metodologia de forma a se ter uma visão geral do trabalho e não do passo a passo seguido para o seu desenvolvimento. Por exemplo, poderia fazer algo do tipo:
+% Para alcançar os objetivos propostos neste trabalho, a metodologia de desenvolvimento é baseada em X etapas, conforme ilustra a Figura X (Esta figura pode apresentar um fluxograma geral do trabalho).
 
+% A primeira etapa consiste ...
 
-Uma vez que o trabalho pretende desenvolver uma ferramenta que facilite o fluxo de trabalho do profissional que avalia a vida à fadiga de dutos em vão live, foi necessário, como etapas inciais do trabalho, realizar:
+% A ideia é que você mostre de uma forma geral todas as macro etapas necessárias para alcançar os objetivos. Não é relevante, por exemplo, dizer que foi realizada uma revisão bibliográfica. Isto não acrescenta nada a ideia do trabalho. Em resumo, é importante colocar aqui todas as etapas necessárias para alcançar a ideia do trabalho. Uma vez que o trabalho pretende desenvolver uma ferramenta que facilite o fluxo de trabalho do profissional que avalia a vida à fadiga de dutos em vão live, foi necessário, como etapas inciais do trabalho, realizar:
 
 \begin{itemize}
-    \item Revisar a literatura acerca dos temas nos quais esse profissional lida nesta tarefa --- modelagem do assentamento de dutos e vibração induzida por vórtice --- a fim de nivelar os conhecimentos básicos necessário para o próximo item.
-    \item Entender o fluxo básico de trabalho de profissional, desde a acesso as informações até chegar nos resultados de fadiga. Nessa etapa, é que foram identificados os principais gargalos do processo, destacando aqueles de maior potencial de automatização.
-    \item Inteirar-se das funcionalidades e formas de manipulação das ferramentas usadas nas tarefas de análise, como o ABAQUS e a planilha \fatfree.
+    \item Revisar a literatura acerca dos temas nos quais esse profissional lida nesta tarefa --- modelagem do assentamento de dutos e vibração induzida por vórtice --- a fim de nivelar os conhecimentos básicos necessário para o próximo item; % FIXME: não é relevante para o leitor saber desta informação. Para trabalhos científicos, isto é uma obrigação.
+    \item Entender o fluxo básico de trabalho de profissional, desde a acesso as informações até chegar nos resultados de fadiga. Nessa etapa, são identificados as principais dificuldades do processo, destacando aqueles de maior potencial de automatização;
+    \item Estudar as principais funcionalidades e formas de manipulação das ferramentas usadas nas tarefas de análise, como o ABAQUS e a planilha \fatfree;
+    \item Definição dos requisitos para desenvolvimento da ferramenta;
+    \item Implementação da ferramenta;
+    \item Aplicação da ferramenta em um estudo de caso.
 \end{itemize}
 
 Inicialmente, a revisão da literatura foi feita por meio de leitura de livros, artigos e referências/recomendações técnicas.
 Aqui se destacaram a \dnvf105, em matéria de VIV, e o livro de \citeonline{Bai2014}, na parte de modelagem.
-Ambos os textos são referências mundiais no assunto, como milhares de citações em outro trabalhos, sendo a \dnvf105 a principal referência no assunto que se propõe.
+Ambos os textos são referências mundiais no assunto, como milhares de citações em outro trabalhos, sendo a \dnvf105 a principal referência no assunto que se propõe. % TODO: Da forma como está colocado, esse texto não é relevante. Como disse antes, uma revisão bibliográfica deveria ser inserida na introdução.
 
-A etapa de análise do fluxo de trabalho foram acompanhadas por meio de reuniões e oficinas ministrados por engenheiros que atuam na realização das análises de dutos em vão-livre - interessados diretos no desenvolvimento do projeto \integrispan.
+A etapa de análise do fluxo de trabalho foram acompanhadas por meio de reuniões e oficinas ministrados por engenheiros que atuam na realização das análises de dutos em vão-livre (interessados diretos no desenvolvimento do projeto \integrispan).
 Cada encontro foi uma oportunidade de diagnosticar novos itens a serem trabalhados, definindo assim os requisitos da ferramenta a ser desenvolvida, e chegando ao modelo de fluxo de trabalho apresentado mais adiante.
 
 Superada esta fase de revisão da literatura e algumas oficinas, houve o desenvolvimento de uma série de \textit{scripts} em linguagem Python para automação de algumas tarefas.
 Essa fase, de caráter exploratório, permitiu o desenvolvimento de pequenas ferramentas que podiam ter \textit{feedback} mais rápido, melhorando o entendimento dos requisitos e compressão da visão geral do fluxo de trabalho.
 Essa forma de trabalho, com \textit{loops} de desenvolvimento com \textit{feedbacks} rápidos, influenciou fortemente na adoção de uma linguagem dinâmica para desenvolvimento (ver \autoref{sec:python}). % TODO: checar a ref
 
-Tendo em mãos um conjunto inicial de \textit{scripts}, fez-se então a modelagem dos módulos da aplicação com base nas diferentes funcionalidades previstas para o \frame.
+Tendo um conjunto inicial de \textit{scripts}, fez-se então a modelagem dos módulos da aplicação com base nas diferentes funcionalidades previstas para a ferramenta.
 Os códigos dos \textit{scripts} foram, então, reagrupados nesses módulos, e que se comunicam por meio da utilização das diversas classes e respectivos métodos.
-Paralelamente a esta etapa, deu-se a elaboração da especificação do arquivo de entrada para facilitar a passagem de informações a aplicação.
+Paralelamente a esta etapa, deu-se a elaboração da especificação do arquivo de entrada para facilitar a passagem de informações a aplicação. % TODO: que arquivo de entrada? Onde foi escrito como é o funcionamento da aplicação? Muitas coisas estão surgindo sem as devidas explicações. Como disse, está faltando uma melhor estruturação/organização aqui na metodologia.
 
-Finalmente, fez-se a validação do \frame\ usando dados de dutos reais da PETROBRAS\@.
-No entanto, devido à confidencialidade destes dados, neste trabalho não serão apresentados os casos usados a validação, mas casos com dados fictícios para exemplificar as funcionalidades do \frame.
+Finalmente, fez-se a validação da ferramenta usando dados de dutos reais da PETROBRAS\@.
+No entanto, devido à confidencialidade destes dados, neste trabalho não serão apresentados os casos usados a validação, mas casos com dados fictícios para exemplificar as funcionalidades da ferramenta. % TODO: Mal apresentado. A ideia é dizer que vai validar o framework usando o estudo de caso de dutos utilizados no transporte de oleo e gás pela Petrobras. Tem que dar o foco principal a este ponto principal. No final, pode escrever uma frase curta destacando que os dados utilizados tem valores mascarados devido a confidencialidade de informações.

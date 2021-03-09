@@ -1,5 +1,6 @@
 \section{Modelagem numérica de dutos submarinos}\label{sec:assentamento}
 
+% TODO: Ficou confuso esse capítulo no sentido de não distinguir o que é estudo bibliográfico e o que de fato foi implementado no projeto.
 
 A simulação numérica do duto projetado em um ambiente tridimensional realista obtido por medições da topografia do fundo marinho, permite que os engenheiros explorem quaisquer oportunidades que o comportamento do mesmo pode oferecer para desenvolver soluções seguras e econômicas. % chktex 19
 Por exemplo, o projetista pode analisar primeiro o comportamento do duto na batimetria original.
@@ -7,7 +8,7 @@ Se alguns dos casos de carga resultam em tensões além do limite aceitável, po
 A análise é executada novamente para confirmar que as modificações levaram à diminuição desejada de tensão ou deformação.
 
 O modelo de elementos finitos pode ser uma forma para analisar o comportamento \textit{in-situ} de um duto.
-Por comportamento \textit{in-situ} de um duto, entenda-se a resposta do mesmo às cargas ao longo de um histórico de carregamento~\cite{Bai2014}. Isto pode consistir em vários casos de carga em sequência, como, por exemplo:
+Entende-se por comportamento \textit{in-situ} de um duto, a resposta do mesmo às cargas ao longo de um histórico de carregamento~\cite{Bai2014}. Isto pode consistir em vários casos de carga em sequência, como, por exemplo:
 
 \begin{enumerate}
     \item Instalação;
@@ -15,10 +16,10 @@ Por comportamento \textit{in-situ} de um duto, entenda-se a resposta do mesmo à
     \item Operação (enchimento com conteúdo, pressão de projeto e temperatura);
     \item Ciclos de carga/descarga;
     \item Flambagem lateral e vertical (\textit{upheaval});
-    \item Onda dinâmica e/ou de corrente;
+    \item Onda dinâmica e/ou de corrente.  % TODO: esse sequência de análise estrutural não foi implementada no estudo.
 \end{enumerate}
 
-\citeonline{Bai2014} apresenta o processo de análise do comportamento real desses dutos através do MEF, que será detalhado mais adiante.
+\citeonline{Bai2014} apresentam o processo de análise do comportamento real desses dutos através do MEF, que será detalhado mais adiante.
 
 
 \subsection{Análise estática}
@@ -29,7 +30,7 @@ Essa configuração é o ponto de partida para as etapas posteriores da análise
 Mais importante do que investigar o comportamento do duto durante a instalação é garantir que a correta representação da tração e ângulo de lançamento de tal modo que consigam gerar forças residuais no duto, oriundas do atrito quando o mesmo se apoia sobre a batimetria.
 
 Por simplicidade, neste trabalho, assume-se o ângulo entre o duto e a horizontal nulo, isto é, o duto está em um plano horizontal que desce em direção a superfície batimétrica.
-Desse modo, o modelo permite especificar somente a tração de lançamento.
+Assim, o modelo permite especificar somente a tração de lançamento.
 Essa modelagem visa garantir a correta representação do contato entre o duto e a batimetria (forças de contato e ponto onde o duto toca o solo).
 A \autoref{fig:lancamentododuto} mostra o duto antes e durante o processo de instalação.
 
@@ -45,7 +46,7 @@ No ABAQUS~\cite{Dassault2018}, pode-se relacionar a penetração e a força de r
 
 Após a descida do duto, têm-se os processos de alagamento e desalagamento, que acarreta mudanças no peso submerso do duto e, consequentemente, altera na sua configuração.
 Esses processos podem ser facilmente modelados por uma variação em uma carga vertical atuando no duto.
-Mas, um duto sujeito a essa variação de carga na condição alagada podem sofrer grandes deformações axiais devido à mudança em geometria, e assim o duto se deforma e assenta com outra configuração nos vãos-livres ao longo da rota do duto.
+Mas, um duto sujeito a essa variação de carga na condição alagada podem sofrer grandes deformações axiais devido à mudança em sua geometria, e assim o duto se deforma e assenta com outra configuração nos vãos-livres ao longo de sua rota.
 
 Dessa maneira, é desejável que o modelo a ser estabelecido use um procedimento de análise que considere grandes deslocamentos e o efeito de alterações na área da seção do duto devido à alta tensão axial.
 Além disso, é interessante que o modelo do material seja capaz de representar o comportamento plástico da seção do duto.
@@ -88,7 +89,7 @@ Um histórico de carga de um modelo construído para uma análise estrutural é 
 11 & Aplicação de pressão de operação & Estática \\
 12 & Aplicação de temperatura de operação para a condição operacional & Estática \\
 13 & Remoção de pressão e temperatura para condição de recarga & Estática \\
-14 & Aplicação de carga de onda e corrente & Dinâmica \\
+14 & Aplicação de carga de onda e corrente & Dinâmica \\ % TODO: Não existe essa etapa no projeto. Como essa etapa é feita por Bai e Bai?
 
 \bottomrule[1.25pt]
 \end{tabular}
@@ -105,8 +106,8 @@ Após os passos referentes aos processos de assentamento do duto, é possível i
 O ABAQUS dispõe de alguns tipos de elementos a serem usados no modelo do sistema de solo-duto com elementos finitos, conforme a \autoref{fig:elements_type}:
 
 \begin{itemize}
-    \item Para modelar o fundo do mar pode-se usar os elementos rígidos do tipo R3D4 usados, ou superfícies analíticas rígidas.
-    \item Os elementos do tipo PIPE31H usados para modelar o duto.
+    \item Para modelar o fundo do mar pode-se usar os elementos rígidos do tipo R3D4, ou superfícies analíticas rígidas;
+    \item Os elementos do tipo PIPE31H usados para modelar o duto;
     \item Os elementos de molas usados para representar a continuidade do duto nas extremidades.
 \end{itemize}
 
@@ -120,12 +121,12 @@ O ABAQUS dispõe de alguns tipos de elementos a serem usados no modelo do sistem
 \subsubsection{Elementos para representação do duto}
 
 A \autoref{fig:elemen_PIPE31H} mostra o elemento de duto finito 3D usado no modelo estabelecido, com 2 nós e 12 graus de liberdade.
-O elemento PIPE31 (padrão usado na ferramenta aqui apresentado) usa interpolação linear, e o elemento PIPE32 interpolação quadrática.
+O elemento PIPE31 (padrão usado na ferramenta aqui apresentada) usa interpolação linear, e o elemento PIPE32 interpolação quadrática.
 A formulação híbrida torna o elemento adequado para casos com estruturas delgadas e problemas de contato, como um duto assentando sobre o fundo do mar.
 
 Os elementos híbridos (PIPE31H/PIPE32H) são fornecidos para uso nos casos em que é numericamente difícil calcular as forças axiais e de cisalhamento pelo método de deslocamento próprio do Método dos Elementos Finitos.
 O problema nesses casos é que pequenas diferenças em posições nodais podem causar forças muito grandes em algumas partes do modelo, o que por sua vez, causar grandes deslocamentos em outras direções, a exemplo das deformações transversais provenientes de deformações axiais.
-Os elementos híbridos superam essa dificuldade usando uma formulação mais geral, na qual as forças de cisalhamento axial e transversal nos elementos são incluídas, juntamente com os deslocamentos e rotações nodais, como variáveis primárias.
+Os elementos híbridos superam essa dificuldade usando uma formulação mais geral, onde as forças de cisalhamento axial e transversal nos elementos são incluídas, juntamente com os deslocamentos e rotações nodais, como variáveis primárias.
 Embora essa formulação torne esses elementos mais custosos computacionalmente, eles geralmente convergem muito mais rapidamente quando as rotações dos dutos são grandes.
 
 O elemento está disponível com uma seção circular vazada de paredes finas e suporta a possibilidade de o usuário especificar pressão externa ou interna.
@@ -141,6 +142,9 @@ O elemento também pode considerar alterações na área da seção do duto devi
 
 
 \subsubsection{Elementos para representação do fundo do mar}
+
+
+Para modelagem do leito marinho costuma-se utilizar elementos planos (R3D4) ou superfícies analíticas. A seguir, são apresentadas as características de cada uma dessas opções.
 
 
 \subsubsubsection{Elemento R3D4}
@@ -163,7 +167,9 @@ Um conjunto de elementos R3D4 que definem o fundo do mar é usado como a superf�
 \subsubsubsection{Superfície analítica rígida}
 
 
-Outra forma de representar a batimetria do piso marinho é utilizar uma superfície analítica rígida, isto é, uma superfície geométrica com perfis que podem ser descritos com segmentos de linha reta ou curva, conforme Figura~\ref{fig:superficie_analitica}. Esses perfis podem ser varridos por um vetor gerador ou rotacionados em relação a um eixo para formar uma superfície tridimensional. Uma superfície analítica rígida está associada a um nó de referência de corpo rígido, cujo movimento governa toda a superfície. É importante frisar que este tipo de superfície possui apenas um lado disponível para contato, especificado de acordo com a orientação de eixos definida.
+Outra forma de representar a batimetria do piso marinho é utilizar uma superfície analítica rígida, isto é, uma superfície geométrica com perfis que podem ser descritos com segmentos de linha reta ou curva, conforme Figura~\ref{fig:superficie_analitica}.
+Esses perfis podem ser varridos por um vetor gerador ou rotacionados em relação a um eixo para formar uma superfície tridimensional. Uma superfície analítica rígida está associada a um nó de referência de corpo rígido, cujo movimento governa toda a superfície.
+É importante destacar que este tipo de superfície possui apenas um lado disponível para contato, especificado de acordo com a orientação de eixos definida.
 
 \begin{figure}[!ht]
     \centering
@@ -174,15 +180,15 @@ Outra forma de representar a batimetria do piso marinho é utilizar uma superfí
 
 Em relação ao uso de superfícies formadas por elementos, o uso de superfícies analíticas rígidas apresenta duas vantagens:
 \begin{itemize}
-    \item Superfícies geométricas curvas podem ser modeladas com precisão, uma vez que é possível parametrizá-las com segmentos de linhas curvas, o que tem como resultado uma superfície mais suave, fornecendo uma melhor aproximação à restrição de contato físico.
+    \item Superfícies geométricas curvas podem ser modeladas com precisão, uma vez que é possível parametrizá-las com segmentos de linhas curvas, o que tem como resultado uma superfície mais suave, fornecendo uma melhor aproximação à restrição de contato físico;
     \item Menor custo computacional decorrente do algoritmo de contato.
 \end{itemize}
 
 Por outro lado, como desvantagens do uso deste tipo de superfície:
 \begin{itemize}
-    \item Uma superfície analítica rígida sempre agirá como superfície \textit{master} em uma interação de contato, impossibilitando que se modele o contato entre duas superfícies rígidas analíticas.
-    \item Forças de contato e pressões não podem ser plotadas em uma superfície rígida analítica, apenas na superfície \textit{slave}.
-    \item Um número muito grande de segmentos, na ordem de milhares, para definir uma superfície rígida analítica pode diminuir o desempenho. Sendo mais recomendável o uso de superfície baseada em elementos.
+    \item Uma superfície analítica rígida sempre age como superfície \textit{master} em uma interação de contato, impossibilitando que se modele o contato entre duas superfícies rígidas analíticas;
+    \item Forças de contato e pressões não podem ser plotadas em uma superfície rígida analítica, apenas na superfície \textit{slave};
+    \item É necessário um número muito grande de segmentos, na ordem de milhares, para definir uma superfície rígida analítica pode diminuir o desempenho, sendo mais recomendável o uso de superfície baseada em elementos.
 \end{itemize}
 
 

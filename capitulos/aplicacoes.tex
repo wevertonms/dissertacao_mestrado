@@ -1,9 +1,9 @@
 
 \chapter{Aplicações e resultados\label{chap:aplicacoes}}
 
-Este capítulo apresenta um exemplo básico de aplicação do \frame, apresentando as funções principais para geração de modelos (.inp) e para simulação no ABAQUS, chamada do ABAQUS, pós-processamento e visualização dos resultados. Serão apresentados tanto os resultados obtidos com a simulação quanto os códigos básicos utilizados geração desses resultados, bem como trechos de código demonstrando a forma de utilização das principais funcionalidades implementadas.
+Este capítulo apresenta um exemplo básico de aplicação da ferramenta, apresentando as funções principais para geração de modelos (.inp) e para simulação no ABAQUS, chamada do ABAQUS, pós-processamento e visualização dos resultados. Serão apresentados tanto os resultados obtidos com a simulação quanto os códigos básicos utilizados para geração desses resultados, bem como trechos de código demonstrando a forma de utilização das principais funcionalidades implementadas.
 
-Embora não haja restrições do \frame\ quanto ao perfil da batimetria, este exemplo será um caso de uma batimetria simples, uma vez que o intuito é apresentar modelo cujos resultados (mais especificamente, os valores das frequências obtidas pela análise modal no ABAQUS) podem ser validados com os resultados previstos (calculados pela \fatfree).
+Embora não haja restrições da ferramenta quanto ao perfil da batimetria, este exemplo será um caso de uma batimetria simples, uma vez que o intuito é apresentar modelo cujos resultados (mais especificamente, os valores das frequências obtidas pela análise modal no ABAQUS) podem ser validados com os resultados previstos (calculados pela \fatfree).
 Vale salientar que os dados utilizados são de domínio público ou fictícios, mas não representam um caso real, até porque que esse tipo de dado é mantido sob sigilo devido a aspectos relacionados à segurança, competitividade tecnológica e propriedade intelectual das empresas do setor.
 
 
@@ -105,16 +105,16 @@ A simulação realizada tem a seguinte sequência de passos de carga:
 % 	\end{tabular}
 % \end{table}
 
-A geração dos arquivos para simulação no ABAQUS contendo as instruções para toda essa sequência de passo é feita usando o método \texttt{write\_inps}: \texttt{model.write\_inps()}.
+A geração dos arquivos para simulação no ABAQUS contendo as instruções para toda essa sequência de passo é realizada usando o método \texttt{write\_inps}: \texttt{model.write\_inps()}.
 Isso deve gerar dois arquivos dentro de um diretório chamado \texttt{exemplo}: o arquivo principal \texttt{exemplo.inp}, e \texttt{bt\_exemplo.inp}, com as coordenadas que define o perfil de batimetria. \par
 
 O método \texttt{run\_abaqus} do objeto \texttt{model} é responsável por executar a chamada do ABAQUS de maneira programática para iniciar a simulação.
-Nesse método, ocorre a leitura do arquivo de registro da simulação e o seu conteúdo é exibido na tela do console a cada \unit[5]{s}. % TODO
+Nesse método, ocorre a leitura do arquivo de registro da simulação e o seu conteúdo é exibido na tela do console a cada \unit[5]{s}.
 
-Uma vez terminada a simulação, a extração de dados do arquivo \texttt{odb} gerado pelo ABAQUS e o pós-processamento pode ser feito com chamada do método \texttt{post\_processing} do objeto \texttt{model}: \texttt{model.post\_processing()}.
-Para cada tipo de dados extraído, há uma função para representação gráfica desses resultados. Nas figuras a seguir são apresentados os gráficos para alguns deles.
+Uma vez terminada a simulação, a extração de dados do arquivo \texttt{odb} gerado pelo ABAQUS e o pós-processamento podem ser realizados com chamada do método \texttt{post\_processing} do objeto \texttt{model}: \texttt{model.post\_processing()}.
+Para cada tipo de dados extraído, há uma função para representação gráfica desses resultados. Nas figuras a seguir são apresentados os gráficos para alguns deles. %TODO indicar quais figuras?
 
-Em geral, a primeira forma de validação é uma inspeção visual da configuração deformada do duto sobre a batimetria. Desta forma é possível ver se a simulação consegue reproduzir a situação \textit{in-loco}, especialmente os vão. Uma vez que a etapa anterior tenha gerado os arquivos \texttt{deformed\_shape.csv}, com as coordenadas da configuração deformada do duto, e \texttt{seabed.csv}, com as coordenadas da batimetria, pode-se gerar um gráfico com o perfil do duto. O código para geração do gráfico desejado seria semelhante ao exposto na \autoref{code:deformada}, e o gráfico resultante na \autoref{fig:ex-config-deformada}. Esse e outros gráficos mais comuns são gerados automaticamente com uma chamada do método \texttt{make\_plots} do objeto \texttt{model}: \texttt{model.make\_plots()}.
+Em geral, a primeira forma de validação é uma inspeção visual da configuração deformada do duto sobre a batimetria. Desta forma é possível ver se a simulação consegue reproduzir a situação \textit{in-loco}, especialmente os vãos. Uma vez que a etapa anterior tenha gerado os arquivos \texttt{deformed\_shape.csv} (com as coordenadas da configuração deformada do duto) e \texttt{seabed.csv}, (com as coordenadas da batimetria), pode-se gerar um gráfico com o perfil do duto. O código para geração do gráfico desejado é semelhante ao exposto na \autoref{code:deformada}, e o gráfico resultante na \autoref{fig:ex-config-deformada}. Este e outros gráficos mais comuns são gerados automaticamente com uma chamada do método \texttt{make\_plots} do objeto \texttt{model}: \texttt{model.make\_plots()}.
 
 \begin{figure}[!ht] % TODO: usar pacote correto
 \caption{Código para geração do gráfico do perfil da configuração deformada do duto sobre a batimetria.}\label{code:deformada}
@@ -131,7 +131,7 @@ seabed_pipe_plot.save("configuração_deformada.html")
 \fonte{Autor (2020)}
 \end{figure}
 
-Vale destacar o uso do operador de adição (\texttt{+}) na linha 6. Com ele é possível combinar dois gráficos (instâncias da classe Plot) sobrepondo-os em um mesmo gráficos.
+Vale destacar o uso do operador de adição (\texttt{+}) na linha 6. Com ele, é possível combinar dois gráficos (instâncias da classe Plot), sobrepondo-os em um mesmo gráficos.
 
 \begin{figure}[!ht]
 	\centering
@@ -140,24 +140,24 @@ Vale destacar o uso do operador de adição (\texttt{+}) na linha 6. Com ele é 
 	\fonte{Autor (2020)}
 \end{figure}
 
-O próximo passo pode ser a visualização dos modos de vibração com o objetivo de selecionar os que irão ser utilizados para o cálculo de fadiga. A \autoref{fig:all-modos-IL} e a \autoref{fig:all-modos-CF} apresentam todos os modos de vibração computados pela análise modal do ABAQUS, separando-os em \textit{in-line} e \textit{cross-flow}, onde a região que compreende a extensão do vão está destacada com o fundo cinza.
+O próximo passo é a visualização dos modos de vibração com o objetivo de selecionar os que irão ser utilizados para o cálculo de fadiga. As Figuras~\ref{fig:all-modos-IL} e~\ref{fig:all-modos-CF} apresentam todos os modos de vibração computados pela análise modal do ABAQUS, separando-os em \textit{in-line} e \textit{cross-flow}, onde a região que compreende a extensão do vão está destacada com o fundo cinza.
 
 \begin{figure}[H]
 	\centering
-	\caption{Todos os modos de vibração \textit{in-line} geradas na análise modal.}\label{fig:all-modos-IL}
+	\caption{Modos de vibração \textit{in-line} geradas na análise modal.}\label{fig:all-modos-IL}
 	\includegraphics[width=\textwidth]{imagens/exemplo/all_modos_IL}
 	\fonte{Autor (2020)}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\caption{Todos os modos de vibração \textit{cross-flow} geradas na análise modal.}\label{fig:all-modos-CF}
+	\caption{Modos de vibração \textit{cross-flow} geradas na análise modal.}\label{fig:all-modos-CF}
 	\includegraphics[width=\textwidth]{imagens/exemplo/all_modos_CF}
 	\fonte{Autor (2020)}
 \end{figure}
+% TODO Muitos modos espúrios em uma modelagem simples. Por quê? Faltaram informações sobre: dados de entrada, qual tipo/tamanho elementos, a deflexão estática está de acordo com o esperado, satisfez as condições para usar as formulas analíticas da DNVGL? Por que não utilizou dados mais realistas de vão e diâmetro?
 
-Como é possível ver nessas figuras, há muitos modos espúrios, que devem ser desconsiderados da análise de fadiga. Esse é o papel do método \texttt{select\_modes} da classe \texttt{Span}. Este método consiste, boa parte, na implementação dos processos de seleção de modos recomendados pela \dnvf105, apresentados na
-\autoref{sec:multimode}. Para o exemplo aqui apresentado, o resultado são os modos exibidos na \autoref{fig:modos-IL} e \autoref{fig:modos-CF}.
+Como é possível ver nas Figuras~\ref{fig:all-modos-IL} e~\ref{fig:all-modos-CF}, há muitos modos espúrios, os quais devem ser desconsiderados da análise de fadiga. Esse é o papel do método \texttt{select\_modes} da classe \texttt{Span}. Esse método consiste na implementação dos processos de seleção de modos recomendados pela \dnvf105, apresentados na~\autoref{sec:multimode}. Para o exemplo aqui ilustrado, os resultados são os modos exibidos nas Figuras~\ref{fig:modos-IL} e~\ref{fig:modos-CF}.
 
 \begin{figure}[!ht]
 	\centering
@@ -173,7 +173,7 @@ Como é possível ver nessas figuras, há muitos modos espúrios, que devem ser 
 	\fonte{Autor (2020)}
 \end{figure}
 
-Estando satisfeito com os modos selecionados na etapa anterior, o usuário pode chamar o método \texttt{run\_fatfree}, para que seja feita o preenchimento de uma instância da planilha com os dados específicos do vão, modos, e dados mais gerais --- como condições ambientais e coeficientes de segurança. Um exemplo da massiva entrada de dados necessária nesse processo acontece na aba \textit{Multimode} da \fatfree, onde se faz a entrada das coordenadas dos modos de vibração (colunas em azul), conforme é possível ver na \autoref{fig:fatfree-multimode}.
+Estando satisfeito com os modos selecionados na etapa anterior, o usuário pode usar o método \texttt{run\_fatfree}, para que seja feita o preenchimento de uma instância da planilha com os dados específicos do vão, modos, e dados mais gerais, como condições ambientais e coeficientes de segurança. Um exemplo da massiva entrada de dados necessária nesse processo acontece na aba \textit{Multimode} da \fatfree, onde se faz a entrada das coordenadas dos modos de vibração (colunas em azul), conforme é possível ver na \autoref{fig:fatfree-multimode}. % TODO: referencias no texto dessa forma é melhor do dizer que a figura exibe alguma coisa
 
 \begin{figure}[!ht]
 	\centering
@@ -183,7 +183,7 @@ Estando satisfeito com os modos selecionados na etapa anterior, o usuário pode 
 \end{figure}
 
 Com essa instância da planilha, tem-se outro ponto para validação dos resultados.
-Segundo o item 6.7.4 da \dnvf105, a análise de elementos finitos para um único vão com $L / D_s \approx 60$, as frequências naturais de \textit{in-line} e \textit{cross-flow} e as faixas de tensão devem mostrar valores semelhantes com margem de $\pm$5\%, considerando esforço axial efetivo nulo ($S_{eff} = 0$). Para o modelo em questão, a comparação entre os valores da primeira frequência obtidos pela análise modal do ABAQUS e a \fatfree\ é apresentada na \autoref{tab:comparacao-frequencias}.
+Segundo o item 6.7.4 da \dnvf105, a análise de elementos finitos para um único vão com $L / D_s \approx 60$, as frequências naturais de \textit{in-line} e \textit{cross-flow} e as faixas de tensão devem mostrar valores semelhantes com margem de $\pm$5\%, considerando esforço axial efetivo nulo ($S_{eff} = 0$). Para o modelo em questão, a comparação entre os valores da primeira frequência obtidos pela análise modal do ABAQUS e a \fatfree\ é apresentada na \autoref{tab:comparacao-frequencias}. % TODO Na comparação utilizou esforço efetivo nulo?
 
 \begin{table}[!ht]
 \renewcommand{\arraystretch}{1.2}
@@ -213,7 +213,7 @@ dashboard.save("fatigue_pipe_dashboard.html")
 	\fonte{Autor (2020)}
 \end{figure}
 
-Vale destacar o uso do operador de divisão (\texttt{/}) na linha 4. Com ele é possível combinar dois gráficos (instâncias da classe Plot) posicionado-os um sobre o outro em um mesmo gráfico. O gráfico resultante é exibido na \autoref{fig:vida-a-fadiga}, onde se tem a vida à fadiga nas direções \textit{in-line} (IL Comb) e \textit{cross-flow} (CF RM) na região do vão, bem como uma linha de referência que ajuda a identificar os trechos cuja previsão de vida à fadiga está abaixo do esperado.
+Vale destacar o uso do operador de divisão (\texttt{/}) na linha 4. Com ele, é possível combinar dois gráficos (instâncias da classe Plot) posicionado-os um sobre o outro em um mesmo gráfico. O gráfico resultante é exibido na \autoref{fig:vida-a-fadiga}, onde se tem a vida à fadiga nas direções \textit{in-line} (IL Comb) e \textit{cross-flow} (CF RM) na região do vão, bem como uma linha de referência que ajuda a identificar os trechos cuja previsão de vida à fadiga está abaixo do esperado.
 
 \begin{figure}[!ht]
 	\centering
@@ -221,3 +221,8 @@ Vale destacar o uso do operador de divisão (\texttt{/}) na linha 4. Com ele é 
 	\includegraphics[width=\textwidth]{imagens/exemplo/vida-a-fadiga}
 	\fonte{Autor (2020)}
 \end{figure}
+% TODO: Na vida real para um vão de 19m não era esperado uma vida a fadiga tão baixa. Poderia ter usado dados de entrada mais realista.
+
+% TODO Da mesma forma que no capítulo anterior, acho que falta um fechamento para este capítulo. Talvez um exposição especifica sobre a qualidade dos resultados alcançados.
+
+% TODO: um dos objetivos da implementação do framework é economia de hh/tempo. qual foi a estimativa de redução?

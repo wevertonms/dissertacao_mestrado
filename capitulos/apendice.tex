@@ -1,13 +1,12 @@
 \apendices
-\renewcommand{\apendicesname}{AP\^ENDICES}
+\renewcommand{\apendicesname}{AP\^ENDICE}
 \partpage
 
 \chapter{Descrição do formato do arquivo de entrada\label{apendice:json}}
 
-JSON é um formato de arquivo em texto puro que representa informações atribuindo um nome (ou rótulo) que descreve o seu significado e a seguir, o seu valor. Esta sintaxe de representação é derivada da forma utilizada pelo JavaScript para representar objetos. Muito mais que um formato de arquivo, é um modelo para armazenamento e transmissão de informações no formato texto e que é bastante utilizado por aplicações web. A representação de informações utilizada em arquivos JSON é simples, e sua forma de estruturação é bem mais compacta do que a que normalmente é feita em arquivos XML, o que torna o processamento das informações muito mais rápido. A especificação completa do formato JSON pode ser encontrado em www.json.org.
+JSON é um formato de arquivo em texto puro que representa informações atribuindo um nome (ou rótulo) que descreve o seu significado e, a seguir, o seu valor. Esta sintaxe de representação é derivada da forma utilizada pelo JavaScript para representar objetos. Muito mais que um formato de arquivo, é um modelo para armazenamento e transmissão de informações no formato texto e que é bastante utilizado por aplicações web. A representação de informações utilizada em arquivos JSON é simples, e sua forma de estruturação é bem mais compacta do que a que normalmente é feita em arquivos XML, o que torna o processamento das informações muito mais rápido. A especificação completa do formato JSON pode ser encontrado em www.json.org.
 
-O arquivo foi feito pensando na facilidade do usuário em reconhecer os rótulos e preenchê-los de forma fá\newline
-cil e prática.
+O arquivo foi feito pensando na facilidade do usuário em reconhecer os rótulos e preenchê-los de forma fácil e prática.
 O arquivo compreende informações que servirão tanto para a análise do ABAQUS (construindo um ou mais arquivos \texttt{.inp}), quanto para a \fatfree.
 A seguir descreve-se brevemente a estruturação das chaves no arquivo de entrada, apresentado nas \autoref{lst:model} a \autoref{lst:fatfree}.
 
@@ -68,27 +67,27 @@ Configurações gerais do modelo:
 \begin{itemize}
   \item \texttt{TYPE\_SEABED}:
   \begin{itemize}
-    \item \texttt{0}: Batimetria modelada com elementos do tipo R3D4.
-    \item \texttt{1}: Batimetria modelada como superfície analítica,
+    \item \texttt{0}: Batimetria modelada com elementos do tipo R3D4;
+    \item \texttt{1}: Batimetria modelada como superfície analítica.
   \end{itemize}
   \item  \texttt{CURTAIN\_SPRINGS}:
     \begin{itemize}
-      \item \texttt{0}: A rigidez do solo é prescrita.
+      \item \texttt{0}: A rigidez do solo é prescrita;
       \item \texttt{1}: A rigidez vertical é modelada como molas do tipo \textit{spring}.
     \end{itemize}
   \item \texttt{RUN\_MODEL}:
     \begin{itemize}
-      \item \texttt{0}: Utilizar o programa apenas para pós-processamento.
+      \item \texttt{0}: Utilizar o programa apenas para pós-processamento;
       \item \texttt{1}: Rodar o modelo no ABAQUS.
     \end{itemize}
   \item \texttt{POST\_PROCESSING}:
     \begin{itemize}
-      \item \texttt{0}: Rodar apenas a simulação no ABAQUS.
+      \item \texttt{0}: Rodar apenas a simulação no ABAQUS;
       \item \texttt{1}: Após a simulação, iniciar diretamente o pós processamento.
     \end{itemize}
-  \item \texttt{ISIGHT}: chama diretamente o iSight caso seja necessário um processo de otimização ou DOE\@.
-  \item \texttt{SUPPORTS}: indica se os suportes devem ser inseridos no modelo.
-  \item \texttt{DELETE\_FOLDER}: indica se o conteúdo da pasta de resultados deve ser apagado antes da nova simulação
+  \item \texttt{ISIGHT}: chama diretamente o iSight caso seja necessário um processo de otimização ou projeto de experimento\@;
+  \item \texttt{SUPPORTS}: indica se os suportes devem ser inseridos no modelo;
+  \item \texttt{DELETE\_FOLDER}: indica se o conteúdo da pasta de resultados deve ser apagado antes da nova simulação.
 \end{itemize}
 
 \begin{figure}
@@ -116,8 +115,8 @@ Parâmetros necessários para o módulo de seleção de frequências.
   \item \texttt{NODESET}: indica o \textit{nodeset} referente ao duto;
   \item \texttt{ELEMENTSET}: indica o \textit{elset} referente ao duto;
   \item \texttt{SEABEDSET}: indica o set referente à batimetria;
-  \item \texttt{SPANS}: dados dos vãos que serão submetidos ao pós-processamento.
-  \item \texttt{N\_MODES\_IN\_LINE}: indica o número de nós que serão extraídos na direção \textit{in-line}.
+  \item \texttt{SPANS}: dados dos vãos que serão submetidos ao pós-processamento;
+  \item \texttt{N\_MODES\_IN\_LINE}: indica o número de nós que serão extraídos na direção \textit{in-line};
   \item \texttt{N\_MODES\_CROSS}: indica o número de nós que serão extraídos na direção \textit{cross-flow}.
 \end{itemize}
 
@@ -177,7 +176,7 @@ Fornece os dados para a criação de nós auxiliares.
 \begin{itemize}
   \item \texttt{OFFSET\_NODE\_SPRING}: define o \textit{offset} para a alocação da mola;
   \item \texttt{INCREASE\_FICTION\_PLAN\_X}: aumento lateral do plano fictício na extremidade inicial;
-  \item \texttt{INCREASE\_FICTION\_PLAN\_Y}: aumento lateral do plano fictício na extremidade final;
+  \item \texttt{INCREASE\_FICTION\_PLAN\_Y}: aumento lateral do plano fictício na extremidade final.
 \end{itemize}
 
 \begin{figure}
@@ -450,13 +449,13 @@ Reúne as informações recorrentes em todos os passos de carga (\textit{steps})
 
 \subsection{\texttt{SUPPORTS}}
 
-Reúne as informações referentes à posição dos suportes.
+Reúne as informações referentes à posição dos suportes estruturais.
 
 \begin{itemize}
   \item \texttt{FILE\_DEFORMED\_IN\_LOCO}: caminho para o arquivo de \textit{topping}. O arquivo é utilizado como base de comparação para alocação dos suportes;
   \item \texttt{SHIFT\_SURFACE}: %%%%%%%% ;
   \item \texttt{STEP}: \textit{step} a partir do qual serão alocados os suportes;
-  \item \texttt{LIST}: lista de suportes de acordo com o tipo implementado. São passados o KP centro do suporte e o comprimento do mesmo.
+  \item \texttt{LIST}: lista de suportes de acordo com o tipo implementado. São passados o KP centro do suporte e o comprimento do mesmo:
   \begin{itemize}
     \item No primeiro conjunto de colchetes são passados suportes do tipo \textit{grout bag}, posicionados abaixo do duto;
     \item Em seguida, suportes do tipo manta, posicionados acima do duto;
