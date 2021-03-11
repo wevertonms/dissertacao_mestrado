@@ -1,7 +1,5 @@
 \section{Modelagem numérica de dutos submarinos}\label{sec:assentamento}
 
-% TODO: Ficou confuso esse capítulo no sentido de não distinguir o que é estudo bibliográfico e o que de fato foi implementado no projeto.
-
 A simulação numérica do duto projetado em um ambiente tridimensional realista obtido por medições da topografia do fundo marinho, permite que os engenheiros explorem quaisquer oportunidades que o comportamento do mesmo pode oferecer para desenvolver soluções seguras e econômicas. % chktex 19
 Por exemplo, o projetista pode analisar primeiro o comportamento do duto na batimetria original.
 Se alguns dos casos de carga resultam em tensões além do limite aceitável, pode-se simular uma alteração dos parâmetros ou até um intervenção do leito marinho (como colocação de suportes).
@@ -16,7 +14,7 @@ Entende-se por comportamento \textit{in-situ} de um duto, a resposta do mesmo à
     \item Operação (enchimento com conteúdo, pressão de projeto e temperatura);
     \item Ciclos de carga/descarga;
     \item Flambagem lateral e vertical (\textit{upheaval});
-    \item Onda dinâmica e/ou de corrente.  % TODO: esse sequência de análise estrutural não foi implementada no estudo.
+    \item Onda dinâmica e/ou de corrente\footnote{Não incorporado a ferramenta.}.
 \end{enumerate}
 
 \citeonline{Bai2014} apresentam o processo de análise do comportamento real desses dutos através do MEF, que será detalhado mais adiante.
@@ -42,7 +40,7 @@ A \autoref{fig:lancamentododuto} mostra o duto antes e durante o processo de ins
 \end{figure}
 
 A medida que o duto se apoia, é necessário garantir um equilíbrio estável entre ele e o solo, o que é feito mediante um modelo representativo dessa iteração, no qual deve-se definir o atrito e rigidez do leito marinho.
-No ABAQUS~\cite{Dassault2018}, pode-se relacionar a penetração e a força de reação do solo por meio de uma curva de rigidez axial, além de usar modelo anisotrópico para o atrito do solo, representando as diferenças entre os atritos nas direções longitudinal e transversal.
+No ABAQUS, pode-se relacionar a penetração e a força de reação do solo por meio de uma curva de rigidez axial, além de usar modelo anisotrópico para o atrito do solo, representando as diferenças entre os atritos nas direções longitudinal e transversal.
 
 Após a descida do duto, têm-se os processos de alagamento e desalagamento, que acarreta mudanças no peso submerso do duto e, consequentemente, altera na sua configuração.
 Esses processos podem ser facilmente modelados por uma variação em uma carga vertical atuando no duto.
@@ -89,7 +87,7 @@ Um histórico de carga de um modelo construído para uma análise estrutural é 
 11 & Aplicação de pressão de operação & Estática \\
 12 & Aplicação de temperatura de operação para a condição operacional & Estática \\
 13 & Remoção de pressão e temperatura para condição de recarga & Estática \\
-14 & Aplicação de carga de onda e corrente & Dinâmica \\ % TODO: Não existe essa etapa no projeto. Como essa etapa é feita por Bai e Bai?
+14 & Aplicação de carga de onda e corrente & Dinâmica \\
 
 \bottomrule[1.25pt]
 \end{tabular}

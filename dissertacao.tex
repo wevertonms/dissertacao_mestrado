@@ -32,6 +32,7 @@
 % --------------------
 \usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
+\usepackage{inconsolata}
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
@@ -43,7 +44,7 @@
 % ---------------------
 % Pacotes ADICIONAIS
 % ---------------------
-% \usepackage{lipsum}					% Geração de dummy text
+\usepackage[newfloat=true]{minted}      % don't need to import `listing` or `listings`
 \usepackage{amsmath,amssymb,mathrsfs}	% Comandos matemáticos avançados
 \usepackage{setspace}  					% Para permitir espaçamento simples, 1 1/2 e duplo
 \usepackage{verbatim}					% Para poder usar o ambiente "comment"
@@ -53,33 +54,15 @@
 \usepackage{svg}
 % \counterwithin{figure}{chapter}         % Para numerar figuras por capítulo
 \usepackage{enumerate}
-% \usepackage[most]{tcolorbox}
-% \usepackage{xcolor}
 \usepackage{units}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{float}
-\usepackage[newfloat=true]{minted} % don't need to import `listing` or `listings`
-% \DeclareFloatingEnvironment[
-% fileext=lox,
-% listname={Lista de códigos-fonte},
-% name=Código-fonte,
-% placement=htp,
-% chapterlistsgaps=off,
-% ]{code}
-\SetupFloatingEnvironment{listing}{
-	placement=htp,
-	% name=Código-fonte,
-	% listname=Lista de códigos-fonte,
-	within=none,
-	chapterlistsgaps=off
-}
-% \renewcommand\listingscaption{Código-fonte} % custom labels, according to the docs
-% \renewcommand\listoflistingscaption{Lista de códigos-fonte}
-% \counterwithout{listing}{chapter}
 \usemintedstyle{emacs}
 \newminted{json}{gobble=2,frame=single,fontsize=\tiny}
 \newminted{python}{frame=single,fontsize=\tiny,linenos}
+\usepackage{pdfpages} % Comando includepdf
+\usepackage{lscape}   % landscape
 \usepackage{silence} % Silenciar erros e warnings
 \WarningsOff
 % ---------------------
@@ -122,7 +105,7 @@
 % ---------------------
 % Compila o índice
 % ---------------------
-% \makeindex
+\makeindex
 % ---------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -139,16 +122,17 @@
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS (Capa, Resumo, Abstract, etc.)
 % ----------------------------------------------------------
-% \pretextual\
+\pretextual
+
 \input{pretextual/itens}
 
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS (Capítulos)
 % ----------------------------------------------------------
-% \textual\
+\textual
 
 % Ajusta o header para conter apenas o número da página
-\pagestyle{simple}  % FIXME: numeração de página nos capítulos
+\pagestyle{simple}
 
 % Atalhos para escritas comuns
 \def\fatfree{FatFree}
@@ -167,7 +151,7 @@
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS (Referências, Glossário, Apêndices)
 % ----------------------------------------------------------
-% \postextual\
+\postextual
 
 \bibliography{bibliografia}
 

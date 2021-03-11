@@ -1,20 +1,5 @@
 \chapter{Introdução}
 
-% TODO A meu ver, por se tratar de um texto científico, uma introdução adequada deve seguir a seguinte organização (não precisa ser organizado em itens. Estou enumerando para facilitar o entendimento):
-
-% 1. Contextualização do problema;
-% 2. Levantamento dos principais trabalhos disponíveis na literatura que tratam do contexto do trabalho, destacando as vantagens e desvantagens de cada um, caso seja possível;
-% 3. Uma ou mais desvantagens apresentadas podem direcionar a motivação do trabalho. É um gancho para apresentação dos objetivos;
-% 4. Objetivos;
-% 5. Metodologia adotada (isto pode ser escrito em um capítulo a parte, como parece que você fez);
-% 6. Principais contribuições do trabalho, destacando ganhos com o uso da proposta apresentada;
-% 7. delimitação do trabalho.
-
-% Na minha forma de ver, o item 2 não está apresentado de forma clara. Acho que seria interessante encaixar no texto uma revisão bibliográfica de trabalhos relacionados mais detalhada.
-
-% Além disso, também senti falta do item 6.
-
-% No mais, está bem legal.
 
 Ao longo das últimas décadas, à medida que novos campos de petróleo e gás foram descobertos em águas profundas e distantes da costa, surgiu a necessidade de utilização de sistemas submarinos de coleta e exportação utilizando dutos rígidos cada vez mais extensos.
 Com uma maior extensão, aumentou-se a ocorrência de seções de duto que não ficam apoiadas sob o leito marinho devido as irregularidades do solo. Essas seções dos dutos são denominadas trechos em vão-livre. Estas irregularidades podem ser preexistentes durante a instalação ou devido a subsequentes movimentos horizontais de \textit{scouring}\footnote{retirada de solo que suporta o duto devido às intensas correntes de fundo.} de dutos durante a operação.
@@ -35,16 +20,12 @@ Para que as condições de contorno e características do problema simulado repr
 Modelar a instalação de dutos em um software de elementos finitos para uso geral pode ser um trabalho demorado e tedioso, principalmente devido a grandes quantidades de dados de batimetria.
 Na maioria das vezes, é necessário até o uso de \textit{script} na definição do perfil do leito marinho, para poder simular o processo de assentamento~\cite{VandenAbeele2013}.
 
-Neste cenário, são essenciais ferramentas que possam auxiliar não só no processamento (como os softwares de simulação), mas também o pré e pós-processamento de dados e, até mesmo, na automação de procedimentos.
-Uma ferramenta com essas características traz ganhos significativos para a produtividade e reduz a possibilidade de ocorrência de erros humanos.
-Além de aumento de produtividade, e redução de falhas associadas a erro humano, tem as questões relacionadas a difícil mobilização e custos dessas operações. Esses itens, caso sejam executados de forma inadequada, podem até amplificar o problema.
-Adicionalmente, uma ferramenta que integre softwares de uso específico (para análise e visualização, por exemplo), pode reduzir atritos e padronizar o fluxo de trabalho, em comparação ao uso isolado destes softwares.
+
+\input{capitulos/workflow}
 
 
 \section{Motivação}
 
-
-% Atualmente, existem diversos sistemas submarinos em operação nas Bacias de Campos e Espírito Santo que estão no final ou já ultrapassaram a metade de sua vida útil de projeto, o que torna ainda mais relevante uma análise de integridade avaliando possibilidade de extensão de vida operacional com critérios de cálculo validados.
 
 No cenário mundial existe a tendência da indústria de óleo e gás de investimento em transformação digital em todas as áreas da cadeia, com desenvolvimento de práticas e ferramentas. Esse movimento levou ao surgimento de ferramentas específicas ao auxílio do profissional responsável pela análise, visualização, predição dos resultados de VIV em dutos em vão-livre~\cite{Mittal2017}. No entanto, pela especificidade dessas ferramentas, seu número ainda é reduzido, destacando-se apenas duas de nível comercial.
 
@@ -78,7 +59,7 @@ Além disso, a interação com o usuário é limitada a interface gráfica (GUI\
 
 Em outra frente, tem-se a empresa DNG-GL, que é uma referência mundial, entre outras áreas, na análise de dutos em vão-livre.
 Essa empresa é responsável pelo desenvolvimento da suíte Sesam for pipelines~\cite{dnvsesam} focados na análise de dutos submarinos.
-Essa suíte consiste em 6 aplicações em VBA\footnote{Uma linguagem pela qual se pode customizar e estender aplicações \textit{desktop} da suíte Microsoft.}, dentre as quais a mais destacada é a \fatfree\footnote{Planilha Microsoft Office Excel desenvolvida pela \dnvf105 focada no cálculo de vida à fadiga de dutos submarinos.} (ver \autoref{fig:fatfree}), responsável pelo cálculo da vida à fadiga em si. Sendo desenvolvidas pela DNG-GL, as aplicações seguem as normas e recomendações práticas propostas pela mesma --- que traz bastante confiabilidade nos resultados. Entretanto, apesar de conter uma aplicação para análise de comportamento mecânico, essas ferramentas são simples e independentes, e estão muito aquém de uma solução completa para simulação estrutural com interação solo-duto, como o SAGE Profile. % TODO: e o que seria uma ferramenta ideal?
+Essa suíte consiste em 6 aplicações em VBA\footnote{Uma linguagem pela qual se pode customizar e estender aplicações \textit{desktop} da suíte Microsoft.}, dentre as quais a mais destacada é a \fatfree\footnote{Planilha Microsoft Office Excel desenvolvida pela \dnvf105 focada no cálculo de vida à fadiga de dutos submarinos.} (ver \autoref{fig:fatfree}), responsável pelo cálculo da vida à fadiga em si. Sendo desenvolvidas pela DNG-GL, as aplicações seguem as normas e recomendações práticas propostas pela mesma --- que traz bastante confiabilidade nos resultados. Entretanto, apesar de conter uma aplicação para análise de comportamento mecânico, essas ferramentas são simples e independentes, e estão muito aquém de uma solução completa para simulação estrutural com interação solo-duto, como o SAGE Profile.
 
 \begin{figure}[!ht]
     \centering
@@ -87,16 +68,21 @@ Essa suíte consiste em 6 aplicações em VBA\footnote{Uma linguagem pela qual s
     \fonte{Autor (2020)}
 \end{figure}
 
-Pelo exposto sobre o SAGE Profile e o Sesam for pipelines, nota-se que dentre as melhores ferramentas atuais para analisar fadiga de duto em vão-livre ainda há espaço para melhorias, especialmente no que se refere à integração com outras ferramentas que auxiliam e outras etapas do processo. Diante dessas limitações, é comum usar um software para a análise de elementos finitos genérico (como ABAQUS e ANSYS\footnote{https://www.ansys.com}) e realizar o cálculo de fadiga em folhas de cálculo pessoais ou comerciais, como a \fatfree.
+Pelo exposto sobre o SAGE Profile e o Sesam for pipelines, nota-se que mesmo entre as melhores ferramentas atuais para analisar fadiga de duto em vão-livre ainda há espaço para melhorias, especialmente no que se refere à integração com outras ferramentas que auxiliam e outras etapas do processo. Diante dessas limitações, é comum usar um software para a análise de elementos finitos genérico (como ABAQUS~\cite{Dassault2018} e ANSYS\footnote{https://www.ansys.com}) e realizar o cálculo de fadiga em folhas de cálculo pessoais ou comerciais, como a \fatfree.
 
-Visando desenvolver uma nova ferramenta para suprir esta necessidade. Portanto, uma ferramenta com a qual se possa construir aplicações para automatizar tarefas no fluxo de trabalho desde a análise de elementos finitos até análise de fadiga traria uma importante contribuição para o panorama atual. % TODO melhorar o texto desta frase. Ela é muito importante e está inelegível. Precisa ser melhor escrita.
+
+Neste cenário, são essenciais ferramentas que possam auxiliar não só no processamento (como os softwares de simulação), mas também o pré e pós-processamento de dados e, até mesmo, na automação de procedimentos.
+Uma ferramenta com essas características traz ganhos significativos para a produtividade e reduz a possibilidade de ocorrência de erros humanos.
+Além de aumento de produtividade, e redução de falhas associadas a erro humano, tem as questões relacionadas a difícil mobilização e custos dessas operações. Esses itens, caso sejam executados de forma inadequada, podem até amplificar o problema.
+Adicionalmente, uma ferramenta que integre softwares de uso específico (para análise e visualização, por exemplo), pode reduzir atritos e padronizar o fluxo de trabalho, em comparação ao uso isolado destes softwares.
+
 
 
 \section{Objetivos}
 
 
-Este trabalho tem como objetivo geral desenvolver uma ferramenta para a análise de fadiga em dutos submarinos em vãos-livres, permitindo um fluxo de trabalho que inclui um software de análise de elementos finitos e uma planilha de cálculo de vida à fadiga.
-% Isso não é o objetivo, mas sim resultado esperado. Deveria estar escrito em outra parte do documento, ou pelo menos no final dessa seção, mas não aqui.
+Este trabalho tem como objetivo geral desenvolver uma ferramenta para a análise de fadiga em dutos submarinos em vãos-livres, integrando um software de análise de elementos finitos (ABAQUS) e uma planilha de cálculo de vida à fadiga (\fatfree) em um fluxo de trabalho.
+
 Além disso, este trabalho tem como objetivos específicos:
 
 \begin{itemize}
@@ -112,4 +98,4 @@ Além disso, este trabalho tem como objetivos específicos:
 Este trabalho descreve o processo de desenvolvimento de uma ferramenta computacional para auxílio no processo de análise de vida à fadiga de dutos submarinos em vão-livre. A entrega de valor da ferramenta reside na automação de tarefas das etapas de pré e pós-processamento dos dados de entrada do ABAQUS e \fatfree, bem como a possibilidade de execução integrada dessas ferramentas. Portanto, a ferramenta desenvolvida não pretende implementar o processo de análise numérica de elementos finitos, nem o cálculo de vida à fadiga, estes são responsabilidade de ferramentas específicas com esta finalidade, como, por exemplo, ABAQUS e FatFree.
 
 
-\input{capitulos/organizacao}  % TODO: Nos últimos trabalhos que tem visto essa seção não está sendo incorporada ao texto.
+\input{capitulos/organizacao}

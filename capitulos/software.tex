@@ -1,47 +1,41 @@
 \chapter{Desenvolvimento da ferramenta}\label{chap:software}
 
-% Isto está de acordo com o que comentei anteriormente. Este levantamento deve ser uma das etapas importantes de sua metodologia.
-
-O levantamento dos requisitos de um sistema é o processo que fornece os subsídios que devem nortear uma série de decisões a serem tomadas no seu desenvolvimento. Primeiramente, apresenta-se aqui o fluxo de trabalho tradicional para análise de fadiga de um duto em vão livre. % TODO Aqui eu faria uma descrição sucinta das etapas associadas a este levantamento dos requisitos. Cada etapa seria uma subseção.
-
-\input{capitulos/workflow}
+Neste capítulo apresenta-se o fluxo de trabalho para análise de fadiga de um duto em vão livre com o uso da ferramenta desenvolvida e, em seguida, apresenta-se os detalhes da sua implementação.
 
 
-\section{Fluxo de avaliação de vida à fadiga com uso da ferramenta} % TODO Seria importante apresentar este fluxo de uma forma mais conceitual, sem ser específico no uso do ABAQUS ou FatFree. Quando for necessário comentar sobre essas ferramentas, poderia fazer isto citando-as como exemplos do fluxo conceitual.
+\section{Fluxo de avaliação de vida à fadiga com uso da ferramenta}\label{sec:fluxo-com-ferramenta}
 
+Baseada no fluxograma apresentado na \autoref{fig:fluxograma}, a ferramenta proposta tem como requisito atender o fluxo apresentado na \autoref{sec:workflow}, automatizando certas etapas da análise de vida à fadiga. Os itens 1, 3, 4 e 6 são etapas cobertas pela implementação ferramenta, e os itens 2 e 5 são realizados em aplicações externas.
 
-A ferramenta proposta tem como requisito atender o fluxo apresentado na \autoref{sec:workflow}, automatizando certas etapas da análise de vida à fadiga. Os itens 1, 3, 4 e 6 são cobertos pela implementação ferramenta, e os itens 2 e 5 são realizados em aplicações externas.
-
-% TODO Seria muito legal ver esse fluxo usando o framework de uma forma conceitual e global, sem se restringir a softwares específicos. Para integrar um simulador de EF, por exemplo, talvez fosse necessário atender algum protocolo que o seu framework iria estabelecer. Isto ficaria muito legal e independente de aplicações externas específicas.
 
 \begin{figure}[!ht]
     \centering
     \caption{Fluxo de operação proposto para a ferramenta.}\label{fig:workflow}
-    \includegraphics[width=\textwidth]{imagens/fluxograma_automatizado}
+    \includegraphics[width=0.9\textwidth]{imagens/fluxograma_automatizado}
 \end{figure}
 
 De forma mais detalhada, a ferramenta deve:
 
 
-% TODO Como dito acima, eu esperava ver algo mais conceitual, sem uma dependência de softwares externos específicos. Seria importante aqui estabelecer os protocolos de comunicação entre o framework e seus plugins (que seriam os softwares externos). Eu e Setton fizemos isto em nosso mestrado. Trabalhamos no desenvolvimento de um sistema para gerenciamento de atributos que poderia ser integrado a qualquer pré-processador de elementos finitos.
-
 \begin{enumerate}[label= (\arabic*)]
-    \item A partir de um arquivo de entrada com informações do modelo, criar arquivos de entrada para o ABAQUS (.inp) que reproduza todo o processo de simulação do comportamento do duto apresentado (\autoref{sec:assentamento});
-    \item Submeter o arquivo gerado para análise no ABAQUS. No caso de haver um passo de caraga para a colocação de suportes, a simulação é executada em duas partes:
+    \item A partir de um arquivo de entrada com informações do modelo, criar arquivos de entrada (\texttt{.inp}, no caso do ABAQUS) que reproduza todo o processo de simulação do comportamento do duto apresentado (\autoref{sec:assentamento});
+    \item Submeter o arquivo gerado para análise. No caso de haver um passo de caraga para a colocação de suportes, a simulação é executada em duas partes:
     \begin{enumerate}
         \item a primeira com os passos de carga anteriores a colocação dos suportes, e
         \item a segunda com o passo da colocação dos suportes e os passos de carga seguintes.
     \end{enumerate}
-    \item Processar os arquivos de saída do ABAQUS (.odb) extraindo as informações relevantes como a configuração deformada, modos de vibração, etc., gerando arquivos em outros formatos de fácil leitura para pós-processamento, tanto por este \frame, quanto por outros softwares;
+    \item Processar os arquivos de saída (\texttt{.odb}, no caso do ABAQUS) extraindo as informações relevantes como a configuração deformada, modos de vibração, etc., gerando arquivos em outros formatos de fácil leitura para pós-processamento, tanto por este \frame, quanto por outros softwares;
     \item Pós-processar as informações gerando gráficos e relatórios relevantes para as tomadas de decisão do usuário. Esse é o requisito mais crítico, uma vez que é fundamental o entendimento sobre a análise de duto em vão-livre. Entre as tarefas que fazem parte deste item está a automação da escolha dos modos de vibração ativos e relevantes e para cada vão de interesse (a qual deve ser norteada pelos aspectos discutidos na \autoref{sec:multimode}) e a manipulação da FatFree;
-    \item Ativar o processo de cálculo de fadiga no arquivo da FatFree preenchido no passo anterior;
-    \item Capturar os resultados no arquivo \texttt{.xls} da \fatfree, que agora contém os resultados do cálculo de vida à fadiga, e apresentá-los na forma de gráficos e relatórios.
+    \item Iniciar o processo de cálculo de fadiga. No caso da \fatfree, esse cálculo é realizado por uma rotina VBA ativada por um botão no no arquivo da planilha;
+    \item Capturar os resultados no arquivo que contém os resultados do cálculo de vida à fadiga, e apresentá-los na forma de gráficos e relatórios.
 \end{enumerate}
 
 
 \section{Implementação computacional}
 
-% TODO: nunca deixa uma seção vazia dessa forma, ao menos apresente o que. vem dentro dela, de forma resumida.
+
+A seguir são apresentados os mais aspectos mais computacionais relacionados a implementação da ferramenta, como a escolha da linguagem de programação e a estrutura de do código em termos de módulos e classes.
+
 
 \subsection{Linguagem de programação}\label{sec:python}
 
@@ -52,7 +46,7 @@ Python\footnote{https://www.python.org} foi a linguagem de programação adotada
 
     \item Suporte para automação de tarefas. Os recursos de \textit{script} internos do Python e vários pacotes têm um forte suporte à automação de tarefas. A automação de tarefas repetitivas e a realização do registro de dados são fáceis e requerem pouco esforço. O ABAQUS, por exemplo, permite modelagem e acesso a informações em arquivos de saída via Python. A biblioteca xlwings permite manipulação de planilhas Excel, a exemplo da FatFree;
 
-    \item Pacotes Python como Django e Flask tornam possível desenvolver e usar o Python como uma API\footnote{Na programação de computadores, uma Interface de Programação de Aplicativos (\textit{Application Programming Interface} --- API) é um conjunto de definições de sub-rotinas e ferramentas para a criação de software. Em termos gerais, é um conjunto de métodos de comunicação claramente definidos entre vários componentes.} com um \textit{front-end} da web. Essa funcionalidade é particularmente útil para reaproveitamento da ferramenta  em outras aplicações.
+    \item Pacotes Python como Django e Flask tornam possível desenvolver e usar o Python para criar uma API\footnote{Na programação de computadores, uma Interface de Programação de Aplicativos (\textit{Application Programming Interface} --- API) é um conjunto de definições de sub-rotinas e ferramentas para a criação de software. Em termos gerais, é um conjunto de métodos de comunicação claramente definidos entre vários componentes.} com um \textit{front-end} da web. Essa funcionalidade é particularmente útil para reaproveitamento da ferramenta  em outras aplicações.
 \end{itemize}
 
 
@@ -60,7 +54,7 @@ Python\footnote{https://www.python.org} foi a linguagem de programação adotada
 
 
 Para implementação do fluxo de trabalho proposto para a ferramenta, fez-se a implementação de módulos para lidar com cada contexto específico.
-Em python, módulos podem ser quaisquer arquivos com extensão \texttt{.py}.
+Em Python, módulos podem ser quaisquer arquivos com extensão \texttt{.py}.
 Estes módulos podem ser agrupados em pacotes, que são pastas que, além dos módulos, contém um arquivo \texttt{\_\_init\_\_.py}.  % chktex 21
 Na ferramenta, têm-se alguns pacotes que agrupam módulos em torno do contexto de um problema que o \textit{software} resolve.
 
@@ -116,7 +110,7 @@ Neste pacote estão implementados os métodos responsáveis pela estratégia de 
     \item \texttt{ModeShape}: classe que representa um modo de vibração (\textit{mode shape}). A principal forma de criação de objetos dessa classe é por meio da função \texttt{load\_json} do módulo \texttt{mode\_shapes.py}, que carrega os dados do arquivo gerado com utilização do \texttt{odb\_handler}, e retorna uma lista de objetos desta classe.
 \end{itemize}
 
-Na \autoref{fig:mode-selector-uml} vê-se um diagrama UML com uma visão geral do pacote \texttt{mode\_selector}.
+Um diagrama UML com uma visão geral do pacote \texttt{mode\_selector} é apresentado na \autoref{fig:mode-selector-uml}.
 
 \begin{figure}[!ht]
     \centering
@@ -183,4 +177,14 @@ Na \autoref{fig:plots-uml} vê-se um diagrama UML com uma visão geral do pacote
     \fonte{Autor (2020)}
 \end{figure}
 
-% TODO: O capítulo se encerrou sem um fechamento. Acho que falta algo. Outro detalhe: seria interessante um ou mais gráficos mostrando a relação entre essas classes. Acho que facilitaria o entendimento.
+
+A relação entre esses pacotes, módulos e classes pode ser vista de forma geral no diagrama apresentado na \autoref{fig:uml-global}.
+
+\begin{landscape}
+    \begin{figure}[!ht]
+        \centering
+        \caption{Digrama UML global}\label{fig:uml-global}
+        \includegraphics[width=1.2\textwidth]{imagens/UML}
+        \fonte{Autor (2021)}
+    \end{figure}
+\end{landscape}
